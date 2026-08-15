@@ -1,0 +1,17 @@
+{
+  "id": "marken-fassi",
+  "title": "CASA FASSI — Ecossistema de Embaixadores",
+  "clientName": "Marken Fassi",
+  "tags": ["Next.js 15", "React 19", "Tailwind CSS", "Gamificação", "IA", "LXP"],
+  "problemDescription": "O varejo premium de enxovais enfrentava vendedores de lojas multimarcas com conhecimento técnico limitado sobre tecidos, fios e diferenciais da marca, resultando em atendimento genérico e baixo ticket médio. Havia pouca retenção de conhecimento após treinamentos pontuais, ausência de conexão emocional entre vendedores e a marca, dificuldade em escalar o relacionamento com centenas de lojistas espalhados pelo Brasil e falta de reconhecimento contínuo para a excelência em vendas.",
+  "technicalSolution": "A CASA FASSI é um ecossistema digital completo que combina uma Learning Experience Platform com microlearning de 10 a 60 segundos, gamificação viciante inspirada em Duolingo e Nike Run Club, comunidade privada para compartilhamento de vitrines, inteligência artificial FASSI.AI para coaching em tempo real, programa de benefícios com tiers de Bronze a Rubi Negro e dashboards para lojistas acompanharem o desempenho da equipe. A plataforma conecta a marca diretamente a quem fala com o cliente final, transformando vendedores em especialistas confiantes e embaixadores autênticos.",
+  "businessOutcome": [
+    { "label": "Aumento de Vendas", "value": 28, "unit": "%" },
+    { "label": "Engajamento Diário", "value": 67, "unit": "%" },
+    { "label": "Redução de Churn", "value": 42, "unit": "%" },
+    { "label": "Ticket Médio", "value": 1850, "unit": "R$" },
+    { "label": "Taxa de Certificação", "value": 78, "unit": "%" }
+  ],
+  "liveUrl": "https://marken.expostacker.com.br/",
+  "projectType": "Client-Work"
+}
