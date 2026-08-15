@@ -1,0 +1,529 @@
+{
+  "id": "medellin-ecommerce",
+  "title": "Medellin E-commerce",
+  "clientName": "Medellin RP",
+  "tags": ["Vanilla JS", "Node.js", "Express", "MySQL", "Mercado Pago", "Cloudflare Pages", "Cloudflare R2", "Cloudflare Workers", "FiveM", "WebP"],
+  "shortDescription": "Loja VIP e pagamentos para servidor FiveM: 54 páginas, 308 produtos, 10 tiers VIP, 7 temporadas, Mercado Pago e entrega automática in-game.",
+  "problemDescription": "O servidor Medellin RP (GTA V Roleplay FiveM) precisava de uma loja online profissional para comercializar VIPs, veículos, armas, skins, pets, salários, vouchers e itens sazonais. O desafio: integrar pagamento real (Mercado Pago), validação de preços server-side, entrega automática no jogo via fila de banco de dados, sistema de carrinho persistente, catálogo com 308 produtos em 54 páginas, imagens otimizadas em CDN global (R2 com WebP), e arquitetura híbrida com Worker na edge e backend Node.js — tudo sem custo recorrente de infraestrutura.",
+  "technicalSolution": "Construímos uma loja e-commerce estática em HTML5 + CSS3 + Vanilla JS (sem framework) com 54 páginas, deployada no Cloudflare Pages. O backend Node.js/Express roda com MySQL para persistência de pedidos, idempotência de pagamentos e fila de entrega. Um Cloudflare Worker atua como proxy API na edge com fallback direto para Mercado Pago. Imagens servidas via Cloudflare R2 com conversão automática WebP em runtime via MutationObserver. Carrinho persistente em localStorage. Checkout 4 etapas com integração Mercado Pago (PIX, cartão, boleto). Webhook de pagamento com idempotência e entrega automática no FiveM via fila de banco. 10 tiers de VIP, 7 temporadas sazonais, 141 skins de armas, 79 veículos, 26 pets e 45 grandes baús.",
+  "businessOutcome": [
+    { "label": "Páginas no storefront", "value": 54, "unit": "" },
+    { "label": "Produtos no catálogo", "value": 308, "unit": "" },
+    { "label": "Tiers de VIP", "value": 10, "unit": "" },
+    { "label": "Temporadas sazonais", "value": 7, "unit": "" },
+    { "label": "Custo de infraestrutura", "value": 0, "unit": "R$" },
+    { "label": "Métodos de pagamento", "value": 3, "unit": "" }
+  ],
+  "liveUrl": "https://medellin.expostacker.com.br/",
+  "projectType": "Client-Work",
+  "featured": true,
+  "category": "client",
+  "year": 2026,
+  "hasCaseStudy": true,
+  "heroImage": "/cases/medellin-ecommerce.svg",
+  "heroHeadline": {
+    "pt": "Plataforma completa de loja VIP e pagamentos para servidor FiveM com 54 páginas, 308 produtos, 10 tiers de VIP, 7 temporadas sazonais, checkout via Mercado Pago e entrega automática in-game",
+    "en": "Complete VIP store and payment platform for FiveM server with 54 pages, 308 products, 10 VIP tiers, 7 seasonal collections, Mercado Pago checkout and automatic in-game delivery"
+  },
+  "heroSubhead": {
+    "pt": "Storefront estático em HTML5 + CSS3 + Vanilla JS deployado no Cloudflare Pages. Backend Node.js/Express com MySQL para pedidos, idempotência de pagamentos e fila de entrega. Cloudflare Worker como proxy API na edge com fallback direto para Mercado Pago. Imagens em Cloudflare R2 com conversão WebP em runtime via MutationObserver. Carrinho persistente em localStorage. Checkout 4 etapas com PIX, cartão e boleto. Webhook com entrega automática no FiveM via fila de banco de dados. Zero custo de infraestrutura.",
+    "en": "Static storefront in HTML5 + CSS3 + Vanilla JS deployed on Cloudflare Pages. Node.js/Express backend with MySQL for orders, payment idempotency and delivery queue. Cloudflare Worker as edge API proxy with direct fallback to Mercado Pago. Images on Cloudflare R2 with WebP conversion at runtime via MutationObserver. Persistent cart in localStorage. 4-step checkout with PIX, card and boleto. Webhook with automatic FiveM delivery via database queue. Zero infrastructure cost."
+  },
+  "opening": {
+    "pt": "Um jogador do servidor Medellin RP abre a loja no navegador. Navega por 54 páginas organizadas em categorias: VIPs, veículos, blindados, aeronaves, armas e skins, pets, salários, vouchers, mochilas, rolygrams, modificações e itens sazonais. Adiciona produtos ao carrinho, que persiste entre páginas via localStorage. No checkout, informa seu identificador de jogo. A API valida o carrinho server-side, cria uma preferência no Mercado Pago e redireciona para pagamento. Assim que o PIX é confirmado, um webhook processa o pagamento com idempotência, insere os itens na fila de entrega do FiveM e o jogador recebe tudo automaticamente no jogo — tudo rodando em Cloudflare com zero custo de infraestrutura.",
+    "en": "A player on the Medellin RP server opens the store in their browser. They browse 54 pages organized by categories: VIPs, vehicles, armored, aircraft, weapons and skins, pets, salaries, vouchers, backpacks, rolygrams, modifications and seasonal items. They add products to the cart, which persists across pages via localStorage. At checkout, they enter their game identifier. The API validates the cart server-side, creates a Mercado Pago preference and redirects to payment. As soon as PIX is confirmed, a webhook processes the payment with idempotency, inserts items into the FiveM delivery queue and the player receives everything automatically in-game — all running on Cloudflare with zero infrastructure cost."
+  },
+  "challengeContext": {
+    "pt": "O Medellin RP é um servidor de GTA V Roleplay no FiveM com uma comunidade ativa de jogadores. A loja precisava comercializar 308 produtos digitais — VIPs (10 tiers), veículos (79 modelos), armas e skins (141 itens), pets (26), salários (6), vouchers (6), mochilas (7), rolygrams (4), modificações e itens sazonais (7 temporadas). O desafio era construir uma plataforma que combinasse performance de um site estático com a segurança de um backend que valida preços server-side, processa pagamentos reais via Mercado Pago (PIX, cartão, boleto), garante idempotência de webhooks, entrega itens automaticamente no jogo via fila de banco de dados, e serve 772 MB de imagens otimizadas em WebP via CDN global — tudo sem custo recorrente.",
+    "en": "Medellin RP is a GTA V Roleplay server on FiveM with an active community of players. The store needed to sell 308 digital products — VIPs (10 tiers), vehicles (79 models), weapons and skins (141 items), pets (26), salaries (6), vouchers (6), backpacks (7), rolygrams (4), modifications and seasonal items (7 seasons). The challenge was building a platform that combined static site performance with the security of a backend that validates prices server-side, processes real payments via Mercado Pago (PIX, card, boleto), guarantees webhook idempotency, delivers items automatically in-game via database queue, and serves 772 MB of optimized WebP images via global CDN — all with zero recurring cost."
+  },
+  "approach": {
+    "pt": "Arquitetamos uma solução híbrida em 3 camadas: (1) Storefront estático em HTML5 + CSS3 + Vanilla JS com 54 páginas, deployado no Cloudflare Pages — sem framework, sem build, sem custo. (2) Cloudflare Worker como proxy API na edge com fallback direto para Mercado Pago se o backend estiver indisponível. (3) Backend Node.js/Express com MySQL para persistência de pedidos, idempotência de pagamentos, fila de entrega FiveM e rate limiting. As imagens (772 MB) ficam no Cloudflare R2 com conversão automática PNG → WebP em runtime via MutationObserver que reescreve URLs de img, source, link e meta tags. O carrinho persiste em localStorage. O checkout tem 4 etapas com validação server-side de preços. Webhooks do Mercado Pago processam pagamentos com idempotência via tabela processed_payments e inserem itens na fila medellin_loja_pending para o FiveM entregar automaticamente.",
+    "en": "We architected a hybrid solution in 3 layers: (1) Static storefront in HTML5 + CSS3 + Vanilla JS with 54 pages, deployed on Cloudflare Pages — no framework, no build, no cost. (2) Cloudflare Worker as edge API proxy with direct fallback to Mercado Pago if the backend is unavailable. (3) Node.js/Express backend with MySQL for order persistence, payment idempotency, FiveM delivery queue and rate limiting. Images (772 MB) are on Cloudflare R2 with automatic PNG → WebP conversion at runtime via MutationObserver that rewrites URLs for img, source, link and meta tags. The cart persists in localStorage. Checkout has 4 steps with server-side price validation. Mercado Pago webhooks process payments with idempotency via processed_payments table and insert items into the medellin_loja_pending queue for FiveM to deliver automatically."
+  },
+  "solutionIntro": {
+    "pt": "A plataforma Medellin E-commerce é uma loja VIP completa com 54 páginas, 308 produtos, 10 tiers de VIP, 7 temporadas sazonais, checkout via Mercado Pago com 3 métodos de pagamento, entrega automática no FiveM, imagens em CDN R2 com WebP, e arquitetura híbrida Cloudflare Pages + Worker + Node.js — tudo com zero custo de infraestrutura.",
+    "en": "The Medellin E-commerce platform is a complete VIP store with 54 pages, 308 products, 10 VIP tiers, 7 seasonal collections, Mercado Pago checkout with 3 payment methods, automatic FiveM delivery, R2 CDN images with WebP, and hybrid Cloudflare Pages + Worker + Node.js architecture — all with zero infrastructure cost."
+  },
+  "solutionItems": {
+    "pt": [
+      "54 páginas HTML: home, checkout 4 etapas, painel do cliente, 10 páginas de VIP (Bronze, Prata, Ouro, Platinum, Black, Policia, PVP, Facção Prata/Ouro/Premium), 11 páginas sazonais (Ano Novo, Carnaval, Black Friday, Halloween, Natal, Páscoa, Férias), 6 páginas de veículos (veículos, aeronaves, blindados, grandes baús + detalhes), 2 páginas de armas, 7 páginas de mochilas, 4 páginas de rolygram, 4 páginas de outros itens, salários, farm, modificações e 7 páginas de detalhe dinâmico",
+      "308 produtos no catálogo: 10 VIPs, 79 veículos (25 blindados 16 tiros, 7 blindados 32 tiros, 5 full blindados, 8 full voadores, 34 especiais), 141 skins de armas (30 lendárias, 52 épicas, 59 padrão), 26 pets, 45 grandes baús, 7 mochilas, 6 salários, 6 vouchers, 4 rolygrams, 4 itens de farm, 4 modificações, 28 produtos sazonais (4 por temporada × 7 temporadas)",
+      "Arquitetura híbrida em 3 camadas: Cloudflare Pages (storefront estático), Cloudflare Worker (proxy API na edge com fallback Mercado Pago), Node.js/Express + MySQL (backend de pedidos, pagamentos e fila de entrega)",
+      "Integração Mercado Pago com 3 métodos: PIX, cartão de crédito e boleto. Webhook com idempotência via tabela medellin_loja_processed_payments. Validação de preços server-side (preços vêm do products.js no backend, não do client)",
+      "Entrega automática no FiveM: webhook insere itens na tabela medellin_loja_pending com license e account_id do jogador. O servidor FiveM lê a fila, entrega os itens in-game e marca delivered_at",
+      "Sistema de carrinho persistente em localStorage (chave medellin_cart). Adicionar, remover, contar itens. Carrinho sobrevive entre páginas e sessões",
+      "Checkout em 4 etapas: (1) revisão do carrinho, (2) confirmação com identificador de jogo, (3) pagamento via Mercado Pago, (4) finalização com confirmação",
+      "Imagens em Cloudflare R2 (772 MB) com conversão automática PNG → WebP em runtime via MutationObserver. O config.js detecta ambiente (localhost vs produção) e reescreve URLs de img, source, link e meta tags. Preconnect e DNS prefetch para o domínio R2",
+      "10 tiers de VIP com modelos permanente e assinatura mensal: Bronze, Prata, Ouro, Platinum, Black, Policia, PVP, Facção Prata, Facção Ouro, Facção Premium. Cada VIP tem página de detalhe com benefícios, ficha técnica e CTA de compra",
+      "7 temporadas sazonais com 4 produtos cada: Ano Novo, Black Friday, Carnaval, Férias, Halloween, Natal e Páscoa. Cada temporada tem Oferta, VIP, Super Combo e Medellin Edition. Hub central em vips-temporadas.html com tabs por temporada",
+      "Design system completo com CSS variables: paleta verde (#00FF88) + dourado (#e6b800) + fundo escuro (#0a0a0c), tipografia Inter (Google Fonts), grid responsivo 1400px, componentes de card, botão, banner, header e footer",
+      "Performance: lazy loading em 112 imagens, fetchpriority high no hero, decoding async, preconnect R2, cache-busting versionado, scripts deferred, sem framework overhead (Vanilla JS puro)",
+      "Segurança: Helmet (CSP, X-Content-Type-Options), rate limiting (100 req/15min geral, 10 req/min pagamentos), CORS configurado, prepared statements MySQL, connection pooling, idempotência de webhooks, validação server-side de preços",
+      "Deploy automático: git push na branch main → GitHub Actions → Cloudflare Pages publica em ~1 minuto. Subdomínio medellin.expostacker.com.br com CNAME para medellin-ecommerce.pages.dev"
+    ],
+    "en": [
+      "54 HTML pages: home, 4-step checkout, customer panel, 10 VIP pages (Bronze, Silver, Gold, Platinum, Black, Police, PVP, Faction Silver/Gold/Premium), 11 seasonal pages (New Year, Carnival, Black Friday, Halloween, Christmas, Easter, Vacation), 6 vehicle pages (vehicles, aircraft, armored, large boxes + details), 2 weapon pages, 7 backpack pages, 4 rolygram pages, 4 other item pages, salaries, farm, modifications and 7 dynamic detail pages",
+      "308 products in catalog: 10 VIPs, 79 vehicles (25 armored 16-shot, 7 armored 32-shot, 5 full armored, 8 full flying, 34 special), 141 weapon skins (30 legendary, 52 epic, 59 standard), 26 pets, 45 large boxes, 7 backpacks, 6 salaries, 6 vouchers, 4 rolygrams, 4 farm items, 4 modifications, 28 seasonal products (4 per season × 7 seasons)",
+      "Hybrid architecture in 3 layers: Cloudflare Pages (static storefront), Cloudflare Worker (edge API proxy with Mercado Pago fallback), Node.js/Express + MySQL (backend for orders, payments and delivery queue)",
+      "Mercado Pago integration with 3 methods: PIX, credit card and boleto. Webhook with idempotency via medellin_loja_processed_payments table. Server-side price validation (prices come from products.js on the backend, not from the client)",
+      "Automatic FiveM delivery: webhook inserts items into medellin_loja_pending table with player license and account_id. The FiveM server reads the queue, delivers items in-game and marks delivered_at",
+      "Persistent cart system in localStorage (key medellin_cart). Add, remove, count items. Cart survives across pages and sessions",
+      "4-step checkout: (1) cart review, (2) confirmation with game identifier, (3) payment via Mercado Pago, (4) finalization with confirmation",
+      "Images on Cloudflare R2 (772 MB) with automatic PNG → WebP conversion at runtime via MutationObserver. config.js detects environment (localhost vs production) and rewrites URLs for img, source, link and meta tags. Preconnect and DNS prefetch for R2 domain",
+      "10 VIP tiers with permanent and monthly subscription models: Bronze, Silver, Gold, Platinum, Black, Police, PVP, Faction Silver, Faction Gold, Faction Premium. Each VIP has a detail page with benefits, technical specs and purchase CTA",
+      "7 seasonal collections with 4 products each: New Year, Black Friday, Carnival, Vacation, Halloween, Christmas and Easter. Each season has Offer, VIP, Super Combo and Medellin Edition. Central hub on vips-temporadas.html with tabs per season",
+      "Complete design system with CSS variables: green palette (#00FF88) + gold (#e6b800) + dark background (#0a0a0c), Inter typography (Google Fonts), 1400px responsive grid, card, button, banner, header and footer components",
+      "Performance: lazy loading on 112 images, fetchpriority high on hero, async decoding, R2 preconnect, versioned cache-busting, deferred scripts, no framework overhead (pure Vanilla JS)",
+      "Security: Helmet (CSP, X-Content-Type-Options), rate limiting (100 req/15min general, 10 req/min payments), configured CORS, MySQL prepared statements, connection pooling, webhook idempotency, server-side price validation",
+      "Automatic deploy: git push to main branch → GitHub Actions → Cloudflare Pages publishes in ~1 minute. Subdomain medellin.expostacker.com.br with CNAME to medellin-ecommerce.pages.dev"
+    ]
+  },
+  "decisionLog": [
+    {
+      "title": {
+        "pt": "Vanilla JS sem framework em vez de React/Vue",
+        "en": "Vanilla JS without framework instead of React/Vue"
+      },
+      "why": {
+        "pt": "Um storefront de e-commerce com 54 páginas estáticas não precisa de reatividade complexa nem de um virtual DOM. Vanilla JS com localStorage para carrinho, fetch para API e event delegation para interações resulta em bundle zero, carregamento instantâneo e sem overhead de framework. O carrinho, filtros e checkout funcionam perfeitamente com JavaScript puro.",
+        "en": "A static e-commerce storefront with 54 pages doesn't need complex reactivity or a virtual DOM. Vanilla JS with localStorage for cart, fetch for API and event delegation for interactions results in zero bundle, instant loading and no framework overhead. Cart, filters and checkout work perfectly with pure JavaScript."
+      },
+      "alternatives": {
+        "pt": "Avaliamos React com Next.js (SSG), mas o overhead de build, hidratação e bundle de ~200 KB não se justificava para páginas majoritariamente estáticas. Vue com Vite teria o mesmo problema. Vanilla JS mantém o site leve e rápido.",
+        "en": "We evaluated React with Next.js (SSG), but the build overhead, hydration and ~200 KB bundle weren't justified for mostly static pages. Vue with Vite would have the same problem. Vanilla JS keeps the site light and fast."
+      }
+    },
+    {
+      "title": {
+        "pt": "Cloudflare Worker como proxy API com fallback direto",
+        "en": "Cloudflare Worker as API proxy with direct fallback"
+      },
+      "why": {
+        "pt": "O Worker roda na edge da Cloudflare, reduzindo latência para o cliente. Se o backend Node.js estiver indisponível, o Worker cria a preferência do Mercado Pago diretamente, garantindo que a loja nunca fique offline para pagamentos. Timeout de 8 segundos com fallback gracioso.",
+        "en": "The Worker runs on Cloudflare's edge, reducing latency for the customer. If the Node.js backend is unavailable, the Worker creates the Mercado Pago preference directly, ensuring the store never goes offline for payments. 8-second timeout with graceful fallback."
+      },
+      "alternatives": {
+        "pt": "Consideramos chamar o backend Node.js diretamente do frontend, mas isso exporia o servidor backend e adicionaria latência. O Worker na edge protege o backend e oferece resiliência extra.",
+        "en": "We considered calling the Node.js backend directly from the frontend, but that would expose the backend server and add latency. The edge Worker protects the backend and offers extra resilience."
+      }
+    },
+    {
+      "title": {
+        "pt": "Cloudflare R2 com MutationObserver em vez de build de imagens",
+        "en": "Cloudflare R2 with MutationObserver instead of image build step"
+      },
+      "why": {
+        "pt": "O config.js detecta o ambiente (localhost vs produção) e reescreve URLs de imagem em runtime. Em produção, PNG vira WebP e a URL aponta para R2. Um MutationObserver reescreve também imagens inseridas dinamicamente via JavaScript. Isso permite que o mesmo HTML funcione localmente (assets/ folder) e em produção (R2 + WebP) sem build step.",
+        "en": "config.js detects the environment (localhost vs production) and rewrites image URLs at runtime. In production, PNG becomes WebP and the URL points to R2. A MutationObserver also rewrites dynamically inserted images via JavaScript. This allows the same HTML to work locally (assets/ folder) and in production (R2 + WebP) without a build step."
+      },
+      "alternatives": {
+        "pt": "Consideramos um build step que converteria PNG para WebP e reescreveria URLs no HTML. Mas isso adicionaria complexidade de build e quebraria o fluxo de edição direta no HTML. O approach runtime com MutationObserver é transparente e não requer build.",
+        "en": "We considered a build step that would convert PNG to WebP and rewrite URLs in HTML. But that would add build complexity and break the direct HTML editing flow. The runtime approach with MutationObserver is transparent and requires no build."
+      }
+    },
+    {
+      "title": {
+        "pt": "Idempotência de webhooks via tabela processed_payments",
+        "en": "Webhook idempotency via processed_payments table"
+      },
+      "why": {
+        "pt": "O Mercado Pago pode reenviar webhooks múltiplas vezes para o mesmo pagamento. Sem idempotência, o jogador receberia itens duplicados. A tabela medellin_loja_processed_payments registra cada payment_id processado. Antes de processar, o webhook verifica se o pagamento já foi tratado — se sim, ignora.",
+        "en": "Mercado Pago can resend webhooks multiple times for the same payment. Without idempotency, the player would receive duplicate items. The medellin_loja_processed_payments table records each processed payment_id. Before processing, the webhook checks if the payment was already handled — if so, it ignores it."
+      },
+      "alternatives": {
+        "pt": "Consideramos usar apenas o status do pedido na tabela orders, mas isso não protege contra race conditions quando dois webhooks chegam simultaneamente. A tabela dedicada de processed_payments com INSERT OR IGNORE garante idempotência mesmo sob concorrência.",
+        "en": "We considered using only the order status in the orders table, but that doesn't protect against race conditions when two webhooks arrive simultaneously. The dedicated processed_payments table with INSERT OR IGNORE guarantees idempotency even under concurrency."
+      }
+    },
+    {
+      "title": {
+        "pt": "Validação de preços server-side em vez de confiar no client",
+        "en": "Server-side price validation instead of trusting the client"
+      },
+      "why": {
+        "pt": "O frontend exibe preços para o usuário, mas a API nunca confia nos preços enviados pelo client. Ao criar a preferência no Mercado Pago, o backend busca o preço real em products.js (catálogo server-side). Isso impede que um usuário malicioso altere preços via DevTools e pague menos.",
+        "en": "The frontend displays prices to the user, but the API never trusts prices sent by the client. When creating the Mercado Pago preference, the backend looks up the real price in products.js (server-side catalog). This prevents a malicious user from changing prices via DevTools and paying less."
+      },
+      "alternatives": {
+        "pt": "Consideramos assinar os preços com um token JWT no frontend, mas isso adicionaria complexidade e ainda permitiria replay attacks. A validação server-side com catálogo único é mais simples e mais segura.",
+        "en": "We considered signing prices with a JWT token on the frontend, but that would add complexity and still allow replay attacks. Server-side validation with a single catalog is simpler and more secure."
+      }
+    }
+  ],
+  "technologies": [
+    {
+      "name": "HTML5 + CSS3 + Vanilla JS",
+      "why": {
+        "pt": "Storefront de 54 páginas sem framework. CSS com variables e design system completo. JavaScript puro para carrinho, filtros, checkout e integração com API. Zero bundle, carregamento instantâneo.",
+        "en": "54-page storefront without framework. CSS with variables and complete design system. Pure JavaScript for cart, filters, checkout and API integration. Zero bundle, instant loading."
+      }
+    },
+    {
+      "name": "Node.js + Express",
+      "why": {
+        "pt": "Backend de pagamentos com Helmet (security headers), rate limiting (100 req/15min geral, 10 req/min pagamentos), CORS, prepared statements MySQL e integração Mercado Pago SDK v2.",
+        "en": "Payment backend with Helmet (security headers), rate limiting (100 req/15min general, 10 req/min payments), CORS, MySQL prepared statements and Mercado Pago SDK v2 integration."
+      }
+    },
+    {
+      "name": "MySQL2",
+      "why": {
+        "pt": "Persistência de pedidos (medellin_loja_orders), idempotência de pagamentos (medellin_loja_processed_payments) e fila de entrega FiveM (medellin_loja_pending). Connection pooling e prepared statements.",
+        "en": "Order persistence (medellin_loja_orders), payment idempotency (medellin_loja_processed_payments) and FiveM delivery queue (medellin_loja_pending). Connection pooling and prepared statements."
+      }
+    },
+    {
+      "name": "Mercado Pago SDK",
+      "why": {
+        "pt": "Integração de pagamentos com 3 métodos: PIX, cartão de crédito e boleto. Criação de preferências server-side, webhook de notificação, verificação de status de pagamento. SDK v2.0.14.",
+        "en": "Payment integration with 3 methods: PIX, credit card and boleto. Server-side preference creation, notification webhook, payment status verification. SDK v2.0.14."
+      }
+    },
+    {
+      "name": "Cloudflare Pages",
+      "why": {
+        "pt": "Hosting do storefront estático com zero custo no plano Free. Deploy automático via GitHub Actions. CDN global. Subdomínio medellin.expostacker.com.br com CNAME para medellin-ecommerce.pages.dev.",
+        "en": "Static storefront hosting with zero cost on the Free plan. Automatic deploy via GitHub Actions. Global CDN. Subdomain medellin.expostacker.com.br with CNAME to medellin-ecommerce.pages.dev."
+      }
+    },
+    {
+      "name": "Cloudflare Workers",
+      "why": {
+        "pt": "Proxy API na edge com fallback direto para Mercado Pago se o backend Node.js estiver indisponível. Timeout de 8 segundos. CORS headers. Resiliência extra para a loja nunca ficar offline para pagamentos.",
+        "en": "Edge API proxy with direct fallback to Mercado Pago if the Node.js backend is unavailable. 8-second timeout. CORS headers. Extra resilience so the store never goes offline for payments."
+      }
+    },
+    {
+      "name": "Cloudflare R2",
+      "why": {
+        "pt": "Object storage para 772 MB de imagens com CDN global. Conversão automática PNG → WebP em runtime via MutationObserver. Preconnect e DNS prefetch. Fallback gracioso para logo.webp em caso de erro.",
+        "en": "Object storage for 772 MB of images with global CDN. Automatic PNG → WebP conversion at runtime via MutationObserver. Preconnect and DNS prefetch. Graceful fallback to logo.webp on error."
+      }
+    },
+    {
+      "name": "GitHub Actions",
+      "why": {
+        "pt": "CI/CD automático: git push na branch main → build → deploy para Cloudflare Pages. Secrets CLOUDFLARE_API_TOKEN e CLOUDFLARE_ACCOUNT_ID configurados no repo. Deploy em ~1 minuto.",
+        "en": "Automatic CI/CD: git push to main branch → build → deploy to Cloudflare Pages. CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID secrets configured in the repo. Deploy in ~1 minute."
+      }
+    }
+  ],
+  "myRole": {
+    "pt": "Atuei como desenvolvedor full stack: construí o storefront de 54 páginas em HTML5 + CSS3 + Vanilla JS com design system completo, implementei o carrinho persistente em localStorage, o checkout de 4 etapas com integração Mercado Pago, o sistema de 10 tiers de VIP com páginas de detalhe, as 7 temporadas sazonais com hub de tabs, o sistema de imagens com MutationObserver e R2, configurei o Cloudflare Worker como proxy API com fallback, o backend Node.js/Express com MySQL para pedidos e idempotência, a fila de entrega automática no FiveM, o rate limiting e Helmet de segurança, automatizei o CI/CD com GitHub Actions para Cloudflare Pages, e fiz o deploy do subdomínio medellin.expostacker.com.br.",
+    "en": "I acted as full stack developer: built the 54-page storefront in HTML5 + CSS3 + Vanilla JS with complete design system, implemented the persistent cart in localStorage, the 4-step checkout with Mercado Pago integration, the 10 VIP tiers system with detail pages, the 7 seasonal collections with tab hub, the image system with MutationObserver and R2, configured the Cloudflare Worker as API proxy with fallback, the Node.js/Express backend with MySQL for orders and idempotency, the automatic FiveM delivery queue, rate limiting and Helmet security, automated CI/CD with GitHub Actions for Cloudflare Pages, and deployed the medellin.expostacker.com.br subdomain."
+  },
+  "lessonsLearned": {
+    "pt": "O maior aprendizado foi que Vanilla JS é suficiente para um e-commerce de 54 páginas quando a complexidade está no backend, não no frontend. A arquitetura híbrida Cloudflare Pages + Worker + Node.js oferece o melhor de três mundos: performance de site estático, resiliência de edge proxy e segurança de backend com banco de dados. O MutationObserver para reescrita de URLs de imagem em runtime eliminou a necessidade de um build step, permitindo que o mesmo HTML funcione localmente e em produção. A idempotência de webhooks via tabela dedicada provou ser essencial — o Mercado Pago reenvia webhooks e sem ela os jogadores receberiam itens duplicados. E a validação de preços server-side é inegociável em qualquer e-commerce: nunca confie no client.",
+    "en": "The biggest lesson was that Vanilla JS is sufficient for a 54-page e-commerce when the complexity is in the backend, not the frontend. The hybrid Cloudflare Pages + Worker + Node.js architecture offers the best of three worlds: static site performance, edge proxy resilience and backend security with database. The MutationObserver for runtime image URL rewriting eliminated the need for a build step, allowing the same HTML to work locally and in production. Webhook idempotency via a dedicated table proved essential — Mercado Pago resends webhooks and without it players would receive duplicate items. And server-side price validation is non-negotiable in any e-commerce: never trust the client."
+  },
+  "stakeholders": {
+    "pt": "Servidor Medellin RP — comunidade de jogadores de GTA V Roleplay no FiveM. A loja comercializa VIPs, veículos, armas, skins, pets, salários, vouchers e itens sazonais com entrega automática no jogo.",
+    "en": "Medellin RP server — community of GTA V Roleplay players on FiveM. The store sells VIPs, vehicles, weapons, skins, pets, salaries, vouchers and seasonal items with automatic in-game delivery."
+  },
+  "sector": {
+    "pt": "Gaming · E-commerce · FiveM · GTA RP",
+    "en": "Gaming · E-commerce · FiveM · GTA RP"
+  },
+  "heroMetrics": [
+    { "value": "54", "label": { "pt": "Páginas no storefront", "en": "Storefront pages" } },
+    { "value": "308", "label": { "pt": "Produtos no catálogo", "en": "Products in catalog" } },
+    { "value": "0", "label": { "pt": "Custo de infra (R$)", "en": "Infra cost (R$)" } }
+  ],
+  "timeline": { "duration": "Projeto contínuo", "launchDate": "2026-08" },
+  "timelinePhases": [
+    {
+      "phase": "Storefront",
+      "period": "Fase 1",
+      "items": {
+        "pt": [
+          "54 páginas HTML5 + CSS3 + Vanilla JS",
+          "Design system com CSS variables e tipografia Inter",
+          "10 tiers de VIP com páginas de detalhe",
+          "7 temporadas sazonais com hub de tabs"
+        ],
+        "en": [
+          "54 HTML5 + CSS3 + Vanilla JS pages",
+          "Design system with CSS variables and Inter typography",
+          "10 VIP tiers with detail pages",
+          "7 seasonal collections with tab hub"
+        ]
+      }
+    },
+    {
+      "phase": "Backend",
+      "period": "Fase 2",
+      "items": {
+        "pt": [
+          "Node.js/Express com MySQL para pedidos e pagamentos",
+          "Integração Mercado Pago com PIX, cartão e boleto",
+          "Idempotência de webhooks via processed_payments",
+          "Fila de entrega automática no FiveM"
+        ],
+        "en": [
+          "Node.js/Express with MySQL for orders and payments",
+          "Mercado Pago integration with PIX, card and boleto",
+          "Webhook idempotency via processed_payments",
+          "Automatic FiveM delivery queue"
+        ]
+      }
+    },
+    {
+      "phase": "Infraestrutura",
+      "period": "Fase 3",
+      "items": {
+        "pt": [
+          "Cloudflare Pages para storefront estático",
+          "Cloudflare Worker como proxy API na edge",
+          "Cloudflare R2 para 772 MB de imagens com WebP",
+          "GitHub Actions para deploy automático"
+        ],
+        "en": [
+          "Cloudflare Pages for static storefront",
+          "Cloudflare Worker as edge API proxy",
+          "Cloudflare R2 for 772 MB of images with WebP",
+          "GitHub Actions for automatic deploy"
+        ]
+      }
+    }
+  ],
+  "architecture": {
+    "pt": {
+      "title": "Arquitetura",
+      "items": [
+        "Storefront estático (54 páginas HTML) roda no Cloudflare Pages com CDN global",
+        "Cloudflare Worker atua como proxy API na edge com fallback direto para Mercado Pago",
+        "Backend Node.js/Express processa pagamentos, valida preços server-side e gerencia a fila de entrega",
+        "MySQL armazena pedidos (orders), idempotência (processed_payments) e fila FiveM (pending)",
+        "Mercado Pago processa PIX, cartão e boleto com webhook de confirmação",
+        "FiveM server lê a fila medellin_loja_pending e entrega itens in-game automaticamente",
+        "Imagens (772 MB) no Cloudflare R2 com conversão WebP em runtime via MutationObserver",
+        "Carrinho persiste em localStorage (browser) — sem necessidade de sessão server-side",
+        "Deploy automático: git push → GitHub Actions → Cloudflare Pages em ~1 minuto"
+      ]
+    },
+    "en": {
+      "title": "Architecture",
+      "items": [
+        "Static storefront (54 HTML pages) runs on Cloudflare Pages with global CDN",
+        "Cloudflare Worker acts as edge API proxy with direct fallback to Mercado Pago",
+        "Node.js/Express backend processes payments, validates prices server-side and manages delivery queue",
+        "MySQL stores orders, idempotency (processed_payments) and FiveM queue (pending)",
+        "Mercado Pago processes PIX, card and boleto with confirmation webhook",
+        "FiveM server reads medellin_loja_pending queue and delivers items in-game automatically",
+        "Images (772 MB) on Cloudflare R2 with WebP conversion at runtime via MutationObserver",
+        "Cart persists in localStorage (browser) — no server-side session needed",
+        "Automatic deploy: git push → GitHub Actions → Cloudflare Pages in ~1 minute"
+      ]
+    }
+  },
+  "architectureDiagram": {
+    "left": "Cloudflare Pages",
+    "leftSub": "Storefront estático · 54 páginas · Vanilla JS",
+    "center": "Cloudflare Worker",
+    "centerSub": "Proxy API edge · Fallback Mercado Pago",
+    "right": "Node.js + MySQL",
+    "rightSub": "Pedidos · Idempotência · Fila FiveM",
+    "bottom": [
+      "Mercado Pago — PIX, cartão, boleto",
+      "Cloudflare R2 — 772 MB imagens WebP",
+      "FiveM Server — Entrega automática in-game"
+    ]
+  },
+  "security": {
+    "pt": {
+      "title": "Segurança",
+      "items": [
+        "Validação de preços server-side: preços vêm do products.js no backend, nunca do client",
+        "Idempotência de webhooks: tabela medellin_loja_processed_payments impede entrega duplicada",
+        "Helmet middleware: CSP, X-Content-Type-Options, X-Frame-Options e outros security headers",
+        "Rate limiting: 100 req/15min por IP (geral), 10 req/min por IP (criação de pagamentos)",
+        "Prepared statements MySQL2 com connection pooling para prevenir SQL injection",
+        "CORS configurado para permitir apenas origens autorizadas",
+        "Trust proxy habilitado para integração correta com Cloudflare",
+        "Mercado Pago access token nunca exposto no frontend — apenas no backend e Worker",
+        "Webhook verifica status de pagamento diretamente com a API do Mercado Pago antes de entregar"
+      ]
+    },
+    "en": {
+      "title": "Security",
+      "items": [
+        "Server-side price validation: prices come from products.js on the backend, never from the client",
+        "Webhook idempotency: medellin_loja_processed_payments table prevents duplicate delivery",
+        "Helmet middleware: CSP, X-Content-Type-Options, X-Frame-Options and other security headers",
+        "Rate limiting: 100 req/15min per IP (general), 10 req/min per IP (payment creation)",
+        "MySQL2 prepared statements with connection pooling to prevent SQL injection",
+        "CORS configured to allow only authorized origins",
+        "Trust proxy enabled for correct Cloudflare integration",
+        "Mercado Pago access token never exposed on the frontend — only on backend and Worker",
+        "Webhook verifies payment status directly with Mercado Pago API before delivering"
+      ]
+    }
+  },
+  "techStack": {
+    "pt": {
+      "title": "Stack técnica",
+      "categories": [
+        {
+          "category": "Frontend",
+          "items": [
+            {
+              "name": "HTML5 + CSS3 + Vanilla JS",
+              "why": "54 páginas estáticas sem framework. Zero bundle, carregamento instantâneo, sem overhead de hidratação.",
+              "alt": "React/Vue com SSG adicionaria ~200 KB de bundle e complexidade de build desnecessária."
+            },
+            {
+              "name": "Inter (Google Fonts)",
+              "why": "Tipografia professional com pesos 400-800. Preconnect e font-display swap para performance.",
+              "alt": "Fontes self-hosted adicionariam complexidade de build sem benefício significativo."
+            },
+            {
+              "name": "localStorage API",
+              "why": "Carrinho persistente no browser. Sem necessidade de sessão server-side. Sobrevive entre páginas e sessões.",
+              "alt": "Sessão server-side adicionaria complexidade de backend e dependência de disponibilidade."
+            }
+          ]
+        },
+        {
+          "category": "Backend",
+          "items": [
+            {
+              "name": "Node.js + Express",
+              "why": "Runtime JavaScript para backend com Express como framework web. Helmet, rate limiting, CORS e prepared statements.",
+              "alt": "Python/FastAPI seria equivalente, mas Node.js unifica a linguagem do projeto."
+            },
+            {
+              "name": "MySQL2",
+              "why": "Driver MySQL com promise support, connection pooling e prepared statements. 3 tabelas: orders, processed_payments, pending.",
+              "alt": "PostgreSQL seria equivalente, mas MySQL já estava no servidor FiveM."
+            },
+            {
+              "name": "Mercado Pago SDK v2",
+              "why": "SDK oficial para criação de preferências, webhook de notificação e verificação de status. PIX, cartão e boleto.",
+              "alt": "Stripe não opera BRL no Brasil. Mercado Pago é o padrão para pagamentos brasileiros."
+            }
+          ]
+        },
+        {
+          "category": "Infraestrutura",
+          "items": [
+            {
+              "name": "Cloudflare Pages",
+              "why": "Hosting estático com zero custo, CDN global, deploy automático via GitHub Actions. Subdomínio customizado.",
+              "alt": "Netlify/Vercel teriam custo no plano Free para tráfego elevado. Cloudflare Pages é mais generoso."
+            },
+            {
+              "name": "Cloudflare Workers",
+              "why": "Proxy API na edge com fallback direto para Mercado Pago. Resiliência extra. Timeout de 8 segundos.",
+              "alt": "Sem o Worker, o frontend chamaria o backend diretamente, expondo o servidor e adicionando latência."
+            },
+            {
+              "name": "Cloudflare R2",
+              "why": "Object storage para 772 MB de imagens com CDN global. Conversão WebP em runtime via MutationObserver.",
+              "alt": "AWS S3 teria custo de transferência. R2 tem zero egress fee no plano Free."
+            },
+            {
+              "name": "GitHub Actions",
+              "why": "CI/CD automático: git push → deploy. Secrets configurados no repo. Deploy em ~1 minuto.",
+              "alt": "Deploy manual seria lento e propenso a erro. GitHub Actions é o padrão para CI/CD."
+            }
+          ]
+        }
+      ]
+    },
+    "en": {
+      "title": "Tech stack",
+      "categories": [
+        {
+          "category": "Frontend",
+          "items": [
+            {
+              "name": "HTML5 + CSS3 + Vanilla JS",
+              "why": "54 static pages without framework. Zero bundle, instant loading, no hydration overhead.",
+              "alt": "React/Vue with SSG would add ~200 KB bundle and unnecessary build complexity."
+            },
+            {
+              "name": "Inter (Google Fonts)",
+              "why": "Professional typography with weights 400-800. Preconnect and font-display swap for performance.",
+              "alt": "Self-hosted fonts would add build complexity without significant benefit."
+            },
+            {
+              "name": "localStorage API",
+              "why": "Persistent cart in browser. No server-side session needed. Survives across pages and sessions.",
+              "alt": "Server-side session would add backend complexity and availability dependency."
+            }
+          ]
+        },
+        {
+          "category": "Backend",
+          "items": [
+            {
+              "name": "Node.js + Express",
+              "why": "JavaScript runtime for backend with Express as web framework. Helmet, rate limiting, CORS and prepared statements.",
+              "alt": "Python/FastAPI would be equivalent, but Node.js unifies the project language."
+            },
+            {
+              "name": "MySQL2",
+              "why": "MySQL driver with promise support, connection pooling and prepared statements. 3 tables: orders, processed_payments, pending.",
+              "alt": "PostgreSQL would be equivalent, but MySQL was already on the FiveM server."
+            },
+            {
+              "name": "Mercado Pago SDK v2",
+              "why": "Official SDK for preference creation, notification webhook and status verification. PIX, card and boleto.",
+              "alt": "Stripe doesn't operate BRL in Brazil. Mercado Pago is the standard for Brazilian payments."
+            }
+          ]
+        },
+        {
+          "category": "Infrastructure",
+          "items": [
+            {
+              "name": "Cloudflare Pages",
+              "why": "Static hosting with zero cost, global CDN, automatic deploy via GitHub Actions. Custom subdomain.",
+              "alt": "Netlify/Vercel would have cost on the Free plan for high traffic. Cloudflare Pages is more generous."
+            },
+            {
+              "name": "Cloudflare Workers",
+              "why": "Edge API proxy with direct fallback to Mercado Pago. Extra resilience. 8-second timeout.",
+              "alt": "Without the Worker, the frontend would call the backend directly, exposing the server and adding latency."
+            },
+            {
+              "name": "Cloudflare R2",
+              "why": "Object storage for 772 MB of images with global CDN. WebP conversion at runtime via MutationObserver.",
+              "alt": "AWS S3 would have transfer costs. R2 has zero egress fee on the Free plan."
+            },
+            {
+              "name": "GitHub Actions",
+              "why": "Automatic CI/CD: git push → deploy. Secrets configured in repo. Deploy in ~1 minute.",
+              "alt": "Manual deploy would be slow and error-prone. GitHub Actions is the standard for CI/CD."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "resultsDetail": {
+    "pt": {
+      "title": "Resultados",
+      "kpis": [
+        { "value": "54", "label": "Páginas no storefront", "baseline": "0", "source": "Contagem de arquivos HTML" },
+        { "value": "308", "label": "Produtos no catálogo", "baseline": "0", "source": "api/products.js + data files" },
+        { "value": "10", "label": "Tiers de VIP", "baseline": "0", "source": "Páginas VIP" },
+        { "value": "7", "label": "Temporadas sazonais", "baseline": "0", "source": "vips-temporadas.html" },
+        { "value": "3", "label": "Métodos de pagamento", "baseline": "0", "source": "Mercado Pago: PIX, cartão, boleto" },
+        { "value": "0", "label": "Custo de infra (R$)", "baseline": "—", "source": "Cloudflare plano Free" }
+      ]
+    },
+    "en": {
+      "title": "Results",
+      "kpis": [
+        { "value": "54", "label": "Storefront pages", "baseline": "0", "source": "HTML file count" },
+        { "value": "308", "label": "Products in catalog", "baseline": "0", "source": "api/products.js + data files" },
+        { "value": "10", "label": "VIP tiers", "baseline": "0", "source": "VIP pages" },
+        { "value": "7", "label": "Seasonal collections", "baseline": "0", "source": "vips-temporadas.html" },
+        { "value": "3", "label": "Payment methods", "baseline": "0", "source": "Mercado Pago: PIX, card, boleto" },
+        { "value": "0", "label": "Infra cost (R$)", "baseline": "—", "source": "Cloudflare Free plan" }
+      ]
+    }
+  }
+}

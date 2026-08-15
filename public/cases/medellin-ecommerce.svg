@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0a0c"/>
+      <stop offset="100%" stop-color="#16161a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#00FF88"/>
+      <stop offset="100%" stop-color="#00e676"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid pattern -->
+  <g opacity="0.05" stroke="#00FF88" stroke-width="1">
+    <line x1="0" y1="78" x2="1200" y2="78"/>
+    <line x1="0" y1="157" x2="1200" y2="157"/>
+    <line x1="0" y1="236" x2="1200" y2="236"/>
+    <line x1="0" y1="315" x2="1200" y2="315"/>
+    <line x1="0" y1="394" x2="1200" y2="394"/>
+    <line x1="0" y1="473" x2="1200" y2="473"/>
+    <line x1="0" y1="552" x2="1200" y2="552"/>
+    <line x1="150" y1="0" x2="150" y2="630"/>
+    <line x1="300" y1="0" x2="300" y2="630"/>
+    <line x1="450" y1="0" x2="450" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="750" y1="0" x2="750" y2="630"/>
+    <line x1="900" y1="0" x2="900" y2="630"/>
+    <line x1="1050" y1="0" x2="1050" y2="630"/>
+  </g>
+  <!-- Accent bar -->
+  <rect x="0" y="0" width="1200" height="4" fill="url(#accent)"/>
+  <!-- Logo area -->
+  <rect x="60" y="50" width="48" height="48" rx="10" fill="#00FF88" opacity="0.15"/>
+  <text x="84" y="82" font-family="Inter, sans-serif" font-size="24" font-weight="800" fill="#00FF88" text-anchor="middle">M</text>
+  <text x="120" y="82" font-family="Inter, sans-serif" font-size="18" font-weight="600" fill="#e8e8ec">MEDELLIN RP</text>
+  <text x="120" y="100" font-family="Inter, sans-serif" font-size="12" font-weight="400" fill="#888894">Loja VIP · GTA RP FiveM</text>
+  <!-- Title -->
+  <text x="60" y="200" font-family="Inter, sans-serif" font-size="42" font-weight="800" fill="#e8e8ec">Medellin E-commerce</text>
+  <text x="60" y="240" font-family="Inter, sans-serif" font-size="20" font-weight="500" fill="#00FF88" filter="url(#glow)">Plataforma de loja VIP e pagamentos</text>
+  <!-- Description -->
+  <text x="60" y="290" font-family="Inter, sans-serif" font-size="16" font-weight="400" fill="#888894">54 páginas · 308 produtos · 10 tiers VIP · 7 temporadas</text>
+  <text x="60" y="315" font-family="Inter, sans-serif" font-size="16" font-weight="400" fill="#888894">Mercado Pago · Cloudflare Pages + Workers + R2</text>
+  <!-- Metrics row -->
+  <g transform="translate(60, 380)">
+    <rect x="0" y="0" width="160" height="80" rx="10" fill="#111114" stroke="#25252a"/>
+    <text x="80" y="35" font-family="Inter, sans-serif" font-size="32" font-weight="800" fill="#00FF88" text-anchor="middle">54</text>
+    <text x="80" y="60" font-family="Inter, sans-serif" font-size="12" font-weight="500" fill="#888894" text-anchor="middle">Páginas</text>
+  </g>
+  <g transform="translate(240, 380)">
+    <rect x="0" y="0" width="160" height="80" rx="10" fill="#111114" stroke="#25252a"/>
+    <text x="80" y="35" font-family="Inter, sans-serif" font-size="32" font-weight="800" fill="#00FF88" text-anchor="middle">308</text>
+    <text x="80" y="60" font-family="Inter, sans-serif" font-size="12" font-weight="500" fill="#888894" text-anchor="middle">Produtos</text>
+  </g>
+  <g transform="translate(420, 380)">
+    <rect x="0" y="0" width="160" height="80" rx="10" fill="#111114" stroke="#25252a"/>
+    <text x="80" y="35" font-family="Inter, sans-serif" font-size="32" font-weight="800" fill="#e6b800" text-anchor="middle">10</text>
+    <text x="80" y="60" font-family="Inter, sans-serif" font-size="12" font-weight="500" fill="#888894" text-anchor="middle">Tiers VIP</text>
+  </g>
+  <g transform="translate(600, 380)">
+    <rect x="0" y="0" width="160" height="80" rx="10" fill="#111114" stroke="#25252a"/>
+    <text x="80" y="35" font-family="Inter, sans-serif" font-size="32" font-weight="800" fill="#e6b800" text-anchor="middle">7</text>
+    <text x="80" y="60" font-family="Inter, sans-serif" font-size="12" font-weight="500" fill="#888894" text-anchor="middle">Temporadas</text>
+  </g>
+  <g transform="translate(780, 380)">
+    <rect x="0" y="0" width="160" height="80" rx="10" fill="#111114" stroke="#25252a"/>
+    <text x="80" y="35" font-family="Inter, sans-serif" font-size="32" font-weight="800" fill="#00FF88" text-anchor="middle">R$0</text>
+    <text x="80" y="60" font-family="Inter, sans-serif" font-size="12" font-weight="500" fill="#888894" text-anchor="middle">Custo infra</text>
+  </g>
+  <!-- Tech badges -->
+  <g transform="translate(60, 500)">
+    <rect x="0" y="0" width="90" height="28" rx="14" fill="#111114" stroke="#25252a"/>
+    <text x="45" y="18" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#e8e8ec" text-anchor="middle">Vanilla JS</text>
+  </g>
+  <g transform="translate(160, 500)">
+    <rect x="0" y="0" width="70" height="28" rx="14" fill="#111114" stroke="#25252a"/>
+    <text x="35" y="18" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#e8e8ec" text-anchor="middle">Node.js</text>
+  </g>
+  <g transform="translate(240, 500)">
+    <rect x="0" y="0" width="80" height="28" rx="14" fill="#111114" stroke="#25252a"/>
+    <text x="40" y="18" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#e8e8ec" text-anchor="middle">Express</text>
+  </g>
+  <g transform="translate(330, 500)">
+    <rect x="0" y="0" width="70" height="28" rx="14" fill="#111114" stroke="#25252a"/>
+    <text x="35" y="18" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#e8e8ec" text-anchor="middle">MySQL</text>
+  </g>
+  <g transform="translate(410, 500)">
+    <rect x="0" y="0" width="110" height="28" rx="14" fill="#111114" stroke="#25252a"/>
+    <text x="55" y="18" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#e8e8ec" text-anchor="middle">Mercado Pago</text>
+  </g>
+  <g transform="translate(530, 500)">
+    <rect x="0" y="0" width="80" height="28" rx="14" fill="#111114" stroke="#25252a"/>
+    <text x="40" y="18" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#e8e8ec" text-anchor="middle">FiveM</text>
+  </g>
+  <g transform="translate(620, 500)">
+    <rect x="0" y="0" width="70" height="28" rx="14" fill="#111114" stroke="#25252a"/>
+    <text x="35" y="18" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#e8e8ec" text-anchor="middle">R2 WebP</text>
+  </g>
+  <g transform="translate(700, 500)">
+    <rect x="0" y="0" width="90" height="28" rx="14" fill="#111114" stroke="#25252a"/>
+    <text x="45" y="18" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#e8e8ec" text-anchor="middle">CF Workers</text>
+  </g>
+  <!-- URL -->
+  <text x="60" y="580" font-family="Inter, sans-serif" font-size="14" font-weight="500" fill="#00FF88">medellin.expostacker.com.br</text>
+  <!-- Bottom accent -->
+  <rect x="0" y="626" width="1200" height="4" fill="url(#accent)" opacity="0.5"/>
+</svg>
