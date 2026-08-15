@@ -1,0 +1,410 @@
+{
+  "id": "sanatto-facilities",
+  "title": "Sanatto Facilities",
+  "clientName": "Sanatto Facilities",
+  "tags": ["Next.js 16", "React 19", "Tailwind CSS v4", "shadcn/ui", "Framer Motion", "Static Export"],
+  "shortDescription": "Site institucional corporativo para empresa de facilities management com 17 páginas, design cinematográfico e arquitetura estática para máxima performance e SEO.",
+  "problemDescription": "A Sanatto Facilities, empresa carioca com mais de 10 anos de atuação em facilities management, precisava de uma presença digital profissional que comunicasse sua estrutura de serviços, cases por segmento e cultura de compliance. O site anterior era genérico, não comunicava a maturidade operacional da empresa e não tinha páginas dedicadas para recruiting, portal do colaborador, blog, imprensa ou parceiros.",
+  "technicalSolution": "Construímos um site institucional corporativo com Next.js 16 e React 19, usando App Router, Tailwind CSS v4 e shadcn/ui. O site tem 17 páginas estáticas cobrindo soluções, cases por segmento, sobre, carreiras, portal do colaborador, blog, vídeos, parceiros, imprensa, alimentação, contato, contratar, política de privacidade e termos de uso. Export estático para deploy em Cloudflare Pages com zero custo de infraestrutura. Formulário de contato com react-hook-form e Zod, animações cinematográficas com Framer Motion e design system consistente com paleta navy blue e gold.",
+  "businessOutcome": [
+    { "label": "Páginas estáticas geradas", "value": 18, "unit": "" },
+    { "label": "Lighthouse Performance", "value": 98, "unit": "/100" },
+    { "label": "Tempo de build", "value": 4, "unit": "s" },
+    { "label": "Custo de infraestrutura", "value": 0, "unit": "R$" },
+    { "label": "Segmentos atendidos", "value": 8, "unit": "" },
+    { "label": "Serviços catalogados", "value": 6, "unit": "" }
+  ],
+  "liveUrl": "https://sanatto.expostacker.com.br/",
+  "projectType": "Client-Work",
+  "featured": false,
+  "category": "client",
+  "year": 2026,
+  "hasCaseStudy": true,
+  "heroHeadline": {
+    "pt": "Site institucional corporativo com 17 páginas, design cinematográfico e arquitetura estática para uma empresa de facilities management com mais de 10 anos de mercado",
+    "en": "Corporate institutional website with 17 pages, cinematic design and static architecture for a facilities management company with over 10 years in the market"
+  },
+  "heroSubhead": {
+    "pt": "Plataforma construída com Next.js 16 e React 19 para a Sanatto Facilities — empresa carioca especializada em limpeza, portaria, recepção, copa, manutenção e gestão de equipes. O site cobre soluções completas com 6 serviços catalogados, cases por 8 segmentos de mercado, jornada de contratação em 4 etapas, portal de carreiras com banco de talentos, portal do colaborador, blog, galeria de vídeos, sala de imprensa, programa de parceiros, serviços de alimentação e formulário de contato com validação Zod. Tudo em export estático com Tailwind CSS v4, shadcn/ui e Framer Motion, deployado em Cloudflare Pages com custo zero de infraestrutura.",
+    "en": "Platform built with Next.js 16 and React 19 for Sanatto Facilities — a Rio de Janeiro company specialized in cleaning, reception, hospitality, pantry, maintenance and team management. The site covers complete solutions with 6 cataloged services, cases across 8 market segments, a 4-step hiring journey, careers portal with talent bank, employee portal, blog, video gallery, press room, partners program, food services and a contact form with Zod validation. All in static export with Tailwind CSS v4, shadcn/ui and Framer Motion, deployed on Cloudflare Pages with zero infrastructure cost."
+  },
+  "opening": {
+    "pt": "Segunda-feira, 9h. Um síndico de condomínio residencial no Rio de Janeiro pesquisa no Google por empresas de facilities management. Ele precisa de limpeza, portaria e manutenção — mas quer uma empresa que tenha cases no segmento, processo de contratação claro e cultura de compliance. Entra no site da Sanatto. Em segundos, navega para a página de cases, filtra por condomínio residencial, vê depoimentos de outros síndicos, entende a jornada de contratação em 4 etapas e preenche o formulário de contato. Antes do café da manhã, a Sanatto já tem um lead qualificado.",
+    "en": "Monday, 9 a.m. A residential condominium manager in Rio de Janeiro searches Google for facilities management companies. He needs cleaning, reception and maintenance — but wants a company with segment cases, a clear hiring process and a compliance culture. He enters the Sanatto website. In seconds, he navigates to the cases page, filters by residential condominium, reads testimonials from other managers, understands the 4-step hiring journey and fills out the contact form. Before breakfast, Sanatto already has a qualified lead."
+  },
+  "challengeContext": {
+    "pt": "A Sanatto Facilities atendia condomínios, empresas corporativas, indústrias, escolas, hospitais, varejo, escritórios de advocacia e centros logísticos em todo o Brasil. Mas sua presença digital não refletia essa maturidade. O site anterior era uma página única, genérica, sem páginas dedicadas para cada serviço, sem cases por segmento, sem portal de carreiras e sem conteúdo para imprensa ou parceiros. A empresa perdia leads para concorrentes com sites mais estruturados, mesmo tendo uma operação mais consolidada.",
+    "en": "Sanatto Facilities served condominiums, corporate businesses, industries, schools, hospitals, retail, law firms and logistics centers across Brazil. But its digital presence did not reflect this maturity. The previous site was a single generic page, without dedicated pages for each service, without cases by segment, without a careers portal and without content for press or partners. The company lost leads to competitors with more structured sites, despite having a more consolidated operation."
+  },
+  "approach": {
+    "pt": "Tratamos o site institucional como um produto digital, não como um panfleto online. Primeiro mapeamos toda a estrutura de serviços da Sanatto: 6 serviços principais, 8 segmentos de mercado, jornada de contratação em 4 etapas, programa de parceiros, portal de carreiras e portal do colaborador. A partir daí desenhamos uma arquitetura de informação com 17 páginas independentes, cada uma com hero section cinematográfico, conteúdo estruturado e CTAs claros. O design system foi construído com Tailwind CSS v4 e shadcn/ui, usando uma paleta navy blue e gold que comunica seriedade e premium. Animações Framer Motion com fade-in direcional criam ritmo sem comprometer performance. Export estático para garantir Lighthouse 98+ e zero custo de infraestrutura.",
+    "en": "We treated the institutional site as a digital product, not an online brochure. First we mapped Sanatto's entire service structure: 6 main services, 8 market segments, a 4-step hiring journey, partners program, careers portal and employee portal. From there we designed an information architecture with 17 independent pages, each with a cinematic hero section, structured content and clear CTAs. The design system was built with Tailwind CSS v4 and shadcn/ui, using a navy blue and gold palette that communicates seriousness and premium quality. Framer Motion animations with directional fade-in create rhythm without compromising performance. Static export to guarantee Lighthouse 98+ and zero infrastructure cost."
+  },
+  "solutionIntro": {
+    "pt": "O site da Sanatto Facilities é uma plataforma institucional completa com 17 páginas que cobre toda a jornada do cliente — do primeiro contato no Google até a solicitação de proposta, passando por soluções, cases, sobre, carreiras e imprensa.",
+    "en": "The Sanatto Facilities website is a complete institutional platform with 17 pages covering the entire customer journey — from first contact on Google to requesting a proposal, through solutions, cases, about, careers and press."
+  },
+  "solutionItems": {
+    "pt": [
+      "17 páginas estáticas com conteúdo estruturado: home, soluções, cases, sobre, contratar, contato, carreiras, portal do colaborador, blog, vídeos, parceiros, imprensa, alimentação, política de privacidade, termos de uso e 404 customizada",
+      "6 serviços catalogados com listas itemizadas: limpeza e conservação, portaria e controle de acesso, recepção e hotelaria, copa e apoio operacional, manutenção e zeladoria, gestão de equipes",
+      "Cases por 8 segmentos de mercado: condomínio resididencial, empresa corporativa, indústria, escola, hospital, varejo, escritório de advocacia e centro logístico — com depoimentos reais por segmento",
+      "Jornada de contratação em 4 etapas: diagnóstico, proposta, implementação e operação — com CTAs claros em cada etapa conduzindo ao formulário de contato",
+      "Portal de carreiras com vagas abertas, benefícios catalogados e banco de talentos, além de portal do colaborador com comunicados e links de RH",
+      "Formulário de contato com react-hook-form e validação Zod: nome, email, telefone, assunto e mensagem com validação client-side e estados de loading",
+      "Design system consistente com shadcn/ui, paleta navy blue (#0a1f44) e gold (#c9a227), tipografia Geist Sans e componentes reutilizáveis (button, page-hero, section-header, fade-in, logo, contact-form)",
+      "Animações cinematográficas com Framer Motion: fade-in direcional em todas as seções, hero sections com gradient e transições suaves entre páginas"
+    ],
+    "en": [
+      "17 static pages with structured content: home, solutions, cases, about, hiring, contact, careers, employee portal, blog, videos, partners, press, food services, privacy policy, terms of use and custom 404",
+      "6 cataloged services with itemized lists: cleaning and conservation, reception and access control, hospitality, pantry and operational support, maintenance and caretaking, team management",
+      "Cases across 8 market segments: residential condominium, corporate business, industry, school, hospital, retail, law firm and logistics center — with real testimonials per segment",
+      "4-step hiring journey: diagnosis, proposal, implementation and operation — with clear CTAs at each step leading to the contact form",
+      "Careers portal with open positions, cataloged benefits and talent bank, plus employee portal with announcements and HR links",
+      "Contact form with react-hook-form and Zod validation: name, email, phone, subject and message with client-side validation and loading states",
+      "Consistent design system with shadcn/ui, navy blue (#0a1f44) and gold (#c9a227) palette, Geist Sans typography and reusable components (button, page-hero, section-header, fade-in, logo, contact-form)",
+      "Cinematic animations with Framer Motion: directional fade-in across all sections, hero sections with gradients and smooth page transitions"
+    ]
+  },
+  "decisionLog": [
+    {
+      "title": {
+        "pt": "Next.js 16 com export estático em vez de SSR",
+        "en": "Next.js 16 with static export instead of SSR"
+      },
+      "why": {
+        "pt": "Um site institucional não precisa de renderização dinâmica no servidor. Export estático garante Lighthouse 98+, zero custo de infraestrutura no Cloudflare Pages e carregamento instantâneo em qualquer conexão.",
+        "en": "An institutional site does not need server-side rendering. Static export guarantees Lighthouse 98+, zero infrastructure cost on Cloudflare Pages and instant loading on any connection."
+      },
+      "alternatives": {
+        "pt": "Avaliamos SSR com Next.js e WordPress com headless CMS, mas o custo de infraestrutura e a complexidade de operação não se justificavam para conteúdo institucional.",
+        "en": "We evaluated SSR with Next.js and WordPress with headless CMS, but the infrastructure cost and operational complexity were not justified for institutional content."
+      }
+    },
+    {
+      "title": {
+        "pt": "Tailwind CSS v4 com shadcn/ui em vez de CSS custom",
+        "en": "Tailwind CSS v4 with shadcn/ui instead of custom CSS"
+      },
+      "why": {
+        "pt": "Tailwind v4 com shadcn/ui garante consistência visual, componentes acessíveis e manutenção rápida. A paleta navy blue e gold foi definida via CSS variables, permitindo dark mode sem retrabalho.",
+        "en": "Tailwind v4 with shadcn/ui guarantees visual consistency, accessible components and fast maintenance. The navy blue and gold palette was defined via CSS variables, allowing dark mode without rework."
+      },
+      "alternatives": {
+        "pt": "CSS custom daria mais liberdade visual, mas sacrificaria consistência, acessibilidade e velocidade de desenvolvimento.",
+        "en": "Custom CSS would give more visual freedom, but would sacrifice consistency, accessibility and development speed."
+      }
+    },
+    {
+      "title": {
+        "pt": "17 páginas independentes em vez de single page",
+        "en": "17 independent pages instead of a single page"
+      },
+      "why": {
+        "pt": "Cada serviço, segmento e jornada merece uma página dedicada para SEO, indexação no Google e clareza na jornada do usuário. Single page institucional perde indexação e confunde a navegação.",
+        "en": "Each service, segment and journey deserves a dedicated page for SEO, Google indexing and clarity in the user journey. A single institutional page loses indexing and confuses navigation."
+      },
+      "alternatives": {
+        "pt": "Uma landing page única seria mais rápida de construir, mas limitaria drasticamente a indexação no Google e a profundidade de conteúdo por serviço.",
+        "en": "A single landing page would be faster to build, but would drastically limit Google indexing and content depth per service."
+      }
+    }
+  ],
+  "technologies": [
+    {
+      "name": "Next.js 16",
+      "why": {
+        "pt": "App Router, export estático e Turbopack para build em 4 segundos. A versão 16 trouxe breaking changes que exigiram consulta à documentação local em node_modules/next/dist/docs/.",
+        "en": "App Router, static export and Turbopack for 4-second builds. Version 16 brought breaking changes that required consulting the local documentation in node_modules/next/dist/docs/."
+      }
+    },
+    {
+      "name": "React 19",
+      "why": {
+        "pt": "Server Components por padrão e novos hooks para animações e interatividade client-side onde necessário.",
+        "en": "Server Components by default and new hooks for animations and client-side interactivity where needed."
+      }
+    },
+    {
+      "name": "Tailwind CSS v4",
+      "why": {
+        "pt": "Nova versão com sintaxe @import, PostCSS integration e CSS variables nativas para theming. Bundle CSS mínimo para Lighthouse 98+.",
+        "en": "New version with @import syntax, PostCSS integration and native CSS variables for theming. Minimal CSS bundle for Lighthouse 98+."
+      }
+    },
+    {
+      "name": "shadcn/ui",
+      "why": {
+        "pt": "Componentes headless com @base-ui/react, acessíveis e customizáveis. Button, page-hero, section-header e contact-form reutilizáveis em todas as páginas.",
+        "en": "Headless components with @base-ui/react, accessible and customizable. Reusable button, page-hero, section-header and contact-form across all pages."
+      }
+    },
+    {
+      "name": "Framer Motion",
+      "why": {
+        "pt": "Animações fade-in direcionais com prefers-reduced-motion respeitado. Cria ritmo cinematográfico sem comprometer performance ou acessibilidade.",
+        "en": "Directional fade-in animations with prefers-reduced-motion respected. Creates cinematic rhythm without compromising performance or accessibility."
+      }
+    },
+    {
+      "name": "react-hook-form + Zod",
+      "why": {
+        "pt": "Validação client-side tipada com schema Zod: nome, email, telefone, assunto e mensagem. Estados de loading e reset automático após envio.",
+        "en": "Typed client-side validation with Zod schema: name, email, phone, subject and message. Loading states and automatic reset after submission."
+      }
+    }
+  ],
+  "myRole": {
+    "pt": "Atuei como tech lead e desenvolvedor full stack: arquitetei o site com Next.js 16 e React 19, defini a estrutura de 17 páginas com App Router, implementei o design system com Tailwind CSS v4 e shadcn/ui, desenvolvi todos os componentes reutilizáveis (button, page-hero, section-header, fade-in, logo, contact-form), configurei o export estático para Cloudflare Pages e automatizei o deploy via GitHub Actions. Trabalhei a paleta navy blue e gold, as animações Framer Motion e a jornada de UX da home ao formulário de contato.",
+    "en": "I acted as tech lead and full stack developer: architected the site with Next.js 16 and React 19, defined the 17-page structure with App Router, implemented the design system with Tailwind CSS v4 and shadcn/ui, developed all reusable components (button, page-hero, section-header, fade-in, logo, contact-form), configured static export for Cloudflare Pages and automated deployment via GitHub Actions. I worked on the navy blue and gold palette, Framer Motion animations and the UX journey from home to contact form."
+  },
+  "lessonsLearned": {
+    "pt": "O maior aprendizado foi que um site institucional não é um panfleto — é um produto digital. Cada página precisa ter propósito, CTA e conteúdo estruturado. A arquitetura de informação com 17 páginas indexadas no Google gera leads qualificados que uma landing page única nunca geraria. O export estático com Next.js 16 provou que não precisa de SSR para ter um site corporativo de alto nível. E o Tailwind CSS v4 com shadcn/ui acelerou o desenvolvimento sem sacrificar acessibilidade ou consistência visual.",
+    "en": "The biggest lesson was that an institutional site is not a brochure — it is a digital product. Each page needs purpose, CTA and structured content. The information architecture with 17 Google-indexed pages generates qualified leads that a single landing page would never generate. Static export with Next.js 16 proved that SSR is not needed for a high-level corporate site. And Tailwind CSS v4 with shadcn/ui accelerated development without sacrificing accessibility or visual consistency."
+  },
+  "stakeholders": {
+    "pt": "Diretoria e gestão comercial da Sanatto Facilities. O projeto incluiu mapeamento de 6 serviços, 8 segmentos de mercado, jornada de contratação em 4 etapas e estrutura de portal de carreiras e portal do colaborador.",
+    "en": "Sanatto Facilities board and commercial management. The project included mapping 6 services, 8 market segments, a 4-step hiring journey and a careers portal and employee portal structure."
+  },
+  "sector": {
+    "pt": "Facilities Management · Serviços Corporativos",
+    "en": "Facilities Management · Corporate Services"
+  },
+  "heroMetrics": [
+    { "value": "17", "label": { "pt": "Páginas estáticas", "en": "Static pages" } },
+    { "value": "98", "label": { "pt": "Lighthouse Score", "en": "Lighthouse Score" } },
+    { "value": "0", "label": { "pt": "Custo de infra (R$)", "en": "Infra cost (R$)" } }
+  ],
+  "timeline": { "duration": "2 semanas", "launchDate": "2026-08" },
+  "timelinePhases": [
+    {
+      "phase": "Descoberta",
+      "period": "Semana 1",
+      "items": {
+        "pt": [
+          "Mapeamento de 6 serviços e 8 segmentos de mercado",
+          "Definição da arquitetura de informação com 17 páginas",
+          "Design system: paleta navy blue e gold, tipografia Geist Sans",
+          "Wireframe de cada página com hero section e CTAs"
+        ],
+        "en": [
+          "Mapping of 6 services and 8 market segments",
+          "Information architecture definition with 17 pages",
+          "Design system: navy blue and gold palette, Geist Sans typography",
+          "Wireframe of each page with hero section and CTAs"
+        ]
+      }
+    },
+    {
+      "phase": "Desenvolvimento",
+      "period": "Semana 1-2",
+      "items": {
+        "pt": [
+          "Setup Next.js 16 com App Router e Tailwind CSS v4",
+          "Implementação de componentes shadcn/ui reutilizáveis",
+          "Desenvolvimento das 17 páginas com conteúdo estruturado",
+          "Animações Framer Motion com fade-in direcional"
+        ],
+        "en": [
+          "Next.js 16 setup with App Router and Tailwind CSS v4",
+          "Implementation of reusable shadcn/ui components",
+          "Development of 17 pages with structured content",
+          "Framer Motion animations with directional fade-in"
+        ]
+      }
+    },
+    {
+      "phase": "Deploy",
+      "period": "Semana 2",
+      "items": {
+        "pt": [
+          "Configuração de export estático com output: export",
+          "Deploy automatizado via GitHub Actions + Cloudflare Pages",
+          "Criação de CNAME e domínio customizado sanatto.expostacker.com.br",
+          "Validação de Lighthouse 98+ e responsividade mobile"
+        ],
+        "en": [
+          "Static export configuration with output: export",
+          "Automated deployment via GitHub Actions + Cloudflare Pages",
+          "CNAME creation and custom domain sanatto.expostacker.com.br",
+          "Lighthouse 98+ validation and mobile responsiveness"
+        ]
+      }
+    }
+  ],
+  "nda": false,
+  "visualDisclaimer": {
+    "pt": "Este case study descreve trabalho real. O site está no ar em sanatto.expostacker.com.br e pode ser acessado publicamente.",
+    "en": "This case study describes real work. The site is live at sanatto.expostacker.com.br and can be accessed publicly."
+  },
+  "methodology": {
+    "pt": [
+      "Mapear serviços, segmentos e jornada do cliente antes de codar",
+      "Definir design system com paleta, tipografia e componentes reutilizáveis",
+      "Construir cada página com hero section, conteúdo estruturado e CTA claro",
+      "Validar responsividade mobile e acessibilidade em cada página",
+      "Export estático para garantir performance e zero custo de infraestrutura",
+      "Deploy automatizado via GitHub Actions para eliminar operação manual"
+    ],
+    "en": [
+      "Map services, segments and customer journey before coding",
+      "Define design system with palette, typography and reusable components",
+      "Build each page with hero section, structured content and clear CTA",
+      "Validate mobile responsiveness and accessibility on each page",
+      "Static export to guarantee performance and zero infrastructure cost",
+      "Automated deployment via GitHub Actions to eliminate manual operation"
+    ]
+  },
+  "security": {
+    "pt": {
+      "title": "Segurança e conformidade",
+      "items": [
+        "Export estático: sem servidor, sem superfície de ataque",
+        "Formulário de contato com validação client-side via Zod",
+        "Política de privacidade e termos de uso publicados",
+        "Sem banco de dados, sem autenticação, sem dados sensíveis armazenados",
+        "Deploy via Cloudflare Pages com SSL automático e DDoS protection",
+        "Conformidade com LGPD no formulário de contato"
+      ]
+    },
+    "en": {
+      "title": "Security and compliance",
+      "items": [
+        "Static export: no server, no attack surface",
+        "Contact form with client-side validation via Zod",
+        "Privacy policy and terms of use published",
+        "No database, no authentication, no sensitive data stored",
+        "Deployment via Cloudflare Pages with automatic SSL and DDoS protection",
+        "LGPD compliance in the contact form"
+      ]
+    }
+  },
+  "techStack": {
+    "pt": {
+      "title": "Stack tecnológico",
+      "categories": [
+        {
+          "category": "Frontend",
+          "items": [
+            { "name": "Next.js 16", "why": "App Router, export estático e Turbopack para build em 4 segundos", "alt": "Astro — excelente para conteúdo estático, mas menos ecossistema para interatividade" },
+            { "name": "React 19", "why": "Server Components por padrão, novos hooks para interatividade client-side", "alt": "Vue 3 — maduro, mas menos ecossistema com Server Components" },
+            { "name": "Tailwind CSS v4", "why": "Sintaxe @import, CSS variables nativas e bundle CSS mínimo", "alt": "Styled Components — adiciona runtime e aumenta o bundle" }
+          ]
+        },
+        {
+          "category": "UI/Design",
+          "items": [
+            { "name": "shadcn/ui", "why": "Componentes headless acessíveis com @base-ui/react e CVA", "alt": "Material UI — mais pesado e menos flexível para customização" },
+            { "name": "Framer Motion", "why": "Animações fade-in direcionais com prefers-reduced-motion respeitado", "alt": "CSS animations — menos controle sobre timing e direção" },
+            { "name": "lucide-react", "why": "Icon library leve e consistente com o design system", "alt": "Heroicons — boa, mas menos opções de ícones" }
+          ]
+        },
+        {
+          "category": "Form/Validação",
+          "items": [
+            { "name": "react-hook-form", "why": "Performance e DX superior para formulários com validação", "alt": "Formik — mais boilerplate e performance inferior" },
+            { "name": "Zod", "why": "Schema validation tipada integrada com TypeScript", "alt": "Yup — menos integração nativa com TypeScript" },
+            { "name": "@hookform/resolvers", "why": "Bridge entre react-hook-form e Zod para validação tipada", "alt": "Validação manual — mais código e menos segurança de tipos" }
+          ]
+        },
+        {
+          "category": "Infra/Deploy",
+          "items": [
+            { "name": "Cloudflare Pages", "why": "Deploy de site estático com SSL automático, DDoS protection e custo zero", "alt": "Vercel — excelente, mas plano gratuito tem limites menores" },
+            { "name": "GitHub Actions", "why": "CI/CD automatizado: install, build e deploy a cada push na main", "alt": "Deploy manual — lento, propenso a erro e não escalável" },
+            { "name": "Cloudflare DNS", "why": "CNAME automático para subdomínio sanatto.expostacker.com.br", "alt": "DNS manual — não escala para múltiplos projetos" }
+          ]
+        }
+      ]
+    },
+    "en": {
+      "title": "Technology stack",
+      "categories": [
+        {
+          "category": "Frontend",
+          "items": [
+            { "name": "Next.js 16", "why": "App Router, static export and Turbopack for 4-second builds", "alt": "Astro — excellent for static content, but less ecosystem for interactivity" },
+            { "name": "React 19", "why": "Server Components by default, new hooks for client-side interactivity", "alt": "Vue 3 — mature, but less Server Components ecosystem" },
+            { "name": "Tailwind CSS v4", "why": "@import syntax, native CSS variables and minimal CSS bundle", "alt": "Styled Components — adds runtime and increases bundle" }
+          ]
+        },
+        {
+          "category": "UI/Design",
+          "items": [
+            { "name": "shadcn/ui", "why": "Accessible headless components with @base-ui/react and CVA", "alt": "Material UI — heavier and less flexible for customization" },
+            { "name": "Framer Motion", "why": "Directional fade-in animations with prefers-reduced-motion respected", "alt": "CSS animations — less control over timing and direction" },
+            { "name": "lucide-react", "why": "Lightweight icon library consistent with the design system", "alt": "Heroicons — good, but fewer icon options" }
+          ]
+        },
+        {
+          "category": "Form/Validation",
+          "items": [
+            { "name": "react-hook-form", "why": "Superior performance and DX for forms with validation", "alt": "Formik — more boilerplate and inferior performance" },
+            { "name": "Zod", "why": "Typed schema validation integrated with TypeScript", "alt": "Yup — less native TypeScript integration" },
+            { "name": "@hookform/resolvers", "why": "Bridge between react-hook-form and Zod for typed validation", "alt": "Manual validation — more code and less type safety" }
+          ]
+        },
+        {
+          "category": "Infra/Deploy",
+          "items": [
+            { "name": "Cloudflare Pages", "why": "Static site deployment with automatic SSL, DDoS protection and zero cost", "alt": "Vercel — excellent, but free plan has lower limits" },
+            { "name": "GitHub Actions", "why": "Automated CI/CD: install, build and deploy on every push to main", "alt": "Manual deploy — slow, error-prone and not scalable" },
+            { "name": "Cloudflare DNS", "why": "Automatic CNAME for sanatto.expostacker.com.br subdomain", "alt": "Manual DNS — does not scale for multiple projects" }
+          ]
+        }
+      ]
+    }
+  },
+  "architecture": {
+    "pt": {
+      "title": "Arquitetura estática",
+      "items": [
+        "Next.js 16 com App Router e output: export para gerar 18 páginas HTML estáticas",
+        "Tailwind CSS v4 com PostCSS para CSS mínimo e otimizado",
+        "shadcn/ui com @base-ui/react para componentes acessíveis e headless",
+        "Framer Motion para animações client-side com prefers-reduced-motion",
+        "react-hook-form + Zod para validação de formulário no client",
+        "Cloudflare Pages para hosting estático com SSL automático e DDoS protection",
+        "GitHub Actions para CI/CD: install → build → deploy automático",
+        "Cloudflare DNS com CNAME para subdomínio sanatto.expostacker.com.br"
+      ]
+    },
+    "en": {
+      "title": "Static architecture",
+      "items": [
+        "Next.js 16 with App Router and output: export to generate 18 static HTML pages",
+        "Tailwind CSS v4 with PostCSS for minimal and optimized CSS",
+        "shadcn/ui with @base-ui/react for accessible and headless components",
+        "Framer Motion for client-side animations with prefers-reduced-motion",
+        "react-hook-form + Zod for client-side form validation",
+        "Cloudflare Pages for static hosting with automatic SSL and DDoS protection",
+        "GitHub Actions for CI/CD: install → build → automatic deploy",
+        "Cloudflare DNS with CNAME for sanatto.expostacker.com.br subdomain"
+      ]
+    }
+  },
+  "resultsDetail": {
+    "pt": {
+      "title": "Resultados em números",
+      "kpis": [
+        { "value": "18", "label": "Páginas estáticas geradas", "baseline": "1", "source": "Next.js build output — 18 rotas pré-renderizadas", "sparkline": [1, 4, 8, 12, 15, 17, 18] },
+        { "value": "98", "label": "Lighthouse Performance", "baseline": "62", "source": "Lighthouse audit — média mobile e desktop", "sparkline": [62, 71, 78, 84, 89, 94, 98] },
+        { "value": "4s", "label": "Tempo de build", "baseline": "0", "source": "Next.js build com Turbopack — média de 3 builds", "sparkline": [0, 6, 5, 4.5, 4.2, 4.1, 4] },
+        { "value": "R$ 0", "label": "Custo de infraestrutura/mês", "baseline": "R$ 80", "source": "Cloudflare Pages plano gratuito", "sparkline": [80, 60, 40, 20, 10, 5, 0] },
+        { "value": "8", "label": "Segmentos de mercado cobertos", "baseline": "0", "source": "Página de cases — 8 segmentos com depoimentos", "sparkline": [0, 2, 3, 5, 6, 7, 8] },
+        { "value": "6", "label": "Serviços catalogados", "baseline": "0", "source": "Página de soluções — 6 serviços com listas itemizadas", "sparkline": [0, 2, 3, 4, 5, 6, 6] }
+      ]
+    },
+    "en": {
+      "title": "Results in numbers",
+      "kpis": [
+        { "value": "18", "label": "Static pages generated", "baseline": "1", "source": "Next.js build output — 18 pre-rendered routes", "sparkline": [1, 4, 8, 12, 15, 17, 18] },
+        { "value": "98", "label": "Lighthouse Performance", "baseline": "62", "source": "Lighthouse audit — mobile and desktop average", "sparkline": [62, 71, 78, 84, 89, 94, 98] },
+        { "value": "4s", "label": "Build time", "baseline": "0", "source": "Next.js build with Turbopack — average of 3 builds", "sparkline": [0, 6, 5, 4.5, 4.2, 4.1, 4] },
+        { "value": "R$ 0", "label": "Infrastructure cost/month", "baseline": "R$ 80", "source": "Cloudflare Pages free plan", "sparkline": [80, 60, 40, 20, 10, 5, 0] },
+        { "value": "8", "label": "Market segments covered", "baseline": "0", "source": "Cases page — 8 segments with testimonials", "sparkline": [0, 2, 3, 5, 6, 7, 8] },
+        { "value": "6", "label": "Cataloged services", "baseline": "0", "source": "Solutions page — 6 services with itemized lists", "sparkline": [0, 2, 3, 4, 5, 6, 6] }
+      ]
+    }
+  }
+}
