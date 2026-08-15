@@ -23,6 +23,14 @@ npm run deploy:worker  # deploy do worker via wrangler
 
 ## Deploy
 
-1. Criar projeto no Cloudflare Pages e configurar os secrets `CLOUDFLARE_API_TOKEN` e `CLOUDFLARE_ACCOUNT_ID` no GitHub.
-2. Configurar a rota `expostacker.com.br/apps/*` no Worker para apontar para `expostacker-worker`.
-3. Publicar o conteúdo real dos cases e substituir os dados mock por clientes reais.
+- `https://a585aade.expostacker.pages.dev` — preview do Pages
+- `https://expostacker-worker.lfelipef1-dev.workers.dev` — endpoint do Worker
+- `expostacker.com.br` — domínio principal (aguardando propagação do DNS)
+
+CI/CD ativado: todo push para `main` dispara `deploy.yml` (Pages) e `deploy-worker.yml` (Worker).
+
+## Próximos passos
+
+1. Configurar a rota `expostacker.com.br/apps/*` no Worker.
+2. Vincular `expostacker.com.br` ao Cloudflare Pages quando o DNS estiver active.
+3. Substituir os cases mock por conteúdo real e clientes verificáveis.
