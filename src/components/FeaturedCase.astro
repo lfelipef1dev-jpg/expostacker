@@ -11,8 +11,8 @@ export interface Props {
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 const cases: CollectionEntry<'cases'>[] = await getCollection('cases');
-const featured = cases.find((c) => c.data.featured) ?? cases[0];
-const metrics = featured.data.businessOutcome.slice(0, 3);
+const featured = cases.filter((c) => c.data.featured);
+const list = featured.length > 0 ? featured : cases.slice(0, 1);
 ---
 
 <section class="relative py-20 md:py-28 overflow-hidden">
@@ -28,87 +28,101 @@ const metrics = featured.data.businessOutcome.slice(0, 3);
       </span>
     </div>
 
-    {/* Main container */}
-    <div
-      class="relative overflow-hidden rounded-3xl border border-brand-border bg-gradient-to-br from-brand-surface/80 to-brand-bg/60 shadow-[0_24px_80px_-24px_rgba(0,0,0,0.6)] backdrop-blur-md motion-safe:transition-transform motion-safe:duration-200 hover:-translate-y-0.5"
-    >
-      {/* Ambient gradients */}
-      <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-brand-accent-secondary/10 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-brand-bg/70 to-transparent"></div>
-      </div>
+    {list.map((item, index) => {
+      const metrics = item.data.businessOutcome.slice(0, 3);
+      const isReversed = index % 2 === 1;
+      const logoPath = `/cases/${item.id}.svg`;
+      const imagePath = `/cases/${item.id}.svg`;
+      const href = `/${lang}/cases/${item.id}/`;
+      const liveUrl = item.data.liveUrl;
 
-      <div class="relative grid md:grid-cols-2 gap-10 md:gap-12 p-8 md:p-14 items-center">
-        {/* Left: content */}
-        <div>
-          <div class="inline-flex items-center gap-3 mb-6">
-            <img
-              src="/cases/marken-fassi.jpg"
-              alt={`Logotipo do cliente ${featured.data.clientName}`}
-              width="48"
-              height="48"
-              loading="eager"
-              class="w-12 h-12 object-contain rounded-lg bg-brand-bg/40 p-1.5 border border-brand-border"
-            />
-            <span class="text-sm font-medium text-brand-text-secondary font-mono">
-              {featured.data.clientName}
-            </span>
+      return (
+        <div
+          class:index-0={index === 0}
+          class="relative overflow-hidden rounded-3xl border border-brand-border bg-gradient-to-br from-brand-surface/80 to-brand-bg/60 shadow-[0_24px_80px_-24px_rgba(0,0,0,0.6)] backdrop-blur-md motion-safe:transition-transform motion-safe:duration-200 hover:-translate-y-0.5"
+          class:list={[index > 0 && 'mt-8 md:mt-12']}
+        >
+          {/* Ambient gradients */}
+          <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+            <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-brand-accent-secondary/10 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-brand-bg/70 to-transparent"></div>
           </div>
 
-          <h2 class="font-display text-3xl md:text-5xl font-black leading-[1.05] tracking-[-0.03em] text-brand-text mb-5 motion-safe:transition-opacity motion-safe:duration-200">
-            {featured.data.title}
-          </h2>
-
-          <p class="text-base md:text-lg text-brand-text-secondary max-w-xl mb-8 leading-relaxed">
-            {featured.data.shortDescription}
-          </p>
-
-          {/* CTAs */}
-          <div class="flex flex-col sm:flex-row gap-4 mb-10">
-            <a
-              href={`/${lang}/cases/${featured.id}/`}
-              class="inline-flex items-center justify-center min-h-[48px] px-6 py-3.5 bg-brand-accent text-brand-bg font-bold rounded-xl hover:scale-105 motion-safe:transition-transform motion-safe:duration-200 shadow-[0_0_24px_rgba(20,184,166,0.35)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-accent"
-            >
-              {t('featured.ctaCase')} →
-            </a>
-            <a
-              href={featured.data.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center justify-center min-h-[48px] px-6 py-3.5 border border-brand-border text-brand-text font-semibold rounded-xl hover:border-brand-accent/60 hover:text-brand-accent motion-safe:transition-colors motion-safe:duration-200 bg-brand-surface/40 backdrop-blur-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-accent"
-            >
-              {t('featured.ctaLive')} ↗
-            </a>
-          </div>
-
-          {/* Metrics */}
-          <div class="grid grid-cols-3 gap-4 md:gap-6">
-            {metrics.map((metric) => (
-              <div class="border-l-2 border-brand-accent/30 pl-4">
-                <span class="block text-2xl md:text-3xl font-black text-brand-accent font-mono">
-                  {formatBusinessMetric(metric.value, metric.unit)}
+          <div class={`relative grid md:grid-cols-2 gap-10 md:gap-12 p-8 md:p-14 items-center ${isReversed ? 'md:[direction:rtl]' : ''}`}>
+            {/* Content side */}
+            <div class="[direction:ltr]">
+              <div class="inline-flex items-center gap-3 mb-6">
+                <img
+                  src={logoPath}
+                  alt={`Logotipo do cliente ${item.data.clientName}`}
+                  width="48"
+                  height="48"
+                  loading="eager"
+                  class="w-12 h-12 object-contain rounded-lg bg-brand-bg/40 p-1.5 border border-brand-border"
+                />
+                <span class="text-sm font-medium text-brand-text-secondary font-mono">
+                  {item.data.clientName}
                 </span>
-                <span class="text-xs md:text-sm text-brand-text-secondary">{metric.label}</span>
               </div>
-            ))}
-          </div>
-        </div>
 
-        {/* Right: visual */}
-        <div class="relative aspect-[4/3] rounded-2xl overflow-hidden border border-brand-border bg-brand-bg/40 shadow-[0_16px_48px_-16px_rgba(0,0,0,0.5)]">
-          <div class="absolute inset-0 flex items-center justify-center p-6">
-            <img
-              src="/cases/marken-fassi.jpg"
-              alt={`Prévia da aplicação CASA FASSI — plataforma de microlearning e gamificação para vendedores de enxovais de luxo`}
-              width="400"
-              height="300"
-              loading="eager"
-              class="w-full h-full object-contain drop-shadow-2xl"
-            />
+              <h2 class="font-display text-3xl md:text-5xl font-black leading-[1.05] tracking-[-0.03em] text-brand-text mb-5 motion-safe:transition-opacity motion-safe:duration-200">
+                {item.data.title}
+              </h2>
+
+              <p class="text-base md:text-lg text-brand-text-secondary max-w-xl mb-8 leading-relaxed">
+                {item.data.shortDescription}
+              </p>
+
+              {/* CTAs */}
+              <div class="flex flex-col sm:flex-row gap-4 mb-10">
+                <a
+                  href={href}
+                  class="inline-flex items-center justify-center min-h-[48px] px-6 py-3.5 bg-brand-accent text-brand-bg font-bold rounded-xl hover:scale-105 motion-safe:transition-transform motion-safe:duration-200 shadow-[0_0_24px_rgba(20,184,166,0.35)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-accent"
+                >
+                  {t('featured.ctaCase')} →
+                </a>
+                {liveUrl && (
+                  <a
+                    href={liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center justify-center min-h-[48px] px-6 py-3.5 border border-brand-border text-brand-text font-semibold rounded-xl hover:border-brand-accent/60 hover:text-brand-accent motion-safe:transition-colors motion-safe:duration-200 bg-brand-surface/40 backdrop-blur-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-accent"
+                  >
+                    {t('featured.ctaLive')} ↗
+                  </a>
+                )}
+              </div>
+
+              {/* Metrics */}
+              <div class="grid grid-cols-3 gap-4 md:gap-6">
+                {metrics.map((metric) => (
+                  <div class="border-l-2 border-brand-accent/30 pl-4">
+                    <span class="block text-2xl md:text-3xl font-black text-brand-accent font-mono">
+                      {formatBusinessMetric(metric.value, metric.unit)}
+                    </span>
+                    <span class="text-xs md:text-sm text-brand-text-secondary">{metric.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Visual side */}
+            <div class="relative aspect-[4/3] rounded-2xl overflow-hidden border border-brand-border bg-brand-bg/40 shadow-[0_16px_48px_-16px_rgba(0,0,0,0.5)] [direction:ltr]">
+              <div class="absolute inset-0 flex items-center justify-center p-6">
+                <img
+                  src={imagePath}
+                  alt={`Prévia da aplicação ${item.data.title}`}
+                  width="400"
+                  height="300"
+                  loading="eager"
+                  class="w-full h-full object-contain drop-shadow-2xl"
+                />
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-bg/70 via-transparent to-transparent pointer-events-none" aria-hidden="true"></div>
+            </div>
           </div>
-          <div class="absolute inset-0 bg-gradient-to-t from-brand-bg/70 via-transparent to-transparent pointer-events-none" aria-hidden="true"></div>
         </div>
-      </div>
-    </div>
+      );
+    })}
   </div>
 </section>
