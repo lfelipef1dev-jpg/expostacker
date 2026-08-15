@@ -8,7 +8,7 @@ export interface Props {
   slug: string;
 }
 
-const { lang, entry } = Astro.props;
+const { lang, entry, slug } = Astro.props;
 const t = useTranslations(lang);
 
 const heroMetrics = entry?.data?.heroMetrics ?? [];
@@ -18,9 +18,7 @@ const hasLiveUrl = Boolean(entry?.data?.liveUrl);
 const heroImage = entry?.data?.heroImage ?? null;
 const eyebrow = lang === 'pt' ? 'PROJETO EM PRODUÇÃO' : 'LIVE PROJECT';
 
-// Cache busting para forcar recarregamento do iframe em cada deploy
-const bust = '?b=' + Date.now().toString(36).slice(0, 8);
-const liveUrlWithBust = liveUrl.includes('?') ? liveUrl + '&' + bust.slice(1) : liveUrl + bust;
+// Cache busting e slug serao usados no script client-side
 ---
 
 <section
@@ -113,17 +111,29 @@ const liveUrlWithBust = liveUrl.includes('?') ? liveUrl + '&' + bust.slice(1) : 
             </div>
           </div>
           {/* App preview area */}
-          <div class="relative aspect-[4/3] min-h-[300px] md:min-h-[400px] bg-gradient-to-br from-brand-surface to-brand-bg overflow-hidden">
-            {/* Iframe (live preview) */}
+          <div
+            class="relative aspect-[4/3] min-h-[300px] md:min-h-[400px] bg-gradient-to-br from-brand-surface to-brand-bg overflow-hidden"
+            id={`preview-${slug}`}
+          >
+            {/* Iframe gerado dinamicamente para evitar cache */}
             {hasLiveUrl && (
-              <iframe
-                src={liveUrlWithBust}
-                class="absolute inset-0 w-full h-full border-0 bg-brand-bg"
-                loading="eager"
-                scrolling="yes"
-                sandbox="allow-scripts"
-                title={`${entry?.data?.title} — live preview`}
-              />
+              <script is:inline define:vars={{ slug, liveUrl, previewTitle: entry?.data?.title }}>
+                (function(){
+                  var container = document.getElementById('preview-' + slug);
+                  if (!container) return;
+                  var ts = Date.now().toString(36);
+                  var sep = liveUrl.indexOf('?') > -1 ? '&' : '?';
+                  var url = liveUrl + sep + 'b=' + ts;
+                  var frame = document.createElement('iframe');
+                  frame.src = url;
+                  frame.className = 'absolute inset-0 w-full h-full border-0 bg-brand-bg';
+                  frame.setAttribute('loading', 'eager');
+                  frame.setAttribute('scrolling', 'yes');
+                  frame.setAttribute('sandbox', 'allow-scripts');
+                  frame.setAttribute('title', previewTitle + ' — live preview');
+                  container.appendChild(frame);
+                })();
+              </script>
             )}
             {/* Image (only if no liveUrl) */}
             {!hasLiveUrl && heroImage && (
