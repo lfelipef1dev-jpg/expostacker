@@ -26,7 +26,7 @@ const {
 
 const SITE_URL = 'https://expostacker.com.br';
 const SITE_NAME = 'Expo Stacker';
-const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.png`;
+const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.svg`;
 const resolvedOgImage = ogImage ?? DEFAULT_OG_IMAGE;
 
 const ogLocale = lang === 'pt' ? 'pt_BR' : 'en_US';
@@ -59,6 +59,12 @@ const personSchema = {
 <meta name="description" content={description} />
 <meta name="theme-color" content="#0A0A0F" />
 <link rel="canonical" href={canonicalUrl} />
+
+<!-- DNS prefetch and preconnect for external resources -->
+<link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+<link rel="dns-prefetch" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
 <!-- hreflang -->
 <link rel="alternate" hreflang="pt-BR" href={ptUrl} />

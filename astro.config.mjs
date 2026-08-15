@@ -6,5 +6,9 @@ export default defineConfig({
   site: 'https://expostacker.com.br',
   output: 'static',
   trailingSlash: 'always',
+  compressHTML: true,
+  build: {
+    inlineStylesheets: 'auto',
+  },
   integrations: [tailwind({ applyBaseStyles: true }), sitemap()],
 });

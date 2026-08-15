@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#0A0A0F"/>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#0A0A0F" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <text x="600" y="280" text-anchor="middle" font-family="sans-serif" font-size="72" font-weight="bold" fill="#14b8a6">EXPO STACKER</text>
+  <text x="600" y="340" text-anchor="middle" font-family="sans-serif" font-size="28" fill="#a1a1aa">Desenvolvedor Full Stack</text>
+  <text x="600" y="380" text-anchor="middle" font-family="sans-serif" font-size="22" fill="#71717a">React · Node.js · TypeScript · Astro · Cloudflare</text>
+</svg>

@@ -58,6 +58,8 @@ const list = featured.length > 0 ? featured : cases.slice(0, 1);
                   width="48"
                   height="48"
                   loading="eager"
+                  fetchpriority="high"
+                  decoding="async"
                   class="w-12 h-12 object-contain rounded-lg bg-brand-bg/40 p-1.5 border border-brand-border"
                 />
                 <span class="text-sm font-medium text-brand-text-secondary font-mono">
@@ -114,7 +116,9 @@ const list = featured.length > 0 ? featured : cases.slice(0, 1);
                   alt={`Prévia da aplicação ${item.data.title}`}
                   width="400"
                   height="300"
-                  loading="eager"
+                  loading={index === 0 ? "eager" : "lazy"}
+                  fetchpriority={index === 0 ? "high" : "auto"}
+                  decoding="async"
                   class="w-full h-full object-contain drop-shadow-2xl"
                 />
               </div>
