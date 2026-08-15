@@ -116,7 +116,7 @@ const eyebrow = lang === 'pt' ? 'PROJETO EM PRODUÇÃO' : 'LIVE PROJECT';
                 class="absolute inset-0 w-full h-full border-0"
                 loading="lazy"
                 title={`${entry?.data?.title} — live preview`}
-                sandbox="allow-scripts allow-same-origin"
+                sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"
               />
             ) : heroImage ? (
               <img
