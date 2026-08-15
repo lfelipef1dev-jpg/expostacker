@@ -23,6 +23,10 @@ const casesCollection = defineCollection({
       })
     ),
     liveUrl: z.string().url(),
+    demoAccess: z.object({
+      email: z.string(),
+      password: z.string()
+    }).optional(),
     projectType: z.enum(['SaaS', 'Client-Work', 'Open-Source']),
     featured: z.boolean().default(false),
     category: z.enum(['personal', 'client', 'experiment', 'opensource']).default('client').optional(),
@@ -151,6 +155,15 @@ const casesCollection = defineCollection({
         title: z.string(),
         items: z.array(z.string())
       })
+    }).optional(),
+    architectureDiagram: z.object({
+      left: z.string(),
+      leftSub: z.string().optional(),
+      center: z.string(),
+      centerSub: z.string().optional(),
+      right: z.string(),
+      rightSub: z.string().optional(),
+      bottom: z.array(z.string()).optional()
     }).optional(),
     resultsDetail: z.object({
       pt: z.object({

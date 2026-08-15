@@ -229,8 +229,8 @@ const eyebrow = lang === 'pt' ? 'PROJETO EM PRODUÇÃO' : 'LIVE PROJECT';
       )
     }
 
-    {/* Demo access — SEEDS-style */}
-    {hasLiveUrl && (
+    {/* Demo access — only for cases with demo credentials */}
+    {hasLiveUrl && entry?.data?.demoAccess && (
       <div class="mt-10 max-w-md mx-auto rounded-xl border border-brand-border bg-brand-surface/60 p-5 text-center">
         <p class="font-mono text-xs uppercase tracking-wider text-brand-accent mb-3">
           {lang === 'pt' ? 'Acesso de teste' : 'Test access'}
@@ -238,11 +238,11 @@ const eyebrow = lang === 'pt' ? 'PROJETO EM PRODUÇÃO' : 'LIVE PROJECT';
         <div class="space-y-2 font-mono text-sm">
           <div class="flex items-center justify-between gap-4">
             <span class="text-brand-text-secondary">e-mail</span>
-            <span class="text-brand-text select-all">teste@casafassi.com.br</span>
+            <span class="text-brand-text select-all">{entry.data.demoAccess.email}</span>
           </div>
           <div class="flex items-center justify-between gap-4">
             <span class="text-brand-text-secondary">senha</span>
-            <span class="text-brand-text select-all">fassi1234</span>
+            <span class="text-brand-text select-all">{entry.data.demoAccess.password}</span>
           </div>
         </div>
         <a

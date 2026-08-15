@@ -383,6 +383,15 @@
       ]
     }
   },
+  "architectureDiagram": {
+    "left": "Visitante",
+    "leftSub": "Google / mobile / desktop",
+    "center": "Sanatto Facilities",
+    "centerSub": "Next.js 16 + Static Export",
+    "right": "Lead",
+    "rightSub": "Formulário de contato",
+    "bottom": ["Cloudflare Pages", "GitHub Actions", "Cloudflare DNS", "Tailwind CSS v4"]
+  },
   "resultsDetail": {
     "pt": {
       "title": "Resultados em números",

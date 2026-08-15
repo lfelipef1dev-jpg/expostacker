@@ -15,6 +15,10 @@
     { "label": "Tempo de Resposta FASSI.AI (alvo)", "value": 2, "unit": "s" }
   ],
   "liveUrl": "https://marken.expostacker.com.br/",
+  "demoAccess": {
+    "email": "teste@casafassi.com.br",
+    "password": "fassi1234"
+  },
   "projectType": "Client-Work",
   "featured": true,
   "category": "client",
@@ -410,6 +414,15 @@
         "Workers container for notification pipelines and async jobs"
       ]
     }
+  },
+  "architectureDiagram": {
+    "left": "Vendedores",
+    "leftSub": "mobile / web",
+    "center": "CASA FASSI",
+    "centerSub": "Next.js 15 + Node.js",
+    "right": "Lojistas",
+    "rightSub": "dashboard",
+    "bottom": ["PostgreSQL", "Redis", "OpenAI API", "Workers"]
   },
   "resultsDetail": {
     "pt": {

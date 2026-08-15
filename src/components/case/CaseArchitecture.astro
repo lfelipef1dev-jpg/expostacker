@@ -11,6 +11,7 @@ const { lang, entry } = Astro.props;
 const t = useTranslations(lang);
 
 const archItems = entry?.data?.architecture?.[lang]?.items;
+const diagram = entry?.data?.architectureDiagram;
 ---
 
 <section id="arquitetura" class="py-12 md:py-16 max-w-6xl mx-auto px-4 md:px-6">
@@ -19,65 +20,62 @@ const archItems = entry?.data?.architecture?.[lang]?.items;
   </h2>
 
   <div class="rounded-xl border border-brand-border bg-brand-surface/60 p-4 md:p-6">
-    <div class="flex flex-col items-center gap-4 md:gap-4">
-      <!-- Top row: Vendedores / CASA FASSI / Lojistas -->
-      <div class="grid w-full grid-cols-1 items-center gap-3 md:grid-cols-[1fr_auto_1.4fr_auto_1fr] md:gap-2">
-        <div class="p-4 rounded-lg border border-brand-border bg-brand-surface/60 text-sm text-brand-text text-center">
-          <strong>Vendedores</strong>
-          <div class="text-brand-text-secondary">mobile / web</div>
+    {diagram && (
+      <div class="flex flex-col items-center gap-4 md:gap-4">
+        <!-- Top row: left input / center app / right output -->
+        <div class="grid w-full grid-cols-1 items-center gap-3 md:grid-cols-[1fr_auto_1.4fr_auto_1fr] md:gap-2">
+          <div class="p-4 rounded-lg border border-brand-border bg-brand-surface/60 text-sm text-brand-text text-center">
+            <strong>{diagram.left}</strong>
+            {diagram.leftSub && <div class="text-brand-text-secondary">{diagram.leftSub}</div>}
+          </div>
+
+          <div class="flex items-center justify-center text-brand-accent" aria-hidden="true">
+            <svg width="36" height="20" viewBox="0 0 36 20" fill="none" class="hidden md:block">
+              <path d="M2 10 H32" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+              <path d="M26 4 L34 10 L26 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+            </svg>
+            <span class="md:hidden text-xl leading-none">↓</span>
+          </div>
+
+          <div class="p-4 rounded-lg border border-brand-accent bg-brand-surface text-sm text-brand-text text-center md:min-w-[16rem]">
+            <strong>{diagram.center}</strong>
+            {diagram.centerSub && <div class="text-brand-text-secondary">{diagram.centerSub}</div>}
+          </div>
+
+          <div class="flex items-center justify-center text-brand-accent" aria-hidden="true">
+            <svg width="36" height="20" viewBox="0 0 36 20" fill="none" class="hidden md:block">
+              <path d="M2 10 H32" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+              <path d="M26 4 L34 10 L26 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+            </svg>
+            <span class="md:hidden text-xl leading-none">↓</span>
+          </div>
+
+          <div class="p-4 rounded-lg border border-brand-border bg-brand-surface/60 text-sm text-brand-text text-center">
+            <strong>{diagram.right}</strong>
+            {diagram.rightSub && <div class="text-brand-text-secondary">{diagram.rightSub}</div>}
+          </div>
         </div>
 
-        <div class="flex items-center justify-center text-brand-accent" aria-hidden="true">
-          <svg width="36" height="20" viewBox="0 0 36 20" fill="none" class="hidden md:block">
-            <path d="M2 10 H32" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-            <path d="M26 4 L34 10 L26 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
-          </svg>
-          <span class="md:hidden text-xl leading-none">↓</span>
-        </div>
+        {diagram.bottom && diagram.bottom.length > 0 && (
+          <>
+            <div class="flex flex-col items-center text-brand-accent" aria-hidden="true">
+              <svg width="20" height="40" viewBox="0 0 20 40" fill="none">
+                <path d="M10 2 V32" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                <path d="M4 26 L10 34 L16 26" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+              </svg>
+            </div>
 
-        <div class="p-4 rounded-lg border border-brand-accent bg-brand-surface text-sm text-brand-text text-center md:min-w-[16rem]">
-          <strong>CASA FASSI</strong>
-          <div class="text-brand-text-secondary">Next.js 15 + Node.js</div>
-        </div>
-
-        <div class="flex items-center justify-center text-brand-accent" aria-hidden="true">
-          <svg width="36" height="20" viewBox="0 0 36 20" fill="none" class="hidden md:block">
-            <path d="M2 10 H32" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-            <path d="M26 4 L34 10 L26 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
-          </svg>
-          <span class="md:hidden text-xl leading-none">↓</span>
-        </div>
-
-        <div class="p-4 rounded-lg border border-brand-border bg-brand-surface/60 text-sm text-brand-text text-center">
-          <strong>Lojistas</strong>
-          <div class="text-brand-text-secondary">dashboard</div>
-        </div>
+            <div class="grid w-full grid-cols-2 gap-3 md:grid-cols-4 md:gap-3">
+              {diagram.bottom.map((node: string) => (
+                <div class="p-4 rounded-lg border border-brand-border bg-brand-surface/60 text-sm text-brand-text text-center">
+                  {node}
+                </div>
+              ))}
+            </div>
+          </>
+        )}
       </div>
-
-      <!-- Downward connectors -->
-      <div class="flex flex-col items-center text-brand-accent" aria-hidden="true">
-        <svg width="20" height="40" viewBox="0 0 20 40" fill="none">
-          <path d="M10 2 V32" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-          <path d="M4 26 L10 34 L16 26" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
-        </svg>
-      </div>
-
-      <!-- Bottom row: data and services -->
-      <div class="grid w-full grid-cols-2 gap-3 md:grid-cols-4 md:gap-3">
-        <div class="p-4 rounded-lg border border-brand-border bg-brand-surface/60 text-sm text-brand-text text-center">
-          PostgreSQL
-        </div>
-        <div class="p-4 rounded-lg border border-brand-border bg-brand-surface/60 text-sm text-brand-text text-center">
-          Redis
-        </div>
-        <div class="p-4 rounded-lg border border-brand-border bg-brand-surface/60 text-sm text-brand-text text-center">
-          OpenAI API
-        </div>
-        <div class="p-4 rounded-lg border border-brand-border bg-brand-surface/60 text-sm text-brand-text text-center">
-          Workers
-        </div>
-      </div>
-    </div>
+    )}
 
     {archItems && Array.isArray(archItems) && archItems.length > 0 && (
       <div class="mt-6 pt-6 border-t border-brand-border">
