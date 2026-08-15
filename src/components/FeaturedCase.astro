@@ -1,0 +1,95 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import { ui } from '../i18n/ui';
+import { formatBusinessMetric } from '../utils/format';
+
+export interface Props {
+  lang: keyof typeof ui;
+}
+
+const { lang } = Astro.props;
+const cases: CollectionEntry<'cases'>[] = await getCollection('cases');
+const featured = cases.find((c) => c.data.featured) ?? cases[0];
+---
+
+<section class="relative py-20 md:py-28">
+  <div class="max-w-6xl mx-auto px-4 md:px-6">
+    <div class="mb-10 flex items-center gap-3">
+      <span class="w-2 h-2 rounded-full bg-brand-accent animate-pulse"></span>
+      <span class="text-xs font-bold text-brand-accent uppercase tracking-widest">
+        {lang === 'pt' ? 'Case em destaque' : 'Featured case'}
+      </span>
+    </div>
+
+    <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-[#0f172a]/80 to-[#0a101f]/60 backdrop-blur-md shadow-2xl">
+      <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-violet-500/10 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#010409]/80 to-transparent"></div>
+      </div>
+
+      <div class="relative grid md:grid-cols-2 gap-8 p-8 md:p-12 items-center">
+        <div>
+          <div class="inline-flex items-center gap-3 mb-6">
+            <img
+              src="/cases/marken-fassi.jpg"
+              alt={featured.data.clientName}
+              width="48"
+              height="48"
+              class="w-12 h-12 object-contain rounded-lg bg-white/5 p-1.5 border border-white/10"
+            />
+            <span class="text-sm font-medium text-slate-300">{featured.data.clientName}</span>
+          </div>
+
+          <h2 class="text-3xl md:text-5xl font-black leading-[1.05] tracking-[-0.03em] text-white mb-5">
+            {featured.data.title}
+          </h2>
+
+          <p class="text-base md:text-lg text-slate-300/85 max-w-xl mb-8 leading-relaxed">
+            {featured.data.shortDescription}
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 mb-10">
+            <a
+              href={`/${lang}/cases/${featured.id}/`}
+              class="inline-flex items-center justify-center px-6 py-3.5 bg-brand-accent text-brand-bg font-bold rounded-xl hover:scale-105 transition-transform shadow-[0_0_24px_rgba(0,225,160,0.35)]"
+            >
+              {lang === 'pt' ? 'Ver case completo' : 'Read full case'} →
+            </a>
+            <a
+              href={featured.data.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center px-6 py-3.5 border border-white/20 text-white font-semibold rounded-xl hover:border-brand-accent/60 hover:text-brand-accent transition-colors bg-white/5 backdrop-blur-sm"
+            >
+              {lang === 'pt' ? 'Abrir aplicação' : 'Open app'} ↗
+            </a>
+          </div>
+
+          <div class="grid grid-cols-3 gap-4 md:gap-6">
+            {featured.data.businessOutcome.slice(0, 3).map((metric) => (
+              <div class="border-l-2 border-brand-accent/30 pl-4">
+                <span class="block text-2xl md:text-3xl font-black text-brand-accent">
+                  {formatBusinessMetric(metric.value, metric.unit)}
+                </span>
+                <span class="text-xs md:text-sm text-slate-400">{metric.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 bg-[#0a0a0a]/40">
+          <div class="absolute inset-0 flex items-center justify-center">
+            <img
+              src="/cases/marken-fassi.jpg"
+              alt={featured.data.title}
+              width="400"
+              height="300"
+              class="w-3/4 h-3/4 object-contain drop-shadow-2xl"
+            />
+          </div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#010409]/70 via-transparent to-transparent"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

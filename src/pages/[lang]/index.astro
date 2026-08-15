@@ -3,6 +3,7 @@ import '../../styles/global.css';
 import { ui } from '../../i18n/ui';
 import Header from '../../components/Header.astro';
 import Hero from '../../components/Hero.astro';
+import FeaturedCase from '../../components/FeaturedCase.astro';
 import BentoGrid from '../../components/BentoGrid.astro';
 import Footer from '../../components/Footer.astro';
 
@@ -46,6 +47,7 @@ const title = currentLang === 'pt'
     <Header lang={currentLang} />
     <main class="flex-1">
       <Hero lang={currentLang} />
+      <FeaturedCase lang={currentLang} />
       <BentoGrid lang={currentLang} />
     </main>
     <Footer lang={currentLang} />
