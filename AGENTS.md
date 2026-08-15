@@ -147,14 +147,22 @@ Dark 2026:
 - Arquivo local: `.deploy.env` (gitignored)
 - Secrets no GitHub: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`
 - Mesmo token serve para todos os projetos do ecossistema
+- Global API Key do Cloudflare salva no `.deploy.env` para criar CNAME automatico
 
 ### Novo projeto (script automatico)
 
 ```powershell
-.\scripts\novo-projeto.ps1 -Nome "novo-projeto" -Pasta "C:\PROJETOS\..." -CloudflareProject "nome-no-cloudflare" -Diretorio "out"
+.\scripts\novo-projeto.ps1 -Nome "novo-projeto" -Pasta "C:\PROJETOS\..." -CloudflareProject "nome-no-cloudflare" -Subdominio "nome" -Diretorio "out"
 ```
 
-O script faz tudo: git init, cria repo no GitHub, adiciona secrets, cria workflow, faz push e deploy.
+O script faz tudo automaticamente:
+1. Git init + commit
+2. Cria repo no GitHub
+3. Adiciona secrets no GitHub
+4. Cria projeto no Cloudflare Pages
+5. Cria CNAME no DNS (subdominio.expostacker.com.br)
+6. Cria workflow de deploy
+7. Push → deploy automatico
 
 ### Projetos no ecossistema
 
@@ -162,6 +170,22 @@ O script faz tudo: git init, cria repo no GitHub, adiciona secrets, cria workflo
 |---|---|---|---|
 | expostacker | expostacker | expostacker.com.br | dist |
 | casa-fassi | marken-fassi | marken.expostacker.com.br | out |
+| sanatto-facilities | sanatto-facilities | sanatto.expostacker.com.br | out |
+
+### Regra absoluta de deploy
+
+- NUNCA pedir para o usuario criar CNAME manualmente
+- NUNCA pedir para o usuario adicionar secrets manualmente
+- O script `novo-projeto.ps1` faz TUDO sozinho
+- Se faltar permissao, usar a Global API Key do `.deploy.env`
+- Todo projeto novo vai para `C:\PROJETOS\EXPOSTACKER\` como subpasta
+- Todo projeto novo ganha subdominio automatico em `*.expostacker.com.br`
+
+### Acessibilidade
+
+- Skip link
+- `aria-labelledby` em sections
+- Focus visible (`focus-visible:ring-2`)
 - Touch targets min 48px (`min-h-12`)
 - `prefers-reduced-motion` respeitado
 - SVGs com `aria-hidden="true"` quando decorativos
