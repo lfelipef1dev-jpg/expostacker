@@ -12,6 +12,13 @@ export const ui = {
     'bento.featured.title': 'Projeto em Destaque',
     'bento.metrics.title': 'Métricas de Impacto',
     'bento.tags.title': 'Stack Tecnológica',
+    'contact.title': 'Vamos construir algo escalável juntos.',
+    'contact.subtitle': 'Me conte sobre o seu projeto. Respondo em até 24 horas.',
+    'contact.name': 'Nome',
+    'contact.email': 'E-mail',
+    'contact.message': 'Mensagem',
+    'contact.send': 'Enviar mensagem',
+    'contact.form.action': 'https://formspree.io/f/xqkovpya',
     'footer.copyright': '© 2026 Expo Stacker. Todos os direitos reservados.'
   },
   en: {
@@ -24,6 +31,13 @@ export const ui = {
     'bento.featured.title': 'Featured Project',
     'bento.metrics.title': 'Impact Metrics',
     'bento.tags.title': 'Tech Stack',
+    'contact.title': "Let's build something scalable together.",
+    'contact.subtitle': 'Tell me about your project. I reply within 24 hours.',
+    'contact.name': 'Name',
+    'contact.email': 'E-mail',
+    'contact.message': 'Message',
+    'contact.send': 'Send message',
+    'contact.form.action': 'https://formspree.io/f/xqkovpya',
     'footer.copyright': '© 2026 Expo Stacker. All rights reserved.'
   }
 } as const;

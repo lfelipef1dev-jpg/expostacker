@@ -3,6 +3,8 @@ import '../../../styles/global.css';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { ui } from '../../../i18n/ui';
 import { formatBusinessMetric } from '../../../utils/format';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
 
 type ValidLang = keyof typeof ui;
 
@@ -32,50 +34,72 @@ const htmlLangMap = { pt: 'pt-BR', en: 'en-US' } as const;
 const htmlLang = htmlLangMap[currentLang];
 
 const site = 'https://expostacker.com.br';
-
-const ptUrl = `${site}/pt/cases/${slug}`;
-const enUrl = `${site}/en/cases/${slug}`;
+const ptUrl = `${site}/pt/cases/${slug}/`;
+const enUrl = `${site}/en/cases/${slug}/`;
 const canonicalUrl = currentLang === 'pt' ? ptUrl : enUrl;
 const xDefaultUrl = ptUrl;
+
+const title = `${entry.data.title} | Expo Stacker`;
+const description = entry.data.problemDescription.slice(0, 160);
 ---
 
 <html lang={htmlLang}>
   <head>
     <meta charset="utf-8" />
-    <title>{entry.data.title} | Expo Stacker</title>
-    <meta name="description" content={entry.data.problemDescription.slice(0, 160)} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0b1021" />
 
     <link rel="canonical" href={canonicalUrl} />
     <link rel="alternate" hreflang="pt-br" href={ptUrl} />
     <link rel="alternate" hreflang="en" href={enUrl} />
     <link rel="alternate" hreflang="x-default" href={xDefaultUrl} />
   </head>
-  <body class="bg-brand-bg text-brand-text p-8">
-    <main class="max-w-4xl mx-auto">
-      <div class="border border-brand-surface bg-brand-surface p-6 rounded-xl">
-        <h1 class="text-3xl font-bold mb-4">{entry.data.title}</h1>
-        <p class="text-brand-accent font-mono mb-4">Cliente: {entry.data.clientName}</p>
+  <body class="min-h-screen flex flex-col bg-brand-bg text-brand-text antialiased">
+    <Header lang={currentLang} />
+    <main class="flex-1 pt-32 pb-20">
+      <article class="max-w-4xl mx-auto px-4 md:px-6">
+        <div class="border border-brand-surface bg-brand-surface/60 backdrop-blur-sm p-6 md:p-10 rounded-2xl">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="w-2 h-2 rounded-full bg-brand-accent animate-pulse"></span>
+            <span class="text-xs font-bold text-brand-accent uppercase tracking-wider">{entry.data.projectType}</span>
+          </div>
 
-        <div class="grid grid-cols-3 gap-4 my-6">
-          {entry.data.businessOutcome.map((metric: { label: string; value: number; unit: string }) => (
-            <div class="p-4 bg-brand-bg border border-brand-surface rounded-lg text-center">
-              <span class="block text-2xl font-black text-brand-accent">{formatBusinessMetric(metric.value, metric.unit)}</span>
-              <span class="text-xs text-slate-400">{metric.label}</span>
+          <h1 class="text-3xl md:text-4xl font-bold text-white mb-4">{entry.data.title}</h1>
+          <p class="text-brand-accent font-mono mb-8">Cliente: {entry.data.clientName}</p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 my-8">
+            {entry.data.businessOutcome.map((metric: { label: string; value: number; unit: string }) => (
+              <div class="p-5 bg-brand-bg border border-brand-surface rounded-xl text-center">
+                <span class="block text-2xl font-black text-brand-accent">{formatBusinessMetric(metric.value, metric.unit)}</span>
+                <span class="text-xs text-slate-400">{metric.label}</span>
+              </div>
+            ))}
+          </div>
+
+          <div class="prose prose-invert max-w-none mt-8">
+            <h2 class="text-xl font-bold text-white mb-3">{currentLang === 'pt' ? 'O Problema' : 'The Problem'}</h2>
+            <p class="text-slate-300 leading-relaxed mb-8">{entry.data.problemDescription}</p>
+            <h2 class="text-xl font-bold text-white mb-3">{currentLang === 'pt' ? 'A Solução Sênior' : 'The Senior Solution'}</h2>
+            <p class="text-slate-300 leading-relaxed mb-8">{entry.data.technicalSolution}</p>
+
+            <h3 class="text-lg font-bold text-white mb-3">{currentLang === 'pt' ? 'Stack utilizada' : 'Stack used'}</h3>
+            <div class="flex flex-wrap gap-2 mb-8">
+              {entry.data.tags.map((tag: string) => (
+                <span class="px-3 py-1.5 text-sm font-medium border border-brand-surface rounded-full bg-brand-bg/60 text-slate-300">
+                  {tag}
+                </span>
+              ))}
             </div>
-          ))}
-        </div>
+          </div>
 
-        <div class="prose prose-invert mt-6">
-          <h3>{currentLang === 'pt' ? 'O Problema' : 'The Problem'}</h3>
-          <p>{entry.data.problemDescription}</p>
-          <h3>{currentLang === 'pt' ? 'A Solução Sênior' : 'The Senior Solution'}</h3>
-          <p>{entry.data.technicalSolution}</p>
+          <a href={`/apps/${slug}`} class="inline-flex items-center mt-4 px-7 py-3.5 bg-brand-accent text-brand-bg font-bold rounded-lg hover:scale-105 transition-transform shadow-[0_0_24px_rgba(0,225,160,0.35)]">
+            {currentLang === 'pt' ? 'Executar Aplicação Ao Vivo ⚡' : 'Run Live Application ⚡'}
+          </a>
         </div>
-
-        <a href={`/apps/${slug}`} class="inline-block mt-6 px-6 py-3 bg-brand-accent text-brand-bg font-bold rounded-lg transition-transform hover:scale-105">
-          {currentLang === 'pt' ? 'Executar Aplicação Viva Ao Vivo ⚡' : 'Run Live Application ⚡'}
-        </a>
-      </div>
+      </article>
     </main>
+    <Footer lang={currentLang} />
   </body>
 </html>

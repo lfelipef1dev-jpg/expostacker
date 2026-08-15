@@ -1,0 +1,95 @@
+---
+import '../../styles/global.css';
+import { ui } from '../../i18n/ui';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+export function getStaticPaths() {
+  const langs: (keyof typeof ui)[] = ['pt', 'en'];
+  return langs.map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+type ValidLang = keyof typeof ui;
+const currentLang: ValidLang = (lang as ValidLang) in ui ? (lang as ValidLang) : 'pt';
+
+const htmlLangMap = { pt: 'pt-BR', en: 'en-US' } as const;
+const htmlLang = htmlLangMap[currentLang];
+const t = ui[currentLang];
+
+const site = 'https://expostacker.com.br';
+const ptUrl = `${site}/pt/contato/`;
+const enUrl = `${site}/en/contato/`;
+const canonicalUrl = currentLang === 'pt' ? ptUrl : enUrl;
+const xDefaultUrl = ptUrl;
+
+const title = currentLang === 'pt'
+  ? 'Contato | Expo Stacker'
+  : 'Contact | Expo Stacker';
+---
+
+<html lang={htmlLang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={t['contact.subtitle']} />
+    <meta name="theme-color" content="#0b1021" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="pt-br" href={ptUrl} />
+    <link rel="alternate" hreflang="en" href={enUrl} />
+    <link rel="alternate" hreflang="x-default" href={xDefaultUrl} />
+  </head>
+  <body class="min-h-screen flex flex-col bg-brand-bg text-brand-text antialiased">
+    <Header lang={currentLang} />
+    <main class="flex-1 pt-32 pb-20">
+      <div class="max-w-2xl mx-auto px-4 md:px-6">
+        <h1 class="text-4xl md:text-5xl font-black text-white mb-4">{t['contact.title']}</h1>
+        <p class="text-lg text-slate-300 mb-10">{t['contact.subtitle']}</p>
+
+        <form action={t['contact.form.action']} method="POST" class="space-y-5 p-6 md:p-8 rounded-2xl border border-brand-surface bg-brand-surface/60">
+          <div>
+            <label for="name" class="block text-sm font-medium text-slate-300 mb-2">{t['contact.name']}</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              class="w-full px-4 py-3 rounded-lg bg-brand-bg border border-brand-surface text-white placeholder-slate-500 focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent"
+            />
+          </div>
+
+          <div>
+            <label for="email" class="block text-sm font-medium text-slate-300 mb-2">{t['contact.email']}</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              class="w-full px-4 py-3 rounded-lg bg-brand-bg border border-brand-surface text-white placeholder-slate-500 focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent"
+            />
+          </div>
+
+          <div>
+            <label for="message" class="block text-sm font-medium text-slate-300 mb-2">{t['contact.message']}</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              required
+              class="w-full px-4 py-3 rounded-lg bg-brand-bg border border-brand-surface text-white placeholder-slate-500 focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full px-6 py-3.5 bg-brand-accent text-brand-bg font-bold rounded-lg hover:scale-[1.02] transition-transform shadow-[0_0_24px_rgba(0,225,160,0.35)]"
+          >
+            {t['contact.send']}
+          </button>
+        </form>
+      </div>
+    </main>
+    <Footer lang={currentLang} />
+  </body>
+</html>

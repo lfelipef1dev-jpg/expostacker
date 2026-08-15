@@ -15,29 +15,29 @@ const cases: CollectionEntry<'cases'>[] = await getCollection('cases');
 const featured = cases[0];
 ---
 
-<section id="cases" class="max-w-5xl mx-auto px-4 pb-20">
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-min">
+<section id="cases" class="max-w-6xl mx-auto px-4 md:px-6 pb-24">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-5 auto-rows-min">
     <!-- Card 1: Destaque Largo -->
-    <div class="md:col-span-2 p-6 rounded-2xl border border-brand-surface bg-brand-surface/40 backdrop-blur flex flex-col justify-between">
+    <div class="md:col-span-2 p-7 rounded-2xl border border-brand-surface bg-brand-surface/60 backdrop-blur-sm flex flex-col justify-between hover:border-brand-accent/40 transition-colors group">
       <div>
         <div class="flex items-center gap-2 mb-4">
           <span class="w-2 h-2 rounded-full bg-brand-accent animate-pulse"></span>
           <span class="text-xs font-bold text-brand-accent uppercase tracking-wider">{t('bento.featured.title')}</span>
         </div>
-        <h2 class="text-2xl md:text-3xl font-bold mb-3">{featured.data.title}</h2>
+        <h2 class="text-2xl md:text-3xl font-bold mb-3 text-white">{featured.data.title}</h2>
         <p class="text-slate-300 leading-relaxed">{featured.data.problemDescription}</p>
       </div>
-      <a href={`/${lang}/cases/${featured.id}/`} class="mt-6 inline-flex w-fit items-center text-brand-accent font-bold hover:underline">
+      <a href={`/${lang}/cases/${featured.id}/`} class="mt-6 inline-flex w-fit items-center text-brand-accent font-bold hover:underline group-hover:translate-x-1 transition-transform">
         {lang === 'pt' ? 'Ver case completo' : 'Read full case'} →
       </a>
     </div>
 
     <!-- Card 2: Métricas -->
-    <div class="p-6 rounded-2xl border border-brand-surface bg-brand-surface/40 backdrop-blur">
-      <h3 class="text-xs font-bold text-brand-accent uppercase tracking-wider mb-4">{t('bento.metrics.title')}</h3>
-      <div class="grid grid-cols-1 gap-4">
+    <div class="p-7 rounded-2xl border border-brand-surface bg-brand-surface/60 backdrop-blur-sm">
+      <h3 class="text-xs font-bold text-brand-accent uppercase tracking-wider mb-5">{t('bento.metrics.title')}</h3>
+      <div class="grid grid-cols-1 gap-5">
         {featured.data.businessOutcome.map((metric: { label: string; value: number; unit: string }) => (
-          <div class="border-b border-brand-surface/50 pb-3 last:border-0 last:pb-0">
+          <div class="border-b border-brand-surface/50 pb-4 last:border-0 last:pb-0">
             <span class="block text-3xl font-black text-brand-accent">{formatBusinessMetric(metric.value, metric.unit)}</span>
             <span class="text-sm text-slate-400">{metric.label}</span>
           </div>
@@ -46,21 +46,21 @@ const featured = cases[0];
     </div>
 
     <!-- Card 3: Tags -->
-    <div class="md:col-span-1 p-6 rounded-2xl border border-brand-surface bg-brand-surface/40 backdrop-blur">
-      <h3 class="text-xs font-bold text-brand-accent uppercase tracking-wider mb-4">{t('bento.tags.title')}</h3>
+    <div class="p-7 rounded-2xl border border-brand-surface bg-brand-surface/60 backdrop-blur-sm">
+      <h3 class="text-xs font-bold text-brand-accent uppercase tracking-wider mb-5">{t('bento.tags.title')}</h3>
       <div class="flex flex-wrap gap-2">
         {featured.data.tags.map((tag: string) => (
-          <span class="px-3 py-1 text-sm font-medium border border-brand-surface rounded-full bg-brand-bg/60">
+          <span class="px-3 py-1.5 text-sm font-medium border border-brand-surface rounded-full bg-brand-bg/60 text-slate-300">
             {tag}
           </span>
         ))}
       </div>
     </div>
 
-    <!-- Card 4: Grid de cases secundários -->
+    <!-- Card 4: Cases secundários -->
     {cases.slice(1).map((item) => (
-      <a href={`/${lang}/cases/${item.id}/`} class="p-6 rounded-2xl border border-brand-surface bg-brand-surface/40 backdrop-blur hover:border-brand-accent transition-colors group">
-        <h3 class="text-lg font-bold mb-2 group-hover:text-brand-accent transition-colors">{item.data.title}</h3>
+      <a href={`/${lang}/cases/${item.id}/`} class="p-6 rounded-2xl border border-brand-surface bg-brand-surface/40 backdrop-blur-sm hover:border-brand-accent/60 hover:bg-brand-surface/70 transition-all group">
+        <h3 class="text-lg font-bold mb-2 text-white group-hover:text-brand-accent transition-colors">{item.data.title}</h3>
         <p class="text-sm text-slate-400 line-clamp-2">{item.data.problemDescription}</p>
       </a>
     ))}

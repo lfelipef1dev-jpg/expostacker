@@ -4,6 +4,7 @@ import { ui } from '../../i18n/ui';
 import Header from '../../components/Header.astro';
 import Hero from '../../components/Hero.astro';
 import BentoGrid from '../../components/BentoGrid.astro';
+import Footer from '../../components/Footer.astro';
 
 export function getStaticPaths() {
   const langs: (keyof typeof ui)[] = ['pt', 'en'];
@@ -23,24 +24,30 @@ const ptUrl = `${site}/pt/`;
 const enUrl = `${site}/en/`;
 const canonicalUrl = currentLang === 'pt' ? ptUrl : enUrl;
 const xDefaultUrl = ptUrl;
+
+const title = currentLang === 'pt'
+  ? 'Expo Stacker | Arquitetura Full Stack que gera receita'
+  : 'Expo Stacker | Full Stack Architecture that drives revenue';
 ---
 
 <html lang={htmlLang}>
   <head>
     <meta charset="utf-8" />
-    <title>Expo Stacker | Full Stack Architecture</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
     <meta name="description" content={t['hero.subtitle']} />
+    <meta name="theme-color" content="#0b1021" />
     <link rel="canonical" href={canonicalUrl} />
     <link rel="alternate" hreflang="pt-br" href={ptUrl} />
     <link rel="alternate" hreflang="en" href={enUrl} />
     <link rel="alternate" hreflang="x-default" href={xDefaultUrl} />
   </head>
-  <body class="bg-brand-bg text-brand-text min-h-screen">
+  <body class="min-h-screen flex flex-col bg-brand-bg text-brand-text antialiased">
     <Header lang={currentLang} />
-    <Hero lang={currentLang} />
-    <BentoGrid lang={currentLang} />
-    <footer class="border-t border-brand-surface py-8 text-center text-sm text-slate-500">
-      {t['footer.copyright']}
-    </footer>
+    <main class="flex-1">
+      <Hero lang={currentLang} />
+      <BentoGrid lang={currentLang} />
+    </main>
+    <Footer lang={currentLang} />
   </body>
 </html>
