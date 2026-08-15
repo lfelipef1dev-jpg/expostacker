@@ -2,6 +2,7 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { ui } from '../i18n/ui';
 import { useTranslations } from '../i18n/utils';
+import { formatBusinessMetric } from '../utils/format';
 
 export interface Props {
   lang: keyof typeof ui;
@@ -37,7 +38,7 @@ const featured = cases[0];
       <div class="grid grid-cols-1 gap-4">
         {featured.data.businessOutcome.map((metric: { label: string; value: number; unit: string }) => (
           <div class="border-b border-brand-surface/50 pb-3 last:border-0 last:pb-0">
-            <span class="block text-3xl font-black text-brand-accent">{metric.value}{metric.unit}</span>
+            <span class="block text-3xl font-black text-brand-accent">{formatBusinessMetric(metric.value, metric.unit)}</span>
             <span class="text-sm text-slate-400">{metric.label}</span>
           </div>
         ))}

@@ -1,6 +1,7 @@
 ---
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { ui } from '../../../i18n/ui';
+import { formatBusinessMetric } from '../../../utils/format';
 
 type ValidLang = keyof typeof ui;
 
@@ -57,7 +58,7 @@ const xDefaultUrl = ptUrl;
         <div class="grid grid-cols-3 gap-4 my-6">
           {entry.data.businessOutcome.map((metric: { label: string; value: number; unit: string }) => (
             <div class="p-4 bg-brand-bg border border-brand-surface rounded-lg text-center">
-              <span class="block text-2xl font-black text-brand-accent">{metric.value}{metric.unit}</span>
+              <span class="block text-2xl font-black text-brand-accent">{formatBusinessMetric(metric.value, metric.unit)}</span>
               <span class="text-xs text-slate-400">{metric.label}</span>
             </div>
           ))}
