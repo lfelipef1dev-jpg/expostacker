@@ -110,8 +110,18 @@ const eyebrow = lang === 'pt' ? 'PROJETO EM PRODUÇÃO' : 'LIVE PROJECT';
           </div>
           {/* App preview area */}
           <div class="relative aspect-[4/3] min-h-[300px] md:min-h-[400px] bg-gradient-to-br from-brand-surface to-brand-bg overflow-hidden">
-            {/* Image layer (fallback behind iframe) */}
-            {heroImage && (
+            {/* Iframe (live preview) */}
+            {hasLiveUrl && (
+              <iframe
+                src={liveUrl}
+                class="absolute inset-0 w-full h-full border-0 bg-brand-bg"
+                loading="eager"
+                scrolling="yes"
+                title={`${entry?.data?.title} — live preview`}
+              />
+            )}
+            {/* Image (only if no liveUrl) */}
+            {!hasLiveUrl && heroImage && (
               <img
                 src={heroImage}
                 alt={`${entry?.data?.title} — preview`}
@@ -121,16 +131,6 @@ const eyebrow = lang === 'pt' ? 'PROJETO EM PRODUÇÃO' : 'LIVE PROJECT';
                 decoding="async"
                 width="800"
                 height="600"
-              />
-            )}
-            {/* Iframe layer (on top of image, fades in when loaded) */}
-            {hasLiveUrl && (
-              <iframe
-                src={liveUrl}
-                class="absolute inset-0 w-full h-full border-0 bg-transparent opacity-0 transition-opacity duration-700"
-                loading="eager"
-                title={`${entry?.data?.title} — live preview`}
-                onload={`this.style.opacity='1'`}
               />
             )}
             {/* Placeholder layer (only if no liveUrl and no heroImage) */}
