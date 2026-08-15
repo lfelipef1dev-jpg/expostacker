@@ -1,0 +1,298 @@
+{
+  "id": "seeds-experience",
+  "title": "SEEDS Experience",
+  "clientName": "SEEDS Experience",
+  "tags": ["Next.js 15", "React 19", "Supabase", "Realtime", "AI", "Cloudflare Workers", "PostgreSQL", "RLS"],
+  "shortDescription": "Plataforma full-stack para comunidade exclusiva de mulheres empreendedoras com 50 rotas, matchmaking via IA, realtime e 32 tabelas com RLS.",
+  "problemDescription": "A SEEDS Experience precisava de uma plataforma digital que suportasse uma comunidade exclusiva de mulheres empreendedoras com networking verificado, matchmaking por IA, eventos com RSVP, mensageria em tempo real, fórum, trilhas de aprendizado, gamificação com conquistas, diretório de membros, oportunidades de capital, benefícios de parceiros e moderação administrativa. O sistema precisava ser invite-only, com autenticação por magic link, Row Level Security em todas as tabelas e performance em produção sem custo elevado de infraestrutura.",
+  "technicalSolution": "Construímos uma aplicação full-stack com Next.js 15 (App Router), React 19, Supabase (PostgreSQL + Auth + Storage + Realtime) e deploy na Cloudflare Workers via @opennextjs/cloudflare. O banco tem 32 tabelas com RLS habilitado, triggers automáticos para contadores, policies por usuário, índices compostos e parciais. A autenticação é invite-only via magic link. O realtime cobre mensagens e salas de chat. O storage gerencia avatares, imagens do feed e capas de eventos. Integrações de IA com Groq, Gemini e Cerebras para matchmaking e assistente. Rate limiting via Upstash Redis. 50 rotas cobrindo feed, eventos, diretório, conexões, colaborações, fórum, grupos, mensagens, indicações, depoimentos, benefícios, capital, IA, match, mural, notificações, palestrantes, parceiros, perfil, produtos, ranking, salvos, trilhas e vagas, mais área admin completa.",
+  "businessOutcome": [
+    { "label": "Rotas na aplicação", "value": 50, "unit": "" },
+    { "label": "Tabelas no banco", "value": 32, "unit": "" },
+    { "label": "Tabelas com RLS", "value": 32, "unit": "" },
+    { "label": "Custo de infraestrutura", "value": 0, "unit": "R$" },
+    { "label": "Integrações de IA", "value": 3, "unit": "" },
+    { "label": "Índices de banco", "value": 40, "unit": "+" }
+  ],
+  "liveUrl": "https://seeds.expostacker.com.br/",
+  "projectType": "SaaS",
+  "featured": true,
+  "category": "personal",
+  "year": 2026,
+  "hasCaseStudy": true,
+  "heroHeadline": {
+    "pt": "Plataforma full-stack para comunidade exclusiva de mulheres empreendedoras com 50 rotas, matchmaking via IA, realtime messaging e 32 tabelas com Row Level Security",
+    "en": "Full-stack platform for an exclusive community of women entrepreneurs with 50 routes, AI matchmaking, realtime messaging and 32 tables with Row Level Security"
+  },
+  "heroSubhead": {
+    "pt": "Aplicação construída com Next.js 15, React 19 e Supabase (PostgreSQL + Auth + Storage + Realtime). 50 rotas cobrindo feed social, eventos com RSVP, diretório de membros, conexões, colaborações, fórum, grupos, mensagens em tempo real, indicações, depoimentos, benefícios, oportunidades de capital, assistente de IA, matchmaking, mural de conquistas, notificações, palestrantes, parceiros, perfil, produtos, ranking, salvos, trilhas de aprendizado e vagas. Área admin completa com convites, eventos, importação, métricas, moderação e parceiros. Autenticação invite-only via magic link. Deploy na Cloudflare Workers via @opennextjs/cloudflare com custo zero de infraestrutura.",
+    "en": "Application built with Next.js 15, React 19 and Supabase (PostgreSQL + Auth + Storage + Realtime). 50 routes covering social feed, events with RSVP, member directory, connections, collaborations, forum, groups, realtime messaging, referrals, testimonials, benefits, capital opportunities, AI assistant, matchmaking, achievement wall, notifications, speakers, partners, profile, products, ranking, saved items, learning tracks and jobs. Complete admin area with invites, events, import, metrics, moderation and partners. Invite-only authentication via magic link. Deploy on Cloudflare Workers via @opennextjs/cloudflare with zero infrastructure cost."
+  },
+  "opening": {
+    "pt": "Uma empreendedora recebe um convite exclusivo por e-mail. Clica no magic link. Em segundos, está autenticada e dentro de uma plataforma com feed social, diretório de outras empreendedoras verificadas, eventos com RSVP, mensagens em tempo real, oportunidades de capital, trilhas de aprendizado e um assistente de IA que faz matchmaking entre perfis complementares. Tudo isso rodando em Cloudflare Workers com Supabase como backend, sem custo de infraestrutura.",
+    "en": "An entrepreneur receives an exclusive invite by email. Clicks the magic link. In seconds, she is authenticated and inside a platform with a social feed, directory of other verified entrepreneurs, events with RSVP, realtime messaging, capital opportunities, learning tracks and an AI assistant that matches complementary profiles. All running on Cloudflare Workers with Supabase as backend, with no infrastructure cost."
+  },
+  "challengeContext": {
+    "pt": "A SEEDS Experience é uma comunidade exclusiva de mulheres empreendedoras. O desafio era construir uma plataforma que suportasse networking verificado, eventos curados, matchmaking por IA, mensageria em tempo real, gamificação com conquistas, fórum de discussão, trilhas de aprendizado, diretório de membros, oportunidades de capital, benefícios de parceiros e moderação administrativa — tudo isso com segurança em nível de banco (RLS em todas as tabelas), autenticação invite-only e performance de produção.",
+    "en": "SEEDS Experience is an exclusive community of women entrepreneurs. The challenge was to build a platform that supported verified networking, curated events, AI matchmaking, realtime messaging, gamification with achievements, discussion forum, learning tracks, member directory, capital opportunities, partner benefits and administrative moderation — all with database-level security (RLS on all tables), invite-only authentication and production performance."
+  },
+  "approach": {
+    "pt": "Arquitetamos uma aplicação full-stack com Next.js 15 App Router e Supabase como backend completo. O banco foi modelado com 32 tabelas distribuídas em 8 grupos funcionais: core, social, eventos, negócios, aprendizado, comunicação, reconhecimento e moderação. Row Level Security habilitado em todas as tabelas com policies por usuário. Triggers automáticos para contadores de reações, comentários e saves. Mais de 40 índices incluindo compostos e parciais. Autenticação invite-only via magic link com tabela de convites. Realtime via Supabase para mensagens e salas. Storage para avatares, imagens do feed e capas de eventos. Integrações de IA com Groq, Gemini e Cerebras para matchmaking e assistente. Deploy na Cloudflare Workers via @opennextjs/cloudflare para zero custo de infraestrutura.",
+    "en": "We architected a full-stack application with Next.js 15 App Router and Supabase as the complete backend. The database was modeled with 32 tables distributed across 8 functional groups: core, social, events, business, learning, communication, recognition and moderation. Row Level Security enabled on all tables with per-user policies. Automatic triggers for reaction, comment and save counters. Over 40 indexes including composite and partial. Invite-only authentication via magic link with invites table. Realtime via Supabase for messages and rooms. Storage for avatars, feed images and event covers. AI integrations with Groq, Gemini and Cerebras for matchmaking and assistant. Deploy on Cloudflare Workers via @opennextjs/cloudflare for zero infrastructure cost."
+  },
+  "solutionIntro": {
+    "pt": "A plataforma SEEDS Experience é uma aplicação full-stack completa com 50 rotas, 32 tabelas com RLS, realtime messaging, 3 integrações de IA e área admin completa — tudo deployado na Cloudflare Workers com Supabase como backend.",
+    "en": "The SEEDS Experience platform is a complete full-stack application with 50 routes, 32 tables with RLS, realtime messaging, 3 AI integrations and a complete admin area — all deployed on Cloudflare Workers with Supabase as backend."
+  },
+  "solutionItems": {
+    "pt": [
+      "50 rotas: 4 públicas (home, login, privacidade, auth/callback), 26 protegidas em /app/* (feed, eventos, diretório, conexões, colaborações, fórum, grupos, mensagens, indicações, depoimentos, benefícios, capital, IA, match, mural, notificações, palestrantes, parceiros, perfil, produtos, ranking, salvos, trilhas, vagas, histórico) e 9 admin em /admin/* (convites, eventos, importar, lembretes, membras, métricas, moderação, parceiros)",
+      "32 tabelas com RLS habilitado: profiles, invites, privacy_settings, connections, groups, group_members, feed_posts, feed_post_reactions, feed_post_comments, feed_post_saves, hashtags, feed_post_hashtags, feed_post_mentions, events, event_attendees, editions, speakers, collaboration_posts, partners, sponsorships, products, jobs, capital_opportunities, benefits, learning_tracks, lessons, forum_questions, forum_answers, rooms, room_members, messages, notifications, achievements, achievement_reactions, testimonials, post_reports, user_blocks, user_mutes, referrals",
+      "Autenticação invite-only via magic link: e-mails fora da tabela invites são bloqueados. Primeiro admin criado via seed SQL. Convites enviados via /admin/convites",
+      "Realtime via Supabase para mensagens e salas de chat, com publicação supabase_realtime ativada nas tabelas messages e rooms",
+      "Storage Supabase para avatares, imagens do feed e capas de eventos, com buckets públicos e policies de acesso por usuário",
+      "3 integrações de IA: Groq (inference rápida), Gemini (matchmaking de perfis) e Cerebras (assistente de conteúdo) — com rate limiting via Upstash Redis",
+      "Gamificação com achievements, achievement_reactions, testimonials e ranking — triggers automáticos para reaction_count, comment_count e save_count",
+      "Área admin completa: convites, gestão de eventos, importação de dados, lembretes, gestão de membras, métricas, moderação de denúncias e gestão de parceiros",
+      "Middleware de proteção de rotas, server-side auth checks em layouts de dashboard e admin, verificação de role admin",
+      "Deploy na Cloudflare Workers via @opennextjs/cloudflare com Node.js 22, env vars em runtime via Worker secrets, subdomínio seeds.expostacker.com.br"
+    ],
+    "en": [
+      "50 routes: 4 public (home, login, privacy, auth/callback), 26 protected under /app/* (feed, events, directory, connections, collaborations, forum, groups, messages, referrals, testimonials, benefits, capital, AI, match, wall, notifications, speakers, partners, profile, products, ranking, saved, tracks, jobs, history) and 9 admin under /admin/* (invites, events, import, reminders, members, metrics, moderation, partners)",
+      "32 tables with RLS enabled: profiles, invites, privacy_settings, connections, groups, group_members, feed_posts, feed_post_reactions, feed_post_comments, feed_post_saves, hashtags, feed_post_hashtags, feed_post_mentions, events, event_attendees, editions, speakers, collaboration_posts, partners, sponsorships, products, jobs, capital_opportunities, benefits, learning_tracks, lessons, forum_questions, forum_answers, rooms, room_members, messages, notifications, achievements, achievement_reactions, testimonials, post_reports, user_blocks, user_mutes, referrals",
+      "Invite-only authentication via magic link: emails outside the invites table are blocked. First admin created via SQL seed. Invites sent via /admin/invites",
+      "Realtime via Supabase for messages and chat rooms, with supabase_realtime publication enabled on messages and rooms tables",
+      "Supabase Storage for avatars, feed images and event covers, with public buckets and per-user access policies",
+      "3 AI integrations: Groq (fast inference), Gemini (profile matchmaking) and Cerebras (content assistant) — with rate limiting via Upstash Redis",
+      "Gamification with achievements, achievement_reactions, testimonials and ranking — automatic triggers for reaction_count, comment_count and save_count",
+      "Complete admin area: invites, event management, data import, reminders, member management, metrics, report moderation and partner management",
+      "Route protection middleware, server-side auth checks in dashboard and admin layouts, admin role verification",
+      "Deploy on Cloudflare Workers via @opennextjs/cloudflare with Node.js 22, runtime env vars via Worker secrets, subdomain seeds.expostacker.com.br"
+    ]
+  },
+  "decisionLog": [
+    {
+      "title": {
+        "pt": "Supabase como backend completo em vez de stack separada",
+        "en": "Supabase as complete backend instead of separate stack"
+      },
+      "why": {
+        "pt": "Supabase une PostgreSQL, Auth, Storage e Realtime em um só serviço. RLS no banco garante segurança em nível de linha sem precisar de middleware de autorização. Realtime nativo para chat sem WebSocket custom. Storage integrado para imagens. Tudo com um único SDK.",
+        "en": "Supabase unifies PostgreSQL, Auth, Storage and Realtime in one service. RLS at the database guarantees row-level security without needing authorization middleware. Native realtime for chat without custom WebSocket. Integrated storage for images. All with a single SDK."
+      },
+      "alternatives": {
+        "pt": "Avaliamos Firebase + Firestore, mas a falta de SQL completo e RLS era limitante. Avaliamos também Node.js + Prisma + PostgreSQL self-hosted, mas o custo de infraestrutura e a complexidade de operação não se justificavam.",
+        "en": "We evaluated Firebase + Firestore, but the lack of complete SQL and RLS was limiting. We also evaluated Node.js + Prisma + self-hosted PostgreSQL, but the infrastructure cost and operational complexity were not justified."
+      }
+    },
+    {
+      "title": {
+        "pt": "Cloudflare Workers via OpenNext em vez de Netlify",
+        "en": "Cloudflare Workers via OpenNext instead of Netlify"
+      },
+      "why": {
+        "pt": "Cloudflare Workers oferece zero custo de infraestrutura no plano Free, deploy automático via GitHub Actions, edge network global e compatibilidade com Next.js App Router via @opennextjs/cloudflare. O subdomínio seeds.expostacker.com.br fica no mesmo ecossistema DNS dos outros projetos.",
+        "en": "Cloudflare Workers offers zero infrastructure cost on the Free plan, automatic deploy via GitHub Actions, global edge network and compatibility with Next.js App Router via @opennextjs/cloudflare. The subdomain seeds.expostacker.com.br stays in the same DNS ecosystem as the other projects."
+      },
+      "alternatives": {
+        "pt": "O projeto estava originalmente no Netlify. A migração para Cloudflare Workers unificou o ecossistema de deploy com os outros projetos do portfolio, eliminou custo e manteve o mesmo Supabase cloud como backend — sem migrar o banco.",
+        "en": "The project was originally on Netlify. Migrating to Cloudflare Workers unified the deploy ecosystem with the other portfolio projects, eliminated cost and kept the same Supabase cloud as backend — without migrating the database."
+      }
+    },
+    {
+      "title": {
+        "pt": "RLS em todas as 32 tabelas em vez de middleware de autorização",
+        "en": "RLS on all 32 tables instead of authorization middleware"
+      },
+      "why": {
+        "pt": "Row Level Security no PostgreSQL garante que cada usuário só acessa seus próprios dados e dados públicos. Mesmo se houver uma brecha no middleware, o banco bloqueia o acesso. Policies por usuário com auth.uid() são declarativas e auditáveis.",
+        "en": "Row Level Security in PostgreSQL guarantees that each user only accesses their own data and public data. Even if there is a middleware breach, the database blocks access. Per-user policies with auth.uid() are declarative and auditable."
+      },
+      "alternatives": {
+        "pt": "Autorização apenas no middleware seria mais rápida de implementar, mas criaria um único ponto de falha. RLS no banco é defense in depth — segurança em múltiplas camadas.",
+        "en": "Authorization only in middleware would be faster to implement, but would create a single point of failure. RLS at the database is defense in depth — security in multiple layers."
+      }
+    }
+  ],
+  "technologies": [
+    {
+      "name": "Next.js 15",
+      "why": {
+        "pt": "App Router com Server Components, Server Actions e API routes. 50 rotas com renderização dinâmica para páginas autenticadas e estática para páginas públicas.",
+        "en": "App Router with Server Components, Server Actions and API routes. 50 routes with dynamic rendering for authenticated pages and static for public pages."
+      }
+    },
+    {
+      "name": "React 19",
+      "why": {
+        "pt": "Server Components por padrão, hooks atualizados e suporte a streaming. Base para o design system com shadcn/ui.",
+        "en": "Server Components by default, updated hooks and streaming support. Base for the design system with shadcn/ui."
+      }
+    },
+    {
+      "name": "Supabase (PostgreSQL + Auth + Storage + Realtime)",
+      "why": {
+        "pt": "Backend completo: PostgreSQL com 32 tabelas e RLS, Auth com magic link invite-only, Storage para imagens, Realtime para mensagens. Um único SDK para todo o backend.",
+        "en": "Complete backend: PostgreSQL with 32 tables and RLS, Auth with invite-only magic link, Storage for images, Realtime for messages. A single SDK for the entire backend."
+      }
+    },
+    {
+      "name": "@opennextjs/cloudflare",
+      "why": {
+        "pt": "Adapter que converte Next.js App Router para rodar em Cloudflare Workers. Build com esbuild, deploy via wrangler, compatibilidade com nodejs_compat flag.",
+        "en": "Adapter that converts Next.js App Router to run on Cloudflare Workers. Build with esbuild, deploy via wrangler, compatibility with nodejs_compat flag."
+      }
+    },
+    {
+      "name": "Cloudflare Workers",
+      "why": {
+        "pt": "Hosting full-stack com zero custo no plano Free, edge network global, deploy automático via GitHub Actions e subdomínio no mesmo ecossistema DNS.",
+        "en": "Full-stack hosting with zero cost on the Free plan, global edge network, automatic deploy via GitHub Actions and subdomain in the same DNS ecosystem."
+      }
+    },
+    {
+      "name": "Tailwind CSS v4 + shadcn/ui",
+      "why": {
+        "pt": "Design system consistente com componentes acessíveis, CSS variables para theming e bundle mínimo. Dark mode nativo.",
+        "en": "Consistent design system with accessible components, CSS variables for theming and minimal bundle. Native dark mode."
+      }
+    },
+    {
+      "name": "Groq + Gemini + Cerebras",
+      "why": {
+        "pt": "3 integrações de IA com modelos gratuitos: Groq para inference rápida, Gemini para matchmaking de perfis, Cerebras para assistente de conteúdo. Rate limiting via Upstash Redis.",
+        "en": "3 AI integrations with free models: Groq for fast inference, Gemini for profile matchmaking, Cerebras for content assistant. Rate limiting via Upstash Redis."
+      }
+    }
+  ],
+  "myRole": {
+    "pt": "Atuei como tech lead e desenvolvedor full stack: modelei o banco com 32 tabelas e RLS, arquitetei a aplicação com Next.js 15 App Router, implementei as 50 rotas com middleware de proteção, configurei Supabase Auth com magic link invite-only, ativei Realtime para mensagens, configurei Storage para imagens, integrei 3 APIs de IA com rate limiting, migrei o deploy de Netlify para Cloudflare Workers via @opennextjs/cloudflare, automatizei o CI/CD com GitHub Actions e documentei o fluxo de deploy full-stack para reutilização em projetos futuros.",
+    "en": "I acted as tech lead and full stack developer: modeled the database with 32 tables and RLS, architected the application with Next.js 15 App Router, implemented the 50 routes with protection middleware, configured Supabase Auth with invite-only magic link, enabled Realtime for messages, configured Storage for images, integrated 3 AI APIs with rate limiting, migrated deploy from Netlify to Cloudflare Workers via @opennextjs/cloudflare, automated CI/CD with GitHub Actions and documented the full-stack deploy flow for reuse in future projects."
+  },
+  "lessonsLearned": {
+    "pt": "O maior aprendizado foi que Supabase + Cloudflare Workers é uma combinação poderosa para aplicações full-stack com zero custo de infraestrutura. A migração de Netlify para Workers via @opennextjs/cloudflare preservou o banco de dados intacto — só mudou a camada de hosting. RLS em todas as 32 tabelas provou que segurança no banco é mais robusta que middleware. E o fato de env vars precisarem estar em dois lugares (GitHub Secrets para build + Worker secrets para runtime) foi uma lição importante: sem o secret no Worker, o app quebra em runtime mesmo com build perfeito.",
+    "en": "The biggest lesson was that Supabase + Cloudflare Workers is a powerful combination for full-stack applications with zero infrastructure cost. Migrating from Netlify to Workers via @opennextjs/cloudflare kept the database intact — only the hosting layer changed. RLS on all 32 tables proved that database-level security is more robust than middleware. And the fact that env vars need to be in two places (GitHub Secrets for build + Worker secrets for runtime) was an important lesson: without the secret in the Worker, the app breaks at runtime even with a perfect build."
+  },
+  "stakeholders": {
+    "pt": "Comunidade SEEDS Experience — mulheres empreendedoras verificadas. A plataforma gerencia networking, eventos, mentorias, oportunidades de capital, benefícios de parceiros e trilhas de aprendizado.",
+    "en": "SEEDS Experience community — verified women entrepreneurs. The platform manages networking, events, mentorship, capital opportunities, partner benefits and learning tracks."
+  },
+  "sector": {
+    "pt": "Comunidade · Empreendedorismo · Networking",
+    "en": "Community · Entrepreneurship · Networking"
+  },
+  "heroMetrics": [
+    { "value": "50", "label": { "pt": "Rotas na aplicação", "en": "App routes" } },
+    { "value": "32", "label": { "pt": "Tabelas com RLS", "en": "Tables with RLS" } },
+    { "value": "0", "label": { "pt": "Custo de infra (R$)", "en": "Infra cost (R$)" } }
+  ],
+  "timeline": { "duration": "Projeto contínuo", "launchDate": "2026-08" },
+  "timelinePhases": [
+    {
+      "phase": "Modelagem",
+      "period": "Fase 1",
+      "items": {
+        "pt": [
+          "Modelagem de 32 tabelas em 8 grupos funcionais",
+          "RLS habilitado em todas as tabelas com policies por usuário",
+          "Triggers automáticos para contadores (reações, comentários, saves)",
+          "Mais de 40 índices incluindo compostos e parciais"
+        ],
+        "en": [
+          "Modeling of 32 tables in 8 functional groups",
+          "RLS enabled on all tables with per-user policies",
+          "Automatic triggers for counters (reactions, comments, saves)",
+          "Over 40 indexes including composite and partial"
+        ]
+      }
+    },
+    {
+      "phase": "Desenvolvimento",
+      "period": "Fase 2",
+      "items": {
+        "pt": [
+          "50 rotas com Next.js 15 App Router",
+          "Autenticação invite-only via magic link",
+          "Realtime para mensagens e salas",
+          "3 integrações de IA com rate limiting"
+        ],
+        "en": [
+          "50 routes with Next.js 15 App Router",
+          "Invite-only authentication via magic link",
+          "Realtime for messages and rooms",
+          "3 AI integrations with rate limiting"
+        ]
+      }
+    },
+    {
+      "phase": "Deploy",
+      "period": "Fase 3",
+      "items": {
+        "pt": [
+          "Migração de Netlify para Cloudflare Workers",
+          "Configuração de @opennextjs/cloudflare",
+          "GitHub Actions com Node 22 para build e deploy",
+          "Subdomínio seeds.expostacker.com.br configurado"
+        ],
+        "en": [
+          "Migration from Netlify to Cloudflare Workers",
+          "Configuration of @opennextjs/cloudflare",
+          "GitHub Actions with Node 22 for build and deploy",
+          "Subdomain seeds.expostacker.com.br configured"
+        ]
+      }
+    }
+  ],
+  "architecture": {
+    "pt": {
+      "title": "Arquitetura",
+      "items": [
+        "Next.js 15 App Router roda em Cloudflare Workers via @opennextjs/cloudflare",
+        "Supabase cloud fornece PostgreSQL, Auth, Storage e Realtime",
+        "Middleware protege rotas /app/* e /admin/* com verificação de sessão",
+        "Server Components fazem queries diretas ao Supabase com RLS",
+        "Client Components usam Realtime subscriptions para mensagens",
+        "API routes integram Groq, Gemini e Cerebras com rate limiting via Upstash Redis",
+        "Deploy automático: git push → GitHub Actions → opennextjs-cloudflare build → wrangler deploy"
+      ]
+    },
+    "en": {
+      "title": "Architecture",
+      "items": [
+        "Next.js 15 App Router runs on Cloudflare Workers via @opennextjs/cloudflare",
+        "Supabase cloud provides PostgreSQL, Auth, Storage and Realtime",
+        "Middleware protects /app/* and /admin/* routes with session verification",
+        "Server Components make direct queries to Supabase with RLS",
+        "Client Components use Realtime subscriptions for messages",
+        "API routes integrate Groq, Gemini and Cerebras with rate limiting via Upstash Redis",
+        "Automatic deploy: git push → GitHub Actions → opennextjs-cloudflare build → wrangler deploy"
+      ]
+    }
+  },
+  "security": {
+    "pt": {
+      "title": "Segurança",
+      "items": [
+        "Row Level Security em todas as 32 tabelas do schema public",
+        "Autenticação invite-only via magic link (e-mails fora da tabela invites são bloqueados)",
+        "Service role key nunca exposta client-side, apenas em Server Components e API routes",
+        "Middleware de proteção de rotas com verificação de sessão Supabase",
+        "Verificação de role admin em todas as rotas /admin/*",
+        "Rate limiting via Upstash Redis para endpoints de IA",
+        "Secrets de runtime configurados no Worker (não apenas no GitHub)"
+      ]
+    },
+    "en": {
+      "title": "Security",
+      "items": [
+        "Row Level Security on all 32 tables in the public schema",
+        "Invite-only authentication via magic link (emails outside the invites table are blocked)",
+        "Service role key never exposed client-side, only in Server Components and API routes",
+        "Route protection middleware with Supabase session verification",
+        "Admin role verification on all /admin/* routes",
+        "Rate limiting via Upstash Redis for AI endpoints",
+        "Runtime secrets configured in the Worker (not just in GitHub)"
+      ]
+    }
+  }
+}

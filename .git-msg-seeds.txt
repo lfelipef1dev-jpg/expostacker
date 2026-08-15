@@ -1,0 +1,12 @@
+feat: adiciona case SEEDS Experience no portfolio
+
+- Case full-stack: Next.js 15 + Supabase + Cloudflare Workers
+- 50 rotas, 32 tabelas com RLS, 3 integracoes de IA, realtime
+- SVG card personalizado para o BentoGrid
+- Paginas PT e EN geradas com case study completo
+- Documentacao do fluxo full-stack no AGENTS.md
+- Script novo-projeto-fullstack.ps1 para projetos futuros
+
+Generated with [Devin](https://devin.ai)
+
+Co-Authored-By: Devin <158243242+devin-ai-integration[bot]@users.noreply.github.com>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
+  <rect width="400" height="300" rx="16" fill="#0A0A0A"/>
+  <rect x="1" y="1" width="398" height="298" rx="15" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+  <!-- Seed icon -->
+  <g transform="translate(200, 120)">
+    <path d="M0 -40 C20 -30 25 -10 20 10 C15 25 5 35 0 40 C-5 35 -15 25 -20 10 C-25 -10 -20 -30 0 -40 Z" fill="#8AB4F8" opacity="0.9"/>
+    <path d="M0 -30 C12 -20 15 -5 12 8 C8 18 2 25 0 28 C-2 25 -8 18 -12 8 C-15 -5 -12 -20 0 -30 Z" fill="#0A0A0A" opacity="0.3"/>
+    <line x1="0" y1="-40" x2="0" y2="-55" stroke="#8AB4F8" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="0" cy="-58" r="3" fill="#8AB4F8"/>
+  </g>
+  <!-- Title -->
+  <text x="200" y="200" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="22" font-weight="700" fill="#E6E6E6">SEEDS Experience</text>
+  <text x="200" y="225" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="rgba(230,230,230,0.70)">Comunidade exclusiva para empreendedoras</text>
+  <!-- Tech badges -->
+  <g transform="translate(200, 255)">
+    <rect x="-130" y="-12" width="60" height="24" rx="12" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.12)"/>
+    <text x="-100" y="3" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#8AB4F8">Next.js 15</text>
+    <rect x="-65" y="-12" width="55" height="24" rx="12" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.12)"/>
+    <text x="-37" y="3" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#8AB4F8">Supabase</text>
+    <rect x="-5" y="-12" width="45" height="24" rx="12" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.12)"/>
+    <text x="17" y="3" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#8AB4F8">Realtime</text>
+    <rect x="45" y="-12" width="50" height="24" rx="12" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.12)"/>
+    <text x="70" y="3" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#8AB4F8">AI Match</text>
+  </g>
+</svg>
