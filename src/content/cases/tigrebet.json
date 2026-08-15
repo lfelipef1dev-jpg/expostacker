@@ -1,0 +1,490 @@
+{
+  "id": "tigrebet",
+  "title": "TigreBet",
+  "clientName": "Medellin RP",
+  "tags": ["Next.js 14", "React 18", "TypeScript", "Tailwind CSS", "Express", "PostgreSQL", "Redis", "Sequelize", "Mercado Pago", "JWT", "Cloudflare Workers", "Zustand"],
+  "shortDescription": "Plataforma de jogos online com 11 jogos, sistema VIP de 5 niveis, pagamentos via PIX, KYC, provably fair e backend Express com PostgreSQL e Redis.",
+  "problemDescription": "O desafio era construir uma plataforma completa de jogos online que combinasse performance de um frontend moderno com a seguranca de um backend robusto. A plataforma precisava suportar 11 jogos diferentes (Fortune Tiger, Crash, Plinko, Double, Mines, Slots, Wingo, Raspadinha, Caixa Premiada, Envelopes e Bomb), sistema de pagamentos reais via PIX com Mercado Pago, sistema VIP com 5 niveis (Bronze a Diamond), KYC para saques, programa de indicacoes, missaoes diarias, jackpots progressivos, provably fair para todos os jogos, e arquitetura hibrida com Cloudflare Worker na edge e backend Node.js local.",
+  "technicalSolution": "Construiamos uma plataforma full-stack com frontend Next.js 14 (App Router, TypeScript, Tailwind CSS, Zustand) em export estatico e backend Express com PostgreSQL via Sequelize, Redis para cache/sessaoes, JWT para autenticacao, Mercado Pago para pagamentos PIX, e Cloudflare Worker como proxy reverso na edge. O backend expoe 50+ rotas REST cobrindo autenticacao, 11 jogos, pagamentos, VIP, KYC, missaoes, indicacoes e administracao. O frontend tem 20+ paginas com 11 jogos interativos, animacaoes Framer Motion, sons, confetti e estado global Zustand com persistencia localStorage. Sistema provably fair com RNG seguro, audit logs, rate limiting, Helmet e validacao Zod.",
+  "businessOutcome": [
+    { "label": "Jogos implementados", "value": 11, "unit": "" },
+    { "label": "Rotas de API", "value": 50, "unit": "+" },
+    { "label": "Tabelas no PostgreSQL", "value": 10, "unit": "" },
+    { "label": "Niveis VIP", "value": 5, "unit": "" },
+    { "label": "Paginas no frontend", "value": 20, "unit": "+" },
+    { "label": "Jackpots progressivos", "value": 4, "unit": "" }
+  ],
+  "liveUrl": "https://tigrebet.expostacker.com.br/",
+  "projectType": "Client-Work",
+  "featured": true,
+  "category": "client",
+  "year": 2026,
+  "hasCaseStudy": true,
+  "heroImage": "/cases/tigrebet.svg",
+  "heroHeadline": {
+    "pt": "Plataforma de jogos online com 11 jogos, sistema VIP de 5 niveis, pagamentos PIX via Mercado Pago, KYC, provably fair e backend Express com PostgreSQL e Redis",
+    "en": "Online gaming platform with 11 games, 5-tier VIP system, PIX payments via Mercado Pago, KYC, provably fair and Express backend with PostgreSQL and Redis"
+  },
+  "heroSubhead": {
+    "pt": "Plataforma full-stack construida com Next.js 14 e TypeScript no frontend e Express + PostgreSQL + Redis no backend. 11 jogos implementados (Fortune Tiger, Crash, Plinko, Double, Mines, Slots, Wingo, Raspadinha, Caixa Premiada, Envelopes e Bomb) com provably fair e RNG seguro. Sistema de pagamentos via PIX com Mercado Pago, webhook com idempotencia, saques com KYC e rollover. Sistema VIP com 5 niveis (Bronze, Silver, Gold, Platinum, Diamond), cashback progressivo, missaoes diarias, conquistas, jackpots progressivos e envelopes vermelhos. Autenticacao JWT com bcrypt, rate limiting, Helmet, audit logs e validacao Zod. Cloudflare Worker como proxy reverso na edge. Zustand com persistencia localStorage para estado global.",
+    "en": "Full-stack platform built with Next.js 14 and TypeScript on the frontend and Express + PostgreSQL + Redis on the backend. 11 games implemented (Fortune Tiger, Crash, Plinko, Double, Mines, Slots, Wingo, Scratch, Prize Box, Red Envelopes and Bomb) with provably fair and secure RNG. PIX payment system via Mercado Pago, webhook with idempotency, withdrawals with KYC and rollover. VIP system with 5 tiers (Bronze, Silver, Gold, Platinum, Diamond), progressive cashback, daily missions, achievements, progressive jackpots and red envelopes. JWT authentication with bcrypt, rate limiting, Helmet, audit logs and Zod validation. Cloudflare Worker as edge reverse proxy. Zustand with localStorage persistence for global state."
+  },
+  "opening": {
+    "pt": "Um jogador abre a TigreBet no navegador. A home page carrega com cards animados de 11 jogos, saldo visivel no header e menu de navegacao. Ele clica em Fortune Tiger, faz sua aposta e acompanha o resultado com animacao de slots e sons. Quando ganha, confetti estoura na tela e o saldo atualiza instantaneamente. Para depositar, gera um QR Code PIX via Mercado Pago, paga no app do banco e em segundos o webhook confirma o pagamento com idempotencia e o saldo cai. Conforme joga, sobe de nivel VIP, desbloqueia missaoes diarias, resgata cashback e participa de jackpots progressivos. Tudo isso com provably fair verificavel, audit logs e rate limiting protegendo cada rota.",
+    "en": "A player opens TigreBet in their browser. The home page loads with animated cards for 11 games, visible balance in the header and navigation menu. They click Fortune Tiger, place their bet and follow the result with slot animations and sounds. When they win, confetti bursts on screen and the balance updates instantly. To deposit, they generate a PIX QR Code via Mercado Pago, pay in their banking app and within seconds the webhook confirms the payment with idempotency and the balance drops in. As they play, they level up VIP, unlock daily missions, claim cashback and participate in progressive jackpots. All with verifiable provably fair, audit logs and rate limiting protecting every route."
+  },
+  "challengeContext": {
+    "pt": "Plataformas de jogos online exigem uma combinacao rara de performance, seguranca e confianca. O frontend precisa ser rapido e envolvente, com animacaoes fluidas e feedback imediato. O backend precisa ser robusto, com transacaoes atomicas, idempotencia de pagamentos, provably fair verificavel e protecao contra fraudes. O sistema de pagamentos precisa integrar com PIX via Mercado Pago, com webhook confiavel e tratamento de falhas. O sistema VIP precisa recompensar jogadores com cashback, bonus e beneficios progressivos. KYC e obrigatorio para saques. E tudo precisa rodar 24/7 com baixa latencia, cache Redis para sessaoes e leaderboards, e PostgreSQL para dados consistentes.",
+    "en": "Online gaming platforms require a rare combination of performance, security and trust. The frontend needs to be fast and engaging, with fluid animations and immediate feedback. The backend needs to be robust, with atomic transactions, payment idempotency, verifiable provably fair and fraud protection. The payment system needs to integrate with PIX via Mercado Pago, with reliable webhooks and failure handling. The VIP system needs to reward players with cashback, bonuses and progressive benefits. KYC is mandatory for withdrawals. And everything needs to run 24/7 with low latency, Redis cache for sessions and leaderboards, and PostgreSQL for consistent data."
+  },
+  "approach": {
+    "pt": "Tratamos a plataforma como um produto de alta escala desde o primeiro dia. Arquitetamos uma solucao em camadas: frontend Next.js 14 com export estatico para maxima performance, backend Express com PostgreSQL via Sequelize para dados consistentes, Redis para cache e sessaoes, e Cloudflare Worker como proxy reverso na edge. Cada jogo foi implementado com provably fair e RNG seguro (crypto). Pagamentos PIX via Mercado Pago com webhook idempotente. Sistema VIP com 5 niveis e cashback progressivo. KYC obrigatorio para saques com aprovacao manual. Rate limiting em 3 niveis (auth, API, jogos). Audit logs para compliance. Validacao Zod em todas as entradas.",
+    "en": "We treated the platform as a high-scale product from day one. We architected a layered solution: Next.js 14 frontend with static export for maximum performance, Express backend with PostgreSQL via Sequelize for consistent data, Redis for cache and sessions, and Cloudflare Worker as edge reverse proxy. Each game was implemented with provably fair and secure RNG (crypto). PIX payments via Mercado Pago with idempotent webhook. VIP system with 5 tiers and progressive cashback. Mandatory KYC for withdrawals with manual approval. Rate limiting at 3 levels (auth, API, games). Audit logs for compliance. Zod validation on all inputs."
+  },
+  "solutionIntro": {
+    "pt": "A TigreBet e uma plataforma de jogos online completa com 11 jogos, sistema VIP de 5 niveis, pagamentos PIX via Mercado Pago, KYC, provably fair, missaoes diarias, jackpots progressivos e arquitetura hibrida Cloudflare Worker + Express + PostgreSQL + Redis.",
+    "en": "TigreBet is a complete online gaming platform with 11 games, a 5-tier VIP system, PIX payments via Mercado Pago, KYC, provably fair, daily missions, progressive jackpots and a hybrid Cloudflare Worker + Express + PostgreSQL + Redis architecture."
+  },
+  "solutionItems": {
+    "pt": [
+      "11 jogos implementados: Fortune Tiger, Crash, Plinko, Double, Mines, Minesweeper, Slots, Wingo, Raspadinha, Caixa Premiada, Envelopes Vermelhos e Bomb — cada um com logica propria, provably fair e RNG seguro",
+      "Sistema de pagamentos via PIX com Mercado Pago: geracao de QR Code, webhook idempotente, polling de status no frontend, saques com KYC obrigatorio, rollover e limites por nivel VIP",
+      "Sistema VIP com 5 niveis (Bronze, Silver, Gold, Platinum, Diamond): cashback progressivo de 1% a 7%, bonus de deposito, bonus semanal e mensal, limites de saque crescentes e suporte prioritario",
+      "Autenticacao JWT com bcrypt (12 rounds), tokens de 7 dias, middleware de auth com verificacao de status (banned/suspended), recuperacao de senha via email e registro com codigo de indicacao",
+      "Backend Express com 50+ rotas REST: auth, 11 jogos, pagamentos, VIP, KYC, missaoes, indicacoes, comissoes, admin (settings, stats, transacaoes, usuarios)",
+      "PostgreSQL com 10 tabelas via Sequelize: users, transactions, bets, vip_levels, achievements, daily_missions, jackpots, audit_logs, game_settings, red_envelopes — com associacaoes e seed automatico",
+      "Redis para cache de sessaoes, leaderboards e filas com fallback graceful se indisponivel",
+      "Cloudflare Worker como proxy reverso na edge: CORS, remocao de headers Cloudflare, tratamento de OPTIONS e fallback 503 se backend offline",
+      "Frontend Next.js 14 com 20+ paginas: home, login, registro, perfil, carteira, deposito, saque, bonus, estatisticas, configuracaoes, admin, 11 paginas de jogos, privacidade e termos",
+      "Seguranca: Helmet com CSP, rate limiting em 3 niveis (auth 5/15min, API 100/min, jogos 60/min), express-mongo-sanitize, hpp, xss protection, audit middleware e error handler com Zod/Sequelize/JWT"
+    ],
+    "en": [
+      "11 games implemented: Fortune Tiger, Crash, Plinko, Double, Mines, Minesweeper, Slots, Wingo, Scratch, Prize Box, Red Envelopes and Bomb — each with its own logic, provably fair and secure RNG",
+      "PIX payment system via Mercado Pago: QR Code generation, idempotent webhook, status polling on frontend, withdrawals with mandatory KYC, rollover and VIP-tier limits",
+      "VIP system with 5 tiers (Bronze, Silver, Gold, Platinum, Diamond): progressive cashback from 1% to 7%, deposit bonuses, weekly and monthly bonuses, increasing withdrawal limits and priority support",
+      "JWT authentication with bcrypt (12 rounds), 7-day tokens, auth middleware with status verification (banned/suspended), password recovery via email and registration with referral code",
+      "Express backend with 50+ REST routes: auth, 11 games, payments, VIP, KYC, missions, referrals, commissions, admin (settings, stats, transactions, users)",
+      "PostgreSQL with 10 tables via Sequelize: users, transactions, bets, vip_levels, achievements, daily_missions, jackpots, audit_logs, game_settings, red_envelopes — with associations and automatic seed",
+      "Redis for session cache, leaderboards and queues with graceful fallback if unavailable",
+      "Cloudflare Worker as edge reverse proxy: CORS, Cloudflare header removal, OPTIONS handling and 503 fallback if backend offline",
+      "Next.js 14 frontend with 20+ pages: home, login, register, profile, wallet, deposit, withdraw, bonuses, stats, settings, admin, 11 game pages, privacy and terms",
+      "Security: Helmet with CSP, rate limiting at 3 levels (auth 5/15min, API 100/min, games 60/min), express-mongo-sanitize, hpp, xss protection, audit middleware and error handler with Zod/Sequelize/JWT"
+    ]
+  },
+  "decisionLog": [
+    {
+      "title": {
+        "pt": "Express em vez de NestJS para o backend",
+        "en": "Express instead of NestJS for the backend"
+      },
+      "why": {
+        "pt": "Express e minimalista, flexivel e tem o maior ecossistema de middleware no Node.js. Para uma plataforma com 50+ rotas e controle fino de middleware (rate limiting, audit, auth, CORS), Express da controle direto sem a verbosidade de decorators e modules do NestJS.",
+        "en": "Express is minimalist, flexible and has the largest middleware ecosystem in Node.js. For a platform with 50+ routes and fine middleware control (rate limiting, audit, auth, CORS), Express gives direct control without the verbosity of NestJS decorators and modules."
+      },
+      "alternatives": {
+        "pt": "Avaliamos NestJS, mas a estrutura opinada e a curva de aprendizado nao justificavam o overhead para este projeto.",
+        "en": "We evaluated NestJS, but the opinionated structure and learning curve did not justify the overhead for this project."
+      }
+    },
+    {
+      "title": {
+        "pt": "PostgreSQL com Sequelize em vez de MongoDB",
+        "en": "PostgreSQL with Sequelize instead of MongoDB"
+      },
+      "why": {
+        "pt": "Transacaoes financeiras exigem consistencia ACID. PostgreSQL garante transacaoes atomicas para depositos, saques e apostas. Sequelize como ORM tipado reduz erros e acelera migrations. O schema relacional encaixa naturalmente em usuarios, transacaoes, apostas e niveis VIP.",
+        "en": "Financial transactions require ACID consistency. PostgreSQL guarantees atomic transactions for deposits, withdrawals and bets. Sequelize as a typed ORM reduces errors and speeds up migrations. The relational schema naturally fits users, transactions, bets and VIP levels."
+      },
+      "alternatives": {
+        "pt": "MongoDB seria mais flexivel, mas menos previsivel para joins e transacaoes financeiras. O projeto tinha modelos Mongoose legados que nao foram utilizados.",
+        "en": "MongoDB would be more flexible, but less predictable for joins and financial transactions. The project had legacy Mongoose models that were not used."
+      }
+    },
+    {
+      "title": {
+        "pt": "Cloudflare Worker como proxy em vez de IP publico direto",
+        "en": "Cloudflare Worker as proxy instead of direct public IP"
+      },
+      "why": {
+        "pt": "O Worker na edge da Cloudflare esconde o IP do backend, adiciona CORS, remove headers Cloudflare e da 503 graceful se o backend estiver offline. Permite trocar o IP do backend sem mudar o frontend — basta atualizar a variavel no wrangler.toml.",
+        "en": "The Cloudflare edge Worker hides the backend IP, adds CORS, removes Cloudflare headers and gives a graceful 503 if the backend is offline. It allows changing the backend IP without changing the frontend — just update the variable in wrangler.toml."
+      },
+      "alternatives": {
+        "pt": "IP publico direto exigiria IP fixo, porta aberta no firewall e atualizacao manual no frontend a cada mudanca de IP. O Cloudflare Tunnel foi considerado como alternativa ao Worker.",
+        "en": "Direct public IP would require a fixed IP, open firewall port and manual frontend update on every IP change. Cloudflare Tunnel was considered as an alternative to the Worker."
+      }
+    },
+    {
+      "title": {
+        "pt": "Zustand em vez de Redux para estado global",
+        "en": "Zustand instead of Redux for global state"
+      },
+      "why": {
+        "pt": "Zustand e leve, sem boilerplate, com persistencia localStorage nativa via middleware. Para uma plataforma com estado de usuario, jogo, VIP e comissao, Zustand resolve com menos codigo e melhor DX que Redux Toolkit.",
+        "en": "Zustand is lightweight, boilerplate-free, with native localStorage persistence via middleware. For a platform with user, game, VIP and commission state, Zustand solves it with less code and better DX than Redux Toolkit."
+      },
+      "alternatives": {
+        "pt": "Redux Toolkit seria mais maduro para equipes grandes, mas o boilerplate e a curva de aprendizado nao se justificavam para este projeto.",
+        "en": "Redux Toolkit would be more mature for large teams, but the boilerplate and learning curve were not justified for this project."
+      }
+    }
+  ],
+  "technologies": [
+    {
+      "name": "Next.js 14",
+      "why": {
+        "pt": "App Router, export estatico e code-splitting automatico para carregar jogos rapidamente em qualquer conexao.",
+        "en": "App Router, static export and automatic code-splitting to load games quickly on any connection."
+      }
+    },
+    {
+      "name": "React 18",
+      "why": {
+        "pt": "Hooks e concorrencia para animacaoes de jogos fluidas sem comprometer o tempo de resposta.",
+        "en": "Hooks and concurrency for fluid game animations without compromising response time."
+      }
+    },
+    {
+      "name": "TypeScript",
+      "why": {
+        "pt": "Tipagem estatica em todo o frontend, reduzindo erros e melhorando a DX em uma plataforma com 20+ paginas.",
+        "en": "Static typing across the frontend, reducing errors and improving DX in a platform with 20+ pages."
+      }
+    },
+    {
+      "name": "Tailwind CSS",
+      "why": {
+        "pt": "Padronizacao visual rapida com tema gold/dark e CSS pequeno para performance.",
+        "en": "Fast visual standardization with gold/dark theme and small CSS for performance."
+      }
+    },
+    {
+      "name": "Express",
+      "why": {
+        "pt": "Framework minimalista com controle fino de middleware para 50+ rotas com rate limiting, audit e auth.",
+        "en": "Minimalist framework with fine middleware control for 50+ routes with rate limiting, audit and auth."
+      }
+    },
+    {
+      "name": "PostgreSQL + Sequelize",
+      "why": {
+        "pt": "Consistencia ACID para transacaoes financeiras, ORM tipado com migrations e 10 tabelas relacionais.",
+        "en": "ACID consistency for financial transactions, typed ORM with migrations and 10 relational tables."
+      }
+    },
+    {
+      "name": "Redis",
+      "why": {
+        "pt": "Cache de sessaoes, leaderboards e filas com estruturas de dados rapidas e fallback graceful.",
+        "en": "Session cache, leaderboards and queues with fast data structures and graceful fallback."
+      }
+    },
+    {
+      "name": "Mercado Pago (PIX)",
+      "why": {
+        "pt": "Integracao nativa com PIX para depositos instantaneos com QR Code e webhook idempotente.",
+        "en": "Native PIX integration for instant deposits with QR Code and idempotent webhook."
+      }
+    }
+  ],
+  "myRole": {
+    "pt": "Atuei como tech lead e desenvolvedor full stack: arquitetei a plataforma com Next.js 14 no frontend e Express + PostgreSQL + Redis no backend, implementei os 11 jogos com provably fair e RNG seguro, desenvolvi o sistema de pagamentos PIX via Mercado Pago com webhook idempotente, criei o sistema VIP com 5 niveis e cashback progressivo, implementei KYC, missaoes diarias, jackpots progressivos e audit logs, configurei o Cloudflare Worker como proxy reverso na edge, e desenhei a interface com animacaoes Framer Motion, sons e confetti.",
+    "en": "I acted as tech lead and full stack developer: architected the platform with Next.js 14 on the frontend and Express + PostgreSQL + Redis on the backend, implemented the 11 games with provably fair and secure RNG, developed the PIX payment system via Mercado Pago with idempotent webhook, created the VIP system with 5 tiers and progressive cashback, implemented KYC, daily missions, progressive jackpots and audit logs, configured the Cloudflare Worker as edge reverse proxy, and designed the interface with Framer Motion animations, sounds and confetti."
+  },
+  "lessonsLearned": {
+    "pt": "O maior aprendizado foi que plataformas de jogos online vivem e morrem pela confianca. Provably fair nao e um feature — e uma obrigacao. Idempotencia de webhook nao e opcional — e o que separa um deposito confirmado de um deposito perdido. E arquitetura hibrida (estatico na edge + backend local) da o melhor dos dois mundos: performance global com controle total do banco. Tambem aprendi que Redis com fallback graceful e melhor que Redis obrigatorio — a plataforma nao pode cair porque o cache caiu.",
+    "en": "The biggest lesson was that online gaming platforms live and die by trust. Provably fair is not a feature — it is an obligation. Webhook idempotency is not optional — it is what separates a confirmed deposit from a lost one. And hybrid architecture (static at the edge + local backend) gives the best of both worlds: global performance with full database control. I also learned that Redis with graceful fallback is better than mandatory Redis — the platform cannot go down because the cache went down."
+  },
+  "stakeholders": {
+    "pt": "Equipe de produto e operacao da plataforma TigreBet. O projeto inclui 11 jogos, sistema de pagamentos, VIP, KYC, missaoes, indicacoes e painel administrativo.",
+    "en": "TigreBet platform product and operations team. The project includes 11 games, payment system, VIP, KYC, missions, referrals and admin panel."
+  },
+  "sector": {
+    "pt": "Gaming · iGaming",
+    "en": "Gaming · iGaming"
+  },
+  "heroMetrics": [
+    { "value": "11", "label": { "pt": "Jogos", "en": "Games" } },
+    { "value": "50+", "label": { "pt": "Rotas de API", "en": "API routes" } },
+    { "value": "10", "label": { "pt": "Tabelas PostgreSQL", "en": "PostgreSQL tables" } }
+  ],
+  "timeline": { "duration": "4 meses", "launchDate": "2026-07" },
+  "timelinePhases": [
+    {
+      "phase": "Arquitetura",
+      "period": "Mes 1",
+      "items": {
+        "pt": [
+          "Definicao da arquitetura hibrida: Next.js estatico + Express + PostgreSQL + Redis",
+          "Modelagem do banco: 10 tabelas com associacaoes e seed automatico",
+          "Configuracao do Cloudflare Worker como proxy reverso",
+          "Setup de autenticacao JWT com bcrypt e middleware de auth"
+        ],
+        "en": [
+          "Hybrid architecture definition: static Next.js + Express + PostgreSQL + Redis",
+          "Database modeling: 10 tables with associations and automatic seed",
+          "Cloudflare Worker configuration as reverse proxy",
+          "JWT authentication setup with bcrypt and auth middleware"
+        ]
+      }
+    },
+    {
+      "phase": "Jogos e Pagamentos",
+      "period": "Mes 2-3",
+      "items": {
+        "pt": [
+          "Implementacao dos 11 jogos com provably fair e RNG seguro",
+          "Integracao Mercado Pago: depositos PIX com QR Code e webhook idempotente",
+          "Sistema de saques com KYC, rollover e limites por VIP",
+          "Sistema VIP com 5 niveis, cashback e bonus semanal/mensal"
+        ],
+        "en": [
+          "Implementation of 11 games with provably fair and secure RNG",
+          "Mercado Pago integration: PIX deposits with QR Code and idempotent webhook",
+          "Withdrawal system with KYC, rollover and VIP-tier limits",
+          "VIP system with 5 tiers, cashback and weekly/monthly bonuses"
+        ]
+      }
+    },
+    {
+      "phase": "Frontend e Deploy",
+      "period": "Mes 4",
+      "items": {
+        "pt": [
+          "Desenvolvimento do frontend Next.js 14 com 20+ paginas",
+          "Animacaoes Framer Motion, sons e confetti para os jogos",
+          "Estado global Zustand com persistencia localStorage",
+          "Deploy via Cloudflare Pages com dominio customizado"
+        ],
+        "en": [
+          "Next.js 14 frontend development with 20+ pages",
+          "Framer Motion animations, sounds and confetti for games",
+          "Zustand global state with localStorage persistence",
+          "Deployment via Cloudflare Pages with custom domain"
+        ]
+      }
+    }
+  ],
+  "nda": false,
+  "visualDisclaimer": {
+    "pt": "Este case study descreve trabalho real. A plataforma esta no ar em tigrebet.expostacker.com.br como demonstracao estatica do frontend. O backend com PostgreSQL e Redis roda separadamente.",
+    "en": "This case study describes real work. The platform is live at tigrebet.expostacker.com.br as a static frontend demo. The backend with PostgreSQL and Redis runs separately."
+  },
+  "methodology": {
+    "pt": [
+      "Arquitetar hibrido desde o inicio: estatico na edge + backend com banco",
+      "Modelar o banco relacional antes de codar os jogos",
+      "Implementar provably fair e RNG seguro em cada jogo",
+      "Garantir idempotencia no webhook de pagamentos desde o primeiro deploy",
+      "Rate limiting em 3 niveis: auth, API e jogos",
+      "Audit logs para compliance e troubleshooting"
+    ],
+    "en": [
+      "Architect hybrid from the start: static at the edge + backend with database",
+      "Model the relational database before coding the games",
+      "Implement provably fair and secure RNG in each game",
+      "Ensure idempotency in the payment webhook from the first deploy",
+      "Rate limiting at 3 levels: auth, API and games",
+      "Audit logs for compliance and troubleshooting"
+    ]
+  },
+  "gamification": {
+    "pt": {
+      "title": "Mecanicas de engajamento",
+      "mechanics": [
+        { "name": "VIP Tiers", "desc": "5 niveis: Bronze, Silver, Gold, Platinum, Diamond com cashback progressivo" },
+        { "name": "Cashback", "desc": "Cashback de 1% a 7% baseado no nivel VIP" },
+        { "name": "Conquistas", "desc": "8 tipos de conquistas com 4 raridades (common, rare, epic, legendary)" },
+        { "name": "Missaoes Diarias", "desc": "5 tipos de missaoes com recompensas em saldo ou pontos VIP" },
+        { "name": "Jackpots", "desc": "4 jackpots progressivos: Mini, Minor, Major e Grand" },
+        { "name": "Envelopes", "desc": "Envelopes vermelhos para bonus social entre jogadores" },
+        { "name": "Indicacaoes", "desc": "Programa de indicacao com codigo unico e comissoes" },
+        { "name": "Bonus", "desc": "Bonus de boas-vindas, deposito, semanal e mensal" }
+      ]
+    },
+    "en": {
+      "title": "Engagement mechanics",
+      "mechanics": [
+        { "name": "VIP Tiers", "desc": "5 tiers: Bronze, Silver, Gold, Platinum, Diamond with progressive cashback" },
+        { "name": "Cashback", "desc": "Cashback from 1% to 7% based on VIP tier" },
+        { "name": "Achievements", "desc": "8 achievement types with 4 rarities (common, rare, epic, legendary)" },
+        { "name": "Daily Missions", "desc": "5 mission types with rewards in balance or VIP points" },
+        { "name": "Jackpots", "desc": "4 progressive jackpots: Mini, Minor, Major and Grand" },
+        { "name": "Envelopes", "desc": "Red envelopes for social bonuses between players" },
+        { "name": "Referrals", "desc": "Referral program with unique code and commissions" },
+        { "name": "Bonuses", "desc": "Welcome, deposit, weekly and monthly bonuses" }
+      ]
+    }
+  },
+  "security": {
+    "pt": {
+      "title": "Seguranca e conformidade",
+      "items": [
+        "Autenticacao JWT com bcrypt (12 rounds) e tokens de 7 dias",
+        "Helmet com Content Security Policy, HSTS e XSS Filter",
+        "Rate limiting em 3 niveis: auth (5/15min), API (100/min), jogos (60/min)",
+        "Provably fair com RNG seguro (crypto) em todos os jogos",
+        "Webhook de pagamento idempotente contra processamento duplicado",
+        "KYC obrigatorio para saques com aprovacao manual admin",
+        "Audit logs para compliance: path, body, IP e user-agent",
+        "Validacao Zod em todas as entradas da API"
+      ]
+    },
+    "en": {
+      "title": "Security and compliance",
+      "items": [
+        "JWT authentication with bcrypt (12 rounds) and 7-day tokens",
+        "Helmet with Content Security Policy, HSTS and XSS Filter",
+        "Rate limiting at 3 levels: auth (5/15min), API (100/min), games (60/min)",
+        "Provably fair with secure RNG (crypto) in all games",
+        "Idempotent payment webhook against duplicate processing",
+        "Mandatory KYC for withdrawals with manual admin approval",
+        "Audit logs for compliance: path, body, IP and user-agent",
+        "Zod validation on all API inputs"
+      ]
+    }
+  },
+  "techStack": {
+    "pt": {
+      "title": "Stack tecnologico",
+      "categories": [
+        {
+          "category": "Frontend",
+          "items": [
+            { "name": "Next.js 14", "why": "App Router, export estatico e code-splitting para jogos rapidos", "alt": "Create React App — sem SSR, sem export estatico, bundle maior" },
+            { "name": "React 18", "why": "Hooks e concorrencia para animacaoes de jogos fluidas", "alt": "Vue 3 — maduro, mas menos ecossistema com Next.js" },
+            { "name": "Tailwind CSS", "why": "Tema gold/dark com CSS minimo e padronizacao rapida", "alt": "Styled Components — adiciona runtime e aumenta o bundle" },
+            { "name": "Zustand", "why": "Estado global leve com persistencia localStorage nativa", "alt": "Redux Toolkit — mais boilerplate e curva de aprendizado maior" }
+          ]
+        },
+        {
+          "category": "Backend",
+          "items": [
+            { "name": "Express", "why": "Framework minimalista com controle fino de middleware para 50+ rotas", "alt": "NestJS — mais opinado e verboso para este escopo" },
+            { "name": "Sequelize", "why": "ORM tipado com migrations e associacaoes para 10 tabelas", "alt": "Prisma — mais moderno, mas menos maduro em 2026 para PostgreSQL" },
+            { "name": "JWT + bcrypt", "why": "Autenticacao stateless com hash de senha em 12 rounds", "alt": "Session + cookie — exige sessao server-side e nao escala em edge" },
+            { "name": "Zod", "why": "Validacao de schema tipada em todas as entradas da API", "alt": "Joi — menos integracao nativa com TypeScript" }
+          ]
+        },
+        {
+          "category": "Dados/Cache",
+          "items": [
+            { "name": "PostgreSQL", "why": "Consistencia ACID para transacaoes financeiras e 10 tabelas relacionais", "alt": "MongoDB — flexivel, mas menos previsivel para transacaoes" },
+            { "name": "Redis", "why": "Cache de sessaoes, leaderboards e filas com fallback graceful", "alt": "Memcached — limitado a chave-valor simples" },
+            { "name": "Sequelize sync", "why": "Sincronizacao automatica de schema com seed de VIP e jackpots", "alt": "Migrations manuais — mais controle, mas mais trabalho" }
+          ]
+        },
+        {
+          "category": "Pagamento/Infra",
+          "items": [
+            { "name": "Mercado Pago (PIX)", "why": "Integracao nativa com PIX para depositos instantaneos no Brasil", "alt": "Stripe — menos adocao no Brasil para PIX" },
+            { "name": "Cloudflare Worker", "why": "Proxy reverso na edge com CORS e fallback 503 graceful", "alt": "NGINX — exige servidor e nao tem edge global" },
+            { "name": "Cloudflare Pages", "why": "Hosting estatico com SSL automatico e DDoS protection", "alt": "Vercel — excelente, mas plano gratuito tem limites menores" },
+            { "name": "Framer Motion", "why": "Animacaoes fluidas para jogos com prefers-reduced-motion respeitado", "alt": "CSS animations — menos controle sobre timing e direcao" }
+          ]
+        }
+      ]
+    },
+    "en": {
+      "title": "Technology stack",
+      "categories": [
+        {
+          "category": "Frontend",
+          "items": [
+            { "name": "Next.js 14", "why": "App Router, static export and code-splitting for fast games", "alt": "Create React App — no SSR, no static export, larger bundle" },
+            { "name": "React 18", "why": "Hooks and concurrency for fluid game animations", "alt": "Vue 3 — mature, but less ecosystem with Next.js" },
+            { "name": "Tailwind CSS", "why": "Gold/dark theme with minimal CSS and fast standardization", "alt": "Styled Components — adds runtime and increases bundle" },
+            { "name": "Zustand", "why": "Lightweight global state with native localStorage persistence", "alt": "Redux Toolkit — more boilerplate and steeper learning curve" }
+          ]
+        },
+        {
+          "category": "Backend",
+          "items": [
+            { "name": "Express", "why": "Minimalist framework with fine middleware control for 50+ routes", "alt": "NestJS — more opinionated and verbose for this scope" },
+            { "name": "Sequelize", "why": "Typed ORM with migrations and associations for 10 tables", "alt": "Prisma — more modern, but less mature in 2026 for PostgreSQL" },
+            { "name": "JWT + bcrypt", "why": "Stateless authentication with 12-round password hashing", "alt": "Session + cookie — requires server-side session and does not scale at edge" },
+            { "name": "Zod", "why": "Typed schema validation on all API inputs", "alt": "Joi — less native TypeScript integration" }
+          ]
+        },
+        {
+          "category": "Data/Cache",
+          "items": [
+            { "name": "PostgreSQL", "why": "ACID consistency for financial transactions and 10 relational tables", "alt": "MongoDB — flexible, but less predictable for transactions" },
+            { "name": "Redis", "why": "Session cache, leaderboards and queues with graceful fallback", "alt": "Memcached — limited to simple key-value storage" },
+            { "name": "Sequelize sync", "why": "Automatic schema sync with VIP and jackpot seed", "alt": "Manual migrations — more control, but more work" }
+          ]
+        },
+        {
+          "category": "Payment/Infra",
+          "items": [
+            { "name": "Mercado Pago (PIX)", "why": "Native PIX integration for instant deposits in Brazil", "alt": "Stripe — less adoption in Brazil for PIX" },
+            { "name": "Cloudflare Worker", "why": "Edge reverse proxy with CORS and graceful 503 fallback", "alt": "NGINX — requires server and no global edge" },
+            { "name": "Cloudflare Pages", "why": "Static hosting with automatic SSL and DDoS protection", "alt": "Vercel — excellent, but free plan has lower limits" },
+            { "name": "Framer Motion", "why": "Fluid animations for games with prefers-reduced-motion respected", "alt": "CSS animations — less control over timing and direction" }
+          ]
+        }
+      ]
+    }
+  },
+  "architecture": {
+    "pt": {
+      "title": "Arquitetura hibrida",
+      "items": [
+        "Frontend Next.js 14 com export estatico deployado no Cloudflare Pages",
+        "Cloudflare Worker como proxy reverso na edge com CORS e fallback 503",
+        "Backend Express na porta 5000 com 50+ rotas REST e middleware de auth/audit/rate-limit",
+        "PostgreSQL com 10 tabelas via Sequelize para usuarios, transacaoes, apostas, VIP e mais",
+        "Redis para cache de sessaoes, leaderboards e filas com fallback graceful",
+        "Mercado Pago API para depositos PIX com webhook idempotente",
+        "JWT para autenticacao stateless com verificacao de status no middleware",
+        "Zustand com persistencia localStorage para estado global no frontend"
+      ]
+    },
+    "en": {
+      "title": "Hybrid architecture",
+      "items": [
+        "Next.js 14 frontend with static export deployed on Cloudflare Pages",
+        "Cloudflare Worker as edge reverse proxy with CORS and 503 fallback",
+        "Express backend on port 5000 with 50+ REST routes and auth/audit/rate-limit middleware",
+        "PostgreSQL with 10 tables via Sequelize for users, transactions, bets, VIP and more",
+        "Redis for session cache, leaderboards and queues with graceful fallback",
+        "Mercado Pago API for PIX deposits with idempotent webhook",
+        "JWT for stateless authentication with status verification in middleware",
+        "Zustand with localStorage persistence for frontend global state"
+      ]
+    }
+  },
+  "architectureDiagram": {
+    "left": "Jogador",
+    "leftSub": "web / mobile",
+    "center": "TigreBet",
+    "centerSub": "Next.js 14 + Express",
+    "right": "Mercado Pago",
+    "rightSub": "PIX + webhook",
+    "bottom": ["PostgreSQL", "Redis", "Cloudflare Worker", "Cloudflare Pages"]
+  },
+  "resultsDetail": {
+    "pt": {
+      "title": "Resultados em numeros",
+      "kpis": [
+        { "value": "11", "label": "Jogos implementados", "baseline": "0", "source": "Backend controllers — 11 jogos com provably fair", "sparkline": [0, 3, 5, 7, 9, 10, 11] },
+        { "value": "50+", "label": "Rotas de API", "baseline": "0", "source": "Express server.js — rotas REST mapeadas", "sparkline": [0, 12, 22, 31, 40, 46, 50] },
+        { "value": "10", "label": "Tabelas PostgreSQL", "baseline": "0", "source": "Sequelize models — 10 modelos com associacaoes", "sparkline": [0, 3, 5, 7, 8, 9, 10] },
+        { "value": "5", "label": "Niveis VIP", "baseline": "0", "source": "VIPLevel model — Bronze a Diamond com seed automatico", "sparkline": [0, 2, 3, 4, 5, 5, 5] },
+        { "value": "20+", "label": "Paginas frontend", "baseline": "0", "source": "Next.js App Router — 20+ rotas pre-renderizadas", "sparkline": [0, 5, 9, 13, 16, 18, 20] },
+        { "value": "4", "label": "Jackpots progressivos", "baseline": "0", "source": "Jackpot model — Mini, Minor, Major, Grand com seed", "sparkline": [0, 1, 2, 3, 4, 4, 4] }
+      ]
+    },
+    "en": {
+      "title": "Results in numbers",
+      "kpis": [
+        { "value": "11", "label": "Games implemented", "baseline": "0", "source": "Backend controllers — 11 games with provably fair", "sparkline": [0, 3, 5, 7, 9, 10, 11] },
+        { "value": "50+", "label": "API routes", "baseline": "0", "source": "Express server.js — mapped REST routes", "sparkline": [0, 12, 22, 31, 40, 46, 50] },
+        { "value": "10", "label": "PostgreSQL tables", "baseline": "0", "source": "Sequelize models — 10 models with associations", "sparkline": [0, 3, 5, 7, 8, 9, 10] },
+        { "value": "5", "label": "VIP tiers", "baseline": "0", "source": "VIPLevel model — Bronze to Diamond with automatic seed", "sparkline": [0, 2, 3, 4, 5, 5, 5] },
+        { "value": "20+", "label": "Frontend pages", "baseline": "0", "source": "Next.js App Router — 20+ pre-rendered routes", "sparkline": [0, 5, 9, 13, 16, 18, 20] },
+        { "value": "4", "label": "Progressive jackpots", "baseline": "0", "source": "Jackpot model — Mini, Minor, Major, Grand with seed", "sparkline": [0, 1, 2, 3, 4, 4, 4] }
+      ]
+    }
+  }
+}
