@@ -7,6 +7,7 @@ const casesCollection = defineCollection({
     title: z.string(),
     clientName: z.string(),
     tags: z.array(z.string()),
+    shortDescription: z.string().max(180).default(''),
     problemDescription: z.string(),
     technicalSolution: z.string(),
     businessOutcome: z.array(
@@ -17,7 +18,8 @@ const casesCollection = defineCollection({
       })
     ),
     liveUrl: z.string().url(),
-    projectType: z.enum(['SaaS', 'Client-Work', 'Open-Source'])
+    projectType: z.enum(['SaaS', 'Client-Work', 'Open-Source']),
+    featured: z.boolean().default(false)
   })
 });
 

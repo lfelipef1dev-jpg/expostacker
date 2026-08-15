@@ -3,6 +3,7 @@
   "title": "Plataforma de Faturamento SaaS",
   "clientName": "Acme Corp International",
   "tags": ["Next.js 16", "PostgreSQL", "Cloudflare Edge"],
+  "shortDescription": "SaaS de faturamento serverless que reduziu custos de infra e latência no fechamento mensal.",
   "problemDescription": "O cliente gastava R$ 4.500 mensais com instâncias pesadas da AWS e sofria com picos de latência no fechamento de faturas.",
   "technicalSolution": "Migramos todo o ecossistema para arquitetura serverless distribuída com proxy de borda, autenticação JWT na edge e banco Neon com autoscaling.",
   "businessOutcome": [

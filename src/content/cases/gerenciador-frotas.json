@@ -3,6 +3,7 @@
   "title": "Gerenciador Inteligente de Frotas",
   "clientName": "Logística Rio Express",
   "tags": ["Astro", "Hono", "D1", "Cloudflare Workers"],
+  "shortDescription": "Painel em tempo real para rastreamento de frotas, eliminando planilhas desatualizadas e reduzindo atrasos.",
   "problemDescription": "A operação de entregas perdia visibilidade em tempo real da frota e sofria com planilhas desatualizadas, causando atrasos e retrabalho.",
   "technicalSolution": "Implementamos edge computing com Cloudflare Workers, banco D1 e API Hono para rastreamento em tempo real, reduzindo latência e eliminando sincronização manual.",
   "businessOutcome": [
