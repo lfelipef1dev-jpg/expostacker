@@ -1,0 +1,11 @@
+feat: adiciona screenshots reais dos projetos na homepage
+
+- marken-fassi.jpg: screenshot do hero do site marken.expostacker.com.br
+- sanatto-facilities.jpg: screenshot do hero do site sanatto.expostacker.com.br
+- seeds-experience.jpg: screenshot do hero do site seeds.expostacker.com.br
+- Atualiza heroImage nos JSONs de sanatto e seeds
+- marken-fassi ja apontava para jpg
+
+Generated with [Devin](https://devin.ai)
+
+Co-Authored-By: Devin <158243242+devin-ai-integration[bot]@users.noreply.github.com>

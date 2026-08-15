@@ -20,6 +20,7 @@
   "category": "personal",
   "year": 2026,
   "hasCaseStudy": true,
+  "heroImage": "/cases/seeds-experience.jpg",
   "heroHeadline": {
     "pt": "Plataforma full-stack para comunidade exclusiva de mulheres empreendedoras com 50 rotas, matchmaking via IA, realtime messaging e 32 tabelas com Row Level Security",
     "en": "Full-stack platform for an exclusive community of women entrepreneurs with 50 routes, AI matchmaking, realtime messaging and 32 tables with Row Level Security"
