@@ -110,14 +110,8 @@ const eyebrow = lang === 'pt' ? 'PROJETO EM PRODUÇÃO' : 'LIVE PROJECT';
           </div>
           {/* App preview area */}
           <div class="relative aspect-[4/3] min-h-[300px] md:min-h-[400px] bg-gradient-to-br from-brand-surface to-brand-bg overflow-hidden">
-            {hasLiveUrl ? (
-              <iframe
-                src={liveUrl}
-                class="absolute inset-0 w-full h-full border-0"
-                loading="eager"
-                title={`${entry?.data?.title} — live preview`}
-              />
-            ) : heroImage ? (
+            {/* Image layer (fallback behind iframe) */}
+            {heroImage && (
               <img
                 src={heroImage}
                 alt={`${entry?.data?.title} — preview`}
@@ -128,7 +122,18 @@ const eyebrow = lang === 'pt' ? 'PROJETO EM PRODUÇÃO' : 'LIVE PROJECT';
                 width="800"
                 height="600"
               />
-            ) : (
+            )}
+            {/* Iframe layer (on top of image) */}
+            {hasLiveUrl && (
+              <iframe
+                src={liveUrl}
+                class="absolute inset-0 w-full h-full border-0 bg-brand-bg"
+                loading="eager"
+                title={`${entry?.data?.title} — live preview`}
+              />
+            )}
+            {/* Placeholder layer (only if no liveUrl and no heroImage) */}
+            {!hasLiveUrl && !heroImage && (
               <div class="absolute inset-0 p-6 flex flex-col gap-4">
                 {/* Placeholder: stylized app UI */}
                 <div class="flex items-center justify-between">
