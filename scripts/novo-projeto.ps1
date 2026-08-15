@@ -79,14 +79,23 @@ try {
     Write-Host "  Projeto ja existe ou erro (continuando...)" -ForegroundColor DarkYellow
 }
 
-# 5. Criar CNAME no DNS
-Write-Host "[4/5] Criando CNAME: $Subdominio.expostacker.com.br -> $CloudflareProject.pages.dev..." -ForegroundColor Yellow
+# 5. Criar CNAME no DNS + adicionar dominio customizado no Pages
+Write-Host "[4/5] Criando CNAME e dominio customizado..." -ForegroundColor Yellow
 $cnameBody = "{`"type`":`"CNAME`",`"name`":`"$Subdominio`",`"content`":`"$CloudflareProject.pages.dev`",`"proxied`":true}"
 try {
     $r = Invoke-RestMethod -Uri "https://api.cloudflare.com/client/v4/zones/$CLOUDFLARE_ZONE_ID/dns_records" -Method Post -Headers $cfHeaders -Body $cnameBody
     Write-Host "  CNAME criado: $Subdominio.expostacker.com.br" -ForegroundColor Green
 } catch {
     Write-Host "  CNAME ja existe ou erro (continuando...)" -ForegroundColor DarkYellow
+}
+
+# Adicionar dominio customizado no projeto do Pages
+$domainBody = "{`"name`":`"$Subdominio.expostacker.com.br`"}"
+try {
+    $r = Invoke-RestMethod -Uri "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/$CloudflareProject/domains" -Method Post -Headers $cfHeaders -Body $domainBody
+    Write-Host "  Dominio customizado adicionado no Pages" -ForegroundColor Green
+} catch {
+    Write-Host "  Dominio customizado ja existe ou erro (continuando...)" -ForegroundColor DarkYellow
 }
 
 # 6. Criar workflow se nao existir
