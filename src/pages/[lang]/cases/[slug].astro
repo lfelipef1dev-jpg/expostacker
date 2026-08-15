@@ -94,7 +94,7 @@ const description = entry.data.problemDescription.slice(0, 160);
             </div>
           </div>
 
-          <a href={`/apps/${slug}`} class="inline-flex items-center mt-4 px-7 py-3.5 bg-brand-accent text-brand-bg font-bold rounded-lg hover:scale-105 transition-transform shadow-[0_0_24px_rgba(0,225,160,0.35)]">
+          <a href={entry.data.liveUrl} target="_blank" rel="noopener noreferrer" class="inline-flex items-center mt-4 px-7 py-3.5 bg-brand-accent text-brand-bg font-bold rounded-lg hover:scale-105 transition-transform shadow-[0_0_24px_rgba(0,225,160,0.35)]">
             {currentLang === 'pt' ? 'Executar Aplicação Ao Vivo ⚡' : 'Run Live Application ⚡'}
           </a>
         </div>
