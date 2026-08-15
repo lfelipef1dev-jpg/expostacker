@@ -1,0 +1,10 @@
+fix: live preview (iframe) tem prioridade sobre heroImage nos cases
+
+- CaseHeroV2 agora mostra iframe ao vivo quando tem liveUrl
+- heroImage fica como fallback quando nao tem liveUrl
+- Fotos de capa continuam funcionando na home (BentoGrid/FeaturedCase)
+- Todos os cases com liveUrl agora mostram o site rodando no preview
+
+Generated with [Devin](https://devin.ai)
+
+Co-Authored-By: Devin <158243242+devin-ai-integration[bot]@users.noreply.github.com>
