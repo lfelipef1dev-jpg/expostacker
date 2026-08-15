@@ -15,6 +15,7 @@
     { "label": "Tempo de Resposta FASSI.AI (alvo)", "value": 2, "unit": "s" }
   ],
   "liveUrl": "https://marken.expostacker.com.br/",
+  "heroImage": "/cases/marken-fassi.jpg",
   "demoAccess": {
     "email": "teste@casafassi.com.br",
     "password": "fassi1234"

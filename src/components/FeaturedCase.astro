@@ -31,8 +31,8 @@ const list = featured.length > 0 ? featured : cases.slice(0, 1);
     {list.map((item, index) => {
       const metrics = item.data.businessOutcome.slice(0, 3);
       const isReversed = index % 2 === 1;
-      const logoPath = `/cases/${item.id}.svg`;
-      const imagePath = `/cases/${item.id}.svg`;
+      const logoPath = item.data.heroImage ?? `/cases/${item.id}.svg`;
+      const imagePath = item.data.heroImage ?? `/cases/${item.id}.svg`;
       const href = `/${lang}/cases/${item.id}/`;
       const liveUrl = item.data.liveUrl;
 
