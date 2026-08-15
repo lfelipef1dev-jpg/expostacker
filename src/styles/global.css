@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-bg: oklch(14% 0.02 256);       /* Deep Cyber */
+  --color-brand-surface: oklch(20% 0.02 256);  /* Surface (Cards com 1px) */
+  --color-brand-text: oklch(93% 0.01 256);     /* High-Contrast Text */
+  --color-brand-accent: oklch(86% 0.21 142);   /* Volt Green para CTAs */
+}
+
+html, body {
+  background-color: var(--color-brand-bg);
+  color: var(--color-brand-text);
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+}

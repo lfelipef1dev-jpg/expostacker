@@ -1,0 +1,14 @@
+# Astro
+node_modules/
+dist/
+.astro/
+.env
+.env.*
+!.env.example
+
+# Logs
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db

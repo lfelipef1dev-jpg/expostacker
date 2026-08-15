@@ -1,0 +1,45 @@
+---
+import { ui } from '../../i18n/ui';
+import Header from '../../components/Header.astro';
+import Hero from '../../components/Hero.astro';
+import BentoGrid from '../../components/BentoGrid.astro';
+
+export function getStaticPaths() {
+  const langs: (keyof typeof ui)[] = ['pt', 'en'];
+  return langs.map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+type ValidLang = keyof typeof ui;
+const currentLang: ValidLang = (lang as ValidLang) in ui ? (lang as ValidLang) : 'pt';
+
+const htmlLangMap = { pt: 'pt-BR', en: 'en-US' } as const;
+const htmlLang = htmlLangMap[currentLang];
+const t = ui[currentLang];
+
+const site = 'https://expostacker.com.br';
+const ptUrl = `${site}/pt/`;
+const enUrl = `${site}/en/`;
+const canonicalUrl = currentLang === 'pt' ? ptUrl : enUrl;
+const xDefaultUrl = ptUrl;
+---
+
+<html lang={htmlLang}>
+  <head>
+    <meta charset="utf-8" />
+    <title>Expo Stacker | Full Stack Architecture</title>
+    <meta name="description" content={t['hero.subtitle']} />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="pt-br" href={ptUrl} />
+    <link rel="alternate" hreflang="en" href={enUrl} />
+    <link rel="alternate" hreflang="x-default" href={xDefaultUrl} />
+  </head>
+  <body class="bg-brand-bg text-brand-text min-h-screen">
+    <Header lang={currentLang} />
+    <Hero lang={currentLang} />
+    <BentoGrid lang={currentLang} />
+    <footer class="border-t border-brand-surface py-8 text-center text-sm text-slate-500">
+      {t['footer.copyright']}
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "id": "gerenciador-frotas",
+  "title": "Gerenciador Inteligente de Frotas",
+  "clientName": "Logística Rio Express",
+  "tags": ["Astro", "Hono", "D1", "Cloudflare Workers"],
+  "problemDescription": "A operação de entregas perdia visibilidade em tempo real da frota e sofria com planilhas desatualizadas, causando atrasos e retrabalho.",
+  "technicalSolution": "Implementamos edge computing com Cloudflare Workers, banco D1 e API Hono para rastreamento em tempo real, reduzindo latência e eliminando sincronização manual.",
+  "businessOutcome": [
+    { "label": "Aumento de Eficiência", "value": 35, "unit": "%" },
+    { "label": "Redução de Atrasos", "value": 60, "unit": "%" },
+    { "label": "Economia Mensal", "value": 12000, "unit": "R$" }
+  ],
+  "liveUrl": "https://expostacker.com.br",
+  "projectType": "Client-Work"
+}

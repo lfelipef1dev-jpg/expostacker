@@ -1,0 +1,11 @@
+name = "expostacker-worker"
+main = "worker.ts"
+compatibility_date = "2024-08-14"
+
+# Rota customizada: o Worker responde SOMENTE em /apps/*
+# Configure este binding no painel Cloudflare em Workers & Pages > Triggers > Custom Routes
+# Rota: expostacker.com.br/apps/*
+
+[vars]
+# JWT_PUBLIC_KEY = "-----BEGIN PUBLIC KEY-----\n...\n-----END PUBLIC KEY-----"
+# ROUTES = "{\"meu-saas\":\"app-exemplo.koyeb.app\"}"

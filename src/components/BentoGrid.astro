@@ -1,0 +1,67 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import { ui } from '../i18n/ui';
+import { useTranslations } from '../i18n/utils';
+
+export interface Props {
+  lang: keyof typeof ui;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const cases: CollectionEntry<'cases'>[] = await getCollection('cases');
+const featured = cases[0];
+---
+
+<section id="cases" class="max-w-5xl mx-auto px-4 pb-20">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-min">
+    <!-- Card 1: Destaque Largo -->
+    <div class="md:col-span-2 p-6 rounded-2xl border border-brand-surface bg-brand-surface/40 backdrop-blur flex flex-col justify-between">
+      <div>
+        <div class="flex items-center gap-2 mb-4">
+          <span class="w-2 h-2 rounded-full bg-brand-accent animate-pulse"></span>
+          <span class="text-xs font-bold text-brand-accent uppercase tracking-wider">{t('bento.featured.title')}</span>
+        </div>
+        <h2 class="text-2xl md:text-3xl font-bold mb-3">{featured.data.title}</h2>
+        <p class="text-slate-300 leading-relaxed">{featured.data.problemDescription}</p>
+      </div>
+      <a href={`/${lang}/cases/${featured.id}/`} class="mt-6 inline-flex w-fit items-center text-brand-accent font-bold hover:underline">
+        {lang === 'pt' ? 'Ver case completo' : 'Read full case'} →
+      </a>
+    </div>
+
+    <!-- Card 2: Métricas -->
+    <div class="p-6 rounded-2xl border border-brand-surface bg-brand-surface/40 backdrop-blur">
+      <h3 class="text-xs font-bold text-brand-accent uppercase tracking-wider mb-4">{t('bento.metrics.title')}</h3>
+      <div class="grid grid-cols-1 gap-4">
+        {featured.data.businessOutcome.map((metric: { label: string; value: number; unit: string }) => (
+          <div class="border-b border-brand-surface/50 pb-3 last:border-0 last:pb-0">
+            <span class="block text-3xl font-black text-brand-accent">{metric.value}{metric.unit}</span>
+            <span class="text-sm text-slate-400">{metric.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Card 3: Tags -->
+    <div class="md:col-span-1 p-6 rounded-2xl border border-brand-surface bg-brand-surface/40 backdrop-blur">
+      <h3 class="text-xs font-bold text-brand-accent uppercase tracking-wider mb-4">{t('bento.tags.title')}</h3>
+      <div class="flex flex-wrap gap-2">
+        {featured.data.tags.map((tag: string) => (
+          <span class="px-3 py-1 text-sm font-medium border border-brand-surface rounded-full bg-brand-bg/60">
+            {tag}
+          </span>
+        ))}
+      </div>
+    </div>
+
+    <!-- Card 4: Grid de cases secundários -->
+    {cases.slice(1).map((item) => (
+      <a href={`/${lang}/cases/${item.id}/`} class="p-6 rounded-2xl border border-brand-surface bg-brand-surface/40 backdrop-blur hover:border-brand-accent transition-colors group">
+        <h3 class="text-lg font-bold mb-2 group-hover:text-brand-accent transition-colors">{item.data.title}</h3>
+        <p class="text-sm text-slate-400 line-clamp-2">{item.data.problemDescription}</p>
+      </a>
+    ))}
+  </div>
+</section>

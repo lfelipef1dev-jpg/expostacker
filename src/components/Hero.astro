@@ -1,0 +1,26 @@
+---
+import { ui } from '../i18n/ui';
+import { useTranslations } from '../i18n/utils';
+
+export interface Props {
+  lang: keyof typeof ui;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section class="max-w-5xl mx-auto px-4 py-20 md:py-28">
+  <div class="max-w-3xl">
+    <p class="text-brand-accent font-mono text-sm mb-4">{t('status.active')}</p>
+    <h1 class="text-4xl md:text-6xl font-black leading-tight mb-6">
+      {t('hero.title')}
+    </h1>
+    <p class="text-lg md:text-xl text-slate-300 mb-8">
+      {t('hero.subtitle')}
+    </p>
+    <a href="#cases" class="inline-flex items-center px-6 py-3 bg-brand-accent text-brand-bg font-bold rounded-lg hover:scale-105 transition-transform">
+      {t('hero.cta')}
+    </a>
+  </div>
+</section>

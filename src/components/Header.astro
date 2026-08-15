@@ -1,0 +1,28 @@
+---
+import { ui } from '../i18n/ui';
+import { useTranslations } from '../i18n/utils';
+
+export interface Props {
+  lang: keyof typeof ui;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const otherLang = lang === 'pt' ? 'en' : 'pt';
+const otherPath = `/${otherLang}/`;
+const otherLabel = ui[otherLang];
+---
+
+<header class="w-full border-b border-brand-surface bg-brand-surface/60 backdrop-blur">
+  <nav class="max-w-5xl mx-auto flex items-center justify-between p-4">
+    <a href={`/${lang}/`} class="text-xl font-black text-brand-accent tracking-tight">EXPO STACKER</a>
+    <div class="flex items-center gap-6 text-sm font-medium">
+      <a href={`/${lang}/`} class="hover:text-brand-accent transition-colors">{t('nav.cases')}</a>
+      <a href={`/${lang}/`} class="hover:text-brand-accent transition-colors">{t('nav.contact')}</a>
+      <a href={otherPath} class="px-3 py-1 border border-brand-surface rounded-full hover:border-brand-accent hover:text-brand-accent transition-colors">
+        {otherLabel}
+      </a>
+    </div>
+  </nav>
+</header>
