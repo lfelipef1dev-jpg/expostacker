@@ -12,5 +12,9 @@
     { "label": "Economia Mensal", "value": 12000, "unit": "R$" }
   ],
   "liveUrl": "https://expostacker.com.br",
-  "projectType": "Client-Work"
+  "projectType": "Client-Work",
+  "featured": false,
+  "category": "client",
+  "year": 2024,
+  "hasCaseStudy": true
 }

@@ -1,0 +1,49 @@
+---
+import { ui } from '../../i18n/ui';
+import { useTranslations } from '../../i18n/utils';
+
+export interface Props {
+  lang: keyof typeof ui;
+  entry: any;
+}
+
+const { lang, entry } = Astro.props;
+const t = useTranslations(lang);
+
+const pipeline = entry.data?.aiPipeline?.[lang];
+const steps: string[] = pipeline?.steps ?? [];
+const title: string = pipeline?.title ?? '';
+---
+
+<section class="py-12 md:py-16 max-w-6xl mx-auto px-4 md:px-6 space-y-4">
+  <h2 class="font-display text-2xl md:text-3xl text-brand-text">
+    {t('case.ai')}
+  </h2>
+
+  {title && (
+    <p class="text-brand-text-secondary text-base md:text-lg">
+      {title}
+    </p>
+  )}
+
+  <div class="flex flex-col items-center gap-2">
+    {steps.map((step, index) => (
+      <>
+        <div class="w-full flex items-start gap-3 p-4 rounded-lg border border-brand-border bg-brand-bg">
+          <span class="font-mono text-brand-accent select-none">{index + 1}</span>
+          <p class="text-sm text-brand-text leading-relaxed">{step}</p>
+        </div>
+        {index < steps.length - 1 && (
+          <div class="text-brand-accent text-xl leading-none select-none" aria-hidden="true">v</div>
+        )}
+      </>
+    ))}
+  </div>
+
+  <p class="text-sm text-brand-text-secondary/80 leading-relaxed">
+    Respostas validadas contra catálogo. Fallback para busca estática. Cache de 24h.
+    <span lang="en" class="block text-brand-text-secondary/60">
+      Responses validated against catalog. Fallback to static search. 24h cache.
+    </span>
+  </p>
+</section>

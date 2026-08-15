@@ -1,0 +1,55 @@
+---
+import { ui } from '../../i18n/ui';
+import { useTranslations } from '../../i18n/utils';
+
+export interface Props {
+  lang: keyof typeof ui;
+  entry: any;
+}
+
+const { lang, entry } = Astro.props;
+const t = useTranslations(lang);
+
+const intro = lang === 'en'
+  ? 'Not everything went as planned.'
+  : 'Nem tudo saiu como planejado.';
+
+const raw = entry.data.lessonsLearned?.[lang];
+const lessons: string[] = Array.isArray(raw) ? raw : (typeof raw === 'string' && raw.trim() ? [raw.trim()] : []);
+
+const fallback = {
+  pt: [
+    'Vendedores adotam quando o gerente adota primeiro',
+    'Gamificação funciona até virar rotina — precisa de mecânicas sazonais',
+    'Content curation é mais importante que a tecnologia em si',
+  ],
+  en: [
+    'Sellers adopt when the manager adopts first',
+    'Gamification works until it becomes routine — it needs seasonal mechanics',
+    'Content curation is more important than the technology itself',
+  ],
+};
+
+const items = lessons.length ? lessons : fallback[lang];
+---
+
+<section class="py-12 md:py-16">
+  <div class="max-w-6xl mx-auto px-4 md:px-6 text-center">
+    <h2 class="font-display text-2xl md:text-3xl text-brand-text">
+      {t('case.lessons')}
+    </h2>
+
+    <p class="mt-4 text-brand-text-secondary leading-relaxed max-w-2xl mx-auto">
+      {intro}
+    </p>
+
+    <div class="mt-8 space-y-3 max-w-3xl mx-auto text-left">
+      {items.map((lesson) => (
+        <p class="flex gap-3 text-brand-text-secondary leading-relaxed">
+          <span class="text-brand-accent shrink-0">—</span>
+          <span>{lesson}</span>
+        </p>
+      ))}
+    </div>
+  </div>
+</section>

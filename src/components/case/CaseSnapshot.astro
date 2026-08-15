@@ -1,0 +1,52 @@
+---
+import { ui } from '../../i18n/ui';
+import { useTranslations } from '../../i18n/utils';
+
+export interface Props {
+  lang: keyof typeof ui;
+  entry: any;
+}
+
+const { lang, entry } = Astro.props;
+const t = useTranslations(lang);
+
+const client = entry.data.clientName;
+const sector = entry.data.sector?.[lang] ?? 'Varejo premium';
+const duration = entry.data.timeline?.duration ?? '';
+const launch = entry.data.timeline?.launchDate ?? '';
+const liveUrl = entry.data.liveUrl;
+const sectorLabel = t('case.sector' as any) ?? (lang === 'pt' ? 'Setor' : 'Sector');
+---
+
+<div class="bg-brand-surface/60 border border-brand-border rounded-xl p-4 md:p-5">
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+    <div>
+      <p class="text-xs text-brand-text-secondary">{t('case.client')}</p>
+      <p class="mt-0.5 text-sm font-medium text-brand-text">{client}</p>
+    </div>
+    <div>
+      <p class="text-xs text-brand-text-secondary">{sectorLabel}</p>
+      <p class="mt-0.5 text-sm font-medium text-brand-text">{sector}</p>
+    </div>
+    <div>
+      <p class="text-xs text-brand-text-secondary">{t('case.timeline')}</p>
+      <p class="mt-0.5 text-sm font-medium text-brand-text">
+        {duration}{duration && launch ? ' · ' : ''}{launch}
+      </p>
+    </div>
+    <div>
+      <p class="text-xs text-brand-text-secondary">{t('case.live')}</p>
+      <a
+        href={liveUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mt-0.5 inline-flex items-center gap-1 text-sm font-medium text-brand-accent hover:underline"
+      >
+        {t('case.openApp')}
+        <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>

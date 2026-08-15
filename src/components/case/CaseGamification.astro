@@ -1,0 +1,148 @@
+---
+import { ui } from '../../i18n/ui';
+import { useTranslations } from '../../i18n/utils';
+
+export interface Props {
+  lang: keyof typeof ui;
+  entry: any;
+}
+
+const { lang, entry } = Astro.props;
+const t = useTranslations(lang);
+
+const fallbackMechanics = [
+  {
+    name: { pt: 'Pontos de experiência (XP)', en: 'Experience points (XP)' },
+    description: {
+      pt: 'Cada ação comercial gera XP, tornando o progresso visível e mensurável.',
+      en: 'Every sales action earns XP, making progress visible and measurable.',
+    },
+  },
+  {
+    name: { pt: 'Ligas e temporadas', en: 'Leagues and seasons' },
+    description: {
+      pt: 'Divisão em ligas por desempenho, com rebaixamento e promoção a cada ciclo.',
+      en: 'Performance-based leagues with promotion and relegation each cycle.',
+    },
+  },
+  {
+    name: { pt: 'Badges e conquistas', en: 'Badges and achievements' },
+    description: {
+      pt: 'Reconhecimento por metas específicas, ritmo e consistência de vendas.',
+      en: 'Recognition for specific goals, cadence, and sales consistency.',
+    },
+  },
+  {
+    name: { pt: 'Ranking ao vivo', en: 'Live ranking' },
+    description: {
+      pt: 'Classificação atualizada em tempo real para estimular competição saudável.',
+      en: 'Real-time leaderboard to stimulate healthy competition.',
+    },
+  },
+  {
+    name: { pt: 'Recompensas e desbloqueios', en: 'Rewards and unlocks' },
+    description: {
+      pt: 'Benefícios tangíveis desbloqueados por patamar de pontuação.',
+      en: 'Tangible benefits unlocked at each score threshold.',
+    },
+  },
+  {
+    name: { pt: 'Desafios e missões', en: 'Challenges and missions' },
+    description: {
+      pt: 'Objetivos de curto prazo para manter o engajamento e testar novas táticas.',
+      en: 'Short-term objectives to keep engagement and test new tactics.',
+    },
+  },
+];
+
+const mechanics =
+  entry?.data?.gamification?.[lang]?.mechanics ??
+  entry?.data?.gamification?.mechanics ??
+  fallbackMechanics;
+
+const engagementSteps = [
+  { pt: 'Ação', en: 'Action' },
+  { pt: 'XP', en: 'XP' },
+  { pt: 'Liga', en: 'League' },
+  { pt: 'Badge', en: 'Badge' },
+  { pt: 'Ranking', en: 'Ranking' },
+  { pt: 'Recompensa', en: 'Reward' },
+  { pt: 'Motivação', en: 'Motivation' },
+  { pt: 'Nova ação', en: 'New action' },
+];
+---
+
+<section class="py-12 md:py-16 max-w-6xl mx-auto px-4 md:px-6" aria-labelledby="case-gamification-title">
+  <div class="mb-6">
+    <h2
+      id="case-gamification-title"
+      class="font-display text-2xl md:text-3xl text-brand-text mb-2 leading-tight"
+    >
+      {t('case.gamification')}
+    </h2>
+    <p class="text-sm text-brand-text-secondary leading-relaxed">
+      Sistema de motivação estruturado para vendedores.
+      <span class="block sm:inline text-brand-text-secondary/70">
+        Structured motivation system for sales teams.
+      </span>
+    </p>
+  </div>
+
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+    {
+      mechanics.map((mechanic: any) => {
+        const name =
+          mechanic?.name?.[lang] ??
+          mechanic?.name ??
+          '—';
+        const description =
+          mechanic?.description?.[lang] ??
+          mechanic?.description ??
+          '';
+        return (
+          <article class="p-4 rounded-xl bg-brand-surface/60 border border-brand-border">
+            <h3 class="font-mono text-brand-accent uppercase text-xs tracking-wide">
+              {name}
+            </h3>
+            {description && (
+              <p class="text-brand-text-secondary text-xs mt-2 leading-relaxed">
+                {description}
+              </p>
+            )}
+          </article>
+        );
+      })
+    }
+  </div>
+
+  <div class="mt-6">
+    <h3 class="font-display text-base text-brand-text mb-3">{t('case.gamification')}</h3>
+    <div
+      class="flex flex-col md:flex-row md:items-center md:justify-between gap-2 md:gap-0"
+      role="list"
+      aria-label="Engagement loop"
+    >
+      {
+        engagementSteps.map((step, index) => (
+          <div
+            class="flex items-center shrink-0"
+            role="listitem"
+          >
+            <span class="px-3 py-2 rounded-lg bg-brand-surface border border-brand-border text-sm text-brand-text whitespace-nowrap">
+              {step[lang]}
+            </span>
+            {index < engagementSteps.length - 1 && (
+              <span
+                class="my-0.5 md:my-0 md:mx-1 text-brand-accent text-sm leading-none"
+                aria-hidden="true"
+              >
+                <span class="inline md:hidden">↓</span>
+                <span class="hidden md:inline">→</span>
+              </span>
+            )}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

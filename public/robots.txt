@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# AI crawlers — caminho do meio (permitir busca e indexação para máxima visibilidade do portfólio)
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+Sitemap: https://expostacker.com.br/sitemap.xml

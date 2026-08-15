@@ -12,5 +12,9 @@
     { "label": "Disponibilidade de APIs", "value": 100, "unit": "%" }
   ],
   "liveUrl": "https://expostacker.com.br",
-  "projectType": "SaaS"
+  "projectType": "SaaS",
+  "featured": false,
+  "category": "client",
+  "year": 2024,
+  "hasCaseStudy": true
 }

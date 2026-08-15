@@ -2,21 +2,65 @@
 import { ui } from '../i18n/ui';
 import { useTranslations } from '../i18n/utils';
 
-export interface Props {
-  lang: keyof typeof ui;
-}
+export interface Props { lang: keyof typeof ui; }
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
+
+const otherLang: keyof typeof ui = lang === 'pt' ? 'en' : 'pt';
+const otherLangLabel = otherLang === 'pt' ? 'Português' : 'English';
+const otherLangPath = `/${otherLang}/`;
+
+const navItems = [
+  { href: `/${lang}/#cases`, label: t('nav.cases') },
+  { href: `/${lang}/contato/`, label: t('nav.contact') },
+];
+const footerLabel = lang === 'pt' ? 'Rodapé' : 'Footer';
 ---
 
-<footer class="border-t border-brand-surface bg-brand-surface/30 mt-auto">
-  <div class="max-w-6xl mx-auto px-4 md:px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
-    <a href={`/${lang}/`} class="text-lg font-black text-white">
-      <span class="text-brand-accent">EXPO</span> STACKER
-    </a>
-    <p class="text-sm text-slate-400 text-center md:text-right">
-      {t('footer.copyright')}
-    </p>
+<footer class="border-t border-brand-border bg-brand-surface/20 mt-auto">
+  <div class="max-w-6xl mx-auto px-4 md:px-6 py-10 flex flex-col gap-8">
+    <div class="flex flex-col md:flex-row items-center md:items-start justify-between gap-6">
+      <div class="flex flex-col items-center md:items-start gap-1.5">
+        <a
+          href={`/${lang}/`}
+          class="text-lg font-display font-black text-brand-text tracking-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-surface rounded-sm"
+        >
+          <span class="text-brand-accent">EXPO</span> STACKER
+        </a>
+        <p class="text-sm text-brand-text-secondary font-mono">
+          {t('footer.builtWith')}
+        </p>
+      </div>
+
+      <nav aria-label={footerLabel} class="flex items-center gap-1 md:gap-2">
+        {
+          navItems.map((item) => (
+            <a
+              href={item.href}
+              class="px-3 py-2 min-h-[48px] flex items-center text-sm text-brand-text-secondary hover:text-brand-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-surface rounded-sm transition-colors"
+            >
+              {item.label}
+            </a>
+          ))
+        }
+        <a
+          href={otherLangPath}
+          class="px-3 py-2 min-h-[48px] flex items-center text-sm text-brand-text-secondary hover:text-brand-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-surface rounded-sm transition-colors font-mono"
+          aria-label={`Switch language to ${otherLangLabel}`}
+        >
+          {otherLangLabel}
+        </a>
+      </nav>
+    </div>
+
+    <div class="border-t border-brand-border pt-6 flex flex-col sm:flex-row items-center justify-between gap-2">
+      <p class="text-xs text-brand-text-secondary text-center sm:text-left">
+        {t('footer.copyright')}
+      </p>
+      <p class="text-xs text-brand-text-secondary text-center sm:text-right font-mono">
+        {t('footer.builtWith')}
+      </p>
+    </div>
   </div>
 </footer>

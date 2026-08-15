@@ -1,0 +1,88 @@
+---
+// BaseHead.astro — componente reutilizável de <head> para o portfólio Expo Stacker
+// Renderiza APENAS o conteúdo que vai dentro de <head> (sem <html> nem <body>).
+
+export interface Props {
+  title: string;
+  description: string;
+  lang: 'pt' | 'en';
+  canonicalUrl: string;
+  ptUrl: string;
+  enUrl: string;
+  xDefaultUrl: string;
+  ogImage?: string;
+}
+
+const {
+  title,
+  description,
+  lang,
+  canonicalUrl,
+  ptUrl,
+  enUrl,
+  xDefaultUrl,
+  ogImage,
+} = Astro.props;
+
+const SITE_URL = 'https://expostacker.com.br';
+const SITE_NAME = 'Expo Stacker';
+const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.png`;
+const resolvedOgImage = ogImage ?? DEFAULT_OG_IMAGE;
+
+const ogLocale = lang === 'pt' ? 'pt_BR' : 'en_US';
+const ogLocaleAlternate = lang === 'pt' ? 'en_US' : 'pt_BR';
+
+// JSON-LD — WebSite schema
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE_NAME,
+  url: SITE_URL,
+  inLanguage: ['pt-BR', 'en-US'],
+};
+
+// JSON-LD — Person schema
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: SITE_NAME,
+  jobTitle: 'Full Stack Developer',
+  url: SITE_URL,
+  sameAs: [],
+  knowsAbout: ['React', 'Node.js', 'TypeScript', 'Astro', 'PostgreSQL'],
+};
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="theme-color" content="#0A0A0F" />
+<link rel="canonical" href={canonicalUrl} />
+
+<!-- hreflang -->
+<link rel="alternate" hreflang="pt-BR" href={ptUrl} />
+<link rel="alternate" hreflang="en" href={enUrl} />
+<link rel="alternate" hreflang="x-default" href={xDefaultUrl} />
+
+<!-- Open Graph -->
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content={SITE_NAME} />
+<meta property="og:locale" content={ogLocale} />
+<meta property="og:locale:alternate" content={ogLocaleAlternate} />
+<meta property="og:image" content={resolvedOgImage} />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={resolvedOgImage} />
+
+<!-- JSON-LD — WebSite schema -->
+<script is:inline type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+
+<!-- JSON-LD — Person schema -->
+<script is:inline type="application/ld+json" set:html={JSON.stringify(personSchema)} />

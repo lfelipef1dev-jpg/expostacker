@@ -13,29 +13,79 @@ const otherLang = lang === 'pt' ? 'en' : 'pt';
 const otherLabel = languages[otherLang];
 
 const nav = [
-  { href: `/${lang}/`, label: t('nav.cases') },
+  { href: `/${lang}/#cases`, label: t('nav.cases') },
+  { href: `/${lang}/#about`, label: t('nav.about') },
   { href: `/${lang}/contato/`, label: t('nav.contact') },
 ];
+
+const switchAriaLabel =
+  lang === 'pt'
+    ? `Mudar idioma para ${otherLabel}`
+    : `Switch language to ${otherLabel}`;
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 border-b border-brand-surface/60 bg-brand-bg/80 backdrop-blur-md">
-  <nav class="max-w-6xl mx-auto flex items-center justify-between p-4 md:px-6">
-    <a href={`/${lang}/`} class="text-xl font-black tracking-tight text-white">
+<header class="fixed top-0 left-0 right-0 z-50 border-b border-brand-border/60 bg-brand-bg/80 backdrop-blur-md">
+  <nav class="max-w-6xl mx-auto flex items-center justify-between px-4 py-3 md:px-6" aria-label={lang === 'pt' ? 'Navegação principal' : 'Main navigation'}>
+    <a
+      href={`/${lang}/`}
+      class="text-xl font-display font-black tracking-tight text-brand-text hover:text-brand-accent transition-colors"
+    >
       <span class="text-brand-accent">EXPO</span> STACKER
     </a>
-    <div class="flex items-center gap-6 text-sm font-medium">
-      {nav.map((item) => (
-        <a href={item.href} class="text-slate-300 hover:text-brand-accent transition-colors">
-          {item.label}
-        </a>
-      ))}
+    <div class="flex items-center gap-4 text-sm font-medium md:gap-6">
+      {/* Desktop nav */}
+      <div class="hidden md:flex items-center gap-6">
+        {nav.map((item) => (
+          <a
+            href={item.href}
+            class="py-2 text-brand-text-secondary hover:text-brand-accent transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-bg rounded"
+          >
+            {item.label}
+          </a>
+        ))}
+      </div>
       <a
         href={`/${otherLang}/`}
-        class="px-3 py-1.5 text-xs font-semibold border border-brand-surface rounded-full text-slate-300 hover:border-brand-accent hover:text-brand-accent transition-colors"
-        aria-label={`Mudar para ${otherLabel}`}
+        class="px-3 py-2 text-xs font-mono font-semibold border border-brand-border rounded-full text-brand-text-secondary hover:border-brand-accent hover:text-brand-accent transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-bg"
+        aria-label={switchAriaLabel}
+        lang={otherLang}
       >
         {otherLabel}
       </a>
+      {/* Mobile menu button */}
+      <button
+        id="mobile-menu-btn"
+        class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg text-brand-text-secondary hover:text-brand-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent"
+        aria-label={lang === 'pt' ? 'Abrir menu' : 'Open menu'}
+        aria-expanded="false"
+      >
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" />
+        </svg>
+      </button>
     </div>
   </nav>
+
+  {/* Mobile menu */}
+  <div id="mobile-menu" class="hidden md:hidden border-t border-brand-border bg-brand-bg/95 backdrop-blur-md">
+    <nav class="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-2" aria-label={lang === 'pt' ? 'Navegação mobile' : 'Mobile navigation'}>
+      {nav.map((item) => (
+        <a
+          href={item.href}
+          class="py-3 px-2 text-brand-text-secondary hover:text-brand-accent transition-colors rounded-lg"
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+  </div>
 </header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => {
+    const isHidden = menu?.classList.toggle('hidden');
+    btn.setAttribute('aria-expanded', String(!isHidden));
+  });
+</script>

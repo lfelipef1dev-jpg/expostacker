@@ -2,9 +2,139 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ---------------------------------------------------------------------------
+   Fluid type scale — Major Third (1.25) in REM via clamp()
+   Base 1rem (16px) at 320px viewport, scaling up to larger viewports.
+--------------------------------------------------------------------------- */
+:root {
+  /* Fluid type scale — Major Third (1.25) in REM via clamp() */
+  --step--1: clamp(0.8rem, 0.76rem + 0.2vw, 0.896rem);
+  --step-0: clamp(1rem, 0.95rem + 0.25vw, 1.12rem);
+  --step-1: clamp(1.25rem, 1.19rem + 0.31vw, 1.4rem);
+  --step-2: clamp(1.563rem, 1.48rem + 0.39vw, 1.75rem);
+  --step-3: clamp(1.953rem, 1.85rem + 0.49vw, 2.188rem);
+  --step-4: clamp(2.441rem, 2.31rem + 0.61vw, 2.734rem);
+  --step-5: clamp(3.052rem, 2.89rem + 0.76vw, 3.418rem);
+
+  /* Typography — Dark 2026 */
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
 @layer base {
-  html, body {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  html,
+  body {
     @apply bg-brand-bg text-brand-text;
-    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Visible focus — WCAG 2.2 AA, 3:1 contrast against dark surfaces */
+  :focus-visible {
+    outline: 2px solid #8AB4F8;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* Skip link — off-screen until focused */
+  .skip-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    padding: 0.75rem 1rem;
+    background-color: #1A1A1A;
+    color: #E6E6E6;
+    font-weight: 600;
+    text-decoration: none;
+    transform: translateY(-150%);
+    transition: transform 200ms ease;
+  }
+
+  .skip-link:focus {
+    transform: translateY(0);
+  }
+
+  /* Text selection in accent color */
+  ::selection {
+    background-color: rgba(138, 180, 248, 0.35);
+    color: #E6E6E6;
+  }
+}
+
+@layer utilities {
+  .text-step--1 { font-size: var(--step--1); }
+  .text-step-0  { font-size: var(--step-0); }
+  .text-step-1  { font-size: var(--step-1); }
+  .text-step-2  { font-size: var(--step-2); }
+  .text-step-3  { font-size: var(--step-3); }
+  .text-step-4  { font-size: var(--step-4); }
+  .text-step-5  { font-size: var(--step-5); }
+}
+
+/* ---------------------------------------------------------------------------
+   Subtle dark-mode scrollbar (WebKit)
+--------------------------------------------------------------------------- */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A0A0A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #252525;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #333333;
+}
+
+/* ---------------------------------------------------------------------------
+   Reduced motion — disable animations/transitions/smooth scroll
+--------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Scroll-driven animation (optional) — only when motion is allowed
+--------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  .case-section {
+    animation: fadeSlideUp linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+  }
+
+  @keyframes fadeSlideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }

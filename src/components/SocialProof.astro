@@ -1,0 +1,97 @@
+---
+import { ui } from '../i18n/ui';
+import { useTranslations } from '../i18n/utils';
+
+export interface Props {
+  lang: keyof typeof ui;
+  githubUrl?: string;
+}
+
+const { lang, githubUrl = '#' } = Astro.props;
+const t = useTranslations(lang);
+
+const liveUrl = 'https://marken.expostacker.com.br/';
+
+const cards = [
+  {
+    label: t('proof.card1.label'),
+    title: t('proof.card1.title'),
+    desc: t('proof.card1.desc'),
+    cta: t('proof.card1.cta'),
+    href: liveUrl,
+    external: true,
+  },
+  {
+    label: t('proof.card2.label'),
+    title: t('proof.card2.title'),
+    desc: t('proof.card2.desc'),
+    cta: t('proof.card2.cta'),
+    href: githubUrl,
+    external: true,
+  },
+  {
+    label: t('proof.card3.label'),
+    title: t('proof.card3.title'),
+    desc: t('proof.card3.desc'),
+    cta: null,
+    href: null,
+    external: false,
+  },
+];
+---
+
+<section
+  id="proof"
+  class="py-20 md:py-28 max-w-6xl mx-auto px-4 md:px-6"
+  aria-labelledby="proof-title"
+>
+  <div class="mb-12 max-w-2xl">
+    <p class="font-mono text-xs uppercase tracking-widest text-brand-accent mb-4">
+      {t('proof.eyebrow')}
+    </p>
+    <h2
+      id="proof-title"
+      class="font-display text-3xl md:text-4xl text-brand-text mb-4 leading-tight tracking-tight"
+    >
+      {t('proof.title')}
+    </h2>
+    <p class="text-brand-text-secondary text-base md:text-lg leading-relaxed">
+      {t('proof.subtitle')}
+    </p>
+  </div>
+
+  <div class="grid md:grid-cols-3 gap-5">
+    {
+      cards.map((card) => (
+        <article
+          class="group p-6 rounded-2xl border border-brand-border bg-brand-surface/60 hover:border-brand-accent/40 transition-colors motion-reduce:transition-none focus-within:border-brand-accent/40"
+        >
+          <span class="font-mono text-xs uppercase tracking-widest text-brand-accent block mb-3">
+            {card.label}
+          </span>
+          <h3 class="font-display text-lg text-brand-text mb-2 leading-snug">
+            {card.title}
+          </h3>
+          <p class="text-sm text-brand-text-secondary leading-relaxed mb-4">
+            {card.desc}
+          </p>
+          {card.href && card.cta ? (
+            <a
+              href={card.href}
+              target={card.external ? '_blank' : undefined}
+              rel={card.external ? 'noopener noreferrer' : undefined}
+              class="inline-flex items-center gap-1 text-sm font-medium text-brand-accent hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-accent rounded-sm motion-reduce:hover:no-underline"
+            >
+              {card.cta}
+              <span aria-hidden="true">↗</span>
+            </a>
+          ) : (
+            <span class="font-mono text-sm text-brand-text-secondary">
+              React · Node.js · TypeScript · Astro · Cloudflare
+            </span>
+          )}
+        </article>
+      ))
+    }
+  </div>
+</section>

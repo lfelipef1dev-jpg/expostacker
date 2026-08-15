@@ -1,0 +1,68 @@
+---
+export interface Props {
+  lang: keyof typeof ui;
+  entry: any;
+}
+
+import { ui } from '../../i18n/ui';
+import { useTranslations } from '../../i18n/utils';
+
+const { lang, entry } = Astro.props;
+const t = useTranslations(lang);
+
+const defaultRole =
+  'Responsável pela arquitetura, API e frontend da plataforma, com foco em performance e experiência do vendedor.';
+
+const roleText = entry.data.myRole?.[lang] || defaultRole;
+---
+
+<section>
+  <h2 class="font-display text-2xl md:text-3xl text-brand-text">
+    {t('case.trust')}
+  </h2>
+
+  <div class="mt-6 space-y-6">
+    <div class="bg-brand-surface/60 border border-brand-border rounded-2xl p-6">
+      <h3 class="text-lg font-semibold text-brand-text mb-2">Meu papel</h3>
+      <p class="text-brand-text-secondary leading-relaxed">{roleText}</p>
+    </div>
+
+    <div class="bg-brand-surface/60 border border-brand-border rounded-2xl p-6">
+      <h3 class="text-lg font-semibold text-brand-text mb-4">
+        Stack com justificativa
+      </h3>
+      <div class="flex flex-wrap gap-3">
+        {
+          entry.data.technologies?.map((tech: any) => (
+            <div class="px-3 py-1 rounded-full border border-brand-border bg-brand-bg text-sm text-brand-text-secondary">
+              <span class="font-medium text-brand-text">{tech.name}</span>
+              {tech.why?.[lang] && (
+                <span class="ml-2 text-brand-text-secondary">
+                  — {tech.why[lang]}
+                </span>
+              )}
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="bg-brand-surface/60 border border-brand-border rounded-2xl p-6">
+      <h3 class="text-lg font-semibold text-brand-text mb-2">
+        NDA / prova de entrega
+      </h3>
+      <p class="text-brand-text-secondary leading-relaxed">
+        {entry.data.nda ? t('case.nda') : ''}
+        Aplicação em produção:
+        <a
+          href={entry.data.liveUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-1 text-brand-accent hover:underline"
+        >
+          {t('case.openApp')}
+        </a>
+      </p>
+    </div>
+  </div>
+</section>

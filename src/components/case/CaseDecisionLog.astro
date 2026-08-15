@@ -1,0 +1,104 @@
+---
+import { ui } from '../../i18n/ui';
+import { useTranslations } from '../../i18n/utils';
+
+export interface Props {
+  lang: keyof typeof ui;
+  entry: any;
+}
+
+const { lang, entry } = Astro.props;
+const t = useTranslations(lang);
+
+const techNames = (entry.data.technologies || [])
+  .map((t: any) => (typeof t === 'string' ? t : t.name))
+  .filter(Boolean)
+  .join(', ');
+
+const techSuffix = techNames ? ` — combinado com ${techNames}.` : '';
+
+const fallbackDecisions = {
+  pt: [
+    {
+      title: 'Next.js 15 em vez de SPA',
+      why: `Escolhi uma arquitetura com renderização híbrida para ganhar SEO, SSR e melhor performance inicial${techSuffix}. Uma SPA pura teria dificultado a indexação e a experiência no primeiro carregamento.`,
+      alternatives: 'SPA tradicional com React Router — rejeitada por falta de SSR e metadados dinâmicos.'
+    },
+    {
+      title: 'PostgreSQL em vez de MongoDB',
+      why: `Optei por um banco relacional por causa dos catálogos, estoque e pedidos, que exigem consistência e relacionamentos bem definidos${techSuffix}.`,
+      alternatives: 'MongoDB — rejeitado porque o modelo de dados do projeto se beneficia mais de esquemas rígidos e transações ACID.'
+    },
+    {
+      title: 'Gamificação por tiers em vez de leaderboards abertos',
+      why: `Criei um sistema de tiers fechado para reconhecer progresso sem expor todos os usuários em rankings públicos${techSuffix}, evitando desmotivação dos participantes que estão começando.`,
+      alternatives: 'Leaderboard global aberto — rejeitado por pressionar usuários iniciantes e mascarar evolução individual.'
+    }
+  ],
+  en: [
+    {
+      title: 'Next.js 15 instead of a SPA',
+      why: `I chose a hybrid rendering architecture for SEO, SSR and better initial performance${techSuffix}. A pure SPA would have hurt indexing and first-load experience.`,
+      alternatives: 'Traditional SPA with React Router — rejected due to lack of SSR and dynamic metadata.'
+    },
+    {
+      title: 'PostgreSQL instead of MongoDB',
+      why: `I picked a relational database because the catalogs, inventory and orders require consistency and well-defined relationships${techSuffix}.`,
+      alternatives: 'MongoDB — rejected because the project data model benefits more from strict schemas and ACID transactions.'
+    },
+    {
+      title: 'Tiered gamification instead of open leaderboards',
+      why: `I built a closed tier system to recognize progress without exposing all users on public rankings${techSuffix}, preventing early users from feeling demotivated.`,
+      alternatives: 'Open global leaderboard — rejected because it pressures beginners and hides individual progress.'
+    }
+  ]
+};
+
+---
+
+<section class="py-12 md:py-16">
+  <div class="max-w-6xl mx-auto px-4 md:px-6">
+    <h2 class="font-display text-2xl md:text-3xl text-brand-text">
+      {t('case.decisionLog')}
+    </h2>
+    <p class="mt-3 text-brand-text-secondary">
+      {lang === 'pt' ? 'O que escolhi, o que rejeitei e por quê.' : 'What I chose, what I rejected, and why.'}
+    </p>
+
+    <div class="mt-10 space-y-4">
+      {entry.data.decisionLog && entry.data.decisionLog.length > 0 ? (
+        entry.data.decisionLog.map((item: any) => (
+          <div class="bg-brand-surface/60 border border-brand-border rounded-2xl p-5">
+            <h3 class="font-mono text-brand-accent uppercase tracking-wider text-xs">
+              {item.title[lang]}
+            </h3>
+            <p class="mt-3 text-brand-text">
+              <strong class="font-semibold">{lang === 'pt' ? 'Por que:' : 'Why:'}</strong>{' '}
+              {item.why[lang]}
+            </p>
+            <p class="mt-2 text-brand-text-secondary text-sm">
+              <strong class="font-semibold">{lang === 'pt' ? 'Alternativas rejeitadas:' : 'Rejected alternatives:'}</strong>{' '}
+              {item.alternatives[lang]}
+            </p>
+          </div>
+        ))
+      ) : (
+        fallbackDecisions[lang].map((item: any) => (
+          <div class="bg-brand-surface/60 border border-brand-border rounded-2xl p-5">
+            <h3 class="font-mono text-brand-accent uppercase tracking-wider text-xs">
+              {item.title}
+            </h3>
+            <p class="mt-3 text-brand-text">
+              <strong class="font-semibold">{lang === 'pt' ? 'Por que:' : 'Why:'}</strong>{' '}
+              {item.why}
+            </p>
+            <p class="mt-2 text-brand-text-secondary text-sm">
+              <strong class="font-semibold">{lang === 'pt' ? 'Alternativas rejeitadas:' : 'Rejected alternatives:'}</strong>{' '}
+              {item.alternatives}
+            </p>
+          </div>
+        ))
+      )}
+    </div>
+  </div>
+</section>

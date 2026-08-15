@@ -1,0 +1,51 @@
+---
+import { ui } from '../../i18n/ui';
+import { useTranslations } from '../../i18n/utils';
+
+export interface Props {
+  lang: keyof typeof ui;
+  entry: any;
+}
+
+const { lang, entry } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section class="max-w-6xl mx-auto px-4 md:px-6 py-12 md:py-16 text-center">
+  <h2 class="font-display text-3xl md:text-4xl text-brand-text mb-4">
+    {lang === 'pt' ? 'Pronto para construir algo similar?' : 'Ready to build something similar?'}
+  </h2>
+  <p class="text-brand-text-secondary mb-8 max-w-2xl mx-auto">
+    {lang === 'pt'
+      ? 'Transformei um ecossistema complexo em uma plataforma intuitiva que escala com o negócio. Posso fazer o mesmo para o seu projeto.'
+      : 'I transformed a complex ecosystem into an intuitive platform that scales with the business. I can do the same for yours.'}
+  </p>
+  <div class="flex flex-wrap items-center justify-center gap-3">
+    {entry.data.liveUrl && (
+      <a
+        href={entry.data.liveUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center min-w-[48px] min-h-[48px] px-6 py-3 bg-brand-accent text-brand-bg font-semibold rounded"
+      >
+        {t('case.openApp')}
+      </a>
+    )}
+    <a
+      href={`/${lang}/contato/`}
+      class="inline-flex items-center justify-center min-w-[48px] min-h-[48px] px-6 py-3 border border-current text-brand-text font-semibold rounded"
+    >
+      {t('case.contact')}
+    </a>
+    {entry.data.githubUrl && (
+      <a
+        href={entry.data.githubUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center min-w-[48px] min-h-[48px] px-6 py-3 border border-current text-brand-text font-semibold rounded"
+      >
+        GitHub
+      </a>
+    )}
+  </div>
+</section>

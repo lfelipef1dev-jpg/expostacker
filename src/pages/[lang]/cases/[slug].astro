@@ -2,15 +2,31 @@
 import '../../../styles/global.css';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { ui } from '../../../i18n/ui';
-import { formatBusinessMetric } from '../../../utils/format';
+import { useTranslations } from '../../../i18n/utils';
+import BaseHead from '../../../components/BaseHead.astro';
 import Header from '../../../components/Header.astro';
 import Footer from '../../../components/Footer.astro';
+
+import CaseHeroV2 from '../../../components/case/CaseHeroV2.astro';
+import CaseSnapshot from '../../../components/case/CaseSnapshot.astro';
+import CaseStory from '../../../components/case/CaseStory.astro';
+import CaseTimeline from '../../../components/case/CaseTimeline.astro';
+import CaseMethodology from '../../../components/case/CaseMethodology.astro';
+import CaseArchitecture from '../../../components/case/CaseArchitecture.astro';
+import CaseTechStack from '../../../components/case/CaseTechStack.astro';
+import CaseDecisionLog from '../../../components/case/CaseDecisionLog.astro';
+import CaseAI from '../../../components/case/CaseAI.astro';
+import CaseGamification from '../../../components/case/CaseGamification.astro';
+import CaseSecurity from '../../../components/case/CaseSecurity.astro';
+import CaseResultsV2 from '../../../components/case/CaseResultsV2.astro';
+import CaseLessons from '../../../components/case/CaseLessons.astro';
+import CaseCTA from '../../../components/case/CaseCTA.astro';
 
 type ValidLang = keyof typeof ui;
 
 type StaticPath = {
   params: { lang: ValidLang; slug: string };
-  props: { entry: CollectionEntry<'cases'> };
+  props: { lang: ValidLang; slug: string; entry: CollectionEntry<'cases'> };
 };
 
 export async function getStaticPaths(): Promise<StaticPath[]> {
@@ -20,15 +36,14 @@ export async function getStaticPaths(): Promise<StaticPath[]> {
   return langs.flatMap((lang) =>
     entries.map((entry) => ({
       params: { lang, slug: entry.id },
-      props: { entry }
+      props: { lang, slug: entry.id, entry }
     }))
   );
 }
 
-const { entry } = Astro.props;
-const { lang, slug } = Astro.params;
-
+const { lang, slug, entry } = Astro.props;
 const currentLang: ValidLang = (lang as ValidLang) in ui ? (lang as ValidLang) : 'pt';
+const t = useTranslations(currentLang);
 
 const htmlLangMap = { pt: 'pt-BR', en: 'en-US' } as const;
 const htmlLang = htmlLangMap[currentLang];
@@ -40,66 +55,54 @@ const canonicalUrl = currentLang === 'pt' ? ptUrl : enUrl;
 const xDefaultUrl = ptUrl;
 
 const title = `${entry.data.title} | Expo Stacker`;
-const description = entry.data.problemDescription.slice(0, 160);
+const description = (entry.data.shortDescription ?? '').slice(0, 160);
+const ogImage = `${site}/og-image.png`;
 ---
 
 <html lang={htmlLang}>
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <meta name="theme-color" content="#0b1021" />
-
-    <link rel="canonical" href={canonicalUrl} />
-    <link rel="alternate" hreflang="pt-br" href={ptUrl} />
-    <link rel="alternate" hreflang="en" href={enUrl} />
-    <link rel="alternate" hreflang="x-default" href={xDefaultUrl} />
+    <BaseHead
+      title={title}
+      description={description}
+      lang={currentLang}
+      canonicalUrl={canonicalUrl}
+      ptUrl={ptUrl}
+      enUrl={enUrl}
+      xDefaultUrl={xDefaultUrl}
+      ogImage={ogImage}
+    />
   </head>
-  <body class="min-h-screen flex flex-col bg-brand-bg text-brand-text antialiased">
+  <body class="min-h-screen flex flex-col bg-brand-bg text-brand-text antialiased overflow-x-hidden">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-3 focus:min-h-[48px] focus:inline-flex focus:items-center focus:bg-brand-accent focus:text-brand-bg focus:font-mono focus:text-sm focus:rounded-lg focus:shadow-lg"
+    >
+      {t('skip.link')}
+    </a>
+
     <Header lang={currentLang} />
-    <main class="flex-1 pt-32 pb-20">
-      <article class="max-w-4xl mx-auto px-4 md:px-6">
-        <div class="border border-brand-surface bg-brand-surface/60 backdrop-blur-sm p-6 md:p-10 rounded-2xl">
-          <div class="flex items-center gap-2 mb-4">
-            <span class="w-2 h-2 rounded-full bg-brand-accent animate-pulse"></span>
-            <span class="text-xs font-bold text-brand-accent uppercase tracking-wider">{entry.data.projectType}</span>
-          </div>
 
-          <h1 class="text-3xl md:text-4xl font-bold text-white mb-4">{entry.data.title}</h1>
-          <p class="text-brand-accent font-mono mb-8">Cliente: {entry.data.clientName}</p>
-
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 my-8">
-            {entry.data.businessOutcome.map((metric: { label: string; value: number; unit: string }) => (
-              <div class="p-5 bg-brand-bg border border-brand-surface rounded-xl text-center">
-                <span class="block text-2xl font-black text-brand-accent">{formatBusinessMetric(metric.value, metric.unit)}</span>
-                <span class="text-xs text-slate-400">{metric.label}</span>
-              </div>
-            ))}
-          </div>
-
-          <div class="prose prose-invert max-w-none mt-8">
-            <h2 class="text-xl font-bold text-white mb-3">{currentLang === 'pt' ? 'O Problema' : 'The Problem'}</h2>
-            <p class="text-slate-300 leading-relaxed mb-8">{entry.data.problemDescription}</p>
-            <h2 class="text-xl font-bold text-white mb-3">{currentLang === 'pt' ? 'A Solução Sênior' : 'The Senior Solution'}</h2>
-            <p class="text-slate-300 leading-relaxed mb-8">{entry.data.technicalSolution}</p>
-
-            <h3 class="text-lg font-bold text-white mb-3">{currentLang === 'pt' ? 'Stack utilizada' : 'Stack used'}</h3>
-            <div class="flex flex-wrap gap-2 mb-8">
-              {entry.data.tags.map((tag: string) => (
-                <span class="px-3 py-1.5 text-sm font-medium border border-brand-surface rounded-full bg-brand-bg/60 text-slate-300">
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          <a href={entry.data.liveUrl} target="_blank" rel="noopener noreferrer" class="inline-flex items-center mt-4 px-7 py-3.5 bg-brand-accent text-brand-bg font-bold rounded-lg hover:scale-105 transition-transform shadow-[0_0_24px_rgba(0,225,160,0.35)]">
-            {currentLang === 'pt' ? 'Executar Aplicação Ao Vivo ⚡' : 'Run Live Application ⚡'}
-          </a>
-        </div>
+    <main id="main-content" class="flex-1 pt-32 pb-20">
+      <article class="max-w-6xl mx-auto px-4 md:px-6">
+        <CaseHeroV2 lang={currentLang} entry={entry} slug={slug} />
+        <CaseSnapshot lang={currentLang} entry={entry} />
+        <section id="case-content">
+          <CaseStory lang={currentLang} entry={entry} />
+        </section>
+        <CaseTimeline lang={currentLang} entry={entry} />
+        <CaseMethodology lang={currentLang} entry={entry} />
+        <CaseArchitecture lang={currentLang} entry={entry} />
+        <CaseTechStack lang={currentLang} entry={entry} />
+        <CaseDecisionLog lang={currentLang} entry={entry} />
+        <CaseAI lang={currentLang} entry={entry} />
+        <CaseGamification lang={currentLang} entry={entry} />
+        <CaseSecurity lang={currentLang} entry={entry} />
+        <CaseResultsV2 lang={currentLang} entry={entry} />
+        <CaseLessons lang={currentLang} entry={entry} />
+        <CaseCTA lang={currentLang} entry={entry} />
       </article>
     </main>
+
     <Footer lang={currentLang} />
   </body>
 </html>

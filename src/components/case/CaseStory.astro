@@ -1,0 +1,45 @@
+---
+import { ui } from '../../i18n/ui';
+import { useTranslations } from '../../i18n/utils';
+
+export interface Props {
+  lang: keyof typeof ui;
+  entry: any;
+}
+
+const { lang, entry } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section class="py-12 md:py-16">
+  <div class="max-w-6xl mx-auto px-4 md:px-6">
+    <h2 class="font-display text-2xl md:text-3xl text-brand-text">
+      {t('case.theProblem')}
+    </h2>
+    <p class="mt-4 text-brand-text-secondary leading-relaxed">
+      {entry.data.opening?.[lang] ?? ''}
+    </p>
+    <p class="mt-4 text-brand-text-secondary leading-relaxed">
+      {entry.data.problemDescription ?? ''}
+    </p>
+
+    <h2 class="mt-8 font-display text-2xl md:text-3xl text-brand-text">
+      {t('case.theApproach')}
+    </h2>
+    <p class="mt-4 text-brand-text-secondary leading-relaxed">
+      {entry.data.approach?.[lang] ?? entry.data.technicalSolution ?? ''}
+    </p>
+
+    <h2 class="mt-8 font-display text-2xl md:text-3xl text-brand-text">
+      {t('case.theSolution')}
+    </h2>
+    <p class="mt-4 text-brand-text-secondary leading-relaxed">
+      {entry.data.solutionIntro?.[lang] ?? ''}
+    </p>
+    <ul class="mt-4 list-disc pl-5 text-brand-text-secondary leading-relaxed">
+      {(entry.data.solutionItems?.[lang] ?? []).map((item: string) => (
+        <li>{item}</li>
+      ))}
+    </ul>
+  </div>
+</section>

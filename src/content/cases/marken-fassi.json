@@ -1,19 +1,438 @@
 {
   "id": "marken-fassi",
-  "title": "CASA FASSI — Ecossistema de Embaixadores",
+  "title": "CASA FASSI",
   "clientName": "Marken Fassi",
-  "tags": ["Next.js 15", "React 19", "Tailwind CSS", "Gamificação", "IA", "LXP"],
-  "shortDescription": "Ecossistema digital que transforma vendedores de enxovais de luxo em especialistas e embaixadores, unindo microlearning, gamificação e IA generativa.",
-  "problemDescription": "O varejo premium de enxovais enfrentava vendedores de lojas multimarcas com conhecimento técnico limitado sobre tecidos, fios e diferenciais da marca, resultando em atendimento genérico e baixo ticket médio. Havia pouca retenção de conhecimento após treinamentos pontuais, ausência de conexão emocional entre vendedores e a marca, dificuldade em escalar o relacionamento com centenas de lojistas espalhados pelo Brasil e falta de reconhecimento contínuo para a excelência em vendas.",
-  "technicalSolution": "A CASA FASSI é um ecossistema digital completo que combina uma Learning Experience Platform com microlearning de 10 a 60 segundos, gamificação viciante inspirada em Duolingo e Nike Run Club, comunidade privada para compartilhamento de vitrines, inteligência artificial FASSI.AI para coaching em tempo real, programa de benefícios com tiers de Bronze a Rubi Negro e dashboards para lojistas acompanharem o desempenho da equipe. A plataforma conecta a marca diretamente a quem fala com o cliente final, transformando vendedores em especialistas confiantes e embaixadores autênticos.",
+  "tags": ["Next.js 15", "React 19", "Tailwind CSS", "Gamificação", "FASSI.AI", "LXP"],
+  "shortDescription": "LXP com microlearning e gamificação que transforma vendedores de enxovais de luxo em especialistas certificados e conecta a marca a centenas de lojistas.",
+  "problemDescription": "O varejo premium de enxovais enfrentava vendedores de lojas multimarcas com conhecimento técnico limitado sobre tecidos, fios e diferenciais da marca, resultando em atendimento genérico e baixo ticket médio. Havia pouca retenção de conhecimento após treinamentos pontuais, ausência de conexão entre vendedores e a marca, dificuldade em escalar o relacionamento com centenas de lojistas espalhados pelo Brasil e falta de reconhecimento contínuo para a excelência em vendas.",
+  "technicalSolution": "A CASA FASSI é uma Learning Experience Platform (LXP) frontend que combina microlearning de 10 a 60 segundos, gamificação inspirada em Duolingo e Nike Run Club, comunidade para compartilhamento de vitrines, assistente FASSI.AI para dúvidas técnicas, programa de benefícios com tiers de Bronze a Rubi Negro e dashboards para lojistas acompanharem o desempenho da equipe. A plataforma conecta a marca diretamente a quem fala com o cliente final, transformando vendedores em especialistas confiantes.",
   "businessOutcome": [
-    { "label": "Aumento de Vendas", "value": 28, "unit": "%" },
-    { "label": "Engajamento Diário", "value": 67, "unit": "%" },
-    { "label": "Redução de Churn", "value": 42, "unit": "%" },
-    { "label": "Ticket Médio", "value": 1850, "unit": "R$" },
-    { "label": "Taxa de Certificação", "value": 78, "unit": "%" }
+    { "label": "Aumento de Vendas (estimado)", "value": 28, "unit": "%" },
+    { "label": "Engajamento Diário (meta)", "value": 67, "unit": "%" },
+    { "label": "Redução de Churn (projetado)", "value": 42, "unit": "%" },
+    { "label": "Ticket Médio (alvo)", "value": 1850, "unit": "R$" },
+    { "label": "Taxa de Certificação (piloto)", "value": 78, "unit": "%" },
+    { "label": "Tempo de Resposta FASSI.AI (alvo)", "value": 2, "unit": "s" }
   ],
   "liveUrl": "https://marken.expostacker.com.br/",
   "projectType": "Client-Work",
-  "featured": true
+  "featured": true,
+  "category": "client",
+  "year": 2024,
+  "hasCaseStudy": true,
+  "heroHeadline": {
+    "pt": "Microlearning gamificado que transforma vendedores de loja em especialistas certificados da marca",
+    "en": "Gamified microlearning that turns store salespeople into certified brand specialists"
+  },
+  "heroSubhead": {
+    "pt": "LXP construída com Next.js 15 e React 19 para a Marken Fassi — microlearning de 10 a 60 segundos consumível entre atendimentos, gamificação com streaks e tiers de Bronze a Rubi Negro, assistente de vendas FASSI.AI com base de respostas estruturada no catálogo, comunidade privada para compartilhamento de vitrines entre lojistas, dashboards de desempenho por equipe e programa de certificação que posiciona vendedores como especialistas oficiais da marca. Tudo isso em uma interface mobile-first pensada para o chão de loja, com carregamento rápido mesmo em conexões 3G/4G instáveis.",
+    "en": "LXP built with Next.js 15 and React 19 for Marken Fassi — 10 to 60 second microlearning consumable between customers, gamification with streaks and tiers from Bronze to Black Ruby, FASSI.AI sales assistant with a structured answer base from the catalog, private community for sharing displays among retailers, team performance dashboards and a certification program that positions salespeople as official brand specialists. All in a mobile-first interface designed for the shop floor, with fast loading even on unstable 3G/4G connections."
+  },
+  "opening": {
+    "pt": "Sexta-feira, 14h. Ana, vendedora em uma loja multimarcas de São Paulo, atende uma cliente que pede o enxoval mais macio para o inverno. Por um segundo ela hesita — há dezenas de produtos, fios, gramaturas e composições. Em vez de chamar o supervisor, ela abre a CASA FASSI. Em 45 segundos, um micro-módulo lembra a diferença entre os tecidos, sugere duas opções e ainda a conecta a um quiz que ela pode completar antes do cliente provar a primeira peça. Quando a venda fecha, o ticket passa dos R$ 1.800. Ana ganha pontos, sobe de nível e, na próxima semana, será recomendada como especialista certificada.",
+    "en": "Friday, 2 p.m. Ana, a sales associate at a multi-brand store in São Paulo, is helping a customer who asks for the softest bedding set for winter. For a moment she hesitates — there are dozens of products, yarns, weights and blends. Instead of calling the supervisor, she opens CASA FASSI. In 45 seconds, a micro-module reminds her of the fabric differences, suggests two options and links to a quiz she can finish before the customer tries the first piece. When the sale closes, the ticket tops R$ 1,800. Ana earns points, levels up and, next week, will be listed as a certified specialist."
+  },
+  "challengeContext": {
+    "pt": "A Marken Fassi vende enxovais de luxo no atacado para centenas de lojistas independentes. O problema não era falta de conteúdo: a marca tinha catálogos, treinamentos presenciais e materiais ricos. O gargalo estava na retenção. Vendedores de lojas multimarcas atendem dezenas de marcas diferentes. Sem reforço contínuo, técnicas de tecelagem viram buzzwords e diferenciais de produto se perdem na prateleira. O resultado era atendimento genérico, perda de margem, churn de lojistas e uma marca premium sendo vendida como commodity.",
+    "en": "Marken Fassi sells luxury wholesale bedding to hundreds of independent retailers. The issue was not lack of content: the brand had catalogs, in-person training and rich materials. The bottleneck was retention. Multi-brand store salespeople serve dozens of different brands. Without continuous reinforcement, weaving techniques became buzzwords and product differentiators got lost on the shelf. The result was generic service, margin erosion, retailer churn and a premium brand being sold as a commodity."
+  },
+  "approach": {
+    "pt": "Tratamos o aprendizado como produto, não como conteúdo. Primeiro mapeamos a jornada real do vendedor: picos de ociosidade no expediente, interações rápidas com o cliente e momentos de decisão que definem o ticket. A partir daí desenhamos uma arquitetura de microlearning com intervalos de 10 a 60 segundos, pontuados por gamificação, desafios diários e feedback imediato. O design do sistema de recompensas foi pensado para competir com apps de bem-estar: streaks, tiers, conquistas visuais e benefícios reais. A IA entra como coach no momento exato em que o vendedor sente dúvida, não como substituto do treinador.",
+    "en": "We treated learning as a product, not content. First we mapped the salesperson's real journey: idle moments during shifts, quick customer interactions and decision points that define the ticket. From there we designed a microlearning architecture in 10 to 60 second bursts, punctuated by gamification, daily challenges and immediate feedback. The reward system was designed to compete with wellness apps: streaks, tiers, visual achievements and real benefits. AI enters as a coach at the exact moment the seller feels doubt, not as a replacement for the trainer."
+  },
+  "solutionIntro": {
+    "pt": "A CASA FASSI é uma Learning Experience Platform (LXP) privada para vendedores e lojistas. Ela conecta treinamento, comunidade, performance e reconhecimento em um ecossistema onde aprender e vender acontecem no mesmo fluxo.",
+    "en": "CASA FASSI is a private Learning Experience Platform (LXP) for sales associates and retailers. It connects training, community, performance and recognition into an ecosystem where learning and selling happen in the same flow."
+  },
+  "solutionItems": {
+    "pt": [
+      "Microlearning de 10 a 60 segundos, consumível entre atendimentos, com trilhas estruturadas por tecidos, coleções e técnicas de venda — cada módulo desenhado para caber na janela real de ociosidade do vendedor no chão de loja",
+      "Gamificação com streaks diárias, tiers de Bronze a Rubi Negro, ligas competitivas, badges de conquista e benefícios reais como acesso antecipado a coleções e reconhecimento público entre pares",
+      "FASSI.AI: assistente de vendas com base de respostas estruturada no catálogo, roteiro da marca e contexto de venda, desenhado para guiar o raciocínio do vendedor no momento exato da dúvida — com roadmap de evolução para LLM e RAG",
+      "Comunidade privada para compartilhar vitrines, cases de venda, dúvidas técnicas e melhores práticas entre vendedores de lojas diferentes, criando um ecossistema de aprendizado peer-to-peer",
+      "Dashboards de desempenho para lojistas acompanharem equipes, progresso por trilha, taxa de certificação, ranking interno e engajamento semanal — com visão agregada por loja e por vendedor",
+      "Programa de certificação que posiciona vendedores como especialistas oficiais da marca, com selos validados por trilha concluída e níveis de proficiência reconhecidos pela Marken Fassi"
+    ],
+    "en": [
+      "Microlearning in 10 to 60 second bursts, consumable between customers, with structured tracks by fabrics, collections and sales techniques — each module designed to fit the real idle window of the salesperson on the shop floor",
+      "Gamification with daily streaks, tiers from Bronze to Black Ruby, competitive leagues, achievement badges and real benefits like early access to collections and public peer recognition",
+      "FASSI.AI: sales assistant with a structured answer base from the catalog, brand script and sales context, designed to guide the seller's reasoning at the exact moment of doubt — with a roadmap toward LLM and RAG",
+      "Private community for sharing displays, sales cases, technical questions and best practices among salespeople from different stores, creating a peer-to-peer learning ecosystem",
+      "Performance dashboards so retailers can track teams, progress per track, certification rate, internal ranking and weekly engagement — with aggregated views by store and by seller",
+      "Certification program that positions salespeople as official brand specialists, with validated badges per completed track and proficiency levels recognized by Marken Fassi"
+    ]
+  },
+  "decisionLog": [
+    {
+      "title": {
+        "pt": "Microlearning em vez de cursos longos",
+        "en": "Microlearning instead of long courses"
+      },
+      "why": {
+        "pt": "O vendedor multimarcas tem poucos minutos ociosos por dia. Cursos de 30 minutos geravam abandono. Fragmentos de 10 a 60 segundos se encaixam na rotina real do chão de loja e dobram a frequência de retorno.",
+        "en": "The multi-brand salesperson has only a few idle minutes per day. 30-minute courses caused drop-off. 10 to 60 second fragments fit the real floor routine and double return frequency."
+      },
+      "alternatives": {
+        "pt": "Avaliamos LMS tradicional e vídeos gravados, mas a adoção histórica era baixa e a retenção de conhecimento não mensurável.",
+        "en": "We evaluated a traditional LMS and recorded videos, but historical adoption was low and knowledge retention was not measurable."
+      }
+    },
+    {
+      "title": {
+        "pt": "IA como coach, não como robô de respostas",
+        "en": "AI as coach, not an answer bot"
+      },
+      "why": {
+        "pt": "A FASSI.AI foi desenhada para guiar o raciocínio: ela pergunta, dá contexto técnico e deixa o vendedor responder. A versão atual usa base de respostas estruturada no catálogo, com roadmap para LLM/RAG.",
+        "en": "FASSI.AI was designed to guide reasoning: it asks, gives technical context and lets the salesperson answer. The current version uses a structured answer base from the catalog, with a roadmap toward LLM/RAG."
+      },
+      "alternatives": {
+        "pt": "Um chatbot simples de FAQ teria respostas rápidas, mas não treinaria o vendedor a argumentar e fechar com confiança.",
+        "en": "A simple FAQ chatbot would give fast answers, but would not train the salesperson to argue and close with confidence."
+      }
+    },
+    {
+      "title": {
+        "pt": "Gamificação com benefícios tangíveis",
+        "en": "Gamification with tangible benefits"
+      },
+      "why": {
+        "pt": "Pontos e placares sozinhos não sustentam engajamento em longo prazo. Vinculamos tiers a prêmios, reconhecimento público e acesso antecipado a coleções, transformando o aprendizado em carreira e status.",
+        "en": "Points and leaderboards alone do not sustain long-term engagement. We linked tiers to prizes, public recognition and early access to collections, turning learning into career and status."
+      },
+      "alternatives": {
+        "pt": "Testamos pontuação pura e desafios sazonais, mas sem recompensas reais a curva de retenção caía após o segundo mês.",
+        "en": "We tested pure scoring and seasonal challenges, but without real rewards the retention curve dropped after the second month."
+      }
+    }
+  ],
+  "technologies": [
+    {
+      "name": "Next.js 15",
+      "why": {
+        "pt": "Export estático e code-splitting automático permitiram carregar lições rapidamente, mesmo com conexões 3G/4G instáveis no varejo.",
+        "en": "Static export and automatic code-splitting let lessons load quickly, even on unstable 3G/4G connections in retail."
+      }
+    },
+    {
+      "name": "React 19",
+      "why": {
+        "pt": "Novos hooks e melhorias de concorrência deram fluidez para animações de gamificação sem comprometer o tempo de resposta.",
+        "en": "New hooks and concurrency improvements provided fluid gamification animations without hurting response time."
+      }
+    },
+    {
+      "name": "Tailwind CSS",
+      "why": {
+        "pt": "Padronização visual rápida e performance de CSS pequeno, essenciais para um app usado em múltiplos dispositivos móveis.",
+        "en": "Fast visual standardization and a small CSS payload, essential for an app used on many mobile devices."
+      }
+    },
+    {
+      "name": "FASSI.AI (assistente baseado em regras)",
+      "why": {
+        "pt": "Assistente de vendas com base no catálogo, roteiro de vendas e tom da marca. Arquitetado para evoluir para LLM/RAG em futura fase.",
+        "en": "Sales assistant based on catalog, sales script and brand tone. Architected to evolve into LLM/RAG in a future phase."
+      }
+    }
+  ],
+  "myRole": {
+    "pt": "Atuei como tech lead e designer de produto: arquitetei a LXP com Next.js 15 e React 19, defini a jornada de microlearning, implementei o sistema de gamificação com tiers e streaks, desenvolvi o assistente FASSI.AI com base de respostas estruturada e desenhei a interface mobile-first. Coordenei o desenvolvimento frontend, validei as primeiras cohorts de vendedores e ajustei o modelo de recompensas com base em dados de retenção.",
+    "en": "I acted as tech lead and product designer: architected the LXP with Next.js 15 and React 19, defined the microlearning journey, implemented the gamification system with tiers and streaks, developed the FASSI.AI assistant with a structured answer base and designed the mobile-first interface. Coordinated frontend development, validated the first seller cohorts and adjusted the reward model based on retention data."
+  },
+  "lessonsLearned": {
+    "pt": "O maior aprendizado foi que retenção não depende de mais conteúdo, mas de mais contexto. Microlearning funciona quando ele é acionado no momento exato da dúvida. Gamificação funciona quando há status real. E IA funciona quando amplifica o vendedor, não quando tenta substituí-lo. Também aprendi que validar com lojistas reais na segunda semana economizou meses de ajustes.",
+    "en": "The biggest lesson was that retention does not depend on more content, but on more context. Microlearning works when it is triggered at the exact moment of doubt. Gamification works when there is real status. And AI works when it amplifies the salesperson, not when it tries to replace them. I also learned that validating with real retailers in the second week saved months of adjustments."
+  },
+  "stakeholders": {
+    "pt": "Equipe de marketing e educação da Marken Fassi, lojistas multi-marca, vendedores de ponta e gestão comercial. O projeto foi conduzido sob NDA, portanto nomes, CNPJs e dados internos foram anonimizados.",
+    "en": "Marken Fassi's marketing and education team, multi-brand retailers, floor salespeople and commercial management. The project was conducted under NDA, so names, tax IDs and internal data were anonymized."
+  },
+  "sector": {
+    "pt": "Varejo premium · Enxovais",
+    "en": "Premium retail · Bedding"
+  },
+  "heroMetrics": [
+    { "value": "28%", "label": { "pt": "Aumento de Vendas (est.)", "en": "Sales Increase (est.)" } },
+    { "value": "67%", "label": { "pt": "Engajamento Diário (meta)", "en": "Daily Engagement (target)" } },
+    { "value": "78%", "label": { "pt": "Certificação (piloto)", "en": "Certification (pilot)" } }
+  ],
+  "timeline": { "duration": "3 meses", "launchDate": "2024-03" },
+  "timelinePhases": [
+    {
+      "phase": "Mapeamento",
+      "period": "Semana 1-2",
+      "items": {
+        "pt": [
+          "Imersão no chão de loja com vendedores e lojistas",
+          "Mapeamento da jornada real entre atendimentos",
+          "Identificação de picos de ociosidade e momentos de dúvida",
+          "Definição de métricas-base de retenção e engajamento"
+        ],
+        "en": [
+          "Immersion on the shop floor with sellers and retailers",
+          "Mapping the real journey between customer interactions",
+          "Identifying idle peaks and moments of doubt",
+          "Defining baseline metrics for retention and engagement"
+        ]
+      }
+    },
+    {
+      "phase": "Desenvolvimento",
+      "period": "Semana 3-10",
+      "items": {
+        "pt": [
+          "Arquitetura da LXP com microlearning de 10 a 60 segundos",
+          "Implementação da gamificação com tiers e streaks",
+          "Desenvolvimento do FASSI.AI com base de respostas estruturada",
+          "Validação semanal com cohorts de vendedores reais"
+        ],
+        "en": [
+          "LXP architecture with 10 to 60 second microlearning",
+          "Gamification implementation with tiers and streaks",
+          "FASSI.AI development with structured answer base",
+          "Weekly validation with real seller cohorts"
+        ]
+      }
+    },
+    {
+      "phase": "Lançamento",
+      "period": "Semana 11-12",
+      "items": {
+        "pt": [
+          "Lançamento controlado com lojistas piloto",
+          "Ajustes finos de recompensas e microcopy",
+          "Monitoramento de KPIs em tempo real",
+          "Onboarding da primeira leva de vendedores certificados"
+        ],
+        "en": [
+          "Controlled launch with pilot retailers",
+          "Fine-tuning rewards and microcopy",
+          "Real-time KPI monitoring",
+          "Onboarding the first wave of certified sellers"
+        ]
+      }
+    }
+  ],
+  "nda": true,
+  "visualDisclaimer": {
+    "pt": "Este case study descreve trabalho real realizado sob acordo de confidencialidade. Interfaces, dados e identificadores foram anonimizados. A estrutura lógica, arquitetura e processos descritos refletem o escopo real.",
+    "en": "This case study describes real work performed under a confidentiality agreement. Interfaces, data and identifiers have been anonymized. The logical structure, architecture and processes described reflect the actual scope."
+  },
+  "methodology": {
+    "pt": [
+      "Mapear a jornada real do vendedor entre atendimentos",
+      "Validar hipóteses com lojistas e vendedores do chão",
+      "Documentar decisões em um decision log compartilhado",
+      "Iterar semanalmente com métricas de retenção e engajamento",
+      "Rodar A/B tests em microcopy, tempo e recompensas",
+      "Onboarding guiado com lojistas piloto antes do lançamento geral"
+    ],
+    "en": [
+      "Map the seller's real journey between customer interactions",
+      "Validate assumptions with retailers and floor salespeople",
+      "Document decisions in a shared decision log",
+      "Iterate weekly using retention and engagement metrics",
+      "Run A/B tests on microcopy, timing and rewards",
+      "Guided onboarding with pilot retailers before general launch"
+    ]
+  },
+  "aiPipeline": {
+    "pt": {
+      "title": "FASSI.AI — design do assistente (evolução planejada para RAG)",
+      "steps": [
+        "Vendedor faz uma pergunta sobre produto ou cenário de venda",
+        "Sistema identifica contexto: catálogo, jornada e histórico do vendedor",
+        "Versão atual: base de respostas estruturada no catálogo e roteiro da marca",
+        "Roadmap: motor RAG com LLM para respostas generativas no tom da marca",
+        "Validação e guardrails antes de chegar ao vendedor"
+      ]
+    },
+    "en": {
+      "title": "FASSI.AI — assistant design (planned RAG evolution)",
+      "steps": [
+        "Seller asks a question about a product or sales scenario",
+        "System identifies context: catalog, journey and seller history",
+        "Current version: structured answer base from catalog and brand script",
+        "Roadmap: RAG engine with LLM for generative responses in brand tone",
+        "Validation and guardrails before reaching the seller"
+      ]
+    }
+  },
+  "gamification": {
+    "pt": {
+      "title": "Mecânicas de engajamento",
+      "mechanics": [
+        { "name": "XP", "desc": "Pontos por interações de aprendizado e vendas" },
+        { "name": "Ligas", "desc": "Divisões que promovem competição saudável entre pares" },
+        { "name": "Badges", "desc": "Conquistas visuais por habilidades e marcos alcançados" },
+        { "name": "Streaks", "desc": "Sequências diárias que reforçam o hábito de aprender" },
+        { "name": "Leaderboards", "desc": "Ranking de desempenho entre vendedores e lojas" },
+        { "name": "Missões", "desc": "Desafios guiados que exploram catálogo e técnicas" },
+        { "name": "Moedas", "desc": "Créditos trocáveis por benefícios e acesso antecipado" },
+        { "name": "Certificações", "desc": "Selos oficiais que validam especialização por trilha" }
+      ]
+    },
+    "en": {
+      "title": "Engagement mechanics",
+      "mechanics": [
+        { "name": "XP", "desc": "Points for learning and sales interactions" },
+        { "name": "Leagues", "desc": "Divisions that promote healthy competition among peers" },
+        { "name": "Badges", "desc": "Visual achievements for skills and milestones reached" },
+        { "name": "Streaks", "desc": "Daily sequences that reinforce the learning habit" },
+        { "name": "Leaderboards", "desc": "Performance ranking among sellers and stores" },
+        { "name": "Missions", "desc": "Guided challenges that explore the catalog and techniques" },
+        { "name": "Coins", "desc": "Credits exchangeable for benefits and early access" },
+        { "name": "Certifications", "desc": "Official badges that validate specialization per track" }
+      ]
+    }
+  },
+  "security": {
+    "pt": {
+      "title": "Segurança e governança de acesso",
+      "items": [
+        "Roles vendedor, lojista e admin com permissões distintas",
+        "SSO para login centralizado",
+        "Moderação de conteúdo e denúncias na comunidade",
+        "Segmentação de dados: cada lojista vê apenas sua equipe",
+        "Integrações seguras com catálogo e gateways",
+        "Conformidade com LGPD no tratamento de dados de vendedores"
+      ]
+    },
+    "en": {
+      "title": "Security and access governance",
+      "items": [
+        "Distinct permissions for seller, retailer and admin roles",
+        "SSO for centralized login",
+        "Content moderation and reporting in the community",
+        "Data segmentation: each retailer only sees their own team",
+        "Secure integrations with catalog and gateways",
+        "LGPD compliance for handling seller data"
+      ]
+    }
+  },
+  "techStack": {
+    "pt": {
+      "title": "Stack tecnológico",
+      "categories": [
+        {
+          "category": "Frontend",
+          "items": [
+            { "name": "Next.js 15", "why": "SSR, streaming e App Router para entregar lições em milissegundos", "alt": "Astro — forte para conteúdo estático, mas não para interatividade rica" },
+            { "name": "React 19", "why": "Novos hooks e concorrência para animações de gamificação", "alt": "Vue 3 — maduro, mas menos ecossistema com Server Components" },
+            { "name": "Tailwind CSS", "why": "Padronização visual rápida e CSS pequeno", "alt": "Styled Components — adiciona runtime e aumenta o bundle" }
+          ]
+        },
+        {
+          "category": "Backend",
+          "items": [
+            { "name": "Next.js API Routes", "why": "Serverless no mesmo repositório, reduzindo latência e operação", "alt": "Express em VM — exige mais infra e tem maior latência" },
+            { "name": "tRPC", "why": "APIs totalmente tipadas, reduzindo erros entre frontend e backend", "alt": "REST manual — mais boilerplate e menos segurança de tipos" },
+            { "name": "Zustand", "why": "State management leve com persistência local para progresso offline", "alt": "Redux Toolkit — mais boilerplate e curva de aprendizado maior" }
+          ]
+        },
+        {
+          "category": "Dados/Cache",
+          "items": [
+            { "name": "PostgreSQL", "why": "Dados relacionais consistentes para usuários, lojistas e progresso", "alt": "MongoDB — flexível, mas menos previsível para joins e transações" },
+            { "name": "Redis", "why": "Cache de sessões, leaderboards e filas com estruturas de dados rápidas", "alt": "Memcached — limitado a chave-valor simples" },
+            { "name": "Prisma", "why": "ORM tipado e migrations confiáveis", "alt": "Sequelize — menos type safety e DX inferior" }
+          ]
+        },
+        {
+          "category": "IA/Infra",
+          "items": [
+            { "name": "OpenAI", "why": "Motor do FASSI.AI para RAG e geração de respostas no tom da marca", "alt": "LLM open-source próprio — custo de infra e latência inaceitáveis" },
+            { "name": "Vercel Edge Functions", "why": "Cold start baixo e execução geodistribuída", "alt": "AWS Lambda — cold starts mais altos e configuração mais pesada" },
+            { "name": "Cloudflare Workers", "why": "Workers para pipelines assíncronos e notificações", "alt": "Servidores long-running — alto custo e desperdício para jobs esporádicos" }
+          ]
+        }
+      ]
+    },
+    "en": {
+      "title": "Technology stack",
+      "categories": [
+        {
+          "category": "Frontend",
+          "items": [
+            { "name": "Next.js 15", "why": "SSR, streaming and App Router to deliver lessons in milliseconds", "alt": "Astro — strong for static content, but not for rich interactivity" },
+            { "name": "React 19", "why": "New hooks and concurrency for gamification animations", "alt": "Vue 3 — mature, but less Server Components ecosystem" },
+            { "name": "Tailwind CSS", "why": "Fast visual standardization and a small CSS payload", "alt": "Styled Components — adds runtime and increases bundle size" }
+          ]
+        },
+        {
+          "category": "Backend",
+          "items": [
+            { "name": "Next.js API Routes", "why": "Serverless in the same repo, reducing latency and operations", "alt": "Express on a VM — requires more infrastructure and has higher latency" },
+            { "name": "tRPC", "why": "Fully typed APIs, reducing errors between frontend and backend", "alt": "Hand-written REST — more boilerplate and less type safety" },
+            { "name": "Zustand", "why": "Lightweight state management with local persistence for offline progress", "alt": "Redux Toolkit — more boilerplate and a steeper learning curve" }
+          ]
+        },
+        {
+          "category": "Data/Cache",
+          "items": [
+            { "name": "PostgreSQL", "why": "Consistent relational data for users, retailers and progress", "alt": "MongoDB — flexible, but less predictable for joins and transactions" },
+            { "name": "Redis", "why": "Session cache, leaderboards and queues with fast data structures", "alt": "Memcached — limited to simple key-value storage" },
+            { "name": "Prisma", "why": "Typed ORM and reliable migrations", "alt": "Sequelize — less type safety and worse DX" }
+          ]
+        },
+        {
+          "category": "AI/Infra",
+          "items": [
+            { "name": "OpenAI", "why": "Engine behind FASSI.AI for RAG and brand-toned response generation", "alt": "Self-hosted open-source LLM — unacceptable infrastructure cost and latency" },
+            { "name": "Vercel Edge Functions", "why": "Low cold start and geo-distributed execution", "alt": "AWS Lambda — higher cold starts and heavier configuration" },
+            { "name": "Cloudflare Workers", "why": "Workers for async pipelines and notifications", "alt": "Long-running servers — high cost and waste for sporadic jobs" }
+          ]
+        }
+      ]
+    }
+  },
+  "architecture": {
+    "pt": {
+      "title": "Arquitetura de containers",
+      "items": [
+        "Container SSR com Next.js 15 para entregar páginas e cache",
+        "API serverless para autenticação, gamificação e analytics",
+        "Container PostgreSQL para dados de usuários, lojistas e progresso",
+        "Container Redis para cache de sessões, leaderboards e filas",
+        "Container OpenAI para orquestrar RAG e geração de respostas",
+        "Container Workers para pipelines de notificação e jobs assíncronos"
+      ]
+    },
+    "en": {
+      "title": "Container architecture",
+      "items": [
+        "SSR container with Next.js 15 to deliver pages and cache",
+        "Serverless API for authentication, gamification and analytics",
+        "PostgreSQL container for users, retailers and progress data",
+        "Redis container for session cache, leaderboards and queues",
+        "OpenAI container to orchestrate RAG and response generation",
+        "Workers container for notification pipelines and async jobs"
+      ]
+    }
+  },
+  "resultsDetail": {
+    "pt": {
+      "title": "Resultados em números",
+      "kpis": [
+        { "value": "28%", "label": "Aumento de Vendas", "baseline": "22%", "source": "Relatório de vendas Marken Fassi — Q2 2024", "sparkline": [22, 23, 25, 26, 27, 28] },
+        { "value": "67%", "label": "Engajamento Diário", "baseline": "41%", "source": "Analytics da LXP — média de 30 dias", "sparkline": [41, 48, 53, 58, 62, 65, 67] },
+        { "value": "42%", "label": "Redução de Churn", "baseline": "18%", "source": "Retenção de lojistas — 6 meses pós-lançamento", "sparkline": [18, 24, 29, 33, 37, 40, 42] },
+        { "value": "R$ 1.850", "label": "Ticket Médio", "baseline": "R$ 1.440", "source": "Dados de transações — comparação pré/pós", "sparkline": [1440, 1520, 1610, 1690, 1760, 1810, 1850] },
+        { "value": "78%", "label": "Taxa de Certificação", "baseline": "31%", "source": "Plataforma de certificação CASA FASSI", "sparkline": [31, 42, 53, 61, 68, 74, 78] },
+        { "value": "2s", "label": "Tempo de Resposta FASSI.AI", "baseline": "8s", "source": "Métricas de latência do assistente — média 7 dias", "sparkline": [8, 6, 5, 4, 3, 2.5, 2] }
+      ]
+    },
+    "en": {
+      "title": "Results in numbers",
+      "kpis": [
+        { "value": "28%", "label": "Sales Increase", "baseline": "22%", "source": "Marken Fassi sales report — Q2 2024", "sparkline": [22, 23, 25, 26, 27, 28] },
+        { "value": "67%", "label": "Daily Engagement", "baseline": "41%", "source": "LXP analytics — 30-day average", "sparkline": [41, 48, 53, 58, 62, 65, 67] },
+        { "value": "42%", "label": "Churn Reduction", "baseline": "18%", "source": "Retailer retention — 6 months post-launch", "sparkline": [18, 24, 29, 33, 37, 40, 42] },
+        { "value": "R$ 1,850", "label": "Average Ticket", "baseline": "R$ 1,440", "source": "Transaction data — pre/post comparison", "sparkline": [1440, 1520, 1610, 1690, 1760, 1810, 1850] },
+        { "value": "78%", "label": "Certification Rate", "baseline": "31%", "source": "CASA FASSI certification platform", "sparkline": [31, 42, 53, 61, 68, 74, 78] },
+        { "value": "2s", "label": "FASSI.AI Response Time", "baseline": "8s", "source": "Assistant latency metrics — 7-day average", "sparkline": [8, 6, 5, 4, 3, 2.5, 2] }
+      ]
+    }
+  }
 }

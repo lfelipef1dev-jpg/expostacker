@@ -1,0 +1,103 @@
+---
+import { ui } from '../i18n/ui';
+import { useTranslations } from '../i18n/utils';
+
+export interface Props {
+  lang: keyof typeof ui;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const stack: { category: string; items: string[] }[] = [
+  {
+    category: 'Frontend',
+    items: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
+  },
+  {
+    category: 'Backend',
+    items: ['Node.js', 'PostgreSQL', 'REST APIs'],
+  },
+  {
+    category: 'DevOps',
+    items: ['Docker', 'GitHub Actions', 'Cloudflare'],
+  },
+];
+---
+
+<section
+  id="about"
+  class="py-20 md:py-28 max-w-6xl mx-auto px-4 md:px-6"
+  aria-labelledby="about-title"
+>
+  <div class="flex flex-col gap-8">
+    <!-- Eyebrow -->
+    <p class="font-mono text-xs uppercase tracking-widest text-brand-accent flex items-center gap-2">
+      <span class="inline-block h-1.5 w-1.5 rounded-full bg-brand-accent" aria-hidden="true"></span>
+      {t('about.eyebrow')}
+    </p>
+
+    <!-- Title -->
+    <h2
+      id="about-title"
+      class="font-display text-3xl md:text-5xl text-brand-text tracking-tight"
+    >
+      {t('about.title')}
+    </h2>
+
+    <!-- Bio -->
+    <p class="text-lg text-brand-text-secondary max-w-2xl leading-relaxed">
+      {t('about.bio')}
+    </p>
+
+    <!-- Stack -->
+    <div class="flex flex-col gap-6 mt-4">
+      <h3 class="font-mono text-sm uppercase tracking-widest text-brand-text-secondary">
+        {t('about.stackTitle')}
+      </h3>
+
+      <div class="flex flex-col gap-6">
+        {
+          stack.map((group) => (
+            <div class="flex flex-col gap-3">
+              <p class="font-mono text-xs uppercase tracking-wider text-brand-text-secondary">
+                {group.category}
+              </p>
+              <ul class="flex flex-wrap gap-2" role="list">
+                {group.items.map((item) => (
+                  <li
+                    class="px-3 py-2 min-h-[48px] flex items-center text-sm border border-brand-border rounded-full bg-brand-surface/60 text-brand-text-secondary hover:border-brand-accent/60 transition-colors motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-bg"
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- Availability -->
+    <div class="mt-2">
+      <span
+        class="inline-flex items-center gap-2 border border-brand-accent/30 bg-brand-accent/8 text-brand-accent rounded-full px-4 py-2 min-h-[48px] text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-bg"
+      >
+        <span
+          class="relative inline-flex h-2 w-2"
+          aria-hidden="true"
+        >
+          <span
+            class="absolute inline-flex h-full w-full rounded-full bg-brand-accent opacity-75 motion-reduce:animate-none animate-ping"
+          >
+          </span>
+          <span
+            class="relative inline-flex h-2 w-2 rounded-full bg-brand-accent"
+          >
+          </span>
+        </span>
+        {t('about.availability')}
+      </span>
+    </div>
+  </div>
+</section>

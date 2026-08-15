@@ -26,6 +26,15 @@ const xDefaultUrl = ptUrl;
 const title = currentLang === 'pt'
   ? 'Contato | Expo Stacker'
   : 'Contact | Expo Stacker';
+
+const skipLinkText = currentLang === 'pt' ? 'Pular para o conteúdo' : 'Skip to content';
+const formInstructions = currentLang === 'pt'
+  ? 'Ao enviar, sua mensagem chega via Formspree. Você recebe uma confirmação por e-mail e eu respondo diretamente — sem cadastro, sem automação de funil.'
+  : 'On submit, your message is delivered via Formspree. You get an email confirmation and I reply directly — no signup, no funnel automation.';
+const nameHelp = currentLang === 'pt' ? 'Como você gostaria de ser chamado?' : 'How would you like to be addressed?';
+const emailHelp = currentLang === 'pt' ? 'Usado apenas para responder a esta mensagem.' : 'Used only to reply to this message.';
+const messageHelp = currentLang === 'pt' ? 'Conte o contexto do projeto e o problema que precisa resolver.' : 'Share the project context and the problem you need solved.';
+const errorRequired = currentLang === 'pt' ? 'Este campo é obrigatório.' : 'This field is required.';
 ---
 
 <html lang={htmlLang}>
@@ -41,53 +50,73 @@ const title = currentLang === 'pt'
     <link rel="alternate" hreflang="x-default" href={xDefaultUrl} />
   </head>
   <body class="min-h-screen flex flex-col bg-brand-bg text-brand-text antialiased">
+    <a href="#main-content" class="skip-link">{skipLinkText}</a>
     <Header lang={currentLang} />
-    <main class="flex-1 pt-32 pb-20">
+    <main id="main-content" class="flex-1 pt-32 pb-20">
       <div class="max-w-2xl mx-auto px-4 md:px-6">
-        <h1 class="text-4xl md:text-5xl font-black text-white mb-4">{t['contact.title']}</h1>
-        <p class="text-lg text-slate-300 mb-10">{t['contact.subtitle']}</p>
+        <h1 class="font-display text-4xl md:text-5xl text-brand-text mb-4">{t['contact.title']}</h1>
+        <p class="text-lg text-brand-text-secondary mb-8">{t['contact.subtitle']}</p>
 
-        <form action={t['contact.form.action']} method="POST" class="space-y-5 p-6 md:p-8 rounded-2xl border border-brand-surface bg-brand-surface/60">
+        <div class="inline-flex items-center gap-2 mb-10 rounded-full border border-brand-border bg-brand-surface-2/60 px-4 py-2">
+          <span class="relative flex h-2.5 w-2.5">
+            <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-accent opacity-75"></span>
+            <span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-brand-accent"></span>
+          </span>
+          <span class="text-sm font-mono text-brand-text-secondary">{t['contact.responseTime']}</span>
+        </div>
+
+        <form action={t['contact.form.action']} method="POST" class="space-y-5 p-6 md:p-8 rounded-2xl border border-brand-border bg-brand-surface/60" novalidate>
           <div>
-            <label for="name" class="block text-sm font-medium text-slate-300 mb-2">{t['contact.name']}</label>
+            <label for="name" class="block text-sm font-medium text-brand-text mb-2">{t['contact.name']}</label>
             <input
               type="text"
               id="name"
               name="name"
               required
-              class="w-full px-4 py-3 rounded-lg bg-brand-bg border border-brand-surface text-white placeholder-slate-500 focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent"
+              aria-describedby="name-help name-error"
+              class="w-full min-h-[48px] px-4 py-3 rounded-lg bg-brand-bg border border-brand-border text-brand-text placeholder-brand-text-secondary/50 focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent"
             />
+            <p id="name-help" class="mt-2 text-xs text-brand-text-secondary">{nameHelp}</p>
+            <p id="name-error" class="mt-1 text-xs text-red-400 hidden" role="alert">{errorRequired}</p>
           </div>
 
           <div>
-            <label for="email" class="block text-sm font-medium text-slate-300 mb-2">{t['contact.email']}</label>
+            <label for="email" class="block text-sm font-medium text-brand-text mb-2">{t['contact.email']}</label>
             <input
               type="email"
               id="email"
               name="email"
               required
-              class="w-full px-4 py-3 rounded-lg bg-brand-bg border border-brand-surface text-white placeholder-slate-500 focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent"
+              aria-describedby="email-help email-error"
+              class="w-full min-h-[48px] px-4 py-3 rounded-lg bg-brand-bg border border-brand-border text-brand-text placeholder-brand-text-secondary/50 focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent"
             />
+            <p id="email-help" class="mt-2 text-xs text-brand-text-secondary">{emailHelp}</p>
+            <p id="email-error" class="mt-1 text-xs text-red-400 hidden" role="alert">{errorRequired}</p>
           </div>
 
           <div>
-            <label for="message" class="block text-sm font-medium text-slate-300 mb-2">{t['contact.message']}</label>
+            <label for="message" class="block text-sm font-medium text-brand-text mb-2">{t['contact.message']}</label>
             <textarea
               id="message"
               name="message"
               rows="5"
               required
-              class="w-full px-4 py-3 rounded-lg bg-brand-bg border border-brand-surface text-white placeholder-slate-500 focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent"
+              aria-describedby="message-help message-error"
+              class="w-full min-h-[48px] px-4 py-3 rounded-lg bg-brand-bg border border-brand-border text-brand-text placeholder-brand-text-secondary/50 focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent resize-y"
             ></textarea>
+            <p id="message-help" class="mt-2 text-xs text-brand-text-secondary">{messageHelp}</p>
+            <p id="message-error" class="mt-1 text-xs text-red-400 hidden" role="alert">{errorRequired}</p>
           </div>
 
           <button
             type="submit"
-            class="w-full px-6 py-3.5 bg-brand-accent text-brand-bg font-bold rounded-lg hover:scale-[1.02] transition-transform shadow-[0_0_24px_rgba(0,225,160,0.35)]"
+            class="w-full min-h-[48px] px-6 py-3.5 bg-brand-accent text-brand-bg font-bold rounded-lg hover:scale-[1.02] transition-transform shadow-[0_0_24px_rgba(0,225,160,0.35)] focus:outline-none focus:ring-2 focus:ring-brand-accent focus:ring-offset-2 focus:ring-offset-brand-bg"
           >
             {t['contact.send']}
           </button>
         </form>
+
+        <p class="mt-6 text-sm text-brand-text-secondary leading-relaxed">{formInstructions}</p>
       </div>
     </main>
     <Footer lang={currentLang} />

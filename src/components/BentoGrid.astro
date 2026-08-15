@@ -13,74 +13,113 @@ const t = useTranslations(lang);
 
 const cases: CollectionEntry<'cases'>[] = await getCollection('cases');
 const featuredIndex = cases.findIndex((c) => c.data.featured);
-const featured = featuredIndex >= 0 ? cases[featuredIndex] : cases[0];
 const others = cases.filter((_, i) => i !== (featuredIndex >= 0 ? featuredIndex : 0));
 ---
 
 <section id="cases" class="max-w-6xl mx-auto px-4 md:px-6 pb-24">
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-5 auto-rows-min">
-    <!-- Card 1: Destaque Largo -->
-    <article class="md:col-span-2 p-7 rounded-2xl border border-brand-surface bg-brand-surface/60 backdrop-blur-sm flex flex-col justify-between hover:border-brand-accent/40 transition-colors group relative">
-      <div>
-        <div class="flex items-center gap-2 mb-4">
-          <span class="w-2 h-2 rounded-full bg-brand-accent animate-pulse"></span>
-          <span class="text-xs font-bold text-brand-accent uppercase tracking-wider">{t('bento.featured.title')}</span>
-        </div>
-        <h2 class="text-2xl md:text-3xl font-bold mb-3 text-white">{featured.data.title}</h2>
-        <p class="text-slate-300 leading-relaxed text-base line-clamp-4">{featured.data.shortDescription}</p>
-      </div>
-      <a href={`/${lang}/cases/${featured.id}/`} class="mt-6 inline-flex w-fit items-center text-brand-accent font-bold hover:underline group-hover:translate-x-1 transition-colors relative z-10">
-        {lang === 'pt' ? 'Ver case completo' : 'Read full case'} →
-      </a>
-    </article>
+  <!-- Header da seção -->
+  <div class="mb-8 md:mb-12">
+    <span class="inline-block text-xs font-mono font-bold text-brand-accent uppercase tracking-wider mb-3">
+      {t('bento.eyebrow')}
+    </span>
+    <h2 class="font-display text-3xl md:text-4xl font-bold text-brand-text leading-tight">
+      {t('bento.title')}
+    </h2>
+  </div>
 
-    <!-- Card 2: Métricas do Destaque -->
-    <div class="p-7 rounded-2xl border border-brand-surface bg-brand-surface/60 backdrop-blur-sm">
-      <h3 class="text-xs font-bold text-brand-accent uppercase tracking-wider mb-5">{t('bento.metrics.title')}</h3>
-      <div class="grid grid-cols-1 gap-5">
-        {featured.data.businessOutcome.slice(0, 3).map((metric: { label: string; value: number; unit: string }) => (
-          <div class="border-b border-brand-surface/50 pb-4 last:border-0 last:pb-0">
-            <span class="block text-3xl font-black text-brand-accent">{formatBusinessMetric(metric.value, metric.unit)}</span>
-            <span class="text-sm text-slate-400">{metric.label}</span>
-          </div>
-        ))}
-      </div>
-    </div>
+  <!-- Grid de cases secundários -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-5 auto-rows-min">
+    {others.map((item) => {
+      const href = `/${lang}/cases/${item.id}/`;
+      const metric = item.data.businessOutcome?.[0];
+      return (
+        <article
+          class="bento-card group relative p-6 rounded-[20px] border border-brand-border bg-brand-surface/60 hover:border-brand-accent/60 hover:bg-brand-surface-2 transition-colors duration-200 motion-safe:transition-all"
+        >
+          <div class="flex flex-col h-full">
+            <h3 class="text-lg font-bold text-brand-text group-hover:text-brand-accent transition-colors duration-200 mb-2">
+              {item.data.title}
+            </h3>
+            <p class="text-sm text-brand-text-secondary line-clamp-3 mb-4">
+              {item.data.shortDescription}
+            </p>
 
-    <!-- Card 3: Tags do Destaque -->
-    <div class="p-7 rounded-2xl border border-brand-surface bg-brand-surface/60 backdrop-blur-sm">
-      <h3 class="text-xs font-bold text-brand-accent uppercase tracking-wider mb-5">{t('bento.tags.title')}</h3>
-      <div class="flex flex-wrap gap-2">
-        {featured.data.tags.slice(0, 6).map((tag: string) => (
-          <span class="px-3 py-1.5 text-sm font-medium border border-brand-surface rounded-full bg-brand-bg/60 text-slate-300">
-            {tag}
-          </span>
-        ))}
-      </div>
-    </div>
+            {metric && (
+              <div class="mb-4">
+                <span class="block text-2xl font-black text-brand-accent font-mono">
+                  {formatBusinessMetric(metric.value, metric.unit)}
+                </span>
+                <span class="text-xs text-brand-text-secondary">{metric.label}</span>
+              </div>
+            )}
 
-    <!-- Card 4+: Cases secundários -->
-    {others.map((item) => (
-      <article class="p-6 rounded-2xl border border-brand-surface bg-brand-surface/40 backdrop-blur-sm hover:border-brand-accent/60 hover:bg-brand-surface/70 transition-all group relative">
-        <a href={`/${lang}/cases/${item.id}/`} class="block relative z-10">
-          <h3 class="text-lg font-bold mb-2 text-white group-hover:text-brand-accent transition-colors">{item.data.title}</h3>
-          <p class="text-sm text-slate-400 line-clamp-3 mb-4">{item.data.shortDescription}</p>
-          {item.data.businessOutcome[0] && (
-            <div class="mb-4">
-              <span class="block text-2xl font-black text-brand-accent">{formatBusinessMetric(item.data.businessOutcome[0].value, item.data.businessOutcome[0].unit)}</span>
-              <span class="text-xs text-slate-400">{item.data.businessOutcome[0].label}</span>
+            <div class="flex flex-wrap gap-2 mt-auto mb-4">
+              {item.data.tags.slice(0, 4).map((tag: string) => (
+                <span class="px-2.5 py-1 text-xs font-medium border border-brand-border rounded-full bg-brand-bg/60 text-brand-text-secondary">
+                  {tag}
+                </span>
+              ))}
             </div>
-          )}
-        </a>
-        <div class="flex flex-wrap gap-2 relative z-10">
-          {item.data.tags.slice(0, 4).map((tag: string) => (
-            <span class="px-2.5 py-1 text-xs font-medium border border-brand-surface rounded-full bg-brand-bg/60 text-slate-400">
-              {tag}
-            </span>
-          ))}
-        </div>
-        <a href={`/${lang}/cases/${item.id}/`} class="absolute inset-0 z-0" aria-hidden="true" tabindex="-1"></a>
-      </article>
-    ))}
+
+            <a
+              href={href}
+              class="inline-flex items-center gap-1.5 text-sm font-bold text-brand-accent min-h-[48px] w-fit relative z-10 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-accent"
+              aria-label={`${lang === 'pt' ? 'Ver case' : 'View case'}: ${item.data.title}`}
+            >
+              {lang === 'pt' ? 'Ver case' : 'View case'}
+              <span class="bento-arrow transition-transform duration-200" aria-hidden="true">→</span>
+            </a>
+          </div>
+
+          <!-- Link overlay acessível -->
+          <a
+            href={href}
+            class="absolute inset-0 z-0 rounded-[20px]"
+            aria-hidden="true"
+            tabindex="-1"
+          >
+          </a>
+        </article>
+      );
+    })}
+  </div>
+
+  <!-- Link "Ver todos" -->
+  <div class="mt-10 md:mt-12 flex justify-center">
+    <a
+      href={`/${lang}/cases/`}
+      class="inline-flex items-center gap-2 px-6 py-3 min-h-[48px] rounded-full border border-brand-border bg-brand-surface/60 text-brand-text font-bold hover:border-brand-accent/60 hover:text-brand-accent transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-accent"
+    >
+      {t('bento.cta')}
+      <span class="bento-arrow-cta transition-transform duration-200" aria-hidden="true">→</span>
+    </a>
   </div>
 </section>
+
+<style>
+  /* Motion: translateY 4px sutil + arrow translateX no hover */
+  .bento-card {
+    transition-property: border-color, background-color, transform;
+    transition-duration: 200ms;
+    transition-timing-function: ease;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .bento-card:hover {
+      transform: translateY(-4px);
+    }
+    .group:hover .bento-arrow {
+      transform: translateX(6px);
+    }
+    .bento-arrow-cta:hover,
+    a:hover .bento-arrow-cta {
+      transform: translateX(4px);
+    }
+  }
+
+  /* Arrow base transition */
+  .bento-arrow,
+  .bento-arrow-cta {
+    display: inline-block;
+  }
+</style>

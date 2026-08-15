@@ -1,10 +1,15 @@
 ---
 import '../../styles/global.css';
 import { ui } from '../../i18n/ui';
+import { useTranslations } from '../../i18n/utils';
+import Fonts from '../../components/Fonts.astro';
+import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Hero from '../../components/Hero.astro';
 import FeaturedCase from '../../components/FeaturedCase.astro';
 import BentoGrid from '../../components/BentoGrid.astro';
+import About from '../../components/About.astro';
+import SocialProof from '../../components/SocialProof.astro';
 import Footer from '../../components/Footer.astro';
 
 export function getStaticPaths() {
@@ -15,10 +20,7 @@ export function getStaticPaths() {
 const { lang } = Astro.params;
 type ValidLang = keyof typeof ui;
 const currentLang: ValidLang = (lang as ValidLang) in ui ? (lang as ValidLang) : 'pt';
-
-const htmlLangMap = { pt: 'pt-BR', en: 'en-US' } as const;
-const htmlLang = htmlLangMap[currentLang];
-const t = ui[currentLang];
+const t = useTranslations(currentLang);
 
 const site = 'https://expostacker.com.br';
 const ptUrl = `${site}/pt/`;
@@ -27,28 +29,27 @@ const canonicalUrl = currentLang === 'pt' ? ptUrl : enUrl;
 const xDefaultUrl = ptUrl;
 
 const title = currentLang === 'pt'
-  ? 'Expo Stacker | Arquitetura Full Stack que gera receita'
-  : 'Expo Stacker | Full Stack Architecture that drives revenue';
+  ? 'Expo Stacker | Desenvolvedor Full Stack — React, Node.js, TypeScript'
+  : 'Expo Stacker | Full Stack Developer — React, Node.js, TypeScript';
+const description = currentLang === 'pt'
+  ? 'Desenvolvedor Full Stack especializado em React, Node.js e TypeScript. Construo aplicações web escaláveis e performáticas.'
+  : 'Full Stack Developer specializing in React, Node.js, and TypeScript. I build scalable, performant web applications.';
 ---
 
-<html lang={htmlLang}>
+<html lang={currentLang === 'pt' ? 'pt-BR' : 'en-US'}>
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title}</title>
-    <meta name="description" content={t['hero.subtitle']} />
-    <meta name="theme-color" content="#0b1021" />
-    <link rel="canonical" href={canonicalUrl} />
-    <link rel="alternate" hreflang="pt-br" href={ptUrl} />
-    <link rel="alternate" hreflang="en" href={enUrl} />
-    <link rel="alternate" hreflang="x-default" href={xDefaultUrl} />
+    <Fonts />
+    <BaseHead title={title} description={description} lang={currentLang} canonicalUrl={canonicalUrl} ptUrl={ptUrl} enUrl={enUrl} xDefaultUrl={xDefaultUrl} />
   </head>
-  <body class="min-h-screen flex flex-col bg-brand-bg text-brand-text antialiased">
+  <body class="min-h-screen flex flex-col bg-brand-bg text-brand-text antialiased overflow-x-hidden">
+    <a href="#main-content" class="skip-link">{t('skip.link')}</a>
     <Header lang={currentLang} />
-    <main class="flex-1">
+    <main id="main-content" class="flex-1">
       <Hero lang={currentLang} />
       <FeaturedCase lang={currentLang} />
       <BentoGrid lang={currentLang} />
+      <About lang={currentLang} />
+      <SocialProof lang={currentLang} />
     </main>
     <Footer lang={currentLang} />
   </body>

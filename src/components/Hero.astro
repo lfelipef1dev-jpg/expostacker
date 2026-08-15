@@ -1,44 +1,59 @@
 ---
 import { ui } from '../i18n/ui';
 import { useTranslations } from '../i18n/utils';
-
-export interface Props {
-  lang: keyof typeof ui;
-}
-
+export interface Props { lang: keyof typeof ui; }
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 ---
-
 <section class="relative min-h-[85vh] flex items-center pt-24 pb-20 overflow-hidden">
-  <div class="absolute inset-0 pointer-events-none">
-    <div class="absolute top-[-10%] right-[-10%] w-[40rem] h-[40rem] rounded-full bg-gradient-to-br from-brand-accent/10 to-violet-500/5 blur-[100px]"></div>
-    <div class="absolute bottom-[-10%] left-[-5%] w-[32rem] h-[32rem] rounded-full bg-gradient-to-tr from-cyan-500/8 to-transparent blur-[90px]"></div>
+  {/* Gradientes de fundo sutis — brand tokens */}
+  <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+    <div class="absolute top-[-10%] right-[-10%] w-[40rem] h-[40rem] rounded-full bg-gradient-to-br from-brand-accent/10 to-brand-accent-secondary/5 blur-[100px]"></div>
+    <div class="absolute bottom-[-10%] left-[-5%] w-[32rem] h-[32rem] rounded-full bg-gradient-to-tr from-brand-accent-secondary/8 to-transparent blur-[90px]"></div>
   </div>
 
   <div class="relative w-full max-w-6xl mx-auto px-4 md:px-6">
     <div class="max-w-3xl">
+      {/* Badge de disponibilidade */}
       <p class="inline-flex items-center gap-2 px-3.5 py-1.5 mb-8 text-xs font-bold uppercase tracking-widest text-brand-accent border border-brand-accent/25 rounded-full bg-brand-accent/8 backdrop-blur-sm">
         <span class="w-2 h-2 rounded-full bg-brand-accent animate-pulse"></span>
-        {t('status.active')}
+        {t('hero.eyebrow')}
       </p>
 
-      <h1 class="text-4xl md:text-6xl lg:text-7xl font-black leading-[0.98] tracking-[-0.04em] text-white mb-6">
+      {/* H1 — font-display, tracking negativo, tamanho fluido */}
+      <h1 class="font-display text-4xl md:text-6xl lg:text-7xl font-black leading-[0.98] tracking-[-0.04em] text-brand-text mb-6 motion-safe:transition-transform motion-safe:duration-200">
         {t('hero.title')}
       </h1>
 
-      <p class="text-lg md:text-xl text-slate-300/90 max-w-2xl mb-10 leading-relaxed">
+      {/* Subtitle — text-brand-text-secondary */}
+      <p class="text-lg md:text-xl text-brand-text-secondary max-w-2xl mb-10 leading-relaxed">
         {t('hero.subtitle')}
       </p>
 
+      {/* CTAs — touch targets min 48px (py-4) */}
       <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-        <a href="#cases" class="inline-flex items-center justify-center px-7 py-4 bg-brand-accent text-brand-bg font-bold rounded-xl hover:scale-105 transition-transform shadow-[0_0_32px_rgba(0,225,160,0.35)] min-w-[180px]">
+        <a
+          href="#cases"
+          class="inline-flex items-center justify-center px-7 py-4 bg-brand-accent text-brand-bg font-bold rounded-xl hover:scale-105 transition-transform duration-200 shadow-[0_0_32px_rgba(20,184,166,0.35)] min-w-[180px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-bg"
+        >
           {t('hero.ctaPrimary')}
         </a>
-        <a href={`/${lang}/contato/`} class="inline-flex items-center justify-center px-7 py-4 border border-white/20 text-white font-semibold rounded-xl hover:border-brand-accent/60 hover:text-brand-accent transition-colors min-w-[180px] bg-white/5 backdrop-blur-sm">
+        <a
+          href={`/${lang}/contato/`}
+          class="inline-flex items-center justify-center px-7 py-4 border border-brand-border text-brand-text font-semibold rounded-xl hover:border-brand-accent hover:text-brand-accent transition-colors duration-200 min-w-[180px] bg-brand-surface/40 backdrop-blur-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-bg"
+        >
           {t('hero.ctaSecondary')}
         </a>
       </div>
     </div>
+  </div>
+
+  {/* Indicador de scroll — decorativo, respeita reduced-motion */}
+  <div
+    class="absolute bottom-6 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 text-brand-text-secondary/60 motion-safe:animate-bounce"
+    aria-hidden="true"
+  >
+    <span class="text-[0.65rem] font-mono uppercase tracking-widest">Scroll</span>
+    <span class="block w-px h-8 bg-gradient-to-b from-brand-accent/60 to-transparent"></span>
   </div>
 </section>
