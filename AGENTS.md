@@ -166,11 +166,142 @@ O script faz tudo automaticamente:
 
 ### Projetos no ecossistema
 
+#### Projetos estaticos (Cloudflare Pages)
+
 | Repo GitHub | Cloudflare Pages | Dominio | Diretorio |
 |---|---|---|---|
 | expostacker | expostacker | expostacker.com.br | dist |
 | casa-fassi | marken-fassi | marken.expostacker.com.br | out |
 | sanatto-facilities | sanatto-facilities | sanatto.expostacker.com.br | out |
+
+#### Projetos full-stack (Cloudflare Workers + OpenNext)
+
+| Repo GitHub | Worker | Dominio | Banco |
+|---|---|---|---|
+| seeds-experience | seeds-app | seeds.expostacker.com.br | Supabase (phhurravjunielzxatxe) |
+
+## Deploy Automatico — Projetos Full-Stack
+
+Projetos Next.js com banco de dados, auth, API routes e realtime usam
+**Cloudflare Workers + @opennextjs/cloudflare** (nao Pages).
+
+### Diferenca entre os dois fluxos
+
+| | Estatico (Pages) | Full-stack (Workers) |
+|---|---|---|
+| Tipo | Astro, Next.js export estatico | Next.js App Router com SSR |
+| Banco | Nenhum | Supabase (Postgres + Auth + Storage + Realtime) |
+| Hosting | Cloudflare Pages | Cloudflare Workers |
+| Adapter | Nenhum (build estatico) | @opennextjs/cloudflare |
+| Node.js | 20 | 22+ (Wrangler 4.x exige) |
+| Env vars | Apenas no GitHub | GitHub (build) + Worker (runtime) |
+| Subdominio | CNAME para pages.dev | Workers custom domain |
+
+### Fluxo full-stack (100% automatico)
+
+1. `git push` na branch `main`
+2. GitHub Actions roda: install -> opennextjs-cloudflare build -> deploy
+3. Worker publicado na Cloudflare
+4. Subdominio `*.expostacker.com.br` aponta para o Worker
+5. Site no ar em ~2 minutos
+
+### Novo projeto full-stack (script automatico)
+
+```powershell
+.\scripts\novo-projeto-fullstack.ps1 `
+  -Nome "meu-app" `
+  -Pasta "C:\PROJETOS\EXPOSTACKER\meu-app" `
+  -Subdominio "meu" `
+  -SupabaseUrl "https://xxx.supabase.co" `
+  -SupabaseAnonKey "sb_publishable_xxx" `
+  -SupabaseServiceKey "sb_secret_xxx"
+```
+
+O script faz tudo automaticamente:
+1. Git init + commit + push
+2. Cria repo no GitHub
+3. Adiciona secrets no GitHub (build-time)
+4. Instala @opennextjs/cloudflare + wrangler + esbuild
+5. Cria wrangler.jsonc, open-next.config.ts, .dev.vars, public/_headers
+6. Cria GitHub Actions workflow (Node 22, opennextjs-cloudflare build+deploy)
+7. Aguarda primeiro deploy
+8. Configura subdominio via Workers Domains API
+9. Seta secrets no Worker (runtime) via Cloudflare API
+
+### Arquivos necessarios no projeto full-stack
+
+```
+wrangler.jsonc          # config do Worker
+open-next.config.ts     # config do OpenNext
+.dev.vars               # env vars de desenvolvimento local
+public/_headers         # cache de assets estaticos
+.github/workflows/deploy.yml  # CI/CD
+```
+
+### Env vars — ATENCAO
+
+Projetos full-stack precisam de env vars em DOIS lugares:
+
+1. **GitHub Secrets** (build-time) — injetadas durante o build
+   - `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`
+   - `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+   - `SUPABASE_SERVICE_ROLE_KEY`, `NEXT_PUBLIC_SITE_URL`
+
+2. **Worker Secrets** (runtime) — disponiveis em execucao
+   - `SUPABASE_SERVICE_ROLE_KEY` (CRITICO — nao funciona sem isso)
+   - `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+   - `NEXT_PUBLIC_SITE_URL`
+
+O script `novo-projeto-fullstack.ps1` configura ambos automaticamente.
+Se faltar o secret no Worker, o app da "Application error: a server-side
+exception has occurred" ao tentar acessar rotas que usam o service role key.
+
+### Supabase — configuracao necessaria no painel
+
+Para cada projeto full-stack com Supabase:
+
+1. **Auth > URL Configuration**
+   - Site URL: `https://[subdominio].expostacker.com.br/`
+   - Redirect URLs: `https://[subdominio].expostacker.com.br/auth/callback`
+
+2. **Auth > Providers > Email**
+   - Desativar "Confirm signup" e "Enable email confirmations"
+   - Desativar public signup se for invite-only
+
+3. **Database > Realtime**
+   - Ativar nas tabelas que precisam realtime (ex: messages, rooms)
+
+4. **Storage**
+   - Criar buckets necessarios (ex: feed-images, avatars, public)
+   - Marcar como public os que precisam acesso publico de leitura
+
+5. **RLS (Row Level Security)**
+   - DEVE estar ativado em TODAS as tabelas do schema public
+   - Sem RLS = vulnerabilidade critica (qualquer um com a anon key acessa tudo)
+
+### Limite de tamanho do Workers
+
+Cloudflare Workers aceita assets de ate 25 MiB cada.
+Arquivos maiores (PDFs, videos) devem ser hospedados em:
+- Supabase Storage (ate 50 MiB via API REST, ou 5 GB via S3 protocol)
+- Cloudflare R2 (sem limite pratico)
+- Referenciar via URL externa no codigo, nao incluir na pasta public/
+
+### Migracao de Netlify para Cloudflare Workers
+
+Se um projeto ja esta no Netlify e precisa migrar:
+
+1. Instalar `@opennextjs/cloudflare` + `wrangler` + `esbuild`
+2. Remover `@netlify/plugin-nextjs` e `netlify.toml`
+3. Criar `wrangler.jsonc`, `open-next.config.ts`, `.dev.vars`
+4. Atualizar `next.config.ts` com `initOpenNextCloudflareForDev()`
+5. Atualizar `.env.local` para apontar ao Supabase cloud (nao local)
+6. Criar workflow com Node 22 + `opennextjs-cloudflare build && deploy`
+7. Configurar secrets no GitHub E no Worker
+8. Configurar subdominio via Workers Domains API
+9. Atualizar Auth redirect URLs no Supabase
+10. Manter Netlify ativo ate validar o novo deploy
+11. So desativar Netlify apos confirmar que tudo funciona
 
 ### Regra absoluta de deploy
 
