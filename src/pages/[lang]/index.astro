@@ -6,6 +6,7 @@ import Fonts from '../../components/Fonts.astro';
 import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Hero from '../../components/Hero.astro';
+import BentoGrid from '../../components/BentoGrid.astro';
 import FeaturedCase from '../../components/FeaturedCase.astro';
 import About from '../../components/About.astro';
 import SocialProof from '../../components/SocialProof.astro';
@@ -46,6 +47,7 @@ const description = currentLang === 'pt'
     <main id="main-content" class="flex-1">
       <Hero lang={currentLang} />
       <FeaturedCase lang={currentLang} />
+      <BentoGrid lang={currentLang} />
       <About lang={currentLang} />
       <SocialProof lang={currentLang} />
     </main>

@@ -1,9 +1,8 @@
-fix: corrige parser do novo-projeto.ps1 e adiciona regra absoluta
+fix: exibe grade de cases na home
 
-- Substitui here-string problematica por Set-Content com array
-- Substitui strings JSON manuais por ConvertTo-Json -Compress
-- Simplifica aspas duplas em Write-Host
-- Adiciona regra no REGRA-ABSOLUTA.md: nao editar scripts de automacao
+- Adiciona import do BentoGrid em [lang]/index.astro
+- Renderiza BentoGrid apos FeaturedCase para listar os 10 cases restantes
+- Build gera 27 paginas com 0 erros
 
 Generated with [Devin](https://devin.ai)
 
