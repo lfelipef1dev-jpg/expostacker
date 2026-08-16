@@ -129,7 +129,7 @@ const eyebrow = lang === 'pt' ? 'PROJETO EM PRODUÇÃO' : 'LIVE PROJECT';
                   frame.className = 'absolute inset-0 w-full h-full border-0 bg-brand-bg';
                   frame.setAttribute('loading', 'eager');
                   frame.setAttribute('scrolling', 'yes');
-                  frame.setAttribute('sandbox', 'allow-scripts');
+                  frame.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-forms allow-popups allow-modals allow-downloads');
                   frame.setAttribute('title', previewTitle + ' — live preview');
                   container.appendChild(frame);
                 })();
