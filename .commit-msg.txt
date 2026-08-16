@@ -1,8 +1,13 @@
-fix: sandbox do iframe CaseHeroV2 para apps React/Next.js
+content: atualiza case gerenciador-frotas para MVP funcional
 
-- Adiciona allow-same-origin, allow-forms, allow-popups, allow-modals, allow-downloads
-- Corrige live preview de casos como TigerBet (Next.js + Zustand + localStorage)
-- Mantem allow-scripts como base
+Case atualizado para refletir evolucao de mock estatico para MVP funcional honesto:
+- D1 real com Drizzle ORM
+- Better Auth com sessao e middleware
+- Durable Objects + SSE para rastreamento em tempo real
+- VRP Nearest Neighbor + 2-opt com haversine
+- Leaflet no dashboard
+- Score de seguranca calculado de eventos de telemetria
+- Decision log, tech stack e arquitetura expandidos
 
 Generated with [Devin](https://devin.ai)
 
