@@ -87,16 +87,16 @@ const slides = sorted;
                   <div class="flex flex-col h-full justify-between overflow-hidden">
                     <div class="inline-flex items-center gap-4 mb-5">
                       <img
-                        src={logoPath}
-                        alt={`Logotipo do cliente ${item.data.clientName}`}
-                        width="64"
-                        height="64"
+                        src={heroImage}
+                        alt={`Preview de ${item.data.clientName}`}
+                        width="120"
+                        height="120"
                         loading={index === 0 ? "eager" : "lazy"}
                         fetchpriority={index === 0 ? "high" : "auto"}
                         decoding="async"
-                        class="w-16 h-16 object-contain rounded-xl bg-brand-bg/40 p-2 border border-brand-border"
+                        class="w-[72px] h-[72px] md:w-[96px] md:h-[96px] lg:w-[120px] lg:h-[120px] object-cover rounded-xl border border-brand-border shadow-lg"
                       />
-                      <span class="font-display text-xl md:text-2xl lg:text-3xl font-black text-brand-text tracking-tight">
+                      <span class="font-display text-lg md:text-2xl lg:text-3xl font-black text-brand-text tracking-tight">
                         {item.data.clientName}
                       </span>
                     </div>
