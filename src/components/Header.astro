@@ -13,10 +13,10 @@ const otherLang = lang === 'pt' ? 'en' : 'pt';
 const otherLabel = languages[otherLang];
 
 const nav = [
-  { href: `/${lang}/#cases`, label: t('nav.cases') },
-  { href: `/${lang}/#about`, label: t('nav.about') },
-  { href: `/${lang}/#process`, label: lang === 'pt' ? 'Processo' : 'Process' },
-  { href: `/${lang}/contato/`, label: t('nav.contact') },
+  { href: `/${lang}/#cases`, label: t('nav.cases'), target: 'cases' },
+  { href: `/${lang}/#about`, label: t('nav.about'), target: 'about' },
+  { href: `/${lang}/#process`, label: lang === 'pt' ? 'Processo' : 'Process', target: 'process' },
+  { href: `/${lang}/contato/`, label: t('nav.contact'), target: 'contato' },
 ];
 
 const switchAriaLabel =
@@ -25,74 +25,187 @@ const switchAriaLabel =
     : `Switch language to ${otherLabel}`;
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 border-b border-brand-border/60 bg-brand-bg/80 backdrop-blur-md">
-  <nav class="max-w-6xl mx-auto flex items-center justify-between px-4 py-3 md:px-6" aria-label={lang === 'pt' ? 'Navegação principal' : 'Main navigation'}>
+<header
+  id="main-header"
+  class="fixed top-0 left-0 right-0 z-50 border-b border-brand-border/60 bg-brand-bg/80 backdrop-blur-md transition-all duration-300"
+>
+  <nav
+    class="max-w-6xl mx-auto flex items-center justify-between px-4 py-3 md:px-6"
+    aria-label={lang === 'pt' ? 'Navegação principal' : 'Main navigation'}
+  >
     <a
       href={`/${lang}/`}
-      class="text-xl font-display font-black tracking-tight text-brand-text hover:text-brand-accent transition-colors"
+      class="text-xl font-display font-black tracking-tight text-brand-text hover:text-brand-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-bg rounded"
+      aria-label="ExpoStacker"
     >
       <span class="text-brand-accent">EXPO</span> STACKER
     </a>
-    <div class="flex items-center gap-4 text-sm font-medium md:gap-6">
+
+    <div class="flex items-center gap-3 md:gap-5 text-sm font-medium">
       {/* Desktop nav */}
-      <div class="hidden md:flex items-center gap-6">
+      <div class="hidden md:flex items-center gap-1" role="menubar">
         {nav.map((item) => (
           <a
             href={item.href}
-            class="py-2 text-brand-text-secondary hover:text-brand-accent transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-bg rounded"
+            data-target={item.target}
+            class="header-link relative px-3 py-2 text-brand-text-secondary hover:text-brand-text transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-bg rounded"
+            role="menuitem"
           >
             {item.label}
+            <span class="active-dot absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-brand-accent opacity-0 transition-opacity" aria-hidden="true"></span>
           </a>
         ))}
       </div>
+
+      {/* Language switcher */}
       <a
         href={`/${otherLang}/`}
-        class="px-3 py-2 text-xs font-mono font-semibold border border-brand-border rounded-full text-brand-text-secondary hover:border-brand-accent hover:text-brand-accent transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-bg"
+        class="group flex items-center gap-1.5 px-3 py-2 text-xs font-mono font-semibold border border-brand-border rounded-full text-brand-text-secondary hover:border-brand-accent hover:text-brand-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-bg"
         aria-label={switchAriaLabel}
         lang={otherLang}
+        title={switchAriaLabel}
       >
-        {otherLabel}
+        <span class="w-4 h-4 rounded-full bg-brand-surface border border-brand-border flex items-center justify-center text-[8px]">
+          {lang.toUpperCase()}
+        </span>
+        <span class="group-hover:text-brand-accent transition-colors">
+          {otherLabel}
+        </span>
       </a>
+
+      {/* CTA */}
       <a
         href={`/${lang}/contato/`}
-        class="hidden md:inline-flex items-center justify-center px-4 py-2 text-sm font-bold bg-brand-accent text-brand-bg rounded-lg hover:bg-brand-accent-hover transition-colors min-h-[40px] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-bg"
+        class="hidden md:inline-flex items-center justify-center px-4 py-2.5 text-sm font-bold bg-brand-accent text-brand-bg rounded-lg hover:bg-brand-accent-hover hover:scale-105 transition-all min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-bg"
       >
         {lang === 'pt' ? 'Falar sobre meu projeto' : 'Discuss my project'}
       </a>
+
       {/* Mobile menu button */}
       <button
         id="mobile-menu-btn"
-        class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg text-brand-text-secondary hover:text-brand-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent"
+        class="md:hidden inline-flex items-center justify-center w-11 h-11 rounded-lg text-brand-text-secondary hover:text-brand-text hover:bg-brand-surface/50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent"
         aria-label={lang === 'pt' ? 'Abrir menu' : 'Open menu'}
         aria-expanded="false"
+        aria-controls="mobile-menu"
       >
-        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <svg id="menu-icon-open" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
           <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" />
+        </svg>
+        <svg id="menu-icon-close" class="w-5 h-5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" />
         </svg>
       </button>
     </div>
   </nav>
 
   {/* Mobile menu */}
-  <div id="mobile-menu" class="hidden md:hidden border-t border-brand-border bg-brand-bg/95 backdrop-blur-md">
-    <nav class="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-2" aria-label={lang === 'pt' ? 'Navegação mobile' : 'Mobile navigation'}>
+  <div
+    id="mobile-menu"
+    class="hidden md:hidden border-t border-brand-border bg-brand-bg/95 backdrop-blur-md"
+    role="dialog"
+    aria-label={lang === 'pt' ? 'Menu mobile' : 'Mobile menu'}
+  >
+    <nav class="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-1" aria-label={lang === 'pt' ? 'Navegação mobile' : 'Mobile navigation'}>
       {nav.map((item) => (
         <a
           href={item.href}
-          class="py-3 px-2 text-brand-text-secondary hover:text-brand-accent transition-colors rounded-lg"
+          data-target={item.target}
+          class="mobile-link py-3 px-3 text-brand-text-secondary hover:text-brand-text hover:bg-brand-surface/40 rounded-lg transition-colors"
         >
           {item.label}
         </a>
       ))}
+      <a
+        href={`/${lang}/contato/`}
+        class="mt-3 inline-flex items-center justify-center px-4 py-3 text-sm font-bold bg-brand-accent text-brand-bg rounded-lg hover:bg-brand-accent-hover transition-colors min-h-[48px]"
+      >
+        {lang === 'pt' ? 'Falar sobre meu projeto' : 'Discuss my project'}
+      </a>
     </nav>
   </div>
 </header>
 
-<script>
-  const btn = document.getElementById('mobile-menu-btn');
-  const menu = document.getElementById('mobile-menu');
-  btn?.addEventListener('click', () => {
-    const isHidden = menu?.classList.toggle('hidden');
-    btn.setAttribute('aria-expanded', String(!isHidden));
-  });
+<script is:inline>
+  (function () {
+    const header = document.getElementById('main-header');
+    const links = document.querySelectorAll('.header-link, .mobile-link');
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    const iconOpen = document.getElementById('menu-icon-open');
+    const iconClose = document.getElementById('menu-icon-close');
+
+    // Header compacto ao rolar
+    let lastScroll = 0;
+    function updateHeader() {
+      const currentScroll = window.scrollY;
+      if (currentScroll > 20) {
+        header?.classList.add('py-2', 'bg-brand-bg/95', 'shadow-lg', 'shadow-brand-bg/40');
+        header?.classList.remove('py-3');
+      } else {
+        header?.classList.add('py-3');
+        header?.classList.remove('py-2', 'bg-brand-bg/95', 'shadow-lg', 'shadow-brand-bg/40');
+      }
+      lastScroll = currentScroll;
+    }
+    window.addEventListener('scroll', updateHeader, { passive: true });
+    updateHeader();
+
+    // Scroll spy: ativa link conforme seção visível
+    const sections = ['cases', 'about', 'process', 'contato'].map(id => document.getElementById(id)).filter(Boolean);
+    const headerHeight = header?.offsetHeight || 80;
+
+    function setActiveLink(targetId) {
+      links.forEach(link => {
+        const dot = link.querySelector('.active-dot');
+        const isActive = link.getAttribute('data-target') === targetId;
+        link.classList.toggle('text-brand-accent', isActive);
+        link.classList.toggle('text-brand-text-secondary', !isActive);
+        dot?.classList.toggle('opacity-100', isActive);
+        dot?.classList.toggle('opacity-0', !isActive);
+        if (isActive) {
+          link.setAttribute('aria-current', 'true');
+        } else {
+          link.removeAttribute('aria-current');
+        }
+      });
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveLink(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: `-${headerHeight}px 0px -60% 0px`, threshold: 0.1 }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    // Fecha menu mobile ao clicar em link
+    links.forEach((link) => {
+      link.addEventListener('click', () => {
+        if (!menu?.classList.contains('hidden')) {
+          menu?.classList.add('hidden');
+          iconOpen?.classList.remove('hidden');
+          iconClose?.classList.add('hidden');
+          btn?.setAttribute('aria-expanded', 'false');
+          btn?.setAttribute('aria-label', btn.getAttribute('aria-label')?.includes('Abrir') ? 'Abrir menu' : 'Open menu');
+        }
+      });
+    });
+
+    // Toggle menu mobile
+    btn?.addEventListener('click', () => {
+      const isHidden = menu?.classList.toggle('hidden');
+      iconOpen?.classList.toggle('hidden', !isHidden);
+      iconClose?.classList.toggle('hidden', isHidden);
+      btn.setAttribute('aria-expanded', String(!isHidden));
+      const openLabel = lang === 'pt' ? 'Abrir menu' : 'Open menu';
+      const closeLabel = lang === 'pt' ? 'Fechar menu' : 'Close menu';
+      btn.setAttribute('aria-label', isHidden ? openLabel : closeLabel);
+    });
+  })();
 </script>
