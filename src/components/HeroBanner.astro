@@ -84,7 +84,7 @@ const slides = sorted;
 
                 <div class="relative grid md:grid-cols-2 gap-8 md:gap-12 p-6 md:p-10 lg:p-14 items-center h-[500px] md:h-[560px] lg:h-[600px]">
                   {/* Lado texto */}
-                  <div class="flex flex-col h-full justify-center overflow-hidden">
+                  <div class="flex flex-col h-full justify-between overflow-hidden">
                     <div class="inline-flex items-center gap-4 mb-5">
                       <img
                         src={logoPath}
@@ -101,12 +101,12 @@ const slides = sorted;
                       </span>
                     </div>
 
-                    <p class="text-sm md:text-base lg:text-lg text-brand-text-secondary max-w-xl mb-5 leading-relaxed line-clamp-3">
+                    <p class="text-sm md:text-base lg:text-lg text-brand-text-secondary max-w-xl leading-relaxed line-clamp-4 mb-4">
                       {item.data.shortDescription}
                     </p>
 
                     {/* CTAs */}
-                    <div class="flex flex-col sm:flex-row gap-3 mb-5">
+                    <div class="flex flex-col sm:flex-row gap-3">
                       <a
                         href={href}
                         class="inline-flex items-center justify-center min-h-[48px] px-5 py-3 bg-brand-accent text-brand-bg font-bold rounded-xl hover:scale-105 motion-safe:transition-transform motion-safe:duration-200 shadow-[0_0_24px_rgba(138,180,248,0.35)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-accent"
@@ -126,7 +126,7 @@ const slides = sorted;
                     </div>
 
                     {/* Metricas */}
-                    <div class="grid grid-cols-3 gap-3 md:gap-5 mt-auto">
+                    <div class="grid grid-cols-3 gap-3 md:gap-5 mt-4">
                       {metrics.map((metric) => (
                         <div class="border-l-2 border-brand-accent/30 pl-3">
                           <span class="block text-xl md:text-2xl lg:text-3xl font-black text-brand-accent font-mono leading-none">
