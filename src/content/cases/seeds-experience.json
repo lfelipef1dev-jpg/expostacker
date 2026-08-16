@@ -17,6 +17,7 @@
   "liveUrl": "https://seeds.expostacker.com.br",
   "projectType": "SaaS",
   "featured": false,
+  "priority": 4,
   "category": "personal",
   "year": 2026,
   "hasCaseStudy": true,

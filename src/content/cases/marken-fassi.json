@@ -22,6 +22,7 @@
   },
   "projectType": "Client-Work",
   "featured": false,
+  "priority": 5,
   "category": "client",
   "year": 2024,
   "hasCaseStudy": true,

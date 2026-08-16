@@ -354,3 +354,49 @@ Se um projeto ja esta no Netlify e precisa migrar:
 8. Confirmar métricas qualificadas
 9. Confirmar claims técnicas honestas
 10. Testar PT e EN
+
+## Ordenacao de Cases (REGRA ABSOLUTA)
+
+### Campo `priority`
+
+Cada case tem um campo `priority` (numero inteiro) no JSON.
+O BentoGrid ordena os cards por `priority` (menor = primeiro card).
+
+### Ordem atual
+
+| priority | Projeto | Justificativa comercial |
+|----------|---------|------------------------|
+| 1 | tigrebet | Plataforma com auth, pagamento, banco. 12 tecnologias. Mais procura. |
+| 2 | medellin-ecommerce | E-commerce completo com pagamento, estoque, entrega. Mercado gigante. |
+| 3 | gerenciador-frotas | SaaS com dashboard, auth, mapa, rastreamento. Empresas pagam premium. |
+| 4 | seeds-experience | Rede social com IA e realtime. Produto digital moderno. |
+| 5 | marken-fassi | IA propria + gamificacao + LXP. Diferencial unico. |
+| 6 | vivamais | Site de clinica com agendamento e SEO. Mercado de saude gigante. |
+| 7 | solmais | Landing page padrao. Produto de entrada. |
+| 8 | gordaomod | Loja de produtos digitais. 182 produtos. Nicho gamer. |
+| 9 | sanatto-facilities | Site institucional Next.js. Bonito mas sem recursos. |
+| 10 | sistema-faturamento-saas | HTML simples. Cumpre o basico. |
+| 11 | vendamais | Landing simples HTML. Produto de entrada minimo. |
+
+### Criterios de ordenacao
+
+A ordem e definida por:
+
+1. **Maior procura de mercado** — o que mais vende, o que mais cliente procura
+2. **Tecnologias mais quentes** — Next.js, auth, pagamento, banco, IA, realtime
+3. **Valor comercial** — quanto o cliente paga por esse tipo de projeto
+4. **Engajamento** — plataformas e SaaS geram mais interesse que landing pages
+5. **Palavras-chave** — SaaS, e-commerce, auth, pagamento, dashboard, IA, realtime
+
+### Projeto novo
+
+- Entra **sem `priority`** → aparece no final
+- O usuario define a posicao e seta o numero
+- NAO usar scripts automaticos (Lighthouse, etc) para ordenar
+- A ordenacao e **manual e comercial**, nao tecnica
+
+### Regra absoluta
+
+- NUNCA reordenar cases sem autorizacao explicita do usuario
+- NUNCA usar score automatico para ordenar
+- A ordenacao reflete **estrategia comercial**, nao complexidade tecnica
