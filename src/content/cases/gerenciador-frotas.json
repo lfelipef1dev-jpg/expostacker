@@ -1,20 +1,265 @@
 {
   "id": "gerenciador-frotas",
   "title": "Gerenciador Inteligente de Frotas",
-  "clientName": "Logística Rio Express",
-  "tags": ["Astro", "Hono", "D1", "Cloudflare Workers"],
-  "shortDescription": "Painel em tempo real para rastreamento de frotas, eliminando planilhas desatualizadas e reduzindo atrasos.",
-  "problemDescription": "A operação de entregas perdia visibilidade em tempo real da frota e sofria com planilhas desatualizadas, causando atrasos e retrabalho.",
-  "technicalSolution": "Implementamos edge computing com Cloudflare Workers, banco D1 e API Hono para rastreamento em tempo real, reduzindo latência e eliminando sincronização manual.",
+  "clientName": "Portfólio ExpoStacker",
+  "tags": ["Astro", "Hono", "Cloudflare Workers", "Tailwind"],
+  "shortDescription": "Painel operacional de frota com landing page, demo interativa de dashboard e módulos para veículos, motoristas, rotas, manutenção, combustível e alertas.",
+  "problemDescription": "Transportadoras e gestores de frota perdem visibilidade quando controlam tudo em planilhas desatualizadas. Falta uma visão única de veículos, motoristas, rotas, manutenção e combustível para decidir com agilidade.",
+  "technicalSolution": "Criamos uma aplicação com Astro para SSR, Hono para API, seed de dados ilustrativos e Cloudflare Workers para deploy. O painel inclui sidebar, tabelas acessíveis, badges de status e disclaimers claros de que os dados são simulados.",
   "businessOutcome": [
-    { "label": "Aumento de Eficiência", "value": 35, "unit": "%" },
-    { "label": "Redução de Atrasos", "value": 60, "unit": "%" },
-    { "label": "Economia Mensal", "value": 12000, "unit": "R$" }
+    { "label": "Frota em tela", "value": 8, "unit": " veículos (ilustrativo)" },
+    { "label": "Rotas simuladas", "value": 6, "unit": " viagens (ilustrativo)" },
+    { "label": "Redução de atrasos", "value": 60, "unit": "% (estimado em piloto)" }
   ],
-  "liveUrl": "https://expostacker.com.br",
+  "liveUrl": "https://frotamais.expostacker.com.br",
   "projectType": "Client-Work",
   "featured": true,
   "category": "client",
-  "year": 2024,
-  "hasCaseStudy": true
+  "year": 2026,
+  "hasCaseStudy": true,
+  "heroHeadline": {
+    "pt": "Frotamais — Painel operacional de frota com Astro + Hono",
+    "en": "Frotamais — Fleet operations dashboard with Astro + Hono"
+  },
+  "heroSubhead": {
+    "pt": "Landing page e dashboard interativo para gestão de frotas. Veículos, motoristas, rotas, manutenção, combustível e alertas com dados ilustrativos. Deploy na borda via Cloudflare Workers.",
+    "en": "Landing page and interactive dashboard for fleet management. Vehicles, drivers, routes, maintenance, fuel and alerts with illustrative data. Edge deployment via Cloudflare Workers."
+  },
+  "opening": {
+    "pt": "Frotamais é uma demonstração de plataforma SaaS de gestão de frotas. A landing page comunica o valor do produto enquanto a área logada mostra dashboard, listas e relatórios com dados simulados de transportadoras brasileiras.",
+    "en": "Frotamais is a fleet management SaaS platform demonstration. The landing page communicates product value while the logged-in area shows dashboard, lists and reports with simulated Brazilian freight company data."
+  },
+  "challengeContext": {
+    "pt": "O projeto precisava demonstrar uma solução B2B realista sem emitir CT-e, MDF-e ou validar dados fiscais. O desafio era manter honestidade sobre o caráter demonstrativo enquanto mostrava fluxos operacionais completos.",
+    "en": "The project needed to demonstrate a realistic B2B solution without issuing CT-e, MDF-e or validating fiscal data. The challenge was maintaining honesty about the demonstrative nature while showing complete operational flows."
+  },
+  "approach": {
+    "pt": "Aplicamos Astro com SSR, Hono para rotas de API, seed em memória para dados ilustrativos e Tailwind CSS para a interface. Pesquisamos benchmarks como Samsara, Geotab e Motive para estruturar módulos de frota, mas simplificamos para portfólio.",
+    "en": "We applied Astro with SSR, Hono for API routes, in-memory seed for illustrative data and Tailwind CSS for the interface. We researched benchmarks such as Samsara, Geotab and Motive to structure fleet modules, but simplified for portfolio."
+  },
+  "solutionItems": {
+    "pt": [
+      "Landing page com hero fotográfico e CTA para acessar a demo",
+      "Dashboard com KPIs, gráfico SVG de consumo, alertas e tabela de veículos",
+      "Módulos: veículos, motoristas, rotas, manutenção, combustível e alertas",
+      "Dados ilustrativos gerados com IDs UUID, datas ISO e contexto brasileiro",
+      "API Hono para resumo da frota, veículos, motoristas, viagens, manutenção, abastecimento e alertas",
+      "Deploy em Cloudflare Workers com SSL e subdomínio próprio",
+      "Tabelas com caption implícita, th scope e badges de status",
+      "Imagem hero com width, height e loading eager",
+      "Disclaimers claros de que não há emissão de documentos fiscais reais"
+    ],
+    "en": [
+      "Landing page with photographic hero and CTA to access the demo",
+      "Dashboard with KPIs, SVG consumption chart, alerts and vehicles table",
+      "Modules: vehicles, drivers, routes, maintenance, fuel and alerts",
+      "Illustrative data generated with UUID IDs, ISO dates and Brazilian context",
+      "Hono API for fleet summary, vehicles, drivers, trips, maintenance, fuel logs and alerts",
+      "Deployed on Cloudflare Workers with SSL and custom subdomain",
+      "Tables with implicit caption, th scope and status badges",
+      "Hero image with width, height and loading eager",
+      "Clear disclaimers that no real fiscal documents are issued"
+    ]
+  },
+  "decisionLog": [
+    {
+      "title": { "pt": "Astro + Hono em vez de Next.js", "en": "Astro + Hono instead of Next.js" },
+      "why": { "pt": "Astro permite SSR leve e uso de islands; Hono oferece API simples e compatível com Workers. Menor bundle e menor complexidade para uma demo de portfólio.", "en": "Astro enables lightweight SSR and islands usage; Hono offers a simple API compatible with Workers. Smaller bundle and less complexity for a portfolio demo." },
+      "alternatives": { "pt": "Next.js + OpenNext na Cloudflare — rejeitado por exigir configuração de banco real e secrets mais pesados.", "en": "Next.js + OpenNext on Cloudflare — rejected for requiring real database and heavier secrets setup." }
+    },
+    {
+      "title": { "pt": "Dados em memória em vez de D1 real", "en": "In-memory data instead of real D1" },
+      "why": { "pt": "Para portfólio, não precisamos de persistência real. Seed em memória acelera build, elimina conexão com banco e mantém honestidade sobre dados simulados.", "en": "For portfolio, no real persistence needed. In-memory seed accelerates build, removes database connection and maintains honesty about simulated data." },
+      "alternatives": { "pt": "Cloudflare D1 com Drizzle — rejeitado porque exigiria migrations, seeding e bindings reais para uma demonstração.", "en": "Cloudflare D1 with Drizzle — rejected for requiring migrations, seeding and real bindings for a demonstration." }
+    },
+    {
+      "title": { "pt": "React 18 em vez de React 19", "en": "React 18 instead of React 19" },
+      "why": { "pt": "React 19 gera erro MessageChannel no ambiente do Cloudflare Workers. React 18 é estável para SSR nesse runtime.", "en": "React 19 triggers a MessageChannel error in the Cloudflare Workers environment. React 18 is stable for SSR in this runtime." },
+      "alternatives": { "pt": "React 19 — rejeitado por incompatibilidade com o ambiente Workers.", "en": "React 19 — rejected for incompatibility with Workers runtime." }
+    }
+  ],
+  "technologies": [
+    { "name": "Astro", "why": { "pt": "SSR leve com islands e compatível com Cloudflare Workers.", "en": "Lightweight SSR with islands and compatible with Cloudflare Workers." } },
+    { "name": "Hono", "why": { "pt": "API rápida, pequena e compatível com Workers.", "en": "Fast, small API compatible with Workers." } },
+    { "name": "Tailwind CSS", "why": { "pt": "Design tokens e responsividade sem CSS customizado.", "en": "Design tokens and responsiveness without custom CSS." } },
+    { "name": "Cloudflare Workers", "why": { "pt": "Deploy na borda com SSL e domínio personalizado.", "en": "Edge deployment with SSL and custom domain." } }
+  ],
+  "myRole": {
+    "pt": "Arquiteto, designer e desenvolvedor full-stack do portfólio.",
+    "en": "Architect, designer and full-stack developer for the portfolio."
+  },
+  "lessonsLearned": {
+    "pt": "Astro com Cloudflare Workers exige atenção às versões do React e ao bundling de assets. Dados ilustrativos em memória funcionam bem para demos, mas é essencial deixar claro que não há integração fiscal real. Tabelas acessíveis e disclaimers fortalecem a qualidade do portfólio.",
+    "en": "Astro with Cloudflare Workers requires attention to React versions and asset bundling. In-memory illustrative data works well for demos, but it is essential to make clear that there is no real fiscal integration. Accessible tables and disclaimers strengthen portfolio quality."
+  },
+  "stakeholders": {
+    "pt": "Portfólio ExpoStacker e prospectos de gestão de frotas.",
+    "en": "ExpoStacker portfolio and fleet management prospects."
+  },
+  "sector": {
+    "pt": "Gestão de Frotas e Logística",
+    "en": "Fleet Management and Logistics"
+  },
+  "heroMetrics": [
+    { "value": "8", "label": { "pt": "Veículos na demo", "en": "Vehicles in demo" } },
+    { "value": "6", "label": { "pt": "Módulos ativos", "en": "Active modules" } },
+    { "value": "<1s", "label": { "pt": "TTFB estimado", "en": "Estimated TTFB" } }
+  ],
+  "timeline": {
+    "duration": "4 dias de implementação",
+    "launchDate": "2026-08"
+  },
+  "timelinePhases": [
+    {
+      "phase": "Discovery",
+      "period": "1 dia",
+      "items": {
+        "pt": ["Pesquisa de benchmarks de gestão de frotas", "Análise de fluxos operacionais de transportadoras brasileiras", "Definição de módulos e arquitetura"],
+        "en": ["Research of fleet management benchmarks", "Analysis of Brazilian freight company operational flows", "Definition of modules and architecture"]
+      }
+    },
+    {
+      "phase": "Design",
+      "period": "1 dia",
+      "items": {
+        "pt": ["Landing page com hero fotográfico", "Paleta azul profundo + laranja de CTA", "Sidebar e top bar do dashboard"],
+        "en": ["Landing page with photographic hero", "Deep blue + orange CTA palette", "Dashboard sidebar and top bar"]
+      }
+    },
+    {
+      "phase": "Dev",
+      "period": "2 dias",
+      "items": {
+        "pt": ["Scaffold Astro + Hono", "Seed de veículos, motoristas, viagens, manutenção, combustível e alertas", "Landing page e módulos do dashboard", "Deploy no Cloudflare Workers"],
+        "en": ["Astro + Hono scaffold", "Seed of vehicles, drivers, trips, maintenance, fuel and alerts", "Landing page and dashboard modules", "Deploy on Cloudflare Workers"]
+      }
+    }
+  ],
+  "visualDisclaimer": {
+    "pt": "Foto do hero é genérica de logística (Unsplash, licença livre). Dados de frota são ilustrativos e gerados para demonstração. Não há emissão real de CT-e, MDF-e ou vinculação fiscal.",
+    "en": "Hero photo is a generic logistics photo (Unsplash, free license). Fleet data is illustrative and generated for demonstration. No real CT-e, MDF-e issuance or fiscal integration."
+  },
+  "methodology": {
+    "pt": ["Pesquisa de benchmarks", "Arquitetura leve para demo", "Mobile-first", "Acessibilidade primeiro", "Honestidade no conteúdo", "Deploy contínuo"],
+    "en": ["Benchmark research", "Lightweight demo architecture", "Mobile-first", "Accessibility first", "Honest content", "Continuous deploy"]
+  },
+  "security": {
+    "pt": {
+      "title": "Segurança e privacidade",
+      "items": [
+        "Nenhum dado pessoal é coletado",
+        "Dados simulados em memória, sem persistência real",
+        "Sem login, cadastro ou pagamento",
+        "Deploy com SSL via Cloudflare",
+        "Nenhum documento fiscal real é emitido"
+      ]
+    },
+    "en": {
+      "title": "Security and privacy",
+      "items": [
+        "No personal data is collected",
+        "Simulated in-memory data, no real persistence",
+        "No login, signup or payment",
+        "SSL deployment via Cloudflare",
+        "No real fiscal documents are issued"
+      ]
+    }
+  },
+  "techStack": {
+    "pt": {
+      "title": "Stack técnica",
+      "categories": [
+        {
+          "category": "Frontend",
+          "items": [
+            { "name": "Astro", "why": "SSR leve e islands para interatividade seletiva.", "alt": "Next.js" },
+            { "name": "React 18", "why": "Compatibilidade com SSR no Workers.", "alt": "React 19" },
+            { "name": "Tailwind CSS", "why": "Design tokens e responsividade.", "alt": "CSS customizado" }
+          ]
+        },
+        {
+          "category": "Backend",
+          "items": [
+            { "name": "Hono", "why": "API pequena e compatível com Workers.", "alt": "Express" }
+          ]
+        },
+        {
+          "category": "Deploy",
+          "items": [
+            { "name": "Cloudflare Workers", "why": "Borda global, SSL e domínio personalizado.", "alt": "Vercel" }
+          ]
+        }
+      ]
+    },
+    "en": {
+      "title": "Tech stack",
+      "categories": [
+        {
+          "category": "Frontend",
+          "items": [
+            { "name": "Astro", "why": "Lightweight SSR and islands for selective interactivity.", "alt": "Next.js" },
+            { "name": "React 18", "why": "SSR compatibility on Workers.", "alt": "React 19" },
+            { "name": "Tailwind CSS", "why": "Design tokens and responsiveness.", "alt": "Custom CSS" }
+          ]
+        },
+        {
+          "category": "Backend",
+          "items": [
+            { "name": "Hono", "why": "Small API compatible with Workers.", "alt": "Express" }
+          ]
+        },
+        {
+          "category": "Deploy",
+          "items": [
+            { "name": "Cloudflare Workers", "why": "Global edge, SSL and custom domain.", "alt": "Vercel" }
+          ]
+        }
+      ]
+    }
+  },
+  "architecture": {
+    "pt": {
+      "title": "Arquitetura",
+      "items": [
+        "Astro SSR com Cloudflare Workers adapter",
+        "Hono gerenciando rotas /api/*",
+        "Dados ilustrativos em memória via seed",
+        "Tailwind CSS com design tokens do projeto",
+        "Build e deploy via GitHub Actions",
+        "Subdomínio frotamais.expostacker.com.br gerenciado pela Cloudflare"
+      ]
+    },
+    "en": {
+      "title": "Architecture",
+      "items": [
+        "Astro SSR with Cloudflare Workers adapter",
+        "Hono handling /api/* routes",
+        "Illustrative in-memory data via seed",
+        "Tailwind CSS with project design tokens",
+        "Build and deploy via GitHub Actions",
+        "Subdomain frotamais.expostacker.com.br managed by Cloudflare"
+      ]
+    }
+  },
+  "resultsDetail": {
+    "pt": {
+      "title": "Resultados observáveis",
+      "kpis": [
+        { "value": "1", "label": "subdomínio próprio", "baseline": "deploy em Cloudflare Workers" },
+        { "value": "8", "label": "veículos na demo", "baseline": "dados ilustrativos" },
+        { "value": "6", "label": "módulos ativos", "baseline": "dashboard funcional" },
+        { "value": "<1s", "label": "TTFB estimado", "baseline": "borda Cloudflare" }
+      ]
+    },
+    "en": {
+      "title": "Observable results",
+      "kpis": [
+        { "value": "1", "label": "custom subdomain", "baseline": "deployed on Cloudflare Workers" },
+        { "value": "8", "label": "vehicles in demo", "baseline": "illustrative data" },
+        { "value": "6", "label": "active modules", "baseline": "functional dashboard" },
+        { "value": "<1s", "label": "estimated TTFB", "baseline": "Cloudflare edge" }
+      ]
+    }
+  },
+  "nda": false
 }

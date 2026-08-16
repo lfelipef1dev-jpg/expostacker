@@ -1,0 +1,9 @@
+fix: sandbox do iframe CaseHeroV2 para apps React/Next.js
+
+- Adiciona allow-same-origin, allow-forms, allow-popups, allow-modals, allow-downloads
+- Corrige live preview de casos como TigerBet (Next.js + Zustand + localStorage)
+- Mantem allow-scripts como base
+
+Generated with [Devin](https://devin.ai)
+
+Co-Authored-By: Devin <158243242+devin-ai-integration[bot]@users.noreply.github.com>
