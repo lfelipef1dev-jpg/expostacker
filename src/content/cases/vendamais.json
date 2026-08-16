@@ -1,0 +1,283 @@
+{
+  "id": "vendamais",
+  "title": "VendaMais",
+  "clientName": "Operação Interna de Demonstração",
+  "tags": ["HTML5", "CSS3", "JavaScript", "Cloudflare Pages"],
+  "shortDescription": "E-commerce de demonstração com catálogo de 24 produtos, carrinho, checkout simulado, depoimentos e design responsivo com acessibilidade.",
+  "problemDescription": "Lojas virtuais de pequeno porte precisam de uma experiência de compra completa — catálogo, filtros, busca, carrinho, checkout e prova social — mas muitas não conseguem validar o design e o fluxo de conversão sem investir em backend e gateway de pagamento antes de saber o que funciona.",
+  "technicalSolution": "Construímos uma loja virtual estática de alta fidelidade em HTML, CSS e JavaScript vanilla. O catálogo de 24 produtos inclui filtros por categoria, busca, ordenação, paginação, modal de produto com especificações técnicas, variações, produtos relacionados e selos de confiança. O carrinho persiste em localStorage e o checkout simula PIX e cartão com validações completas de CPF, CEP e cartão.",
+  "businessOutcome": [
+    { "label": "Produtos no Catálogo", "value": 24, "unit": "itens" },
+    { "label": "Performance Lighthouse", "value": 90, "unit": "+ (estimado)" },
+    { "label": "Acessibilidade WCAG", "value": 95, "unit": "% (estimado)" }
+  ],
+  "liveUrl": "https://vendamais.expostacker.com.br",
+  "projectType": "Client-Work",
+  "featured": true,
+  "category": "client",
+  "year": 2024,
+  "hasCaseStudy": true,
+  "heroHeadline": {
+    "pt": "VendaMais — Loja virtual completa em HTML estático",
+    "en": "VendaMais — Complete online store in static HTML"
+  },
+  "heroSubhead": {
+    "pt": "Catálogo de 24 produtos com filtros, busca, carrinho persistente, checkout simulado e prova social. Tudo em HTML, CSS e JavaScript vanilla, sem backend.",
+    "en": "Catalog of 24 products with filters, search, persistent cart, simulated checkout and social proof. All in HTML, CSS and vanilla JavaScript, no backend."
+  },
+  "opening": {
+    "pt": "VendaMais é uma demonstração profissional de e-commerce B2C. A experiência inclui catálogo com filtros e busca, modal de produto com especificações e variações, carrinho com cupom e frete simulado, checkout em 3 etapas com PIX e cartão, depoimentos no formato de avaliações de produto e páginas legais.",
+    "en": "VendaMais is a professional B2C e-commerce demonstration. The experience includes a catalog with filters and search, product modal with specifications and variations, cart with coupon and simulated shipping, 3-step checkout with PIX and card, product review-style testimonials and legal pages."
+  },
+  "challengeContext": {
+    "pt": "O projeto precisava demonstrar uma experiência de compra completa sem backend, banco de dados ou gateway de pagamento reais, mantendo credibilidade e profissionalismo.",
+    "en": "The project needed to demonstrate a complete shopping experience without real backend, database or payment gateway, while maintaining credibility and professionalism."
+  },
+  "approach": {
+    "pt": "Pesquisamos melhores práticas de e-commerce B2C, hero design, UX de conversão, acessibilidade e performance. Aplicamos um hero com composição visual CSS (gradient mesh animado e glass cards flutuantes), depoimentos no formato de avaliações de produto com texto específico e badge de compra verificada, e modal de produto com especificações técnicas, garantias e produtos relacionados.",
+    "en": "We researched B2C e-commerce best practices, hero design, conversion UX, accessibility and performance. We applied a hero with CSS visual composition (animated gradient mesh and floating glass cards), product review-style testimonials with specific copy and verified purchase badge, and a product modal with technical specifications, warranties and related products."
+  },
+  "solutionItems": {
+    "pt": [
+      "Catálogo de 24 produtos com filtros por categoria, busca, ordenação e paginação",
+      "Modal de produto com imagem, especificações técnicas, variações, garantias e produtos relacionados",
+      "Carrinho persistente em localStorage com cupom de desconto e cálculo de frete simulado",
+      "Checkout em 3 etapas (dados, entrega, pagamento) com validações de CPF, CEP e cartão",
+      "Simulação de pagamento PIX com QR Code e cartão com máscaras de input",
+      "Hero com gradient mesh animado e glass cards flutuantes mostrando categorias",
+      "Depoimentos no formato de avaliações de produto com estrelas, nome, cidade e compra verificada",
+      "Fonte Inter self-hosted com preload para performance",
+      "Imagens com srcset responsivo e lazy loading",
+      "Acessibilidade com skip link, ARIA, focus trap nos modais e navegação por teclado"
+    ],
+    "en": [
+      "Catalog of 24 products with category filters, search, sorting and pagination",
+      "Product modal with image, technical specifications, variations, warranties and related products",
+      "Persistent cart in localStorage with discount coupon and simulated shipping calculation",
+      "3-step checkout (data, delivery, payment) with CPF, ZIP and card validations",
+      "PIX payment simulation with QR Code and card with input masks",
+      "Hero with animated gradient mesh and floating glass cards showing categories",
+      "Product review-style testimonials with stars, name, city and verified purchase",
+      "Self-hosted Inter font with preload for performance",
+      "Images with responsive srcset and lazy loading",
+      "Accessibility with skip link, ARIA, focus trap in modals and keyboard navigation"
+    ]
+  },
+  "decisionLog": [
+    {
+      "title": { "pt": "Hero com composição visual CSS em vez de imagem stock", "en": "Hero with CSS visual composition instead of stock image" },
+      "why": { "pt": "Imagens stock de e-commerce genéricas destroem credibilidade. Composição CSS com gradient mesh e glass cards mostra as categorias sem parecer fabricado.", "en": "Generic e-commerce stock images destroy credibility. CSS composition with gradient mesh and glass cards shows categories without looking fabricated." },
+      "alternatives": { "pt": "Imagem do Unsplash de pessoa comprando online — rejeitada por parecer genérica e prejudicar o LCP.", "en": "Unsplash image of person shopping online — rejected for looking generic and hurting LCP." }
+    },
+    {
+      "title": { "pt": "Depoimentos como avaliações de produto, não cards de marketing", "en": "Testimonials as product reviews, not marketing cards" },
+      "why": { "pt": "Avaliações curtas e específicas (problema + experiência + resultado) convertem mais que cards grandes com texto vago e avatares genéricos.", "en": "Short, specific reviews (problem + experience + result) convert more than large cards with vague text and generic avatars." },
+      "alternatives": { "pt": "Cards grandes com avatar de iniciais e texto italico — rejeitados por parecerem amadores e fabricados.", "en": "Large cards with initial avatars and italic text — rejected for looking amateur and fabricated." }
+    },
+    {
+      "title": { "pt": "Fonte self-hosted em vez de Google Fonts", "en": "Self-hosted font instead of Google Fonts" },
+      "why": { "pt": "Eliminar a conexão externa com fonts.googleapis.com reduz latency e melhora o LCP.", "en": "Eliminating the external connection to fonts.googleapis.com reduces latency and improves LCP." },
+      "alternatives": { "pt": "Google Fonts via link preconnect — funciona, mas adiciona uma conexão externa desnecessária.", "en": "Google Fonts via link preconnect — works, but adds an unnecessary external connection." }
+    },
+    {
+      "title": { "pt": "Checkout simulado sem backend", "en": "Simulated checkout without backend" },
+      "why": { "pt": "O objetivo é demonstrar o fluxo de conversão, não processar pagamentos reais. Simular PIX e cartão com validações completas mostra competência sem risco.", "en": "The goal is to demonstrate the conversion flow, not process real payments. Simulating PIX and card with full validations shows competence without risk." },
+      "alternatives": { "pt": "Integrar Stripe ou Mercado Pago — exigiria backend, secrets e aumentaria complexidade sem agregar ao portfólio.", "en": "Integrating Stripe or Mercado Pago — would require backend, secrets and increase complexity without adding to the portfolio." }
+    }
+  ],
+  "technologies": [
+    {
+      "name": "HTML5",
+      "why": { "pt": "Semântica limpa com article, section, nav, header, footer e main.", "en": "Clean semantics with article, section, nav, header, footer and main." }
+    },
+    {
+      "name": "CSS3",
+      "why": { "pt": "Design tokens, grid, flexbox, glassmorphism, gradient mesh animado e responsividade sem frameworks.", "en": "Design tokens, grid, flexbox, glassmorphism, animated gradient mesh and responsiveness without frameworks." }
+    },
+    {
+      "name": "JavaScript",
+      "why": { "pt": "Catálogo, filtros, busca, carrinho, checkout, modais e focus trap sem bibliotecas.", "en": "Catalog, filters, search, cart, checkout, modals and focus trap without libraries." }
+    },
+    {
+      "name": "Cloudflare Pages",
+      "why": { "pt": "Deploy rápido, gratuito, com SSL automático e cache global.", "en": "Fast, free deployment with automatic SSL and global cache." }
+    }
+  ],
+  "myRole": {
+    "pt": "Arquiteto de experiência, designer e desenvolvedor front-end.",
+    "en": "Experience architect, designer and front-end developer."
+  },
+  "lessonsLearned": {
+    "pt": "Um e-commerce de demonstração precisa de detalhes específicos — especificações técnicas, garantias, produtos relacionados e avaliações concretas — para parecer real. Texto vago e imagens stock destroem a credibilidade mais do que qualquer falha técnica.",
+    "en": "A demonstration e-commerce needs specific details — technical specifications, warranties, related products and concrete reviews — to look real. Vague text and stock images destroy credibility more than any technical flaw."
+  },
+  "stakeholders": {
+    "pt": "Portfólio ExpoStacker e prospectos de e-commerce.",
+    "en": "ExpoStacker portfolio and e-commerce prospects."
+  },
+  "sector": {
+    "pt": "E-commerce B2C",
+    "en": "B2C E-commerce"
+  },
+  "heroMetrics": [
+    { "value": "24", "label": { "pt": "Produtos no catálogo", "en": "Products in catalog" } },
+    { "value": "6", "label": { "pt": "Avaliações de clientes", "en": "Customer reviews" } },
+    { "value": "95%", "label": { "pt": "Acessibilidade (estimado)", "en": "Accessibility (estimated)" } }
+  ],
+  "timeline": {
+    "duration": "2 dias de implementação",
+    "launchDate": "2024-08"
+  },
+  "timelinePhases": [
+    {
+      "phase": "Discovery",
+      "period": "4 horas",
+      "items": {
+        "pt": ["Pesquisa de melhores práticas de e-commerce B2C com 10 agentes", "Análise de hero design, UX, conversão, performance e acessibilidade", "Benchmark contra Magalu, Casas Bahia e Americanas"],
+        "en": ["B2C e-commerce best practices research with 10 agents", "Hero design, UX, conversion, performance and accessibility analysis", "Benchmark against Magalu, Casas Bahia and Americanas"]
+      }
+    },
+    {
+      "phase": "Design",
+      "period": "6 horas",
+      "items": {
+        "pt": ["Design tokens dark/teal com variáveis CSS", "Hero com gradient mesh animado e glass cards flutuantes", "Sistema de cards compactos para depoimentos", "Modal de produto com specs, garantias e relacionados"],
+        "en": ["Dark/teal design tokens with CSS variables", "Hero with animated gradient mesh and floating glass cards", "Compact card system for testimonials", "Product modal with specs, warranties and related items"]
+      }
+    },
+    {
+      "phase": "Dev",
+      "period": "8 horas",
+      "items": {
+        "pt": ["Catálogo de 24 produtos com filtros, busca e paginação", "Carrinho com localStorage, cupom e frete simulado", "Checkout em 3 etapas com PIX e cartão", "Acessibilidade com ARIA, focus trap e skip link", "Self-host da fonte Inter e srcset nas imagens"],
+        "en": ["24-product catalog with filters, search and pagination", "Cart with localStorage, coupon and simulated shipping", "3-step checkout with PIX and card", "Accessibility with ARIA, focus trap and skip link", "Self-hosted Inter font and srcset on images"]
+      }
+    }
+  ],
+  "visualDisclaimer": {
+    "pt": "Produtos, preços, avaliações e dados de clientes são ilustrativos para demonstração de portfólio. Nenhum pagamento é processado e nenhum dado pessoal é coletado.",
+    "en": "Products, prices, reviews and customer data are illustrative for portfolio demonstration. No payment is processed and no personal data is collected."
+  },
+  "methodology": {
+    "pt": ["Pesquisa com múltiplos agentes especializados", "Design centrado no usuário", "Mobile-first", "Acessibilidade primeiro", "Performance primeiro", "Iteração focada e incremental"],
+    "en": ["Research with multiple specialized agents", "User-centered design", "Mobile-first", "Accessibility first", "Performance first", "Focused incremental iteration"]
+  },
+  "security": {
+    "pt": {
+      "title": "Segurança e privacidade",
+      "items": [
+        "Carrinho persiste apenas no localStorage do navegador",
+        "Nenhum dado pessoal é coletado ou enviado a servidor",
+        "Checkout é totalmente simulado — nenhum pagamento é processado",
+        "Formulários usam autocomplete metadata para acessibilidade",
+        "Pronto para evolução com backend, gateway e LGPD"
+      ]
+    },
+    "en": {
+      "title": "Security and privacy",
+      "items": [
+        "Cart persists only in browser localStorage",
+        "No personal data is collected or sent to a server",
+        "Checkout is fully simulated — no payment is processed",
+        "Forms use autocomplete metadata for accessibility",
+        "Ready for evolution with backend, gateway and GDPR"
+      ]
+    }
+  },
+  "techStack": {
+    "pt": {
+      "title": "Stack técnica",
+      "categories": [
+        {
+          "category": "Frontend",
+          "items": [
+            { "name": "HTML5", "why": "Semântica e SEO nativos.", "alt": "JSX no Next.js" },
+            { "name": "CSS3", "why": "Design tokens, glassmorphism, gradient mesh e responsividade sem build.", "alt": "Tailwind CSS" },
+            { "name": "JavaScript", "why": "Catálogo, carrinho, checkout e modais sem frameworks.", "alt": "React + TypeScript" }
+          ]
+        },
+        {
+          "category": "Assets",
+          "items": [
+            { "name": "Inter (self-hosted)", "why": "Fonte local com preload para eliminar conexão externa.", "alt": "Google Fonts CDN" },
+            { "name": "Unsplash + srcset", "why": "Imagens com srcset responsivo e lazy loading.", "alt": "Imagens locais WebP" }
+          ]
+        },
+        {
+          "category": "Deploy",
+          "items": [
+            { "name": "Cloudflare Pages", "why": "Hospedagem estática com SSL e cache global.", "alt": "Vercel" }
+          ]
+        }
+      ]
+    },
+    "en": {
+      "title": "Tech stack",
+      "categories": [
+        {
+          "category": "Frontend",
+          "items": [
+            { "name": "HTML5", "why": "Native semantics and SEO.", "alt": "JSX in Next.js" },
+            { "name": "CSS3", "why": "Design tokens, glassmorphism, gradient mesh and responsiveness without build.", "alt": "Tailwind CSS" },
+            { "name": "JavaScript", "why": "Catalog, cart, checkout and modals without frameworks.", "alt": "React + TypeScript" }
+          ]
+        },
+        {
+          "category": "Assets",
+          "items": [
+            { "name": "Inter (self-hosted)", "why": "Local font with preload to eliminate external connection.", "alt": "Google Fonts CDN" },
+            { "name": "Unsplash + srcset", "why": "Images with responsive srcset and lazy loading.", "alt": "Local WebP images" }
+          ]
+        },
+        {
+          "category": "Deploy",
+          "items": [
+            { "name": "Cloudflare Pages", "why": "Static hosting with SSL and global cache.", "alt": "Vercel" }
+          ]
+        }
+      ]
+    }
+  },
+  "architecture": {
+    "pt": {
+      "title": "Arquitetura",
+      "items": [
+        "Site estático servido via CDN com cache de assets imutáveis",
+        "Catálogo de 24 produtos hardcoded em JavaScript",
+        "Carrinho e estado persistidos em localStorage",
+        "Checkout simulado com validações client-side completas",
+        "Fonte self-hosted com preload e imagens com srcset",
+        "Pronto para evolução com backend, banco e gateway de pagamento"
+      ]
+    },
+    "en": {
+      "title": "Architecture",
+      "items": [
+        "Static site served via CDN with immutable asset caching",
+        "24-product catalog hardcoded in JavaScript",
+        "Cart and state persisted in localStorage",
+        "Simulated checkout with complete client-side validations",
+        "Self-hosted font with preload and images with srcset",
+        "Ready for evolution with backend, database and payment gateway"
+      ]
+    }
+  },
+  "resultsDetail": {
+    "pt": {
+      "title": "Resultados esperados",
+      "kpis": [
+        { "value": "24", "label": "Produtos no catálogo com specs e variações", "baseline": "Catálogo vazio", "source": "(entregue)", "sparkline": [0, 6, 12, 18, 24, 24] },
+        { "value": "90+", "label": "Performance Lighthouse", "baseline": "Sem otimização", "source": "(estimado)", "sparkline": [0, 40, 60, 75, 85, 90] },
+        { "value": "95%", "label": "Conformidade WCAG acessibilidade", "baseline": "Sem ARIA", "source": "(estimado)", "sparkline": [0, 30, 50, 70, 85, 95] }
+      ]
+    },
+    "en": {
+      "title": "Expected results",
+      "kpis": [
+        { "value": "24", "label": "Products in catalog with specs and variations", "baseline": "Empty catalog", "source": "(delivered)", "sparkline": [0, 6, 12, 18, 24, 24] },
+        { "value": "90+", "label": "Lighthouse Performance", "baseline": "No optimization", "source": "(estimated)", "sparkline": [0, 40, 60, 75, 85, 90] },
+        { "value": "95%", "label": "WCAG accessibility compliance", "baseline": "No ARIA", "source": "(estimated)", "sparkline": [0, 30, 50, 70, 85, 95] }
+      ]
+    }
+  }
+}

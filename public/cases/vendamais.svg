@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
+  <rect width="400" height="300" fill="#071A2F"/>
+  <defs>
+    <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#18D2B3" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#071A2F" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#grad)" opacity="0.3"/>
+  <g transform="translate(200,120)">
+    <path d="M-40 -25 L40 -25 L40 25 L-40 25 Z" fill="none" stroke="#18D2B3" stroke-width="3" rx="6"/>
+    <path d="M-30 -15 L30 -15 M-30 -7 L20 -7 M-30 1 L30 1 M-30 9 L15 9" stroke="#18D2B3" stroke-width="2" opacity="0.5"/>
+    <circle cx="30" cy="-17" r="5" fill="#18D2B3"/>
+    <text x="0" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#18D2B3" letter-spacing="1">VENDAMAIS</text>
+    <text x="0" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#A8B6C8" opacity="0.6" letter-spacing="3">E-COMMERCE</text>
+  </g>
+</svg>
