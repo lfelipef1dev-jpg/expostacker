@@ -142,8 +142,8 @@ const slides = sorted;
                     </div>
                   </div>
 
-                  {/* Lado visual — screenshot completo, igual BentoGrid */}
-                  <div class="relative rounded-2xl overflow-hidden border border-brand-border bg-brand-bg shadow-[0_16px_48px_-16px_rgba(0,0,0,0.5)] h-full hidden md:block flex items-center justify-center">
+                  {/* Lado visual — screenshot 1:1, preenche o card */}
+                  <div class="relative rounded-2xl overflow-hidden border border-brand-border shadow-[0_16px_48px_-16px_rgba(0,0,0,0.5)] h-full hidden md:block">
                     <img
                       src={heroImage}
                       alt={`Previa da aplicacao ${item.data.title}`}
@@ -152,7 +152,7 @@ const slides = sorted;
                       loading={index === 0 ? "eager" : "lazy"}
                       fetchpriority={index === 0 ? "high" : "auto"}
                       decoding="async"
-                      class="w-full h-auto object-contain"
+                      class="w-full h-full object-cover object-center"
                     />
                   </div>
                 </div>
