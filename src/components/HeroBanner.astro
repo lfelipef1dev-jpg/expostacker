@@ -153,7 +153,7 @@ const slides = sorted;
                         {liveUrl ? new URL(liveUrl).hostname : ''}
                       </span>
                     </div>
-                    <div class="absolute inset-0 pt-8 flex items-center justify-center p-4">
+                    <div class="absolute inset-0 pt-8">
                       <img
                         src={heroImage}
                         alt={`Previa da aplicacao ${item.data.title}`}
@@ -162,7 +162,7 @@ const slides = sorted;
                         loading={index === 0 ? "eager" : "lazy"}
                         fetchpriority={index === 0 ? "high" : "auto"}
                         decoding="async"
-                        class="w-full h-full object-contain object-center"
+                        class="w-full h-full object-cover object-top"
                       />
                     </div>
                     <div class="absolute inset-0 bg-gradient-to-t from-brand-bg/40 via-transparent to-transparent pointer-events-none" aria-hidden="true"></div>
