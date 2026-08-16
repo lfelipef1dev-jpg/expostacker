@@ -32,20 +32,18 @@ const metrics = item.data.businessOutcome?.slice(0, 3) ?? [];
             <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-brand-bg/70 to-transparent"></div>
           </div>
 
-          {/* Imagem em cima — mesmo tamanho do featured, sem mudar */}
-          <div class="relative aspect-[4/3] rounded-2xl overflow-hidden border-b border-brand-border bg-brand-bg/40 shadow-[0_16px_48px_-16px_rgba(0,0,0,0.5)]">
-            <div class="absolute inset-0 flex items-center justify-center p-4">
-              <img
-                src={heroImage}
-                alt={`Prévia da aplicação ${item.data.title}`}
-                width="400"
-                height="300"
-                loading="lazy"
-                decoding="async"
-                class="w-full h-full object-cover object-top drop-shadow-2xl"
-              />
-            </div>
-            <div class="absolute inset-0 bg-gradient-to-t from-brand-bg/70 via-transparent to-transparent pointer-events-none" aria-hidden="true"></div>
+          {/* Imagem em cima — mesma ratio do featured, sem padding */}
+          <div class="relative aspect-[4/3] overflow-hidden border-b border-brand-border bg-brand-bg/40">
+            <img
+              src={heroImage}
+              alt={`Prévia da aplicação ${item.data.title}`}
+              width="400"
+              height="300"
+              loading="lazy"
+              decoding="async"
+              class="w-full h-full object-cover object-top"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-bg/40 via-transparent to-transparent pointer-events-none" aria-hidden="true"></div>
           </div>
 
           {/* Conteúdo embaixo — texto otimizado para metade do espaço */}
