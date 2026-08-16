@@ -1,7 +1,7 @@
 {
   "id": "tigrebet",
   "title": "TigreBet",
-  "clientName": "Medellin RP",
+  "clientName": "TigreBet",
   "tags": ["Next.js 14", "React 18", "TypeScript", "Tailwind CSS", "Express", "PostgreSQL", "Redis", "Sequelize", "Mercado Pago", "JWT", "Cloudflare Workers", "Zustand"],
   "shortDescription": "Plataforma de jogos online com 11 jogos, sistema VIP de 5 niveis, pagamentos via PIX, KYC, provably fair e backend Express com PostgreSQL e Redis.",
   "problemDescription": "O desafio era construir uma plataforma completa de jogos online que combinasse performance de um frontend moderno com a seguranca de um backend robusto. A plataforma precisava suportar 11 jogos diferentes (Fortune Tiger, Crash, Plinko, Double, Mines, Slots, Wingo, Raspadinha, Caixa Premiada, Envelopes e Bomb), sistema de pagamentos reais via PIX com Mercado Pago, sistema VIP com 5 niveis (Bronze a Diamond), KYC para saques, programa de indicacoes, missaoes diarias, jackpots progressivos, provably fair para todos os jogos, e arquitetura hibrida com Cloudflare Worker na edge e backend Node.js local.",
