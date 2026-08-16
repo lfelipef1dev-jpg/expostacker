@@ -63,7 +63,7 @@ const slides = sorted;
         {slides.map((item, index) => {
           const metrics = item.data.businessOutcome.slice(0, 3);
           const logoPath = item.data.heroImage ?? `/cases/${item.id}.svg`;
-          const heroImage = `/cases/${item.id}-hero.jpg`;
+          const heroImage = `/banner/${item.id}-banner.jpg`;
           const href = `/${lang}/cases/${item.id}/`;
           const liveUrl = item.data.liveUrl;
 
@@ -147,7 +147,7 @@ const slides = sorted;
                     <img
                       src={heroImage}
                       alt={`Previa da aplicacao ${item.data.title}`}
-                      width="1440"
+                      width="900"
                       height="900"
                       loading={index === 0 ? "eager" : "lazy"}
                       fetchpriority={index === 0 ? "high" : "auto"}
