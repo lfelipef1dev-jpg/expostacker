@@ -1,9 +1,9 @@
-content: adiciona vivamais, ajusta featured e padroniza urls
+fix: corrige parser do novo-projeto.ps1 e adiciona regra absoluta
 
-- Adiciona case vivamais.json com 11 projetos
-- Copia favicon.svg e img-hero.jpg para public/cases/vivamais
-- Coloca featured: false em todos os cases exceto gerenciador-frotas
-- Remove barras no final das liveUrl em gordaomod, marken-fassi, medellin-ecommerce, sanatto-facilities, seeds-experience, tigrebet
+- Substitui here-string problematica por Set-Content com array
+- Substitui strings JSON manuais por ConvertTo-Json -Compress
+- Simplifica aspas duplas em Write-Host
+- Adiciona regra no REGRA-ABSOLUTA.md: nao editar scripts de automacao
 
 Generated with [Devin](https://devin.ai)
 
