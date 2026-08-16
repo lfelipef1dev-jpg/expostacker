@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="gmbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0a0c"/>
+      <stop offset="100%" stop-color="#1a0a2e"/>
+    </linearGradient>
+    <linearGradient id="gmaccent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#c026d3"/>
+      <stop offset="100%" stop-color="#7e22ce"/>
+    </linearGradient>
+    <filter id="gmglow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#gmbg)"/>
+  <g opacity="0.05" stroke="#c026d3" stroke-width="1">
+    <line x1="0" y1="78" x2="1200" y2="78"/>
+    <line x1="0" y1="157" x2="1200" y2="157"/>
+    <line x1="0" y1="236" x2="1200" y2="236"/>
+    <line x1="0" y1="315" x2="1200" y2="315"/>
+    <line x1="0" y1="394" x2="1200" y2="394"/>
+    <line x1="0" y1="473" x2="1200" y2="473"/>
+    <line x1="0" y1="552" x2="1200" y2="552"/>
+    <line x1="150" y1="0" x2="150" y2="630"/>
+    <line x1="300" y1="0" x2="300" y2="630"/>
+    <line x1="450" y1="0" x2="450" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="750" y1="0" x2="750" y2="630"/>
+    <line x1="900" y1="0" x2="900" y2="630"/>
+    <line x1="1050" y1="0" x2="1050" y2="630"/>
+  </g>
+  <rect x="0" y="0" width="1200" height="4" fill="url(#gmaccent)"/>
+  <rect x="60" y="50" width="48" height="48" rx="10" fill="#c026d3" opacity="0.15"/>
+  <text x="84" y="82" font-family="Inter, sans-serif" font-size="24" font-weight="800" fill="#c026d3" text-anchor="middle">G</text>
+  <text x="120" y="82" font-family="Inter, sans-serif" font-size="18" font-weight="600" fill="#e8e8ec">GORDAOMOD</text>
+  <text x="120" y="100" font-family="Inter, sans-serif" font-size="12" font-weight="400" fill="#888894">Loja FiveM · Scripts e Mods</text>
+  <text x="60" y="200" font-family="Inter, sans-serif" font-size="42" font-weight="800" fill="#e8e8ec">GordaoMod</text>
+  <text x="60" y="240" font-family="Inter, sans-serif" font-size="20" font-weight="500" fill="#c026d3" filter="url(#gmglow)">Loja oficial de recursos premium FiveM</text>
+  <text x="60" y="290" font-family="Inter, sans-serif" font-size="16" font-weight="400" fill="#888894">10 categorias · 182 produtos · Cloudflare Pages</text>
+  <text x="60" y="315" font-family="Inter, sans-serif" font-size="16" font-weight="400" fill="#888894">HTML5 · CSS3 · Vanilla JS</text>
+  <g transform="translate(60, 380)">
+    <rect x="0" y="0" width="160" height="80" rx="10" fill="#111114" stroke="#25252a"/>
+    <text x="80" y="35" font-family="Inter, sans-serif" font-size="32" font-weight="800" fill="#c026d3" text-anchor="middle">182</text>
+    <text x="80" y="60" font-family="Inter, sans-serif" font-size="12" font-weight="500" fill="#888894" text-anchor="middle">Produtos</text>
+  </g>
+  <g transform="translate(240, 380)">
+    <rect x="0" y="0" width="160" height="80" rx="10" fill="#111114" stroke="#25252a"/>
+    <text x="80" y="35" font-family="Inter, sans-serif" font-size="32" font-weight="800" fill="#f0abfc" text-anchor="middle">10</text>
+    <text x="80" y="60" font-family="Inter, sans-serif" font-size="12" font-weight="500" fill="#888894" text-anchor="middle">Categorias</text>
+  </g>
+  <g transform="translate(420, 380)">
+    <rect x="0" y="0" width="160" height="80" rx="10" fill="#111114" stroke="#25252a"/>
+    <text x="80" y="35" font-family="Inter, sans-serif" font-size="32" font-weight="800" fill="#c026d3" text-anchor="middle">5</text>
+    <text x="80" y="60" font-family="Inter, sans-serif" font-size="12" font-weight="500" fill="#888894" text-anchor="middle">Páginas</text>
+  </g>
+  <g transform="translate(600, 380)">
+    <rect x="0" y="0" width="160" height="80" rx="10" fill="#111114" stroke="#25252a"/>
+    <text x="80" y="35" font-family="Inter, sans-serif" font-size="32" font-weight="800" fill="#f0abfc" text-anchor="middle">R$0</text>
+    <text x="80" y="60" font-family="Inter, sans-serif" font-size="12" font-weight="500" fill="#888894" text-anchor="middle">Custo infra</text>
+  </g>
+  <g transform="translate(60, 500)">
+    <rect x="0" y="0" width="80" height="28" rx="14" fill="#111114" stroke="#25252a"/>
+    <text x="40" y="18" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#e8e8ec" text-anchor="middle">HTML5</text>
+  </g>
+  <g transform="translate(150, 500)">
+    <rect x="0" y="0" width="70" height="28" rx="14" fill="#111114" stroke="#25252a"/>
+    <text x="35" y="18" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#e8e8ec" text-anchor="middle">CSS3</text>
+  </g>
+  <g transform="translate(230, 500)">
+    <rect x="0" y="0" width="80" height="28" rx="14" fill="#111114" stroke="#25252a"/>
+    <text x="40" y="18" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#e8e8ec" text-anchor="middle">Vanilla JS</text>
+  </g>
+  <g transform="translate(320, 500)">
+    <rect x="0" y="0" width="90" height="28" rx="14" fill="#111114" stroke="#25252a"/>
+    <text x="45" y="18" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#e8e8ec" text-anchor="middle">Cloudflare</text>
+  </g>
+  <g transform="translate(420, 500)">
+    <rect x="0" y="0" width="70" height="28" rx="14" fill="#111114" stroke="#25252a"/>
+    <text x="35" y="18" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#e8e8ec" text-anchor="middle">FiveM</text>
+  </g>
+  <g transform="translate(500, 500)">
+    <rect x="0" y="0" width="110" height="28" rx="14" fill="#111114" stroke="#25252a"/>
+    <text x="55" y="18" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#e8e8ec" text-anchor="middle">Cloudflare Pages</text>
+  </g>
+</svg>

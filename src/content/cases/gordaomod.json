@@ -1,0 +1,152 @@
+{
+  "id": "gordaomod",
+  "title": "GordaoMod",
+  "clientName": "GordaoMod",
+  "tags": ["HTML5", "CSS3", "Vanilla JS", "Cloudflare Pages", "FiveM", "Acessibilidade", "SEO"],
+  "shortDescription": "Loja oficial de recursos premium para FiveM: 182 produtos, 10 categorias, design cyber/tech com HTML5, CSS3 e Vanilla JS deployado no Cloudflare Pages.",
+  "problemDescription": "A GordaoMod precisava de uma loja online profissional para comercializar scripts, mods, spoofer e recursos premium para servidores GTA V Roleplay FiveM. O desafio era apresentar 182 produtos em 10 categorias com navegacao fluida, ficha tecnica detalhada, busca rapida e design cyber/tech sem depender de frameworks pesados. A solucao deveria ser leve, acessivel, otimizada para SEO e com deploy automatico no ecossistema ExpoStacker.",
+  "technicalSolution": "Construimos uma loja estatica em HTML5, CSS3 e Vanilla JS (sem framework), deployada no Cloudflare Pages com dominio customizado gordaomod.expostacker.com.br. O site possui 5 paginas (home, checkout, ficha tecnica, download e recursos), 182 produtos em 10 categorias com tabs dinamicas, busca em tempo real, modal de ficha tecnica com descricoes detalhadas, layout responsivo, meta tags Open Graph, canonical, robots.txt, _headers e otimizacoes de acessibilidade (ARIA, skip link, focus visible, reduced motion).",
+  "businessOutcome": [
+    { "label": "Produtos no catalogo", "value": 182, "unit": "" },
+    { "label": "Categorias", "value": 10, "unit": "" },
+    { "label": "Paginas do site", "value": 5, "unit": "" },
+    { "label": "Custo de infraestrutura", "value": 0, "unit": "R$" },
+    { "label": "Deploy", "value": 1, "unit": "min (estimado)" }
+  ],
+  "liveUrl": "https://gordaomod.expostacker.com.br/",
+  "projectType": "Client-Work",
+  "featured": true,
+  "category": "client",
+  "year": 2026,
+  "hasCaseStudy": true,
+  "heroImage": "/cases/gordaomod.svg",
+  "heroHeadline": {
+    "pt": "Loja oficial de recursos premium para FiveM com 182 produtos, 10 categorias, design cyber e deploy automatico",
+    "en": "Official premium resource store for FiveM with 182 products, 10 categories, cyber design and automatic deploy"
+  },
+  "heroSubhead": {
+    "pt": "Storefront estatico em HTML5, CSS3 e Vanilla JS, deployado no Cloudflare Pages com dominio gordaomod.expostacker.com.br. Navegacao por categorias, busca, modal de ficha tecnica, layout responsivo e otimizacoes de SEO e acessibilidade.",
+    "en": "Static storefront in HTML5, CSS3 and Vanilla JS, deployed on Cloudflare Pages with custom domain gordaomod.expostacker.com.br. Category navigation, search, technical specs modal, responsive layout and SEO/accessibility optimizations."
+  },
+  "opening": {
+    "pt": "Um dono de servidor FiveM acessa a GordaoMod e encontra 182 recursos premium organizados em 10 categorias. Ele navega pelas tabs, busca por nome, abre a ficha tecnica de um produto e le todas as especificacoes em um modal detalhado. O design cyber/tech com acentos roxos, fontes Orbitron e Rajdhani, e grid de cards responsivo transmite profissionalismo. O deploy e automatico a cada push na main via GitHub Actions e Cloudflare Pages.",
+    "en": "A FiveM server owner visits GordaoMod and finds 182 premium resources organized into 10 categories. They browse tabs, search by name, open a product's technical specs and read all details in a detailed modal. The cyber/tech design with purple accents, Orbitron and Rajdhani fonts, and responsive card grid conveys professionalism. Deploy is automatic on every push to main via GitHub Actions and Cloudflare Pages."
+  },
+  "challengeContext": {
+    "pt": "A GordaoMod precisava de uma vitrine digital que expusesse 182 recursos para FiveM de forma organizada, rapida e profissional. O catalogo inclui spoofer, scripts de policia, veiculos, imoveis, utilitarios, aparencia UI, comunicacao, empregos, entretenimento e ferramentas administrativas. O desafio era manter o site leve, com busca e navegacao fluidas, sem depender de frameworks ou backends complexos, e ainda seguir os padroes de acessibilidade, SEO e deploy automatico do ExpoStacker.",
+    "en": "GordaoMod needed a digital storefront to showcase 182 FiveM resources in an organized, fast and professional way. The catalog includes spoofer, police scripts, vehicles, properties, utilities, UI appearance, communication, jobs, entertainment and admin tools. The challenge was keeping the site light with smooth search and navigation, without relying on frameworks or complex backends, while following ExpoStacker's accessibility, SEO and automatic deploy standards."
+  },
+  "approach": {
+    "pt": "Optamos por uma solucao puramente estatica: HTML5 para estrutura semantica, CSS3 com variaveis e media queries para o design cyber/tech responsivo, e Vanilla JS para as interacoes (tabs, busca, modal). Todos os produtos sao renderizados no HTML estatico com descricoes completas em atributos data, garantindo que o site funcione sem backend. Deploy no Cloudflare Pages com build que copia os assets para dist/, cache otimizado via _headers e SEO com meta tags, OG, canonical e robots.txt.",
+    "en": "We chose a purely static solution: HTML5 for semantic structure, CSS3 with variables and media queries for responsive cyber/tech design, and Vanilla JS for interactions (tabs, search, modal). All products are rendered in the static HTML with full descriptions in data attributes, ensuring the site works without a backend. Deploy on Cloudflare Pages with a build that copies assets to dist/, optimized cache via _headers and SEO with meta tags, OG, canonical and robots.txt."
+  },
+  "solutionIntro": {
+    "pt": "A GordaoMod e uma loja estatica completa para recursos FiveM, com 182 produtos, 10 categorias, ficha tecnica modal, busca, design cyber e deploy automatico no Cloudflare Pages.",
+    "en": "GordaoMod is a complete static store for FiveM resources, with 182 products, 10 categories, modal technical specs, search, cyber design and automatic deploy on Cloudflare Pages."
+  },
+  "solutionItems": {
+    "pt": [
+      "182 produtos em 10 categorias: Mais Vendidos, Protecao e Spoofer, Faccoes e Crime, Empregos e Economia, Entretenimento, Veiculos, Imoveis e Lojas, UI e Aparencia, Comunicacao, Admin e Utilitarios",
+      "5 paginas HTML: home com catalogo, checkout, ficha tecnica, download e recursos",
+      "Navegacao por tabs dinamicas com busca em tempo real por titulo",
+      "Modal de ficha tecnica com descricao completa, preco e video (quando disponivel)",
+      "Design cyber/tech com acentos roxos (#c026d3), fontes Orbitron e Rajdhani, fundo escuro e efeitos de glow",
+      "Otimizacoes de acessibilidade: skip link, ARIA labels, headings semanticos, focus visible, reduced motion",
+      "SEO: meta description, canonical, Open Graph, Twitter Cards, robots.txt, sitemap e favicon",
+      "Responsividade para desktop, tablet e mobile com breakpoints 480px e 768px",
+      "Deploy automatico: git push main -> GitHub Actions -> build -> Cloudflare Pages",
+      "Cache otimizado via _headers para CSS, JS e imagens"
+    ],
+    "en": [
+      "182 products in 10 categories: Best Sellers, Protection and Spoofer, Factions and Crime, Jobs and Economy, Entertainment, Vehicles, Properties and Shops, UI and Appearance, Communication, Admin and Utilities",
+      "5 HTML pages: home with catalog, checkout, technical specs, download and resources",
+      "Dynamic tab navigation with real-time search by title",
+      "Technical specs modal with full description, price and video (when available)",
+      "Cyber/tech design with purple accents (#c026d3), Orbitron and Rajdhani fonts, dark background and glow effects",
+      "Accessibility optimizations: skip link, ARIA labels, semantic headings, focus visible, reduced motion",
+      "SEO: meta description, canonical, Open Graph, Twitter Cards, robots.txt, sitemap and favicon",
+      "Responsiveness for desktop, tablet and mobile with 480px and 768px breakpoints",
+      "Automatic deploy: git push main -> GitHub Actions -> build -> Cloudflare Pages",
+      "Optimized cache via _headers for CSS, JS and images"
+    ]
+  },
+  "decisionLog": [
+    {
+      "title": {
+        "pt": "HTML5 + CSS3 + Vanilla JS em vez de framework",
+        "en": "HTML5 + CSS3 + Vanilla JS instead of framework"
+      },
+      "why": {
+        "pt": "Uma loja de recursos digitais com paginas estaticas nao precisa de reatividade complexa. HTML, CSS e JS puro resulta em carregamento instantaneo, bundle zero e manutencao simples sem build pesado.",
+        "en": "A digital resource store with static pages doesn't need complex reactivity. Pure HTML, CSS and JS results in instant loading, zero bundle and simple maintenance without heavy build."
+      },
+      "alternatives": {
+        "pt": "Avaliamos Astro e Next.js, mas o site e uma pagina unica com conteudo estatico. Adicionar um framework aumentaria o build, hidratacao e tempo de deploy sem ganho real.",
+        "en": "We evaluated Astro and Next.js, but the site is a single page with static content. Adding a framework would increase build, hydration and deploy time without real benefit."
+      }
+    },
+    {
+      "title": {
+        "pt": "Produtos inline no HTML em vez de JSON separado",
+        "en": "Products inline in HTML instead of separate JSON"
+      },
+      "why": {
+        "pt": "Manter os 182 produtos no HTML estatico garante que o site funcione em qualquer CDN sem depender de requisicoes adicionais. O build copia tudo para dist/ e o deploy e unico.",
+        "en": "Keeping 182 products in static HTML ensures the site works on any CDN without depending on additional requests. The build copies everything to dist/ and deploy is single."
+      },
+      "alternatives": {
+        "pt": "Consideramos extrair os produtos para um JSON e carregar via JS, mas isso adicionaria uma requisicao extra e complexidade. Para a primeira versao, inline e mais simples.",
+        "en": "We considered extracting products to a JSON and loading via JS, but that would add an extra request and complexity. For the first version, inline is simpler."
+      }
+    }
+  ],
+  "technologies": [
+    {
+      "name": "HTML5",
+      "why": {
+        "pt": "Estrutura semantica com headings, ARIA e main para acessibilidade e SEO.",
+        "en": "Semantic structure with headings, ARIA and main for accessibility and SEO."
+      }
+    },
+    {
+      "name": "CSS3",
+      "why": {
+        "pt": "Variaveis, media queries, animacoes e grid para design cyber/tech responsivo sem bibliotecas.",
+        "en": "Variables, media queries, animations and grid for responsive cyber/tech design without libraries."
+      }
+    },
+    {
+      "name": "Vanilla JS",
+      "why": {
+        "pt": "Interacoes leves para tabs, busca e modal sem dependencias externas.",
+        "en": "Lightweight interactions for tabs, search and modal without external dependencies."
+      }
+    },
+    {
+      "name": "Cloudflare Pages",
+      "why": {
+        "pt": "Deploy automatico, cache global e dominio customizado com zero custo de infraestrutura.",
+        "en": "Automatic deploy, global cache and custom domain with zero infrastructure cost."
+      }
+    },
+    {
+      "name": "GitHub Actions",
+      "why": {
+        "pt": "CI/CD para build e deploy automatico a cada push na branch main.",
+        "en": "CI/CD for build and automatic deploy on every push to main branch."
+      }
+    }
+  ],
+  "myRole": {
+    "pt": "Atuei no levantamento, correcao de encoding, otimizacao de acessibilidade e SEO, refatoracao do JavaScript, criacao do build e deploy, configuracao do dominio e criacao do case no portifolio ExpoStacker.",
+    "en": "I worked on discovery, encoding correction, accessibility and SEO optimization, JavaScript refactoring, build and deploy setup, domain configuration and case creation in the ExpoStacker portfolio."
+  },
+  "lessonsLearned": {
+    "pt": "Sites estaticos com muito conteudo inline exigem atencao com tamanho de HTML e performance. Para proximas versoes, extrair produtos para JSON e carregar sob demanda pode reduzir significativamente o tempo de carga inicial.",
+    "en": "Static sites with a lot of inline content require attention to HTML size and performance. For future versions, extracting products to JSON and loading on demand can significantly reduce initial load time."
+  },
+  "stakeholders": { "pt": "GordaoMod", "en": "GordaoMod" },
+  "sector": { "pt": "Gaming Tech", "en": "Gaming Tech" },
+  "nda": false,
+  "visualDisclaimer": { "pt": "", "en": "" }
+}
