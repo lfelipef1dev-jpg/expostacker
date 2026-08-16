@@ -1,13 +1,15 @@
-content: atualiza case gerenciador-frotas para MVP funcional
+content: atualiza case gerenciador-frotas com roles, CRUD, relatorios e geofences
 
-Case atualizado para refletir evolucao de mock estatico para MVP funcional honesto:
-- D1 real com Drizzle ORM
-- Better Auth com sessao e middleware
-- Durable Objects + SSE para rastreamento em tempo real
-- VRP Nearest Neighbor + 2-opt com haversine
-- Leaflet no dashboard
-- Score de seguranca calculado de eventos de telemetria
-- Decision log, tech stack e arquitetura expandidos
+Atualiza o case do Frotamais para refletir a evolucao do MVP:
+- Tags agora incluem RBAC
+- shortDescription e technicalSolution expandidos
+- heroHeadline e heroSubhead atualizados com roles e CRUD
+- opening e approach reescritos com todas as novas features
+- solutionItems expandido de 13 para 23 itens (PT e EN)
+- heroMetrics atualizado: 11 modulos, 3 roles
+- timelinePhases: nova fase "Evolucao MVP" com 8 itens
+- decisionLog: 2 novas decisoes (roles fixos, graficos SVG)
+- security: 3 novos itens sobre roles e permissoes
 
 Generated with [Devin](https://devin.ai)
 

@@ -2,10 +2,10 @@
   "id": "gerenciador-frotas",
   "title": "Gerenciador Inteligente de Frotas",
   "clientName": "Portfólio ExpoStacker",
-  "tags": ["Astro", "Hono", "Cloudflare Workers", "D1", "Durable Objects", "Better Auth", "Leaflet", "Tailwind"],
-  "shortDescription": "Plataforma SaaS de gestão de frotas com auth real, D1, VRP, rastreamento SSE e mapa Leaflet.",
-  "problemDescription": "Transportadoras e gestores de frota perdem visibilidade quando controlam tudo em planilhas desatualizadas. Falta uma visão única de veículos, motoristas, rotas, manutenção e combustível para decidir com agilidade.",
-  "technicalSolution": "Aplicação full-stack com Astro SSR, Hono para API, Cloudflare D1 com Drizzle ORM para persistência real, Better Auth para autenticação, Durable Objects com SSE para rastreamento em tempo real, algoritmo VRP (Nearest Neighbor + 2-opt) para roteirização, Leaflet para mapas e score de segurança calculado a partir de eventos de telemetria.",
+  "tags": ["Astro", "Hono", "Cloudflare Workers", "D1", "Durable Objects", "Better Auth", "Leaflet", "Tailwind", "RBAC"],
+  "shortDescription": "Plataforma SaaS de gestao de frotas com auth real, D1, VRP, rastreamento SSE, roles, CRUD, relatorios e mapa Leaflet.",
+  "problemDescription": "Transportadoras e gestores de frota perdem visibilidade quando controlam tudo em planilhas desatualizadas. Falta uma visao unica de veiculos, motoristas, rotas, manutencao, combustivel, inspecoes e geofences para decidir com agilidade.",
+  "technicalSolution": "Aplicacao full-stack com Astro SSR, Hono para API REST com CRUD completo, Cloudflare D1 com Drizzle ORM para persistencia real, Better Auth para autenticacao com roles (admin, gestor, motorista), Durable Objects com SSE para rastreamento em tempo real, algoritmo VRP (Nearest Neighbor + 2-opt) para roteirizacao, Leaflet para mapas com geofences, score de seguranca calculado a partir de eventos de telemetria, paginas de detalhe por veiculo e motorista, relatorios com graficos dinamicos e exportacao CSV, e sino de notificacoes in-app.",
   "businessOutcome": [
     { "label": "Frota em tela", "value": 8, "unit": " veículos (ilustrativo)" },
     { "label": "Rotas simuladas", "value": 6, "unit": " viagens (ilustrativo)" },
@@ -18,52 +18,72 @@
   "year": 2026,
   "hasCaseStudy": true,
   "heroHeadline": {
-    "pt": "Frotamais — Plataforma de frota com D1, auth real e rastreamento ao vivo",
-    "en": "Frotamais — Fleet platform with D1, real auth and live tracking"
+    "pt": "Frotamais — Plataforma de frota com D1, auth real, roles e rastreamento ao vivo",
+    "en": "Frotamais — Fleet platform with D1, real auth, roles and live tracking"
   },
   "heroSubhead": {
-    "pt": "Plataforma SaaS de gestão de frotas com autenticação Better Auth, banco Cloudflare D1, roteirização VRP, rastreamento em tempo real via SSE e Durable Objects, mapa Leaflet e score de segurança calculado de eventos de telemetria.",
-    "en": "Fleet management SaaS platform with Better Auth authentication, Cloudflare D1 database, VRP routing, real-time tracking via SSE and Durable Objects, Leaflet map and safety score calculated from telemetry events."
+    "pt": "Plataforma SaaS de gestao de frotas com autenticacao Better Auth e roles (admin, gestor, motorista), banco Cloudflare D1 com CRUD completo, roteirizacao VRP, rastreamento em tempo real via SSE e Durable Objects, mapa Leaflet com geofences, score de seguranca calculado de eventos de telemetria, paginas de detalhe por veiculo e motorista, relatorios com graficos dinamicos e exportacao CSV.",
+    "en": "Fleet management SaaS platform with Better Auth authentication and roles (admin, manager, driver), Cloudflare D1 database with full CRUD, VRP routing, real-time tracking via SSE and Durable Objects, Leaflet map with geofences, safety score calculated from telemetry events, vehicle and driver detail pages, reports with dynamic charts and CSV export."
   },
   "opening": {
-    "pt": "Frotamais é uma demonstração de plataforma SaaS de gestão de frotas evoluída de mock estático para MVP funcional honesto. A landing page comunica o valor do produto enquanto a área logada exige autenticação real e mostra dashboard com mapa ao vivo, roteirização VRP, KPIs do banco D1 e score de motorista calculado em tempo real.",
-    "en": "Frotamais is a fleet management SaaS platform demonstration evolved from static mock to an honest functional MVP. The landing page communicates product value while the logged-in area requires real authentication and shows a dashboard with live map, VRP routing, D1 database KPIs and driver safety score calculated in real time."
+    "pt": "Frotamais e uma demonstracao de plataforma SaaS de gestao de frotas evoluida de mock estatico para MVP funcional honesto. A landing page comunica o valor do produto enquanto a area logada exige autenticacao real com roles e mostra dashboard com mapa ao vivo, roteirizacao VRP, KPIs do banco D1, paginas de detalhe por veiculo e motorista, CRUD completo, relatorios com graficos dinamicos, inspecoes DVIR, geofences e score de motorista calculado em tempo real.",
+    "en": "Frotamais is a fleet management SaaS platform demonstration evolved from static mock to an honest functional MVP. The landing page communicates product value while the logged-in area requires real authentication with roles and shows a dashboard with live map, VRP routing, D1 database KPIs, vehicle and driver detail pages, full CRUD, reports with dynamic charts, DVIR inspections, geofences and driver safety score calculated in real time."
   },
   "challengeContext": {
-    "pt": "O projeto precisava demonstrar uma solução B2B realista sem emitir CT-e, MDF-e ou validar dados fiscais. O desafio era evoluir de dados mockados para capacidades reais (auth, banco, algoritmo, tempo real) mantendo honestidade sobre o caráter demonstrativo.",
-    "en": "The project needed to demonstrate a realistic B2B solution without issuing CT-e, MDF-e or validating fiscal data. The challenge was evolving from mocked data to real capabilities (auth, database, algorithm, real-time) while maintaining honesty about the demonstrative nature."
+    "pt": "O projeto precisava demonstrar uma solucao B2B realista sem emitir CT-e, MDF-e ou validar dados fiscais. O desafio era evoluir de dados mockados para capacidades reais (auth, banco, algoritmo, tempo real, roles, CRUD, relatorios) mantendo honestidade sobre o carater demonstrativo.",
+    "en": "The project needed to demonstrate a realistic B2B solution without issuing CT-e, MDF-e or validating fiscal data. The challenge was evolving from mocked data to real capabilities (auth, database, algorithm, real-time, roles, CRUD, reports) while maintaining honesty about the demonstrative nature."
   },
   "approach": {
-    "pt": "Implementamos Astro com SSR, Hono para API, Cloudflare D1 com Drizzle ORM para persistência real, Better Auth para autenticação com sessão, Durable Objects com SSE para rastreamento em tempo real, algoritmo VRP (Nearest Neighbor + 2-opt com distância haversine) para roteirização, Leaflet para mapas e score de segurança calculado a partir de eventos de telemetria.",
-    "en": "We implemented Astro with SSR, Hono for API, Cloudflare D1 with Drizzle ORM for real persistence, Better Auth for session authentication, Durable Objects with SSE for real-time tracking, VRP algorithm (Nearest Neighbor + 2-opt with haversine distance) for routing, Leaflet for maps and safety score calculated from telemetry events."
+    "pt": "Implementamos Astro com SSR, Hono para API REST com CRUD completo (POST/PUT/DELETE), Cloudflare D1 com Drizzle ORM para persistencia real, Better Auth para autenticacao com roles (admin, gestor, motorista) e permissoes granulares, Durable Objects com SSE para rastreamento em tempo real, algoritmo VRP (Nearest Neighbor + 2-opt com distancia haversine) para roteirizacao, Leaflet para mapas com geofences, score de seguranca calculado a partir de eventos de telemetria, paginas de detalhe por veiculo e motorista, relatorios com graficos dinamicos (barras e donut em SVG puro) e exportacao CSV, inspecoes DVIR e sino de notificacoes in-app.",
+    "en": "We implemented Astro with SSR, Hono for REST API with full CRUD (POST/PUT/DELETE), Cloudflare D1 with Drizzle ORM for real persistence, Better Auth for authentication with roles (admin, manager, driver) and granular permissions, Durable Objects with SSE for real-time tracking, VRP algorithm (Nearest Neighbor + 2-opt with haversine distance) for routing, Leaflet for maps with geofences, safety score calculated from telemetry events, vehicle and driver detail pages, reports with dynamic charts (bar and donut in pure SVG) and CSV export, DVIR inspections and in-app notification bell."
   },
   "solutionItems": {
     "pt": [
-      "Landing page com hero fotográfico e CTA para acessar a demo",
-      "Autenticação real com Better Auth (email/senha) e sessão via KV",
-      "Banco Cloudflare D1 com Drizzle ORM e migrations aplicadas em produção",
-      "Dashboard com KPIs lidos do D1, mapa Leaflet e gráfico SVG de consumo",
-      "Roteirização VRP real com Nearest Neighbor + 2-opt e distância haversine",
-      "Rastreamento em tempo real via SSE com Durable Object (simulação de telemetria)",
-      "Score de segurança calculado em tempo real a partir de eventos de telemetria",
-      "Middleware de auth protegendo rotas /app/* com redirecionamento",
-      "Módulos: dashboard, veículos, motoristas, rotas, manutenção, combustível e alertas",
-      "API Hono lendo do D1 para frota, veículos, motoristas, viagens, manutenção, combustível, alertas e scores",
+      "Landing page com hero fotografico e CTA para acessar a demo",
+      "Autenticacao real com Better Auth (email/senha) e sessao via KV",
+      "Sistema de roles e permissoes (admin, gestor, motorista) com middleware de acesso",
+      "Banco Cloudflare D1 com Drizzle ORM e migrations aplicadas em producao",
+      "Dashboard com KPIs lidos do D1, mapa Leaflet e grafico dinamico de consumo",
+      "Pagina de detalhe por veiculo com historico, mapa, financeiro, viagens, manutencao e inspecoes",
+      "Pagina de detalhe por motorista com score detalhado, eventos de telemetria e viagens",
+      "CRUD completo na interface: adicionar e remover veiculos e motoristas com modal de formulario",
+      "Filtros e busca em veiculos, motoristas e alertas",
+      "Roteirizacao VRP real com Nearest Neighbor + 2-opt e distancia haversine",
+      "Rastreamento em tempo real via SSE com Durable Object (simulacao de telemetria)",
+      "Score de seguranca calculado em tempo real a partir de eventos de telemetria",
+      "Inspecoes DVIR (checklist pre/pos viagem) com aprovacao e defeitos",
+      "Geofences com areas de controle visualizadas no mapa Leaflet",
+      "Relatorios com graficos dinamicos (barras e donut em SVG puro) lidos do D1",
+      "Exportacao CSV para combustivel, manutencao e viagens",
+      "Sino de notificacoes in-app com contador de alertas pendentes",
+      "Middleware de auth protegendo rotas /app/* com redirecionamento por role",
+      "Módulos: dashboard, veiculos, motoristas, rotas, manutencao, combustivel, alertas, inspecoes, geofences, relatorios e usuarios",
+      "API Hono com CRUD completo (GET/POST/PUT/DELETE) lendo do D1",
       "Deploy em Cloudflare Workers com D1, KV e Durable Object bindings",
-      "Tabelas acessíveis com th scope e badges de status",
-      "Disclaimers claros de que não há emissão de documentos fiscais reais"
+      "Tabelas acessiveis com th scope e badges de status",
+      "Disclaimers claros de que nao ha emissao de documentos fiscais reais"
     ],
     "en": [
       "Landing page with photographic hero and CTA to access the demo",
       "Real authentication with Better Auth (email/password) and KV session",
+      "Roles and permissions system (admin, manager, driver) with access middleware",
       "Cloudflare D1 database with Drizzle ORM and migrations applied in production",
-      "Dashboard with D1-sourced KPIs, Leaflet map and SVG consumption chart",
+      "Dashboard with D1-sourced KPIs, Leaflet map and dynamic consumption chart",
+      "Vehicle detail page with history, map, financials, trips, maintenance and inspections",
+      "Driver detail page with detailed score, telemetry events and trips",
+      "Full CRUD in the UI: add and remove vehicles and drivers with form modal",
+      "Filters and search on vehicles, drivers and alerts",
       "Real VRP routing with Nearest Neighbor + 2-opt and haversine distance",
       "Real-time tracking via SSE with Durable Object (telemetry simulation)",
       "Safety score calculated in real time from telemetry events",
-      "Auth middleware protecting /app/* routes with redirect",
-      "Modules: dashboard, vehicles, drivers, routes, maintenance, fuel and alerts",
-      "Hono API reading from D1 for fleet, vehicles, drivers, trips, maintenance, fuel, alerts and scores",
+      "DVIR inspections (pre/post trip checklist) with approval and defects",
+      "Geofences with control areas visualized on Leaflet map",
+      "Reports with dynamic charts (bar and donut in pure SVG) from D1",
+      "CSV export for fuel, maintenance and trips",
+      "In-app notification bell with pending alerts counter",
+      "Auth middleware protecting /app/* routes with role-based redirect",
+      "Modules: dashboard, vehicles, drivers, routes, maintenance, fuel, alerts, inspections, geofences, reports and users",
+      "Hono API with full CRUD (GET/POST/PUT/DELETE) reading from D1",
       "Deploy on Cloudflare Workers with D1, KV and Durable Object bindings",
       "Accessible tables with th scope and status badges",
       "Clear disclaimers that no real fiscal documents are issued"
@@ -97,8 +117,18 @@
     },
     {
       "title": { "pt": "React 18 em vez de React 19", "en": "React 18 instead of React 19" },
-      "why": { "pt": "React 19 gera erro MessageChannel no ambiente do Cloudflare Workers. React 18 é estável para SSR nesse runtime.", "en": "React 19 triggers a MessageChannel error in the Cloudflare Workers environment. React 18 is stable for SSR in this runtime." },
+      "why": { "pt": "React 19 gera erro MessageChannel no ambiente do Cloudflare Workers. React 18 e estavel para SSR nesse runtime.", "en": "React 19 triggers a MessageChannel error in the Cloudflare Workers environment. React 18 is stable for SSR in this runtime." },
       "alternatives": { "pt": "React 19 — rejeitado por incompatibilidade com o ambiente Workers.", "en": "React 19 — rejected for incompatibility with Workers runtime." }
+    },
+    {
+      "title": { "pt": "Roles fixos em vez de RBAC customizavel", "en": "Fixed roles instead of customizable RBAC" },
+      "why": { "pt": "Tres roles fixos (admin, gestor, motorista) com permissoes definidas em codigo cobrem os cenarios de portofolio sem adicionar complexidade de CRUD de permissoes. Middleware checa acesso por role e sidebar filtra itens automaticamente.", "en": "Three fixed roles (admin, manager, driver) with code-defined permissions cover portfolio scenarios without adding RBAC CRUD complexity. Middleware checks role access and sidebar filters items automatically." },
+      "alternatives": { "pt": "RBAC customizavel com CRUD de permissoes — rejeitado por escopo excessivo para um portofolio.", "en": "Customizable RBAC with permission CRUD — rejected for excessive scope for a portfolio." }
+    },
+    {
+      "title": { "pt": "Graficos SVG puro em vez de Chart.js", "en": "Pure SVG charts instead of Chart.js" },
+      "why": { "pt": "Graficos de barras e donut em SVG puro pesam menos de 3KB contra 60KB+ do Chart.js. Para os graficos do portofolio, SVG e suficiente e mantem o bundle leve.", "en": "Bar and donut charts in pure SVG weigh less than 3KB vs 60KB+ for Chart.js. For portfolio charts, SVG is sufficient and keeps the bundle light." },
+      "alternatives": { "pt": "Chart.js — rejeitado pelo tamanho e complexidade desnecessaria.", "en": "Chart.js — rejected for size and unnecessary complexity." }
     }
   ],
   "technologies": [
@@ -128,9 +158,9 @@
     "en": "Fleet Management and Logistics"
   },
   "heroMetrics": [
-    { "value": "8", "label": { "pt": "Veículos na demo", "en": "Vehicles in demo" } },
-    { "value": "7", "label": { "pt": "Módulos ativos", "en": "Active modules" } },
-    { "value": "3", "label": { "pt": "Bindings Cloudflare", "en": "Cloudflare bindings" } }
+    { "value": "8", "label": { "pt": "Veiculos na demo", "en": "Vehicles in demo" } },
+    { "value": "11", "label": { "pt": "Modulos ativos", "en": "Active modules" } },
+    { "value": "3", "label": { "pt": "Roles com permissoes", "en": "Roles with permissions" } }
   ],
   "timeline": {
     "duration": "6 dias de implementação",
@@ -165,8 +195,16 @@
       "phase": "Dev funcional",
       "period": "2 dias",
       "items": {
-        "pt": ["D1 real com Drizzle migrations", "Better Auth com sessão e middleware", "Durable Object + SSE para rastreamento", "VRP Nearest Neighbor + 2-opt", "Leaflet no dashboard", "Score de segurança calculado"],
+        "pt": ["D1 real com Drizzle migrations", "Better Auth com sessao e middleware", "Durable Object + SSE para rastreamento", "VRP Nearest Neighbor + 2-opt", "Leaflet no dashboard", "Score de seguranca calculado"],
         "en": ["Real D1 with Drizzle migrations", "Better Auth with session and middleware", "Durable Object + SSE for tracking", "VRP Nearest Neighbor + 2-opt", "Leaflet on dashboard", "Calculated safety score"]
+      }
+    },
+    {
+      "phase": "Evolucao MVP",
+      "period": "2 dias",
+      "items": {
+        "pt": ["Sistema de roles e permissoes (admin, gestor, motorista)", "Paginas de detalhe por veiculo e motorista", "CRUD completo na interface com modais", "Inspecoes DVIR com checklist pre/pos viagem", "Geofences com areas no mapa", "Relatorios com graficos dinamicos e exportacao CSV", "Sino de notificacoes in-app", "Filtros e busca em todos modulos"],
+        "en": ["Roles and permissions system (admin, manager, driver)", "Vehicle and driver detail pages", "Full CRUD in the UI with modals", "DVIR inspections with pre/post trip checklist", "Geofences with map areas", "Reports with dynamic charts and CSV export", "In-app notification bell", "Filters and search on all modules"]
       }
     }
   ],
@@ -180,14 +218,17 @@
   },
   "security": {
     "pt": {
-      "title": "Segurança e privacidade",
+      "title": "Seguranca e privacidade",
       "items": [
-        "Autenticação real com Better Auth (email/senha)",
-        "Sessão persistida em KV com cookies seguros",
-        "Middleware protege rotas /app/* com redirecionamento",
+        "Autenticacao real com Better Auth (email/senha)",
+        "Sessao persistida em KV com cookies seguros",
+        "Sistema de roles (admin, gestor, motorista) com permissoes granulares",
+        "Middleware protege rotas /app/* com redirecionamento por role",
+        "Sidebar filtra itens de menu conforme permissoes do usuario",
         "Banco D1 com dados ilustrativos persistidos",
+        "CRUD com validacao server-side via Hono",
         "Deploy com SSL via Cloudflare",
-        "Nenhum documento fiscal real é emitido",
+        "Nenhum documento fiscal real e emitido",
         "Secrets gerenciados via wrangler secret put"
       ]
     },
@@ -196,8 +237,11 @@
       "items": [
         "Real authentication with Better Auth (email/password)",
         "Session persisted in KV with secure cookies",
-        "Middleware protects /app/* routes with redirect",
+        "Roles system (admin, manager, driver) with granular permissions",
+        "Middleware protects /app/* routes with role-based redirect",
+        "Sidebar filters menu items based on user permissions",
         "D1 database with persisted illustrative data",
+        "CRUD with server-side validation via Hono",
         "SSL deployment via Cloudflare",
         "No real fiscal documents are issued",
         "Secrets managed via wrangler secret put"
