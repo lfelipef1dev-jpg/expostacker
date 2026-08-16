@@ -1,0 +1,51 @@
+---
+import { ui } from '../i18n/ui';
+import { useTranslations } from '../i18n/utils';
+
+export interface Props {
+  lang: keyof typeof ui;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const steps = [
+  { title: t('process.step1.title'), time: t('process.step1.time'), desc: t('process.step1.desc') },
+  { title: t('process.step2.title'), time: t('process.step2.time'), desc: t('process.step2.desc') },
+  { title: t('process.step3.title'), time: t('process.step3.time'), desc: t('process.step3.desc') },
+  { title: t('process.step4.title'), time: t('process.step4.time'), desc: t('process.step4.desc') },
+];
+---
+
+<section id="process" class="py-20 md:py-28 max-w-6xl mx-auto px-4 md:px-6" aria-labelledby="process-title">
+  <div class="max-w-2xl mb-12">
+    <p class="font-mono text-xs uppercase tracking-widest text-brand-accent mb-4 flex items-center gap-2">
+      <span class="inline-block h-1.5 w-1.5 rounded-full bg-brand-accent" aria-hidden="true"></span>
+      {t('process.eyebrow')}
+    </p>
+    <h2 id="process-title" class="font-display text-3xl md:text-5xl text-brand-text tracking-tight leading-tight">
+      {t('process.title')}
+    </h2>
+  </div>
+
+  <div class="grid md:grid-cols-4 gap-5">
+    {steps.map((step, i) => (
+      <article class="flex flex-col gap-3 p-6 rounded-2xl border border-brand-border bg-brand-surface/40">
+        <div class="flex items-center justify-between">
+          <span class="font-display text-4xl font-black text-brand-accent/20" aria-hidden="true">
+            0{i + 1}
+          </span>
+          <span class="text-xs font-mono text-brand-text-secondary px-2.5 py-1 rounded-full border border-brand-border">
+            {step.time}
+          </span>
+        </div>
+        <h3 class="font-display text-lg text-brand-text leading-snug">
+          {step.title}
+        </h3>
+        <p class="text-sm text-brand-text-secondary leading-relaxed">
+          {step.desc}
+        </p>
+      </article>
+    ))}
+  </div>
+</section>

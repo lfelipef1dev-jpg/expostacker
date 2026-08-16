@@ -11,16 +11,20 @@ const t = useTranslations(lang);
 
 const stack: { category: string; items: string[] }[] = [
   {
-    category: 'Frontend',
-    items: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
+    category: lang === 'pt' ? 'Frontend' : 'Frontend',
+    items: ['Next.js', 'React', 'Astro', 'TypeScript', 'Tailwind CSS'],
   },
   {
-    category: 'Backend',
-    items: ['Node.js', 'PostgreSQL', 'REST APIs'],
+    category: lang === 'pt' ? 'Backend' : 'Backend',
+    items: ['Hono', 'Node.js', 'PostgreSQL', 'Supabase', 'Redis', 'D1'],
   },
   {
-    category: 'DevOps',
-    items: ['Docker', 'GitHub Actions', 'Cloudflare'],
+    category: lang === 'pt' ? 'Pagamento' : 'Payments',
+    items: ['Mercado Pago', 'Stripe'],
+  },
+  {
+    category: lang === 'pt' ? 'Infra' : 'Infra',
+    items: ['Cloudflare Workers', 'Cloudflare Pages', 'GitHub Actions', 'Docker'],
   },
 ];
 ---

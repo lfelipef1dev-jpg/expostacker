@@ -1,0 +1,56 @@
+---
+import { ui } from '../i18n/ui';
+import { useTranslations } from '../i18n/utils';
+
+export interface Props {
+  lang: keyof typeof ui;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const faqs = [
+  { q: t('faq.q1'), a: t('faq.a1') },
+  { q: t('faq.q2'), a: t('faq.a2') },
+  { q: t('faq.q3'), a: t('faq.a3') },
+  { q: t('faq.q4'), a: t('faq.a4') },
+];
+---
+
+<section class="py-20 md:py-28 max-w-6xl mx-auto px-4 md:px-6" aria-labelledby="faq-title">
+  <div class="grid lg:grid-cols-[1fr_1.5fr] gap-12">
+    {/* Coluna esquerda — titulo + CTA */}
+    <div class="flex flex-col gap-6">
+      <div>
+        <p class="font-mono text-xs uppercase tracking-widest text-brand-accent mb-4 flex items-center gap-2">
+          <span class="inline-block h-1.5 w-1.5 rounded-full bg-brand-accent" aria-hidden="true"></span>
+          {t('faq.eyebrow')}
+        </p>
+        <h2 id="faq-title" class="font-display text-3xl md:text-4xl text-brand-text tracking-tight leading-tight">
+          {t('faq.title')}
+        </h2>
+      </div>
+      <a
+        href={`/${lang}/contato/`}
+        class="inline-flex items-center justify-center px-7 py-4 bg-brand-accent text-brand-bg font-bold rounded-xl hover:scale-105 transition-transform duration-200 shadow-[0_0_32px_rgba(138,180,248,0.35)] min-w-[200px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-bg"
+      >
+        {t('faq.cta')} →
+      </a>
+    </div>
+
+    {/* Coluna direita — FAQ */}
+    <div class="flex flex-col gap-4">
+      {faqs.map((faq) => (
+        <details class="group p-5 rounded-xl border border-brand-border bg-brand-surface/40 hover:border-brand-accent/30 transition-colors motion-reduce:transition-none">
+          <summary class="flex items-center justify-between cursor-pointer list-none font-display text-base md:text-lg text-brand-text leading-snug gap-4 min-h-[48px] flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-bg rounded-lg">
+            {faq.q}
+            <span class="shrink-0 text-brand-accent text-xl font-mono transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+          </summary>
+          <p class="mt-4 text-sm text-brand-text-secondary leading-relaxed">
+            {faq.a}
+          </p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

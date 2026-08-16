@@ -1,0 +1,48 @@
+---
+import { ui } from '../i18n/ui';
+import { useTranslations } from '../i18n/utils';
+
+export interface Props {
+  lang: keyof typeof ui;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const problems = [
+  { title: t('problem.item1.title'), desc: t('problem.item1.desc') },
+  { title: t('problem.item2.title'), desc: t('problem.item2.desc') },
+  { title: t('problem.item3.title'), desc: t('problem.item3.desc') },
+];
+---
+
+<section class="py-20 md:py-28 max-w-6xl mx-auto px-4 md:px-6" aria-labelledby="problem-title">
+  <div class="max-w-2xl mb-12">
+    <p class="font-mono text-xs uppercase tracking-widest text-brand-accent mb-4 flex items-center gap-2">
+      <span class="inline-block h-1.5 w-1.5 rounded-full bg-brand-accent" aria-hidden="true"></span>
+      {t('problem.eyebrow')}
+    </p>
+    <h2 id="problem-title" class="font-display text-3xl md:text-5xl text-brand-text tracking-tight mb-4 leading-tight">
+      {t('problem.title')}
+    </h2>
+    <p class="text-lg text-brand-text-secondary leading-relaxed">
+      {t('problem.subtitle')}
+    </p>
+  </div>
+
+  <div class="grid md:grid-cols-3 gap-5">
+    {problems.map((problem, i) => (
+      <article class="p-6 rounded-2xl border border-brand-border bg-brand-surface/40 hover:border-brand-accent/40 transition-colors motion-reduce:transition-none">
+        <span class="font-mono text-xs uppercase tracking-widest text-brand-accent/60 block mb-3">
+          0{i + 1}
+        </span>
+        <h3 class="font-display text-lg text-brand-text mb-2 leading-snug">
+          {problem.title}
+        </h3>
+        <p class="text-sm text-brand-text-secondary leading-relaxed">
+          {problem.desc}
+        </p>
+      </article>
+    ))}
+  </div>
+</section>

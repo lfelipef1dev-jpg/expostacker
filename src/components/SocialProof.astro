@@ -7,10 +7,10 @@ export interface Props {
   githubUrl?: string;
 }
 
-const { lang, githubUrl = '#' } = Astro.props;
+const { lang, githubUrl = 'https://github.com/lfelipef1dev-jpg' } = Astro.props;
 const t = useTranslations(lang);
 
-const liveUrl = 'https://marken.expostacker.com.br/';
+const liveUrl = 'https://expostacker.com.br/pt/#cases';
 
 const cards = [
   {
@@ -19,7 +19,7 @@ const cards = [
     desc: t('proof.card1.desc'),
     cta: t('proof.card1.cta'),
     href: liveUrl,
-    external: true,
+    external: false,
   },
   {
     label: t('proof.card2.label'),
