@@ -14,9 +14,9 @@
     { "label": "Integrações de IA", "value": 3, "unit": "" },
     { "label": "Índices de banco", "value": 40, "unit": "+" }
   ],
-  "liveUrl": "https://seeds.expostacker.com.br/",
+  "liveUrl": "https://seeds.expostacker.com.br",
   "projectType": "SaaS",
-  "featured": true,
+  "featured": false,
   "category": "personal",
   "year": 2026,
   "hasCaseStudy": true,

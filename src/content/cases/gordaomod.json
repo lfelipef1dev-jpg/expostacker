@@ -13,9 +13,9 @@
     { "label": "Custo de infraestrutura", "value": 0, "unit": "R$" },
     { "label": "Deploy", "value": 1, "unit": "min (estimado)" }
   ],
-  "liveUrl": "https://gordaomod.expostacker.com.br/",
+  "liveUrl": "https://gordaomod.expostacker.com.br",
   "projectType": "Client-Work",
-  "featured": true,
+  "featured": false,
   "category": "client",
   "year": 2026,
   "hasCaseStudy": true,

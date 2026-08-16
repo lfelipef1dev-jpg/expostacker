@@ -14,9 +14,9 @@
     { "label": "Segmentos atendidos", "value": 8, "unit": "" },
     { "label": "Serviços catalogados", "value": 6, "unit": "" }
   ],
-  "liveUrl": "https://sanatto.expostacker.com.br/",
+  "liveUrl": "https://sanatto.expostacker.com.br",
   "projectType": "Client-Work",
-  "featured": true,
+  "featured": false,
   "category": "client",
   "year": 2026,
   "hasCaseStudy": true,

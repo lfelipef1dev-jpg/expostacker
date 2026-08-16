@@ -14,9 +14,9 @@
     { "label": "Paginas no frontend", "value": 20, "unit": "+" },
     { "label": "Jackpots progressivos", "value": 4, "unit": "" }
   ],
-  "liveUrl": "https://tigrebet.expostacker.com.br/",
+  "liveUrl": "https://tigrebet.expostacker.com.br",
   "projectType": "Client-Work",
-  "featured": true,
+  "featured": false,
   "category": "client",
   "year": 2026,
   "hasCaseStudy": true,

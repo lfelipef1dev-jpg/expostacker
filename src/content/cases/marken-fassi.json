@@ -14,14 +14,14 @@
     { "label": "Taxa de Certificação (piloto)", "value": 78, "unit": "%" },
     { "label": "Tempo de Resposta FASSI.AI (alvo)", "value": 2, "unit": "s" }
   ],
-  "liveUrl": "https://marken.expostacker.com.br/",
+  "liveUrl": "https://marken.expostacker.com.br",
   "heroImage": "/cases/marken-fassi.jpg",
   "demoAccess": {
     "email": "teste@casafassi.com.br",
     "password": "fassi1234"
   },
   "projectType": "Client-Work",
-  "featured": true,
+  "featured": false,
   "category": "client",
   "year": 2024,
   "hasCaseStudy": true,

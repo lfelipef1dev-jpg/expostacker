@@ -1,0 +1,180 @@
+{
+  "id": "vivamais",
+  "title": "VivaMais",
+  "clientName": "VivaMais",
+  "tags": ["HTML", "CSS", "JavaScript", "Cloudflare Pages", "SEO", "Schema.org", "Acessibilidade"],
+  "shortDescription": "Site institucional para clinica medica multidisciplinar em Santos, com agendamento, convenios, equipe, depoimentos e SEO local.",
+  "problemDescription": "Clinicas medicas de medio porte precisam de uma presenca digital confiavel para captar pacientes, comunicar especialidades, convenios e canais de contato sem depender de plataformas de terceiros. O desafio e entregar um site rapido, acessivel, bem estruturado para SEO local e com um formulario funcional de agendamento.",
+  "technicalSolution": "Site estatico em HTML5 semantico, CSS customizado com design system proprio e JavaScript vanilla para interatividade (menu mobile, mascara de telefone, validacao de formulario). Inclui schema.org MedicalClinic para SEO, metadagens Open Graph, skip link, atributos ARIA, formulario de agendamento com LGPD e botao flutuante de WhatsApp. Deploy na Cloudflare Pages com dominio personalizado.",
+  "businessOutcome": [
+    { "label": "Especialidades", "value": 6, "unit": "" },
+    { "label": "Convenios", "value": 8, "unit": "" },
+    { "label": "Profissionais", "value": 4, "unit": "" }
+  ],
+  "liveUrl": "https://vivamais.expostacker.com.br",
+  "projectType": "Client-Work",
+  "featured": false,
+  "category": "client",
+  "year": 2026,
+  "hasCaseStudy": true,
+  "heroImage": "/cases/vivamais.jpg",
+  "heroHeadline": {
+    "pt": "VivaMais — Site institucional para clinica medica multidisciplinar",
+    "en": "VivaMais — Institutional website for multidisciplinary medical clinic"
+  },
+  "heroSubhead": {
+    "pt": "Site estatico em HTML5, CSS e JavaScript com SEO local, schema.org, formulario de agendamento, convenios, equipe de especialistas e deploy na Cloudflare Pages.",
+    "en": "Static website in HTML5, CSS and JavaScript with local SEO, schema.org, appointment form, health insurance, team of specialists and deploy on Cloudflare Pages."
+  },
+  "opening": {
+    "pt": "VivaMais e um site institucional para uma clinica medica ficticia em Santos. A proposta e demonstrar um site de saude rapido, acessivel e otimizado para buscas locais, com estrutura semantica, schema.org, formulario de agendamento e design responsivo.",
+    "en": "VivaMais is an institutional website for a fictional medical clinic in Santos. The proposal is to demonstrate a fast, accessible, locally SEO-optimized health website with semantic structure, schema.org, appointment form and responsive design."
+  },
+  "challengeContext": {
+    "pt": "O projeto precisava comunicar confianca e credibilidade para uma clinica medica sem depender de frameworks pesados. O foco era performance, acessibilidade e SEO local.",
+    "en": "The project needed to communicate trust and credibility for a medical clinic without relying on heavy frameworks. The focus was on performance, accessibility and local SEO."
+  },
+  "approach": {
+    "pt": "Implementamos HTML5 semantico com landmarks ARIA, CSS customizado com variaveis de design, JavaScript vanilla para o menu mobile, mascara de telefone e validacao do formulario. Incluimos schema.org MedicalClinic, metadagens Open Graph, skip link, contraste adequado e deploy na Cloudflare Pages.",
+    "en": "We implemented semantic HTML5 with ARIA landmarks, custom CSS with design variables, vanilla JavaScript for mobile menu, phone mask and form validation. We included schema.org MedicalClinic, Open Graph metadata, skip link, adequate contrast and deploy on Cloudflare Pages."
+  },
+  "solutionItems": {
+    "pt": [
+      "Hero com tag de credibilidade, CTA e metricas sociais",
+      "Secao de especialidades com 6 cards (Cardiologia, Neurologia, Ortopedia, Nutricao, Ginecologia, Clinica Geral)",
+      "Equipe medica com 4 profissionais ficticios",
+      "Secao de convenios com 8 planos de saude",
+      "Depoimentos de pacientes ficticios com 5 estrelas",
+      "Formulario de agendamento com validacao, mascara de telefone e checkbox LGPD",
+      "Schema.org MedicalClinic para SEO local",
+      "Metadagens Open Graph e Twitter Card",
+      "Skip link e atributos ARIA para acessibilidade",
+      "Botao flutuante de WhatsApp",
+      "Footer com endereco, contato e links legais",
+      "Deploy na Cloudflare Pages com dominio personalizado"
+    ],
+    "en": [
+      "Hero with credibility tag, CTA and social metrics",
+      "Specialties section with 6 cards (Cardiology, Neurology, Orthopedics, Nutrition, Gynecology, General Practice)",
+      "Medical team with 4 fictional professionals",
+      "Health insurance section with 8 plans",
+      "Patient testimonials with 5 stars",
+      "Appointment form with validation, phone mask and LGPD checkbox",
+      "Schema.org MedicalClinic for local SEO",
+      "Open Graph and Twitter Card metadata",
+      "Skip link and ARIA attributes for accessibility",
+      "Floating WhatsApp button",
+      "Footer with address, contact and legal links",
+      "Deploy on Cloudflare Pages with custom domain"
+    ]
+  },
+  "technologies": [
+    { "name": "HTML5", "why": { "pt": "Estrutura semantica acessivel e leve.", "en": "Semantic, accessible and lightweight structure." } },
+    { "name": "CSS", "why": { "pt": "Design system customizado sem dependencias.", "en": "Custom design system without dependencies." } },
+    { "name": "JavaScript", "why": { "pt": "Interatividade leve sem frameworks.", "en": "Lightweight interactivity without frameworks." } },
+    { "name": "Cloudflare Pages", "why": { "pt": "Deploy estatico global com SSL e dominio personalizado.", "en": "Global static deploy with SSL and custom domain." } }
+  ],
+  "myRole": {
+    "pt": "Desenvolvedor frontend e SEO.",
+    "en": "Frontend developer and SEO."
+  },
+  "lessonsLearned": {
+    "pt": "Sites estaticos em HTML5 semantico ainda sao uma escolha solida para presenca digital de pequenos negocios. A combinacao de schema.org, metadagens e acessibilidade entrega valor sem a complexidade de um framework.",
+    "en": "Static websites in semantic HTML5 are still a solid choice for small business digital presence. The combination of schema.org, metadata and accessibility delivers value without framework complexity."
+  },
+  "stakeholders": {
+    "pt": "Pacientes e prospectos de clinicas medicas.",
+    "en": "Patients and prospects of medical clinics."
+  },
+  "sector": {
+    "pt": "Saude e Clinicas Medicas",
+    "en": "Health and Medical Clinics"
+  },
+  "heroMetrics": [
+    { "value": "6", "label": { "pt": "Especialidades", "en": "Specialties" } },
+    { "value": "8", "label": { "pt": "Convenios", "en": "Insurance plans" } },
+    { "value": "4", "label": { "pt": "Medicos", "en": "Doctors" } }
+  ],
+  "timeline": {
+    "duration": "1 dia de implementacao",
+    "launchDate": "2026-06"
+  },
+  "timelinePhases": [
+    {
+      "phase": "Design",
+      "period": "1 dia",
+      "items": {
+        "pt": ["Landing page one-page", "Paleta de cores confiavel para saude", "Copy de clinica premium"],
+        "en": ["One-page landing", "Trust color palette for health", "Premium clinic copy"]
+      }
+    }
+  ],
+  "visualDisclaimer": {
+    "pt": "Imagens e dados sao ficticios para fins de demonstracao. Clinica, medicos e pacientes nao sao reais.",
+    "en": "Images and data are fictional for demonstration purposes. Clinic, doctors and patients are not real."
+  },
+  "methodology": {
+    "pt": ["HTML semantico", "Mobile-first", "Acessibilidade", "SEO local", "Performance sem frameworks"],
+    "en": ["Semantic HTML", "Mobile-first", "Accessibility", "Local SEO", "Performance without frameworks"]
+  },
+  "security": {
+    "pt": {
+      "title": "Seguranca e privacidade",
+      "items": [
+        "Formulario com checkbox de concordancia LGPD",
+        "Dados de demonstracao, sem processamento real",
+        "Deploy com SSL via Cloudflare",
+        "Links externos com rel=noopener"
+      ]
+    },
+    "en": {
+      "title": "Security and privacy",
+      "items": [
+        "Form with LGPD consent checkbox",
+        "Demonstration data, no real processing",
+        "SSL deploy via Cloudflare",
+        "External links with rel=noopener"
+      ]
+    }
+  },
+  "techStack": {
+    "pt": {
+      "title": "Stack tecnica",
+      "categories": [
+        {
+          "category": "Frontend",
+          "items": [
+            { "name": "HTML5", "why": "Estrutura semantica e acessivel.", "alt": "Framework JS" },
+            { "name": "CSS", "why": "Design leve e customizado.", "alt": "Tailwind" },
+            { "name": "JavaScript", "why": "Interatividade sem dependencias.", "alt": "React" }
+          ]
+        },
+        {
+          "category": "Deploy",
+          "items": [
+            { "name": "Cloudflare Pages", "why": "Hospedagem estatica global com SSL.", "alt": "Netlify" }
+          ]
+        }
+      ]
+    },
+    "en": {
+      "title": "Tech stack",
+      "categories": [
+        {
+          "category": "Frontend",
+          "items": [
+            { "name": "HTML5", "why": "Semantic and accessible structure.", "alt": "JS framework" },
+            { "name": "CSS", "why": "Lightweight custom design.", "alt": "Tailwind" },
+            { "name": "JavaScript", "why": "Interactivity without dependencies.", "alt": "React" }
+          ]
+        },
+        {
+          "category": "Deploy",
+          "items": [
+            { "name": "Cloudflare Pages", "why": "Global static hosting with SSL.", "alt": "Netlify" }
+          ]
+        }
+      ]
+    }
+  }
+}

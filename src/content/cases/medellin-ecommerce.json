@@ -14,9 +14,9 @@
     { "label": "Custo de infraestrutura", "value": 0, "unit": "R$" },
     { "label": "Métodos de pagamento", "value": 3, "unit": "" }
   ],
-  "liveUrl": "https://medellin.expostacker.com.br/",
+  "liveUrl": "https://medellin.expostacker.com.br",
   "projectType": "Client-Work",
-  "featured": true,
+  "featured": false,
   "category": "client",
   "year": 2026,
   "hasCaseStudy": true,
