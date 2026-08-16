@@ -31,6 +31,7 @@ const casesCollection = defineCollection({
     featured: z.boolean().default(false),
     category: z.enum(['personal', 'client', 'experiment', 'opensource']).default('client').optional(),
     year: z.number().optional(),
+    priority: z.number().optional(),
     hasCaseStudy: z.boolean().default(true),
     heroHeadline: localizedString.optional(),
     heroSubhead: localizedString.optional(),
