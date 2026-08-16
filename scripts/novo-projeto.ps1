@@ -82,9 +82,21 @@ try {
     Write-Host '  Projeto ja existe ou erro (continuando...)' -ForegroundColor DarkYellow
 }
 
+# Buscar o subdominio real do projeto (pode ter sufixo aleatorio tipo -6o2)
+$pagesSubdomain = $CloudflareProject + '.pages.dev'
+try {
+    $projInfo = Invoke-RestMethod -Uri ('https://api.cloudflare.com/client/v4/accounts/' + $CLOUDFLARE_ACCOUNT_ID + '/pages/projects/' + $CloudflareProject) -Method Get -Headers $cfHeaders
+    if ($projInfo.result.subdomain) {
+        $pagesSubdomain = $projInfo.result.subdomain + '.pages.dev'
+        Write-Host ('  Subdominio real: ' + $pagesSubdomain) -ForegroundColor Green
+    }
+} catch {
+    Write-Host '  Aviso: nao foi possivel buscar subdominio real, usando padrao' -ForegroundColor DarkYellow
+}
+
 # 5. Criar CNAME no DNS + adicionar dominio customizado no Pages
 Write-Host '[4/5] Criando CNAME e dominio customizado...' -ForegroundColor Yellow
-$cnameBody = @{ type = 'CNAME'; name = $Subdominio; content = ($CloudflareProject + '.pages.dev'); proxied = $true } | ConvertTo-Json -Compress
+$cnameBody = @{ type = 'CNAME'; name = $Subdominio; content = $pagesSubdomain; proxied = $true } | ConvertTo-Json -Compress
 try {
     $r = Invoke-RestMethod -Uri ('https://api.cloudflare.com/client/v4/zones/' + $CLOUDFLARE_ZONE_ID + '/dns_records') -Method Post -Headers $cfHeaders -Body $cnameBody
     Write-Host ('  CNAME criado: ' + $Subdominio + '.expostacker.com.br') -ForegroundColor Green
@@ -155,6 +167,6 @@ Write-Host "`n========================================" -ForegroundColor Green
 Write-Host 'PROJETO CONFIGURADO!' -ForegroundColor Green
 Write-Host '========================================' -ForegroundColor Green
 Write-Host ('Repo:     https://github.com/' + $GitHubUser + '/' + $Nome) -ForegroundColor White
-Write-Host ('Cloudflare: ' + $CloudflareProject + '.pages.dev') -ForegroundColor White
+Write-Host ('Cloudflare: ' + $pagesSubdomain) -ForegroundColor White
 Write-Host ('Dominio:  https://' + $Subdominio + '.expostacker.com.br') -ForegroundColor White
 Write-Host 'Todo git push na branch main faz deploy automatico.' -ForegroundColor Cyan

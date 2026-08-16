@@ -2,6 +2,7 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { ui } from '../i18n/ui';
 import { useTranslations } from '../i18n/utils';
+import scoresData from '../data/scores.json';
 
 export interface Props {
   lang: keyof typeof ui;
@@ -13,6 +14,19 @@ const t = useTranslations(lang);
 const cases: CollectionEntry<'cases'>[] = await getCollection('cases');
 const featuredIndex = cases.findIndex((c) => c.data.featured);
 const others = cases.filter((_, i) => i !== (featuredIndex >= 0 ? featuredIndex : 0));
+
+// Mapa de scores por slug
+const scoreMap = new Map<string, { total: number; rank: number }>();
+scoresData.projects.forEach((p: { slug: string; scores: { total: number }; rank: number }) => {
+  scoreMap.set(p.slug, { total: p.scores.total, rank: p.rank });
+});
+
+// Ordenar por score (maior = melhor). Sem score fica por ultimo.
+const othersSorted = [...others].sort((a, b) => {
+  const sa = scoreMap.get(a.id)?.total ?? 0;
+  const sb = scoreMap.get(b.id)?.total ?? 0;
+  return sb - sa;
+});
 
 const categories = Array.from(new Set(others.map((c) => c.data.category).filter(Boolean))) as string[];
 const filterAll = lang === 'pt' ? 'Todos' : 'All';
@@ -68,7 +82,8 @@ const openAppLabel = lang === 'pt' ? 'Abrir aplicação' : 'Open app';
 
   {/* Grid de cases — 3 colunas desktop, 2 tablet, 1 mobile */}
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 auto-rows-min">
-    {others.map((item) => {
+    {othersSorted.map((item) => {
+      const scoreInfo = scoreMap.get(item.id);
       const href = `/${lang}/cases/${item.id}/`;
       const liveUrl = item.data.liveUrl;
       const heroImage = `/cases/${item.id}-hero.jpg`;
@@ -115,20 +130,27 @@ const openAppLabel = lang === 'pt' ? 'Abrir aplicação' : 'Open app';
 
           {/* Conteúdo embaixo */}
           <div class="relative p-5 md:p-6">
-            {/* Logo + cliente */}
-            <div class="inline-flex items-center gap-2.5 mb-3">
-              <img
-                src={logoPath}
-                alt={`Logotipo do cliente ${item.data.clientName}`}
-                width="32"
-                height="32"
-                loading="lazy"
-                decoding="async"
-                class="w-8 h-8 object-contain rounded-lg bg-brand-bg/40 p-1 border border-brand-border"
-              />
-              <span class="text-[11px] font-medium text-brand-text-secondary font-mono truncate">
-                {item.data.clientName}
-              </span>
+            {/* Logo + cliente + score */}
+            <div class="flex items-center justify-between mb-3">
+              <div class="inline-flex items-center gap-2.5 min-w-0">
+                <img
+                  src={logoPath}
+                  alt={`Logotipo do cliente ${item.data.clientName}`}
+                  width="32"
+                  height="32"
+                  loading="lazy"
+                  decoding="async"
+                  class="w-8 h-8 object-contain rounded-lg bg-brand-bg/40 p-1 border border-brand-border shrink-0"
+                />
+                <span class="text-[11px] font-medium text-brand-text-secondary font-mono truncate">
+                  {item.data.clientName}
+                </span>
+              </div>
+              {scoreInfo && scoreInfo.total > 0 && (
+                <span class="shrink-0 ml-2 px-2 py-0.5 text-[10px] font-black font-mono rounded-full bg-brand-accent/15 text-brand-accent border border-brand-accent/30" title={`Lighthouse score: ${scoreInfo.total}/100`}>
+                  {scoreInfo.total}
+                </span>
+              )}
             </div>
 
             {/* Título */}
