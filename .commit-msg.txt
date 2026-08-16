@@ -1,8 +1,15 @@
-fix: exibe grade de cases na home
+feat: refatora BentoGrid com cards visuais modernos
 
-- Adiciona import do BentoGrid em [lang]/index.astro
-- Renderiza BentoGrid apos FeaturedCase para listar os 10 cases restantes
-- Build gera 27 paginas com 0 erros
+- Card com imagem de capa 16:9 no topo
+- Eyebrow de categoria sobre a imagem
+- Titulo bold + descricao 2 linhas
+- Tags em chips (max 3)
+- CTAs Ver case + Abrir app
+- Filtros por categoria (Todos, Cliente, Pessoal)
+- Hover: elevacao 4px, borda brilha, sombra sutil, seta anda
+- Grid responsivo: 4 cols desktop, 2 tablet, 1 mobile
+- Mesma identidade visual do FeaturedCase (dark, gradiente, borda)
+- Build 27 paginas, 0 erros
 
 Generated with [Devin](https://devin.ai)
 

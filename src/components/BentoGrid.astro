@@ -2,7 +2,6 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { ui } from '../i18n/ui';
 import { useTranslations } from '../i18n/utils';
-import { formatBusinessMetric } from '../utils/format';
 
 export interface Props {
   lang: keyof typeof ui;
@@ -14,67 +13,136 @@ const t = useTranslations(lang);
 const cases: CollectionEntry<'cases'>[] = await getCollection('cases');
 const featuredIndex = cases.findIndex((c) => c.data.featured);
 const others = cases.filter((_, i) => i !== (featuredIndex >= 0 ? featuredIndex : 0));
+
+const categories = Array.from(new Set(others.map((c) => c.data.category).filter(Boolean))) as string[];
+const filterAll = lang === 'pt' ? 'Todos' : 'All';
+const filterLabel = (cat: string) => {
+  const map: Record<string, { pt: string; en: string }> = {
+    client: { pt: 'Cliente', en: 'Client' },
+    personal: { pt: 'Pessoal', en: 'Personal' },
+    saas: { pt: 'SaaS', en: 'SaaS' },
+    ecommerce: { pt: 'E-commerce', en: 'E-commerce' },
+    landing: { pt: 'Landing Page', en: 'Landing Page' },
+  };
+  return map[cat]?.[lang] ?? cat;
+};
+
+const viewCaseLabel = lang === 'pt' ? 'Ver case' : 'View case';
+const openAppLabel = lang === 'pt' ? 'Abrir' : 'Open';
 ---
 
-<section id="cases" class="max-w-6xl mx-auto px-4 md:px-6 pb-24">
-  <!-- Header da seção -->
-  <div class="mb-8 md:mb-12">
-    <span class="inline-block text-xs font-mono font-bold text-brand-accent uppercase tracking-wider mb-3">
+<section id="cases" class="py-20 md:py-28 max-w-6xl mx-auto px-4 md:px-6">
+  {/* Header da seção */}
+  <div class="mb-10 md:mb-14">
+    <span class="inline-block text-xs font-mono font-bold text-brand-accent uppercase tracking-[0.2em] mb-3">
       {t('bento.eyebrow')}
     </span>
-    <h2 class="font-display text-3xl md:text-4xl font-bold text-brand-text leading-tight">
+    <h2 class="font-display text-3xl md:text-5xl font-black leading-[1.05] tracking-[-0.03em] text-brand-text mb-6">
       {t('bento.title')}
     </h2>
+
+    {/* Filtros por categoria */}
+    {categories.length > 1 && (
+      <div class="flex flex-wrap gap-2" role="group" aria-label={lang === 'pt' ? 'Filtrar por categoria' : 'Filter by category'}>
+        <button
+          type="button"
+          class="bento-filter px-4 py-2 min-h-[40px] text-sm font-bold rounded-full border border-brand-border bg-brand-surface/60 text-brand-text hover:border-brand-accent/60 hover:text-brand-accent transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-accent"
+          data-filter="all"
+          aria-pressed="true"
+        >
+          {filterAll}
+        </button>
+        {categories.map((cat) => (
+          <button
+            type="button"
+            class="bento-filter px-4 py-2 min-h-[40px] text-sm font-bold rounded-full border border-brand-border bg-brand-surface/40 text-brand-text-secondary hover:border-brand-accent/60 hover:text-brand-accent transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-accent"
+            data-filter={cat}
+            aria-pressed="false"
+          >
+            {filterLabel(cat)}
+          </button>
+        ))}
+      </div>
+    )}
   </div>
 
-  <!-- Grid de cases secundários -->
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-5 auto-rows-min">
+  {/* Grid de cases secundários */}
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 auto-rows-min">
     {others.map((item) => {
       const href = `/${lang}/cases/${item.id}/`;
-      const metric = item.data.businessOutcome?.[0];
+      const liveUrl = item.data.liveUrl;
+      const heroImage = item.data.heroImage ?? `/cases/${item.id}.svg`;
+      const category = item.data.category ?? 'client';
       return (
         <article
-          class="bento-card group relative p-6 rounded-[20px] border border-brand-border bg-brand-surface/60 hover:border-brand-accent/60 hover:bg-brand-surface-2 transition-colors duration-200 motion-safe:transition-all"
+          class="bento-card group relative rounded-2xl border border-brand-border bg-gradient-to-br from-brand-surface/80 to-brand-bg/60 overflow-hidden hover:border-brand-accent/60 transition-colors duration-200 motion-safe:transition-all motion-safe:duration-200"
+          data-category={category}
         >
-          <div class="flex flex-col h-full">
-            <h3 class="text-lg font-bold text-brand-text group-hover:text-brand-accent transition-colors duration-200 mb-2">
+          {/* Imagem de capa 16:9 */}
+          <div class="relative aspect-[16/9] overflow-hidden bg-brand-bg/40 border-b border-brand-border">
+            <img
+              src={heroImage}
+              alt={`Prévia da aplicação ${item.data.title}`}
+              width="640"
+              height="360"
+              loading="lazy"
+              decoding="async"
+              class="w-full h-full object-cover object-top transition-transform duration-300 motion-safe:group-hover:scale-105"
+            />
+            {/* Gradiente sutil sobre a imagem */}
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-bg/60 via-transparent to-transparent pointer-events-none" aria-hidden="true"></div>
+            {/* Categoria eyebrow sobre a imagem */}
+            <span class="absolute top-3 left-3 px-2.5 py-1 text-[10px] font-mono font-bold uppercase tracking-wider rounded-full bg-brand-bg/80 backdrop-blur-sm text-brand-accent border border-brand-border">
+              {filterLabel(category)}
+            </span>
+          </div>
+
+          {/* Conteúdo do card */}
+          <div class="p-5 md:p-6 flex flex-col h-full">
+            <h3 class="text-lg font-display font-bold text-brand-text group-hover:text-brand-accent transition-colors duration-200 mb-2 leading-tight">
               {item.data.title}
             </h3>
-            <p class="text-sm text-brand-text-secondary line-clamp-3 mb-4">
+            <p class="text-sm text-brand-text-secondary line-clamp-2 mb-4 leading-relaxed">
               {item.data.shortDescription}
             </p>
 
-            {metric && (
-              <div class="mb-4">
-                <span class="block text-2xl font-black text-brand-accent font-mono">
-                  {formatBusinessMetric(metric.value, metric.unit)}
-                </span>
-                <span class="text-xs text-brand-text-secondary">{metric.label}</span>
-              </div>
-            )}
-
-            <div class="flex flex-wrap gap-2 mt-auto mb-4">
-              {item.data.tags.slice(0, 4).map((tag: string) => (
-                <span class="px-2.5 py-1 text-xs font-medium border border-brand-border rounded-full bg-brand-bg/60 text-brand-text-secondary">
+            {/* Tags */}
+            <div class="flex flex-wrap gap-1.5 mb-4 mt-auto">
+              {item.data.tags.slice(0, 3).map((tag: string) => (
+                <span class="px-2 py-0.5 text-[10px] font-medium border border-brand-border rounded-full bg-brand-bg/60 text-brand-text-secondary">
                   {tag}
                 </span>
               ))}
             </div>
 
-            <a
-              href={href}
-              class="inline-flex items-center gap-1.5 text-sm font-bold text-brand-accent min-h-[48px] w-fit relative z-10 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-accent"
-              aria-label={`${lang === 'pt' ? 'Ver case' : 'View case'}: ${item.data.title}`}
-            >
-              {lang === 'pt' ? 'Ver case' : 'View case'}
-              <span class="bento-arrow transition-transform duration-200" aria-hidden="true">→</span>
-            </a>
+            {/* CTAs */}
+            <div class="flex items-center gap-3">
+              <a
+                href={href}
+                class="inline-flex items-center gap-1.5 text-sm font-bold text-brand-accent min-h-[40px] w-fit relative z-10 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-accent"
+                aria-label={`${viewCaseLabel}: ${item.data.title}`}
+              >
+                {viewCaseLabel}
+                <span class="bento-arrow transition-transform duration-200" aria-hidden="true">→</span>
+              </a>
+              {liveUrl && (
+                <a
+                  href={liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-1 text-xs font-medium text-brand-text-secondary hover:text-brand-accent transition-colors duration-200 min-h-[40px] relative z-10 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-accent"
+                  aria-label={`${openAppLabel}: ${item.data.title}`}
+                >
+                  {openAppLabel} ↗
+                </a>
+              )}
+            </div>
           </div>
 
-          <!-- Link overlay acessível -->
+          {/* Link overlay acessível */}
           <a
             href={href}
-            class="absolute inset-0 z-0 rounded-[20px]"
+            class="absolute inset-0 z-0 rounded-2xl"
             aria-hidden="true"
             tabindex="-1"
           >
@@ -84,8 +152,8 @@ const others = cases.filter((_, i) => i !== (featuredIndex >= 0 ? featuredIndex 
     })}
   </div>
 
-  <!-- Link "Ver todos" -->
-  <div class="mt-10 md:mt-12 flex justify-center">
+  {/* Link "Ver todos" */}
+  <div class="mt-10 md:mt-14 flex justify-center">
     <a
       href={`/${lang}/cases/`}
       class="inline-flex items-center gap-2 px-6 py-3 min-h-[48px] rounded-full border border-brand-border bg-brand-surface/60 text-brand-text font-bold hover:border-brand-accent/60 hover:text-brand-accent transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-accent"
@@ -99,7 +167,7 @@ const others = cases.filter((_, i) => i !== (featuredIndex >= 0 ? featuredIndex 
 <style>
   /* Motion: translateY 4px sutil + arrow translateX no hover */
   .bento-card {
-    transition-property: border-color, background-color, transform;
+    transition-property: border-color, background-color, transform, box-shadow;
     transition-duration: 200ms;
     transition-timing-function: ease;
   }
@@ -107,6 +175,7 @@ const others = cases.filter((_, i) => i !== (featuredIndex >= 0 ? featuredIndex 
   @media (prefers-reduced-motion: no-preference) {
     .bento-card:hover {
       transform: translateY(-4px);
+      box-shadow: 0 16px 48px -16px rgba(0, 0, 0, 0.5), 0 0 24px -8px rgba(138, 180, 248, 0.15);
     }
     .group:hover .bento-arrow {
       transform: translateX(6px);
@@ -122,4 +191,41 @@ const others = cases.filter((_, i) => i !== (featuredIndex >= 0 ? featuredIndex 
   .bento-arrow-cta {
     display: inline-block;
   }
+
+  /* Filtros */
+  .bento-filter[aria-pressed="true"] {
+    background-color: rgba(138, 180, 248, 0.12);
+    border-color: rgba(138, 180, 248, 0.6);
+    color: #8AB4F8;
+  }
+
+  /* Card escondido pelo filtro */
+  .bento-card.is-hidden {
+    display: none;
+  }
 </style>
+
+<script>
+  // Filtro por categoria (vanilla JS, sem framework)
+  const filters = document.querySelectorAll<HTMLButtonElement>('.bento-filter');
+  const cards = document.querySelectorAll<HTMLElement>('.bento-card');
+
+  filters.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter;
+      filters.forEach((b) => {
+        b.setAttribute('aria-pressed', 'false');
+      });
+      btn.setAttribute('aria-pressed', 'true');
+
+      cards.forEach((card) => {
+        const category = card.dataset.category;
+        if (filter === 'all' || category === filter) {
+          card.classList.remove('is-hidden');
+        } else {
+          card.classList.add('is-hidden');
+        }
+      });
+    });
+  });
+</script>
