@@ -342,6 +342,55 @@ Se um projeto ja esta no Netlify e precisa migrar:
 - `gerenciador-frotas` — Gerenciador de Frotas
 - `sistema-faturamento-saas` — Sistema de Faturamento SaaS
 
+## Banner Rotativo (HeroBanner)
+
+### Pastas de imagens (REGRA ABSOLUTA)
+
+Toda imagem do banner fica em `public/banner/`, com o padrão `public/banner/[id]-banner.jpg`.
+Toda imagem dos cards fica em `public/cases/`, com o padrão `public/cases/[id]-hero.jpg`.
+
+**NUNCA misturar as pastas.** Cada projeto tem duas imagens:
+1. `public/banner/[id]-banner.jpg` — 900x900, para o banner rotativo
+2. `public/cases/[id]-hero.jpg` — 1440x900, para os cards da grade
+
+### Dimensões do banner
+
+- Proporção: 1:1 (quadrado)
+- Resolução: 900x900px
+- Formato: JPG
+- Qualidade: 90%
+
+### Como capturar o screenshot do banner
+
+Usar o script `scripts/screenshot-banner.cjs` (captura todos os 11) ou `screenshot-banner-fix.cjs` (captura apenas os listados no array).
+
+Para sites com conteúdo maior que 900px de altura, ajustar `scrollBy` no script fix até o card ficar centralizado.
+
+### Limites de texto no banner
+
+O componente `HeroBanner.astro` usa `line-clamp` para evitar encavalamento:
+
+| Campo | Máximo de linhas | Nota |
+|-------|------------------|------|
+| Título | 2 linhas | `line-clamp-2` |
+| Descrição | 3 linhas | `line-clamp-3` |
+| Label da métrica | 2 linhas | `line-clamp-2` |
+| Métricas | 3 itens | `slice(0, 3)` |
+
+### Padrão visual do banner
+
+- Card com altura fixa: 500px mobile, 560px tablet, 600px desktop
+- Grid 2 colunas no desktop: texto esquerda, imagem direita
+- Imagem 1:1 preenche o lado direito com `object-cover`
+- Texto alinhado verticalmente com `flex-col h-full justify-center`
+- CTA primário e secundário lado a lado (ou empilhado no mobile)
+
+### Adicionar um novo projeto ao banner
+
+1. Criar `public/banner/[id]-banner.jpg` (900x900)
+2. Verificar `priority` no JSON para a ordem de exibição
+3. Não precisa alterar `HeroBanner.astro` — ele lê automaticamente da pasta `public/banner/`
+
 ## Novo case — checklist
 
 1. Criar `src/content/cases/[slug].json` com todos os campos
