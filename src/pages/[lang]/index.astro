@@ -5,11 +5,10 @@ import { useTranslations } from '../../i18n/utils';
 import Fonts from '../../components/Fonts.astro';
 import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
-import Hero from '../../components/Hero.astro';
+import HeroBanner from '../../components/HeroBanner.astro';
 import TrustBar from '../../components/TrustBar.astro';
 import ProblemStatement from '../../components/ProblemStatement.astro';
 import BentoGrid from '../../components/BentoGrid.astro';
-import FeaturedCase from '../../components/FeaturedCase.astro';
 import ProcessSection from '../../components/ProcessSection.astro';
 import About from '../../components/About.astro';
 import SocialProof from '../../components/SocialProof.astro';
@@ -49,10 +48,9 @@ const description = currentLang === 'pt'
     <a href="#main-content" class="skip-link">{t('skip.link')}</a>
     <Header lang={currentLang} />
     <main id="main-content" class="flex-1">
-      <Hero lang={currentLang} />
+      <HeroBanner lang={currentLang} />
       <TrustBar lang={currentLang} />
       <ProblemStatement lang={currentLang} />
-      <FeaturedCase lang={currentLang} />
       <BentoGrid lang={currentLang} />
       <ProcessSection lang={currentLang} />
       <About lang={currentLang} />

@@ -1,0 +1,370 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import { ui } from '../i18n/ui';
+import { useTranslations } from '../i18n/utils';
+import { formatBusinessMetric } from '../utils/format';
+
+export interface Props {
+  lang: keyof typeof ui;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const cases: CollectionEntry<'cases'>[] = await getCollection('cases');
+
+// Ordenar por priority (mesma logica do BentoGrid)
+const sorted = [...cases].sort((a, b) => {
+  const pa = a.data.priority ?? 999;
+  const pb = b.data.priority ?? 999;
+  if (pa !== pb) return pa - pb;
+  return a.id.localeCompare(b.id);
+});
+
+// Top 5 projetos para o banner (mais que 5 ninguem ve ate o final)
+const slides = sorted.slice(0, 5);
+---
+
+<section
+  class="relative pt-24 pb-12 md:pb-16 overflow-hidden"
+  aria-roledescription="carousel"
+  aria-label={lang === 'pt' ? 'Projetos em destaque' : 'Featured projects'}
+  id="hero-banner"
+>
+  {/* Gradientes de fundo */}
+  <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+    <div class="absolute top-[-10%] right-[-10%] w-[40rem] h-[40rem] rounded-full bg-gradient-to-br from-brand-accent/10 to-brand-accent-secondary/5 blur-[100px]"></div>
+    <div class="absolute bottom-[-10%] left-[-5%] w-[32rem] h-[32rem] rounded-full bg-gradient-to-tr from-brand-accent-secondary/8 to-transparent blur-[90px]"></div>
+  </div>
+
+  <div class="relative max-w-6xl mx-auto px-4 md:px-6">
+    {/* Eyebrow + disponibilidade */}
+    <div class="mb-6 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span class="relative flex w-2.5 h-2.5">
+          <span class="absolute inline-flex w-full h-full rounded-full bg-brand-accent opacity-75 animate-ping"></span>
+          <span class="relative inline-flex w-2.5 h-2.5 rounded-full bg-brand-accent"></span>
+        </span>
+        <span class="text-xs font-bold text-brand-accent uppercase tracking-[0.2em] font-mono">
+          {t('hero.eyebrow')}
+        </span>
+      </div>
+      <span class="text-xs font-mono text-brand-text-secondary/60 hidden md:block" id="slide-counter">
+        1/{slides.length}
+      </span>
+    </div>
+
+    {/* Carousel — CSS scroll-snap nativo (mobile) + JS autoplay (desktop) */}
+    <div
+      class="hero-carousel relative overflow-hidden rounded-3xl"
+      data-autoplay="true"
+      data-interval="8000"
+    >
+      <div class="hero-carousel-track flex snap-x snap-mandatory overflow-x-auto scroll-smooth" style="scrollbar-width: none;">
+        {slides.map((item, index) => {
+          const metrics = item.data.businessOutcome.slice(0, 3);
+          const logoPath = item.data.heroImage ?? `/cases/${item.id}.svg`;
+          const heroImage = `/cases/${item.id}-hero.jpg`;
+          const href = `/${lang}/cases/${item.id}/`;
+          const liveUrl = item.data.liveUrl;
+
+          return (
+            <article
+              class="hero-slide snap-center shrink-0 w-full"
+              data-index={index}
+              aria-roledescription="slide"
+              aria-label={`${index + 1} / ${slides.length}: ${item.data.title}`}
+              role="group"
+            >
+              <div class="relative overflow-hidden rounded-3xl border border-brand-border bg-gradient-to-br from-brand-surface/80 to-brand-bg/60 shadow-[0_24px_80px_-24px_rgba(0,0,0,0.6)] backdrop-blur-md">
+                {/* Gradientes ambientais */}
+                <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+                  <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-brand-accent/8 to-transparent"></div>
+                  <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-brand-bg/70 to-transparent"></div>
+                </div>
+
+                <div class="relative grid md:grid-cols-2 gap-8 md:gap-12 p-6 md:p-10 lg:p-14 items-center min-h-[420px] md:min-h-[480px]">
+                  {/* Lado texto */}
+                  <div class="flex flex-col">
+                    <div class="inline-flex items-center gap-3 mb-5">
+                      <img
+                        src={logoPath}
+                        alt={`Logotipo do cliente ${item.data.clientName}`}
+                        width="40"
+                        height="40"
+                        loading={index === 0 ? "eager" : "lazy"}
+                        fetchpriority={index === 0 ? "high" : "auto"}
+                        decoding="async"
+                        class="w-10 h-10 object-contain rounded-lg bg-brand-bg/40 p-1.5 border border-brand-border"
+                      />
+                      <span class="text-sm font-medium text-brand-text-secondary font-mono">
+                        {item.data.clientName}
+                      </span>
+                    </div>
+
+                    <h1 class="font-display text-2xl md:text-4xl lg:text-5xl font-black leading-[1.05] tracking-[-0.03em] text-brand-text mb-4">
+                      {item.data.title}
+                    </h1>
+
+                    <p class="text-sm md:text-base lg:text-lg text-brand-text-secondary max-w-xl mb-6 leading-relaxed">
+                      {item.data.shortDescription}
+                    </p>
+
+                    {/* CTAs */}
+                    <div class="flex flex-col sm:flex-row gap-3 mb-6">
+                      <a
+                        href={href}
+                        class="inline-flex items-center justify-center min-h-[48px] px-5 py-3 bg-brand-accent text-brand-bg font-bold rounded-xl hover:scale-105 motion-safe:transition-transform motion-safe:duration-200 shadow-[0_0_24px_rgba(138,180,248,0.35)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-accent"
+                      >
+                        {t('featured.ctaCase')} →
+                      </a>
+                      {liveUrl && (
+                        <a
+                          href={liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="inline-flex items-center justify-center min-h-[48px] px-5 py-3 border border-brand-border text-brand-text font-semibold rounded-xl hover:border-brand-accent/60 hover:text-brand-accent motion-safe:transition-colors motion-safe:duration-200 bg-brand-surface/40 backdrop-blur-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-accent"
+                        >
+                          {t('featured.ctaLive')} ↗
+                        </a>
+                      )}
+                    </div>
+
+                    {/* Metricas */}
+                    <div class="grid grid-cols-3 gap-3 md:gap-5">
+                      {metrics.map((metric) => (
+                        <div class="border-l-2 border-brand-accent/30 pl-3">
+                          <span class="block text-xl md:text-2xl lg:text-3xl font-black text-brand-accent font-mono">
+                            {formatBusinessMetric(metric.value, metric.unit)}
+                          </span>
+                          <span class="text-[10px] md:text-xs text-brand-text-secondary leading-tight">{metric.label}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Lado visual — browser mockup */}
+                  <div class="relative rounded-2xl overflow-hidden border border-brand-border bg-brand-bg/40 shadow-[0_16px_48px_-16px_rgba(0,0,0,0.5)] aspect-[4/3] hidden md:block">
+                    {/* Browser header */}
+                    <div class="absolute top-0 left-0 right-0 h-8 bg-brand-surface/80 border-b border-brand-border flex items-center gap-1.5 px-4 z-10">
+                      <span class="w-2.5 h-2.5 rounded-full bg-red-500/60"></span>
+                      <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/60"></span>
+                      <span class="w-2.5 h-2.5 rounded-full bg-green-500/60"></span>
+                      <span class="ml-3 text-[10px] font-mono text-brand-text-secondary/60 truncate">
+                        {liveUrl ? new URL(liveUrl).hostname : ''}
+                      </span>
+                    </div>
+                    <div class="absolute inset-0 pt-8">
+                      <img
+                        src={heroImage}
+                        alt={`Previa da aplicacao ${item.data.title}`}
+                        width="600"
+                        height="450"
+                        loading={index === 0 ? "eager" : "lazy"}
+                        fetchpriority={index === 0 ? "high" : "auto"}
+                        decoding="async"
+                        class="w-full h-full object-cover object-top"
+                      />
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-bg/40 via-transparent to-transparent pointer-events-none" aria-hidden="true"></div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+
+      {/* Setas de navegacao — min 44x44px touch target */}
+      <button
+        type="button"
+        class="hero-prev absolute top-1/2 left-2 md:left-4 -translate-y-1/2 z-20 w-11 h-11 md:w-12 md:h-12 rounded-full bg-brand-bg/80 border border-brand-border text-brand-text hover:bg-brand-accent hover:text-brand-bg hover:border-brand-accent transition-colors flex items-center justify-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-accent"
+        aria-label={lang === 'pt' ? 'Slide anterior' : 'Previous slide'}
+      >
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+      <button
+        type="button"
+        class="hero-next absolute top-1/2 right-2 md:right-4 -translate-y-1/2 z-20 w-11 h-11 md:w-12 md:h-12 rounded-full bg-brand-bg/80 border border-brand-border text-brand-text hover:bg-brand-accent hover:text-brand-bg hover:border-brand-accent transition-colors flex items-center justify-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-accent"
+        aria-label={lang === 'pt' ? 'Proximo slide' : 'Next slide'}
+      >
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+
+      {/* Dots / indicadores */}
+      <div class="hero-dots absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2" role="tablist" aria-label={lang === 'pt' ? 'Navegacao de slides' : 'Slide navigation'}>
+        {slides.map((_, i) => (
+          <button
+            type="button"
+            class="hero-dot w-2.5 h-2.5 rounded-full bg-brand-text-secondary/40 hover:bg-brand-accent transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-accent"
+            data-index={i}
+            role="tab"
+            aria-label={`${i + 1}`}
+            aria-selected={i === 0 ? 'true' : 'false'}
+          ></button>
+        ))}
+      </div>
+    </div>
+
+    {/* CTA secundario abaixo do banner */}
+    <div class="mt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <a
+        href="#cases"
+        class="inline-flex items-center justify-center px-5 py-3 text-brand-text-secondary hover:text-brand-accent transition-colors min-h-[48px] font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-bg rounded-lg"
+      >
+        {lang === 'pt' ? 'Ver todos os 11 projetos' : 'View all 11 projects'} →
+      </a>
+      <a
+        href={`/${lang}/contato/`}
+        class="inline-flex items-center justify-center px-5 py-3 text-brand-accent hover:text-brand-accent-hover transition-colors min-h-[48px] font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-bg rounded-lg"
+      >
+        {t('hero.ctaSecondary')} →
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function() {
+    const carousel = document.querySelector('.hero-carousel') as HTMLElement | null;
+    const track = document.querySelector('.hero-carousel-track') as HTMLElement | null;
+    const slides = document.querySelectorAll('.hero-slide');
+    const dots = document.querySelectorAll('.hero-dot');
+    const prevBtn = document.querySelector('.hero-prev');
+    const nextBtn = document.querySelector('.hero-next');
+    const counter = document.getElementById('slide-counter');
+
+    if (!carousel || !track || slides.length === 0) return;
+
+    const interval = parseInt(carousel.getAttribute('data-interval') || '8000', 10);
+    const total = slides.length;
+    let current = 0;
+    let autoplayId: number | null = null;
+    let hasCompletedCycle = false;
+    let isHovering = false;
+    let isVisible = true;
+
+    function goTo(index: number) {
+      current = ((index % total) + total) % total;
+      const slide = slides[current];
+      if (slide) {
+        track!.scrollTo({ left: (slide as HTMLElement).offsetLeft, behavior: 'smooth' });
+      }
+      updateDots();
+      updateCounter();
+    }
+
+    function updateDots() {
+      dots.forEach((dot, i) => {
+        dot.setAttribute('aria-selected', i === current ? 'true' : 'false');
+        dot.classList.toggle('bg-brand-accent', i === current);
+        dot.classList.toggle('bg-brand-text-secondary/40', i !== current);
+        (dot as HTMLElement).style.width = i === current ? '24px' : '10px';
+      });
+    }
+
+    function updateCounter() {
+      if (counter) {
+        counter.textContent = `${current + 1}/${total}`;
+      }
+    }
+
+    function next() { goTo(current + 1); }
+    function prev() { goTo(current - 1); }
+
+    function startAutoplay() {
+      // Sem autoplay no mobile (economiza bateria/dados)
+      if (window.matchMedia('(max-width: 767px)').matches) return;
+      // Sem autoplay se ja completou 1 ciclo completo
+      if (hasCompletedCycle) return;
+      stopAutoplay();
+      autoplayId = window.setInterval(() => {
+        if (!isHovering && isVisible) {
+          if (current === total - 1) {
+            hasCompletedCycle = true;
+            stopAutoplay();
+            return;
+          }
+          next();
+        }
+      }, interval);
+    }
+
+    function stopAutoplay() {
+      if (autoplayId !== null) {
+        clearInterval(autoplayId);
+        autoplayId = null;
+      }
+    }
+
+    // Eventos dos botoes
+    nextBtn?.addEventListener('click', () => { next(); hasCompletedCycle = false; startAutoplay(); });
+    prevBtn?.addEventListener('click', () => { prev(); hasCompletedCycle = false; startAutoplay(); });
+
+    // Dots
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => { goTo(i); hasCompletedCycle = false; startAutoplay(); });
+    });
+
+    // Pause on hover (desktop)
+    carousel.addEventListener('mouseenter', () => { isHovering = true; });
+    carousel.addEventListener('mouseleave', () => { isHovering = false; });
+
+    // Pause on focus (acessibilidade)
+    carousel.addEventListener('focusin', () => { isHovering = true; });
+    carousel.addEventListener('focusout', () => { isHovering = false; });
+
+    // Keyboard navigation
+    carousel.addEventListener('keydown', (e: KeyboardEvent) => {
+      if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); next(); }
+    });
+
+    // IntersectionObserver — pausa quando fora da viewport
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        isVisible = entry.isIntersecting;
+        if (isVisible) { startAutoplay(); } else { stopAutoplay(); }
+      });
+    }, { threshold: 0.3 });
+    observer.observe(carousel);
+
+    // Detecta scroll manual (swipe no mobile) e atualiza dot atual
+    let scrollTimeout: number | null = null;
+    track!.addEventListener('scroll', () => {
+      if (scrollTimeout) clearTimeout(scrollTimeout);
+      scrollTimeout = window.setTimeout(() => {
+        const scrollLeft = track.scrollLeft;
+        const slideWidth = slides[0] ? (slides[0] as HTMLElement).offsetWidth : 0;
+        if (slideWidth > 0) {
+          const newCurrent = Math.round(scrollLeft / slideWidth);
+          if (newCurrent !== current) {
+            current = newCurrent;
+            updateDots();
+            updateCounter();
+          }
+        }
+      }, 150);
+    });
+
+    // Reduced motion — desativa autoplay
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
+
+    // Inicia autoplay
+    startAutoplay();
+  })();
+</script>
+
+<style>
+  .hero-carousel-track::-webkit-scrollbar {
+    display: none;
+  }
+  .hero-dot {
+    transition: width 300ms ease, background-color 200ms ease;
+  }
+</style>
