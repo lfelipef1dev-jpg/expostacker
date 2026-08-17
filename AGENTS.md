@@ -368,22 +368,63 @@ Para sites com conteúdo maior que 900px de altura, ajustar `scrollBy` no script
 
 ### Limites de texto no banner
 
-O componente `HeroBanner.astro` usa `line-clamp` para evitar encavalamento:
+O componente `HeroBanner.astro` usa `line-clamp` e `truncate` para evitar encavalamento:
 
 | Campo | Máximo de linhas | Nota |
 |-------|------------------|------|
-| Título | 2 linhas | `line-clamp-2` |
-| Descrição | 3 linhas | `line-clamp-3` |
-| Label da métrica | 2 linhas | `line-clamp-2` |
+| Nome do cliente | 1 linha | `text-3xl font-black` |
+| Descrição | 4 linhas | `line-clamp-4` |
+| Label da métrica | 1 linha | `truncate` + tooltip |
 | Métricas | 3 itens | `slice(0, 3)` |
 
-### Padrão visual do banner
+### Padrão de métricas (APROVADO)
+
+Cada métrica tem 2 elementos visuais:
+1. **Número grande** em azul, `font-mono`, `tabular-nums`, `text-xl`
+2. **Label curta** (máximo 2 palavras) em 1 linha, `text-xs`, `truncate`, com `title` (tooltip)
+
+**Regra:** labels longas vão no `title` (tooltip no hover), não no card.
+Exemplo: `"Vendas"` com title `"Aumento de Vendas (estimado)"`.
+
+Labels padronizadas por projeto:
+- TigreBet: Jogos, Rotas API, Tabelas
+- Medellin: Páginas, Produtos, Tiers VIP
+- Frotamais: Veículos, Viagens, Redução
+- SEEDS: Rotas, Tabelas, Tabelas RLS
+- CASA FASSI: Vendas, Engajamento, Churn
+- VivaMais: Especialidades, Convênios, Profissionais
+- SolMais: Performance, Acessibilidade, Contraste
+- GordaoMod: Produtos, Categorias, Páginas
+- Sanatto: Páginas, Lighthouse, Build
+- Faturamais: Fechamento, Conversão, Performance
+- VendaMais: Produtos, Performance, Acessibilidade
+
+### Padrão visual do banner (APROVADO)
 
 - Card com altura fixa: 500px mobile, 560px tablet, 600px desktop
 - Grid 2 colunas no desktop: texto esquerda, imagem direita
 - Imagem 1:1 preenche o lado direito com `object-cover`
-- Texto alinhado verticalmente com `flex-col h-full justify-center`
+- `object-position: 25% center` (imagem puxada pra esquerda)
+- Texto alinhado verticalmente com `flex-col h-full justify-between`
+- Logo do projeto: card 72-120px com a imagem do banner + nome ao lado
 - CTA primário e secundário lado a lado (ou empilhado no mobile)
+- Métricas em grid 3 colunas com `border-l-2` azul
+
+### Header (APROVADO)
+
+- Altura fixa: 64px (`h-16`)
+- Sticky com sombra ao rolar
+- Scroll spy com IntersectionObserver (link ativo muda cor)
+- Active state: dot azul embaixo do link ativo
+- Seletor de idioma: círculo com sigla + nome do idioma alvo
+- Mobile: hamburger com ícone X ao abrir, fecha ao clicar link
+- Acessibilidade: `aria-current`, `aria-expanded`, `aria-controls`, `role="menubar"`
+
+### TrustBar (faixa de prova)
+
+- 5 stats: 11 projetos, 100% no ar, 8+ tecnologias, 100% código público, CI/CD
+- Padding: `py-12 md:py-16` (respiro generoso)
+- Grid 2 colunas mobile, 5 colunas desktop
 
 ### Adicionar um novo projeto ao banner
 
