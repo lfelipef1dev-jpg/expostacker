@@ -126,15 +126,15 @@ const slides = sorted;
                     </div>
 
                     {/* Metricas */}
-                    <div class="grid grid-cols-3 gap-3 md:gap-5 mt-4">
+                    <div class="grid grid-cols-3 gap-2 md:gap-4 mt-4">
                       {metrics.map((metric) => (
-                        <div class="border-l-2 border-brand-accent/30 pl-3 min-w-0">
-                          <span class="block text-xl md:text-2xl font-black text-brand-accent font-mono leading-none truncate">
+                        <div class="border-l-2 border-brand-accent/30 pl-2 md:pl-3 min-w-0 flex flex-col items-center text-center">
+                          <span class="text-lg md:text-xl font-black text-brand-accent font-mono leading-none" title={metric.label}>
                             {formatBusinessMetric(metric.value, metric.unit)}
                           </span>
-                          <span class="text-[11px] md:text-xs leading-tight text-brand-text block mt-1 truncate">{metric.label}</span>
+                          <span class="text-[9px] md:text-[10px] leading-tight text-brand-text block mt-1 line-clamp-1" title={metric.label}>{metric.label}</span>
                           {metric.sublabel && (
-                            <span class="text-[9px] leading-tight text-brand-text-secondary/70 block truncate">{metric.sublabel}</span>
+                            <span class="text-[8px] leading-tight text-brand-text-secondary/70 block line-clamp-1" title={metric.sublabel}>{metric.sublabel}</span>
                           )}
                         </div>
                       ))}
