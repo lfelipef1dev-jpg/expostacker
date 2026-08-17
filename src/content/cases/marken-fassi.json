@@ -7,9 +7,9 @@
   "problemDescription": "O varejo premium de enxovais enfrentava vendedores de lojas multimarcas com conhecimento técnico limitado sobre tecidos, fios e diferenciais da marca, resultando em atendimento genérico e baixo ticket médio. Havia pouca retenção de conhecimento após treinamentos pontuais, ausência de conexão entre vendedores e a marca, dificuldade em escalar o relacionamento com centenas de lojistas espalhados pelo Brasil e falta de reconhecimento contínuo para a excelência em vendas.",
   "technicalSolution": "A CASA FASSI é uma Learning Experience Platform (LXP) frontend que combina microlearning de 10 a 60 segundos, gamificação inspirada em Duolingo e Nike Run Club, comunidade para compartilhamento de vitrines, assistente FASSI.AI para dúvidas técnicas, programa de benefícios com tiers de Bronze a Rubi Negro e dashboards para lojistas acompanharem o desempenho da equipe. A plataforma conecta a marca diretamente a quem fala com o cliente final, transformando vendedores em especialistas confiantes.",
   "businessOutcome": [
-    { "label": "Aumento de Vendas (estimado)", "value": 28, "unit": "%" },
-    { "label": "Engajamento Diário (meta)", "value": 67, "unit": "%" },
-    { "label": "Redução de Churn (projetado)", "value": 42, "unit": "%" },
+    { "label": "Vendas", "value": 28, "unit": "%" },
+    { "label": "Engajamento", "value": 67, "unit": "%" },
+    { "label": "Churn", "value": 42, "unit": "%" },
     { "label": "Ticket Médio (alvo)", "value": 1850, "unit": "R$" },
     { "label": "Taxa de Certificação (piloto)", "value": 78, "unit": "%" },
     { "label": "Tempo de Resposta FASSI.AI (alvo)", "value": 2, "unit": "s" }

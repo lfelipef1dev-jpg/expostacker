@@ -7,9 +7,9 @@
   "problemDescription": "A GordaoMod precisava de uma loja online profissional para comercializar scripts, mods, spoofer e recursos premium para servidores GTA V Roleplay FiveM. O desafio era apresentar 182 produtos em 10 categorias com navegacao fluida, ficha tecnica detalhada, busca rapida e design cyber/tech sem depender de frameworks pesados. A solucao deveria ser leve, acessivel, otimizada para SEO e com deploy automatico no ecossistema ExpoStacker.",
   "technicalSolution": "Construimos uma loja estatica em HTML5, CSS3 e Vanilla JS (sem framework), deployada no Cloudflare Pages com dominio customizado gordaomod.expostacker.com.br. O site possui 5 paginas (home, checkout, ficha tecnica, download e recursos), 182 produtos em 10 categorias com tabs dinamicas, busca em tempo real, modal de ficha tecnica com descricoes detalhadas, layout responsivo, meta tags Open Graph, canonical, robots.txt, _headers e otimizacoes de acessibilidade (ARIA, skip link, focus visible, reduced motion).",
   "businessOutcome": [
-    { "label": "Produtos no catalogo", "value": 182, "unit": "" },
+    { "label": "Produtos", "value": 182, "unit": "" },
     { "label": "Categorias", "value": 10, "unit": "" },
-    { "label": "Paginas do site", "value": 5, "unit": "" },
+    { "label": "Páginas", "value": 5, "unit": "" },
     { "label": "Custo de infraestrutura", "value": 0, "unit": "R$" },
     { "label": "Deploy", "value": 1, "unit": "min (estimado)" }
   ],

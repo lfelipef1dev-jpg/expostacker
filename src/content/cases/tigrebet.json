@@ -7,9 +7,9 @@
   "problemDescription": "O desafio era construir uma plataforma completa de jogos online que combinasse performance de um frontend moderno com a seguranca de um backend robusto. A plataforma precisava suportar 11 jogos diferentes (Fortune Tiger, Crash, Plinko, Double, Mines, Slots, Wingo, Raspadinha, Caixa Premiada, Envelopes e Bomb), sistema de pagamentos reais via PIX com Mercado Pago, sistema VIP com 5 niveis (Bronze a Diamond), KYC para saques, programa de indicacoes, missaoes diarias, jackpots progressivos, provably fair para todos os jogos, e arquitetura hibrida com Cloudflare Worker na edge e backend Node.js local.",
   "technicalSolution": "Construiamos uma plataforma full-stack com frontend Next.js 14 (App Router, TypeScript, Tailwind CSS, Zustand) em export estatico e backend Express com PostgreSQL via Sequelize, Redis para cache/sessaoes, JWT para autenticacao, Mercado Pago para pagamentos PIX, e Cloudflare Worker como proxy reverso na edge. O backend expoe 50+ rotas REST cobrindo autenticacao, 11 jogos, pagamentos, VIP, KYC, missaoes, indicacoes e administracao. O frontend tem 20+ paginas com 11 jogos interativos, animacaoes Framer Motion, sons, confetti e estado global Zustand com persistencia localStorage. Sistema provably fair com RNG seguro, audit logs, rate limiting, Helmet e validacao Zod.",
   "businessOutcome": [
-    { "label": "Jogos implementados", "value": 11, "unit": "" },
-    { "label": "Rotas de API", "value": 50, "unit": "+" },
-    { "label": "Tabelas no PostgreSQL", "value": 10, "unit": "" },
+    { "label": "Jogos", "value": 11, "unit": "" },
+    { "label": "Rotas API", "value": 50, "unit": "+" },
+    { "label": "Tabelas", "value": 10, "unit": "" },
     { "label": "Niveis VIP", "value": 5, "unit": "" },
     { "label": "Paginas no frontend", "value": 20, "unit": "+" },
     { "label": "Jackpots progressivos", "value": 4, "unit": "" }

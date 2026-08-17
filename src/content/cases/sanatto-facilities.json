@@ -7,9 +7,9 @@
   "problemDescription": "A Sanatto Facilities, empresa carioca com mais de 10 anos de atuação em facilities management, precisava de uma presença digital profissional que comunicasse sua estrutura de serviços, cases por segmento e cultura de compliance. O site anterior era genérico, não comunicava a maturidade operacional da empresa e não tinha páginas dedicadas para recruiting, portal do colaborador, blog, imprensa ou parceiros.",
   "technicalSolution": "Construímos um site institucional corporativo com Next.js 16 e React 19, usando App Router, Tailwind CSS v4 e shadcn/ui. O site tem 17 páginas estáticas cobrindo soluções, cases por segmento, sobre, carreiras, portal do colaborador, blog, vídeos, parceiros, imprensa, alimentação, contato, contratar, política de privacidade e termos de uso. Export estático para deploy em Cloudflare Pages com zero custo de infraestrutura. Formulário de contato com react-hook-form e Zod, animações cinematográficas com Framer Motion e design system consistente com paleta navy blue e gold.",
   "businessOutcome": [
-    { "label": "Páginas estáticas geradas", "value": 18, "unit": "" },
-    { "label": "Lighthouse Performance", "value": 98, "unit": "/100" },
-    { "label": "Tempo de build", "value": 4, "unit": "s" },
+    { "label": "Páginas", "value": 18, "unit": "" },
+    { "label": "Lighthouse", "value": 98, "unit": "/100" },
+    { "label": "Build", "value": 4, "unit": "s" },
     { "label": "Custo de infraestrutura", "value": 0, "unit": "R$" },
     { "label": "Segmentos atendidos", "value": 8, "unit": "" },
     { "label": "Serviços catalogados", "value": 6, "unit": "" }

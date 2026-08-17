@@ -7,9 +7,9 @@
   "problemDescription": "Pequenos e-commerces perdem horas toda semana conciliando vendas, estoque e notas fiscais em planilhas e sistemas desconectados, o que atrasa o fechamento mensal e aumenta erros fiscais.",
   "technicalSolution": "Criamos uma experiência estática de alta fidelidade com landing page de conversão e dashboard funcional em HTML, CSS e JavaScript vanilla. O protótipo simula navegação entre módulos, persistência local e tema claro/escuro, servindo como base para evolução full-stack.",
   "businessOutcome": [
-    { "label": "Tempo de Fechamento Mensal", "value": 60, "unit": "% (meta)" },
-    { "label": "Taxa de Conversão Esperada", "value": 4, "unit": "% (estimado)" },
-    { "label": "Performance Lighthouse", "value": 95, "unit": "+ (estimado)" }
+    { "label": "Fechamento", "value": 60, "unit": "%" },
+    { "label": "Conversão", "value": 4, "unit": "%" },
+    { "label": "Performance", "value": 95, "unit": "+" }
   ],
   "liveUrl": "https://faturamais.expostacker.com.br",
   "projectType": "SaaS",

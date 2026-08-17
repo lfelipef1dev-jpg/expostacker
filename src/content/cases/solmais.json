@@ -7,9 +7,9 @@
   "problemDescription": "Empresas de energia solar precisam comunicar economia, processo e credibilidade em segundos. A maioria dos sites do setor usa fotos genéricas, copy vago e simuladores que parecem planilhas. Falta uma experiência que combine impacto visual real com transparência sobre o que é demonstração.",
   "technicalSolution": "Construímos uma landing page estática premium com hero fotográfico de instalação solar real (Unsplash, licença livre), overlay navy gradient para contraste de texto, tipografia Sora (display) + Inter (body) self-hosted, simulador de economia interativo com cálculos ilustrativos, comparativo de 3 modelos de aquisição, depoimentos variados com disclosure único e FAQ acessível. Animações scroll-triggered via Intersection Observer, respeitando prefers-reduced-motion.",
   "businessOutcome": [
-    { "label": "Performance Lighthouse", "value": 90, "unit": "+ (estimado)" },
-    { "label": "Acessibilidade WCAG", "value": 95, "unit": "% (estimado)" },
-    { "label": "Contraste de cor", "value": 4.6, "unit": ":1 (AA)" }
+    { "label": "Performance", "value": 90, "unit": "+" },
+    { "label": "Acessibilidade", "value": 95, "unit": "%" },
+    { "label": "Contraste", "value": 4.6, "unit": ":1" }
   ],
   "liveUrl": "https://solmais.expostacker.com.br",
   "projectType": "Client-Work",

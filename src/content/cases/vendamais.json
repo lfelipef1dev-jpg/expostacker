@@ -7,9 +7,9 @@
   "problemDescription": "Lojas virtuais de pequeno porte precisam de uma experiência de compra completa — catálogo, filtros, busca, carrinho, checkout e prova social — mas muitas não conseguem validar o design e o fluxo de conversão sem investir em backend e gateway de pagamento antes de saber o que funciona.",
   "technicalSolution": "Construímos uma loja virtual estática de alta fidelidade em HTML, CSS e JavaScript vanilla. O catálogo de 24 produtos inclui filtros por categoria, busca, ordenação, paginação, modal de produto com especificações técnicas, variações, produtos relacionados e selos de confiança. O carrinho persiste em localStorage e o checkout simula PIX e cartão com validações completas de CPF, CEP e cartão.",
   "businessOutcome": [
-    { "label": "Produtos no Catálogo", "value": 24, "unit": "itens" },
-    { "label": "Performance Lighthouse", "value": 90, "unit": "+ (estimado)" },
-    { "label": "Acessibilidade WCAG", "value": 95, "unit": "% (estimado)" }
+    { "label": "Produtos", "value": 24, "unit": "" },
+    { "label": "Performance", "value": 90, "unit": "+" },
+    { "label": "Acessibilidade", "value": 95, "unit": "%" }
   ],
   "liveUrl": "https://vendamais.expostacker.com.br",
   "projectType": "Client-Work",

@@ -7,9 +7,9 @@
   "problemDescription": "Transportadoras e gestores de frota perdem visibilidade quando controlam tudo em planilhas desatualizadas. Falta uma visao unica de veiculos, motoristas, rotas, manutencao, combustivel, inspecoes e geofences para decidir com agilidade.",
   "technicalSolution": "Aplicacao full-stack com Astro SSR, Hono para API REST com CRUD completo, Cloudflare D1 com Drizzle ORM para persistencia real, Better Auth para autenticacao com roles (admin, gestor, motorista), Durable Objects com SSE para rastreamento em tempo real, algoritmo VRP (Nearest Neighbor + 2-opt) para roteirizacao, Leaflet para mapas com geofences, score de seguranca calculado a partir de eventos de telemetria, paginas de detalhe por veiculo e motorista, relatorios com graficos dinamicos e exportacao CSV, e sino de notificacoes in-app.",
   "businessOutcome": [
-    { "label": "veículos", "sublabel": "Frota em tela", "value": 8, "unit": "" },
-    { "label": "viagens", "sublabel": "Rotas simuladas", "value": 6, "unit": "" },
-    { "label": "%", "sublabel": "Redução de atrasos", "value": 60, "unit": "" }
+    { "label": "Veículos", "value": 8, "unit": "" },
+    { "label": "Viagens", "value": 6, "unit": "" },
+    { "label": "Redução", "value": 60, "unit": "%" }
   ],
   "liveUrl": "https://frotamais.expostacker.com.br",
   "projectType": "Client-Work",
