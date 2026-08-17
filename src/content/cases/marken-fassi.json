@@ -2,7 +2,7 @@
   "id": "marken-fassi",
   "title": "CASA FASSI",
   "clientName": "Marken Fassi",
-  "tags": ["Next.js 15", "React 19", "Tailwind CSS", "Gamificação", "FASSI.AI", "LXP"],
+  "tags": ["Next.js 15", "React 19", "Tailwind CSS", "Framer Motion", "Zustand", "Gamificação", "FASSI.AI", "LXP", "Cloudflare Pages"],
   "shortDescription": "LXP com microlearning e gamificação que transforma vendedores de enxovais de luxo em especialistas certificados e conecta a marca a centenas de lojistas.",
   "problemDescription": "O varejo premium de enxovais enfrentava vendedores de lojas multimarcas com conhecimento técnico limitado sobre tecidos, fios e diferenciais da marca, resultando em atendimento genérico e baixo ticket médio. Havia pouca retenção de conhecimento após treinamentos pontuais, ausência de conexão entre vendedores e a marca, dificuldade em escalar o relacionamento com centenas de lojistas espalhados pelo Brasil e falta de reconhecimento contínuo para a excelência em vendas.",
   "technicalSolution": "A CASA FASSI é uma Learning Experience Platform (LXP) frontend que combina microlearning de 10 a 60 segundos, gamificação inspirada em Duolingo e Nike Run Club, comunidade para compartilhamento de vitrines, assistente FASSI.AI para dúvidas técnicas, programa de benefícios com tiers de Bronze a Rubi Negro e dashboards para lojistas acompanharem o desempenho da equipe. A plataforma conecta a marca diretamente a quem fala com o cliente final, transformando vendedores em especialistas confiantes.",
@@ -31,8 +31,8 @@
     "en": "Gamified microlearning that turns store salespeople into certified brand specialists"
   },
   "heroSubhead": {
-    "pt": "LXP construída com Next.js 15 e React 19 para a Marken Fassi — microlearning de 10 a 60 segundos consumível entre atendimentos, gamificação com streaks e tiers de Bronze a Rubi Negro, assistente de vendas FASSI.AI com base de respostas estruturada no catálogo, comunidade privada para compartilhamento de vitrines entre lojistas, dashboards de desempenho por equipe e programa de certificação que posiciona vendedores como especialistas oficiais da marca. Tudo isso em uma interface mobile-first pensada para o chão de loja, com carregamento rápido mesmo em conexões 3G/4G instáveis.",
-    "en": "LXP built with Next.js 15 and React 19 for Marken Fassi — 10 to 60 second microlearning consumable between customers, gamification with streaks and tiers from Bronze to Black Ruby, FASSI.AI sales assistant with a structured answer base from the catalog, private community for sharing displays among retailers, team performance dashboards and a certification program that positions salespeople as official brand specialists. All in a mobile-first interface designed for the shop floor, with fast loading even on unstable 3G/4G connections."
+    "pt": "LXP construída com Next.js 15 (static export) e React 19 para a Marken Fassi — microlearning de 10 a 60 segundos consumível entre atendimentos, gamificação com streaks e tiers de Bronze a Rubi Negro, assistente de vendas FASSI.AI com base de respostas estruturada no catálogo, comunidade privada para compartilhamento de vitrines entre lojistas, dashboards de desempenho por equipe e programa de certificação que posiciona vendedores como especialistas oficiais da marca. Tudo isso em uma interface mobile-first pensada para o chão de loja, com carregamento rápido mesmo em conexões 3G/4G instáveis. Estado persistido em localStorage via Zustand — sem backend, sem custo de infraestrutura.",
+    "en": "LXP built with Next.js 15 (static export) and React 19 for Marken Fassi — 10 to 60 second microlearning consumable between customers, gamification with streaks and tiers from Bronze to Black Ruby, FASSI.AI sales assistant with a structured answer base from the catalog, private community for sharing displays among retailers, team performance dashboards and a certification program that positions salespeople as official brand specialists. All in a mobile-first interface designed for the shop floor, with fast loading even on unstable 3G/4G connections. State persisted in localStorage via Zustand — no backend, no infrastructure cost."
   },
   "opening": {
     "pt": "Sexta-feira, 14h. Ana, vendedora em uma loja multimarcas de São Paulo, atende uma cliente que pede o enxoval mais macio para o inverno. Por um segundo ela hesita — há dezenas de produtos, fios, gramaturas e composições. Em vez de chamar o supervisor, ela abre a CASA FASSI. Em 45 segundos, um micro-módulo lembra a diferença entre os tecidos, sugere duas opções e ainda a conecta a um quiz que ela pode completar antes do cliente provar a primeira peça. Quando a venda fecha, o ticket passa dos R$ 1.800. Ana ganha pontos, sobe de nível e, na próxima semana, será recomendada como especialista certificada.",
@@ -114,10 +114,10 @@
   ],
   "technologies": [
     {
-      "name": "Next.js 15",
+      "name": "Next.js 15 (static export)",
       "why": {
-        "pt": "Export estático e code-splitting automático permitiram carregar lições rapidamente, mesmo com conexões 3G/4G instáveis no varejo.",
-        "en": "Static export and automatic code-splitting let lessons load quickly, even on unstable 3G/4G connections in retail."
+        "pt": "Export estático e code-splitting automático permitiram carregar lições rapidamente, mesmo com conexões 3G/4G instáveis no varejo. Sem servidor, sem cold start.",
+        "en": "Static export and automatic code-splitting let lessons load quickly, even on unstable 3G/4G connections in retail. No server, no cold start."
       }
     },
     {
@@ -128,17 +128,31 @@
       }
     },
     {
-      "name": "Tailwind CSS",
+      "name": "Tailwind CSS v3",
       "why": {
         "pt": "Padronização visual rápida e performance de CSS pequeno, essenciais para um app usado em múltiplos dispositivos móveis.",
         "en": "Fast visual standardization and a small CSS payload, essential for an app used on many mobile devices."
       }
     },
     {
+      "name": "Framer Motion",
+      "why": {
+        "pt": "Animações de transição entre módulos, streaks e conquistas com spring physics e performance nativa.",
+        "en": "Transition animations between modules, streaks and achievements with spring physics and native performance."
+      }
+    },
+    {
+      "name": "Zustand + persist",
+      "why": {
+        "pt": "State management leve com persistência em localStorage. Progresso, XP, streaks e selos sobrevivem entre sessões sem backend.",
+        "en": "Lightweight state management with localStorage persistence. Progress, XP, streaks and badges survive between sessions without a backend."
+      }
+    },
+    {
       "name": "FASSI.AI (assistente baseado em regras)",
       "why": {
-        "pt": "Assistente de vendas com base no catálogo, roteiro de vendas e tom da marca. Arquitetado para evoluir para LLM/RAG em futura fase.",
-        "en": "Sales assistant based on catalog, sales script and brand tone. Architected to evolve into LLM/RAG in a future phase."
+        "pt": "Assistente de vendas com base de respostas estruturada no catálogo, roteiro de vendas e tom da marca. Arquitetado para evoluir para LLM/RAG em futura fase.",
+        "en": "Sales assistant with a structured answer base from the catalog, sales script and brand tone. Architected to evolve into LLM/RAG in a future phase."
       }
     }
   ],
@@ -297,23 +311,25 @@
     "pt": {
       "title": "Segurança e governança de acesso",
       "items": [
-        "Roles vendedor, lojista e admin com permissões distintas",
-        "SSO para login centralizado",
+        "Roles vendedor, lojista e admin com permissões distintas no estado da aplicação",
+        "Onboarding com identificação de loja, cidade e função",
         "Moderação de conteúdo e denúncias na comunidade",
-        "Segmentação de dados: cada lojista vê apenas sua equipe",
-        "Integrações seguras com catálogo e gateways",
-        "Conformidade com LGPD no tratamento de dados de vendedores"
+        "Segmentação de dados: cada lojista vê apenas sua equipe no estado local",
+        "Dados sensíveis não trafegam para servidor — tudo em localStorage",
+        "Conformidade com LGPD no tratamento de dados de vendedores",
+        "Roadmap: migração para backend com auth real (Supabase) quando sair do MVP"
       ]
     },
     "en": {
       "title": "Security and access governance",
       "items": [
-        "Distinct permissions for seller, retailer and admin roles",
-        "SSO for centralized login",
+        "Distinct permissions for seller, retailer and admin roles in app state",
+        "Onboarding with store, city and role identification",
         "Content moderation and reporting in the community",
-        "Data segmentation: each retailer only sees their own team",
-        "Secure integrations with catalog and gateways",
-        "LGPD compliance for handling seller data"
+        "Data segmentation: each retailer only sees their own team in local state",
+        "Sensitive data never travels to a server — everything in localStorage",
+        "LGPD compliance for handling seller data",
+        "Roadmap: migration to backend with real auth (Supabase) when leaving MVP"
       ]
     }
   },
@@ -324,33 +340,24 @@
         {
           "category": "Frontend",
           "items": [
-            { "name": "Next.js 15", "why": "SSR, streaming e App Router para entregar lições em milissegundos", "alt": "Astro — forte para conteúdo estático, mas não para interatividade rica" },
-            { "name": "React 19", "why": "Novos hooks e concorrência para animações de gamificação", "alt": "Vue 3 — maduro, mas menos ecossistema com Server Components" },
-            { "name": "Tailwind CSS", "why": "Padronização visual rápida e CSS pequeno", "alt": "Styled Components — adiciona runtime e aumenta o bundle" }
+            { "name": "Next.js 15 (static export)", "why": "Export estático com App Router para carregar lições em milissegundos, mesmo em 3G/4G", "alt": "Astro — forte para conteúdo estático, mas menos ecossistema para interatividade rica" },
+            { "name": "React 19", "why": "Hooks atualizados e concorrência para animações de gamificação fluidas", "alt": "Vue 3 — maduro, mas menos ecossistema com Server Components" },
+            { "name": "Tailwind CSS v3", "why": "Padronização visual rápida e CSS pequeno, essencial para mobile", "alt": "Styled Components — adiciona runtime e aumenta o bundle" },
+            { "name": "Framer Motion", "why": "Animações de transição entre módulos, streaks e conquistas com performance", "alt": "CSS animations — menos controle sobre timing e spring physics" }
           ]
         },
         {
-          "category": "Backend",
+          "category": "Estado/Dados",
           "items": [
-            { "name": "Next.js API Routes", "why": "Serverless no mesmo repositório, reduzindo latência e operação", "alt": "Express em VM — exige mais infra e tem maior latência" },
-            { "name": "tRPC", "why": "APIs totalmente tipadas, reduzindo erros entre frontend e backend", "alt": "REST manual — mais boilerplate e menos segurança de tipos" },
-            { "name": "Zustand", "why": "State management leve com persistência local para progresso offline", "alt": "Redux Toolkit — mais boilerplate e curva de aprendizado maior" }
+            { "name": "Zustand + persist", "why": "State management leve com persistência em localStorage — progresso, XP e streaks sobrevivem offline", "alt": "Redux Toolkit — mais boilerplate e curva de aprendizado maior" },
+            { "name": "Dados estruturados (TS)", "why": "Catálogo, trilhas e respostas do FASSI.AI em arquivos TypeScript tipados, sem necessidade de banco", "alt": "PostgreSQL — seria necessário backend e infraestrutura, inviável para MVP estático" }
           ]
         },
         {
-          "category": "Dados/Cache",
+          "category": "Infra",
           "items": [
-            { "name": "PostgreSQL", "why": "Dados relacionais consistentes para usuários, lojistas e progresso", "alt": "MongoDB — flexível, mas menos previsível para joins e transações" },
-            { "name": "Redis", "why": "Cache de sessões, leaderboards e filas com estruturas de dados rápidas", "alt": "Memcached — limitado a chave-valor simples" },
-            { "name": "Prisma", "why": "ORM tipado e migrations confiáveis", "alt": "Sequelize — menos type safety e DX inferior" }
-          ]
-        },
-        {
-          "category": "IA/Infra",
-          "items": [
-            { "name": "OpenAI", "why": "Motor do FASSI.AI para RAG e geração de respostas no tom da marca", "alt": "LLM open-source próprio — custo de infra e latência inaceitáveis" },
-            { "name": "Vercel Edge Functions", "why": "Cold start baixo e execução geodistribuída", "alt": "AWS Lambda — cold starts mais altos e configuração mais pesada" },
-            { "name": "Cloudflare Workers", "why": "Workers para pipelines assíncronos e notificações", "alt": "Servidores long-running — alto custo e desperdício para jobs esporádicos" }
+            { "name": "Cloudflare Pages", "why": "Hosting estático com CDN global, zero custo e deploy automático via GitHub Actions", "alt": "Vercel — excelente para Next.js, mas custo em escala" },
+            { "name": "Lucide React", "why": "Ícones SVG tree-shakeable para interface leve e acessível", "alt": "Icon fonts — mais pesadas e menos acessíveis" }
           ]
         }
       ]
@@ -361,33 +368,24 @@
         {
           "category": "Frontend",
           "items": [
-            { "name": "Next.js 15", "why": "SSR, streaming and App Router to deliver lessons in milliseconds", "alt": "Astro — strong for static content, but not for rich interactivity" },
-            { "name": "React 19", "why": "New hooks and concurrency for gamification animations", "alt": "Vue 3 — mature, but less Server Components ecosystem" },
-            { "name": "Tailwind CSS", "why": "Fast visual standardization and a small CSS payload", "alt": "Styled Components — adds runtime and increases bundle size" }
+            { "name": "Next.js 15 (static export)", "why": "Static export with App Router to load lessons in milliseconds, even on 3G/4G", "alt": "Astro — strong for static content, but less ecosystem for rich interactivity" },
+            { "name": "React 19", "why": "Updated hooks and concurrency for fluid gamification animations", "alt": "Vue 3 — mature, but less Server Components ecosystem" },
+            { "name": "Tailwind CSS v3", "why": "Fast visual standardization and small CSS payload, essential for mobile", "alt": "Styled Components — adds runtime and increases bundle size" },
+            { "name": "Framer Motion", "why": "Transition animations between modules, streaks and achievements with performance", "alt": "CSS animations — less control over timing and spring physics" }
           ]
         },
         {
-          "category": "Backend",
+          "category": "State/Data",
           "items": [
-            { "name": "Next.js API Routes", "why": "Serverless in the same repo, reducing latency and operations", "alt": "Express on a VM — requires more infrastructure and has higher latency" },
-            { "name": "tRPC", "why": "Fully typed APIs, reducing errors between frontend and backend", "alt": "Hand-written REST — more boilerplate and less type safety" },
-            { "name": "Zustand", "why": "Lightweight state management with local persistence for offline progress", "alt": "Redux Toolkit — more boilerplate and a steeper learning curve" }
+            { "name": "Zustand + persist", "why": "Lightweight state management with localStorage persistence — progress, XP and streaks survive offline", "alt": "Redux Toolkit — more boilerplate and steeper learning curve" },
+            { "name": "Structured data (TS)", "why": "Catalog, tracks and FASSI.AI answers in typed TypeScript files, no database needed", "alt": "PostgreSQL — would require backend and infrastructure, unviable for static MVP" }
           ]
         },
         {
-          "category": "Data/Cache",
+          "category": "Infra",
           "items": [
-            { "name": "PostgreSQL", "why": "Consistent relational data for users, retailers and progress", "alt": "MongoDB — flexible, but less predictable for joins and transactions" },
-            { "name": "Redis", "why": "Session cache, leaderboards and queues with fast data structures", "alt": "Memcached — limited to simple key-value storage" },
-            { "name": "Prisma", "why": "Typed ORM and reliable migrations", "alt": "Sequelize — less type safety and worse DX" }
-          ]
-        },
-        {
-          "category": "AI/Infra",
-          "items": [
-            { "name": "OpenAI", "why": "Engine behind FASSI.AI for RAG and brand-toned response generation", "alt": "Self-hosted open-source LLM — unacceptable infrastructure cost and latency" },
-            { "name": "Vercel Edge Functions", "why": "Low cold start and geo-distributed execution", "alt": "AWS Lambda — higher cold starts and heavier configuration" },
-            { "name": "Cloudflare Workers", "why": "Workers for async pipelines and notifications", "alt": "Long-running servers — high cost and waste for sporadic jobs" }
+            { "name": "Cloudflare Pages", "why": "Static hosting with global CDN, zero cost and automatic deploy via GitHub Actions", "alt": "Vercel — excellent for Next.js, but cost at scale" },
+            { "name": "Lucide React", "why": "Tree-shakeable SVG icons for a lightweight, accessible interface", "alt": "Icon fonts — heavier and less accessible" }
           ]
         }
       ]
@@ -395,25 +393,25 @@
   },
   "architecture": {
     "pt": {
-      "title": "Arquitetura de containers",
+      "title": "Arquitetura",
       "items": [
-        "Container SSR com Next.js 15 para entregar páginas e cache",
-        "API serverless para autenticação, gamificação e analytics",
-        "Container PostgreSQL para dados de usuários, lojistas e progresso",
-        "Container Redis para cache de sessões, leaderboards e filas",
-        "Container OpenAI para orquestrar RAG e geração de respostas",
-        "Container Workers para pipelines de notificação e jobs assíncronos"
+        "Next.js 15 com output: export — site estático puro, sem SSR, sem servidor",
+        "Estado global em Zustand com persistência em localStorage (progresso, XP, streaks, selos)",
+        "Catálogo, trilhas e base de respostas do FASSI.AI em arquivos TypeScript tipados",
+        "Animações de gamificação com Framer Motion (streaks, badges, transições)",
+        "Deploy no Cloudflare Pages com CDN global e cache automático de assets",
+        "GitHub Actions: push na main → build estático → deploy automático em ~1 minuto"
       ]
     },
     "en": {
-      "title": "Container architecture",
+      "title": "Architecture",
       "items": [
-        "SSR container with Next.js 15 to deliver pages and cache",
-        "Serverless API for authentication, gamification and analytics",
-        "PostgreSQL container for users, retailers and progress data",
-        "Redis container for session cache, leaderboards and queues",
-        "OpenAI container to orchestrate RAG and response generation",
-        "Workers container for notification pipelines and async jobs"
+        "Next.js 15 with output: export — pure static site, no SSR, no server",
+        "Global state in Zustand with localStorage persistence (progress, XP, streaks, badges)",
+        "Catalog, tracks and FASSI.AI answer base in typed TypeScript files",
+        "Gamification animations with Framer Motion (streaks, badges, transitions)",
+        "Deploy on Cloudflare Pages with global CDN and automatic asset caching",
+        "GitHub Actions: push to main → static build → automatic deploy in ~1 minute"
       ]
     }
   },
@@ -421,10 +419,10 @@
     "left": "Vendedores",
     "leftSub": "mobile / web",
     "center": "CASA FASSI",
-    "centerSub": "Next.js 15 + Node.js",
+    "centerSub": "Next.js 15 static export",
     "right": "Lojistas",
     "rightSub": "dashboard",
-    "bottom": ["PostgreSQL", "Redis", "OpenAI API", "Workers"]
+    "bottom": ["Zustand + localStorage", "Framer Motion", "FASSI.AI (regras)", "Cloudflare Pages"]
   },
   "resultsDetail": {
     "pt": {

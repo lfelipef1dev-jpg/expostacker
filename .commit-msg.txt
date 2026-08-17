@@ -1,16 +1,14 @@
-fix: case SEEDS - tabelas (32->40), rotas (50->51), gamification, techStack, resultsDetail, CSP fix
+fix: case CASA FASSI - remover claims falsos de backend, rewrite techStack e architecture para static export
 
-- Contagem de tabelas corrigida de 32 para 40 (verificado: 40 CREATE TABLE unicas nos SQL files)
-- Contagem de rotas corrigida de 50 para 51 (46 page.tsx + 5 route.ts)
-- tags table adicionada a lista (faltava no JSON)
-- gamification adicionado: 8 mecânicas reais (Conquistas, Mural, Ranking, Depoimentos, Conexões, Grupos, Indicações, Trilhas)
-- techStack adicionado: 3 categorias (Frontend, Backend, Infra/IA) com why + alt
-- resultsDetail adicionado: 6 KPIs com sparklines e fontes
-- methodology adicionado: 6 passos
-- architectureDiagram adicionado: Usuario -> Next.js -> Supabase + IA/Redis/Workers
-- visualDisclaimer adicionado: app no ar + codigo no repo
-- ctaTitle/ctaText adicionados ao JSON
-- CSP _headers do Seeds atualizado para permitir localhost e 127.0.0.1 (live preview local)
+- Removido claims falsos: tRPC, PostgreSQL, Redis, Prisma, OpenAI, Vercel Edge Functions, Cloudflare Workers
+- techStack reescrito: 3 categorias reais (Frontend, Estado/Dados, Infra) com 8 items verificados no package.json
+- architecture reescrito: static export + Zustand localStorage + Framer Motion + Cloudflare Pages
+- architectureDiagram atualizado: removido PostgreSQL/Redis/OpenAI/Workers, adicionado Zustand/Framer Motion/FASSI.AI regras/Cloudflare Pages
+- technologies atualizado: adicionado Framer Motion e Zustand+persist, esclarecido FASSI.AI como regras (nao OpenAI)
+- security reescrito: removido SSO (nao existe), esclarecido que dados ficam em localStorage, adicionado roadmap para Supabase
+- tags atualizado: adicionado Framer Motion, Zustand, Cloudflare Pages
+- heroSubhead atualizado: esclarecido static export + localStorage, sem backend
+- CSP _headers do Marken Fassi atualizado para permitir localhost e 127.0.0.1 (live preview local)
 
 Generated with [Devin](https://devin.ai)
 
