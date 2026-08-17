@@ -63,7 +63,7 @@ const slides = sorted;
         {slides.map((item, index) => {
           const metrics = item.data.businessOutcome.slice(0, 3);
           const logoPath = item.data.heroImage ?? `/cases/${item.id}.svg`;
-          const heroImage = `/banner/${item.id}-banner.jpg`;
+          const heroImage = `/banner/${item.id}-banner.jpg?v=2`;
           const href = `/${lang}/cases/${item.id}/`;
           const liveUrl = item.data.liveUrl;
 

@@ -77,7 +77,7 @@ const openAppLabel = lang === 'pt' ? 'Abrir aplicação' : 'Open app';
     {othersSorted.map((item) => {
       const href = `/${lang}/cases/${item.id}/`;
       const liveUrl = item.data.liveUrl;
-      const heroImage = `/cases/${item.id}-hero.jpg`;
+      const heroImage = `/cases/${item.id}-hero.jpg?v=2`;
       const logoPath = item.data.heroImage ?? `/cases/${item.id}.svg`;
       const category = item.data.category ?? 'client';
       const domain = liveUrl ? new URL(liveUrl).hostname : '';
