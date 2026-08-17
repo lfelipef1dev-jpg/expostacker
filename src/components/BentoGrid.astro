@@ -108,7 +108,7 @@ const openAppLabel = lang === 'pt' ? 'Abrir aplicação' : 'Open app';
             <div class="relative overflow-hidden">
               <img
                 src={heroImage}
-                alt={`Prévia da aplicação ${item.data.title}`}
+                alt={`Screenshot do produto ${item.data.title} — ${item.data.clientName} ao vivo`}
                 width="1440"
                 height="900"
                 loading="lazy"
@@ -125,7 +125,7 @@ const openAppLabel = lang === 'pt' ? 'Abrir aplicação' : 'Open app';
             <div class="inline-flex items-center gap-2.5 mb-3">
               <img
                 src={logoPath}
-                alt={`Logotipo do cliente ${item.data.clientName}`}
+                alt={`Logo ${item.data.clientName} — ${item.data.title}`}
                 width="32"
                 height="32"
                 loading="lazy"

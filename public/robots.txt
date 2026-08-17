@@ -1,17 +1,43 @@
 User-agent: *
 Allow: /
 
-# AI crawlers — caminho do meio (permitir busca e indexação para máxima visibilidade do portfólio)
+# AI crawlers — allow for maximum visibility
 User-agent: GPTBot
 Allow: /
 
 User-agent: OAI-SearchBot
 Allow: /
 
-User-agent: PerplexityBot
-Allow: /
-
 User-agent: ChatGPT-User
 Allow: /
 
-Sitemap: https://expostacker.com.br/sitemap.xml
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: AppleBot-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+# Block resource-heavy scrapers
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+Sitemap: https://expostacker.com.br/sitemap-index.xml
+Sitemap: https://expostacker.com.br/sitemap-images.xml

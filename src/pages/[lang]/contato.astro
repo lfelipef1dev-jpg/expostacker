@@ -1,6 +1,8 @@
 ---
 import '../../styles/global.css';
 import { ui } from '../../i18n/ui';
+import Fonts from '../../components/Fonts.astro';
+import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 
@@ -24,8 +26,14 @@ const canonicalUrl = currentLang === 'pt' ? ptUrl : enUrl;
 const xDefaultUrl = ptUrl;
 
 const title = currentLang === 'pt'
-  ? 'Contato | Expo Stacker'
-  : 'Contact | Expo Stacker';
+  ? 'Contato — contratar desenvolvimento de produto digital | Expo Stacker'
+  : 'Contact — hire digital product development | Expo Stacker';
+const description = currentLang === 'pt'
+  ? 'Fale comigo para construir seu produto digital. SaaS, e-commerce, site, MVP ou automação com IA. Resposta em até 24 horas.'
+  : 'Get in touch to build your digital product. SaaS, e-commerce, website, MVP, or AI automation. Reply within 24 hours.';
+const keywords = currentLang === 'pt'
+  ? 'contratar desenvolvedor, contato desenvolvimento de software, orçamento SaaS, orçamento e-commerce, desenvolvedor full stack, proposta de desenvolvimento, consultoria de produto digital'
+  : 'hire developer, software development contact, SaaS quote, e-commerce quote, full stack developer, development proposal, digital product consulting';
 
 const skipLinkText = currentLang === 'pt' ? 'Pular para o conteúdo' : 'Skip to content';
 const nameHelp = currentLang === 'pt' ? 'Como você gostaria de ser chamado?' : 'How would you like to be addressed?';
@@ -66,15 +74,17 @@ const channels = [
 
 <html lang={htmlLang}>
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title}</title>
-    <meta name="description" content={t['contact.subtitle']} />
-    <meta name="theme-color" content="#0A0A0A" />
-    <link rel="canonical" href={canonicalUrl} />
-    <link rel="alternate" hreflang="pt-br" href={ptUrl} />
-    <link rel="alternate" hreflang="en" href={enUrl} />
-    <link rel="alternate" hreflang="x-default" href={xDefaultUrl} />
+    <Fonts />
+    <BaseHead
+      title={title}
+      description={description}
+      lang={currentLang}
+      canonicalUrl={canonicalUrl}
+      ptUrl={ptUrl}
+      enUrl={enUrl}
+      xDefaultUrl={xDefaultUrl}
+      keywords={keywords}
+    />
   </head>
   <body class="min-h-screen flex flex-col bg-brand-bg text-brand-text antialiased">
     <a href="#main-content" class="skip-link">{skipLinkText}</a>

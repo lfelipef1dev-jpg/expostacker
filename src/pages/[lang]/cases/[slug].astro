@@ -21,6 +21,7 @@ import CaseSecurity from '../../../components/case/CaseSecurity.astro';
 import CaseResultsV2 from '../../../components/case/CaseResultsV2.astro';
 import CaseLessons from '../../../components/case/CaseLessons.astro';
 import CaseCTA from '../../../components/case/CaseCTA.astro';
+import CaseRelated from '../../../components/case/CaseRelated.astro';
 
 type ValidLang = keyof typeof ui;
 
@@ -54,9 +55,67 @@ const enUrl = `${site}/en/cases/${slug}/`;
 const canonicalUrl = currentLang === 'pt' ? ptUrl : enUrl;
 const xDefaultUrl = ptUrl;
 
-const title = `${entry.data.title} | Expo Stacker`;
+const title = currentLang === 'pt'
+  ? `${entry.data.title} — Case | Expo Stacker`
+  : `${entry.data.title} — Case Study | Expo Stacker`;
 const description = (entry.data.shortDescription ?? '').slice(0, 160);
 const ogImage = `${site}/og-image.png`;
+const heroImage = `${site}/cases/${slug}-hero.jpg`;
+const keywords = currentLang === 'pt'
+  ? `${entry.data.title}, ${entry.data.clientName}, case de desenvolvimento, produto digital ao vivo, ${entry.data.tags?.join(', ') ?? ''}`
+  : `${entry.data.title}, ${entry.data.clientName}, development case study, live digital product, ${entry.data.tags?.join(', ') ?? ''}`;
+
+// BreadcrumbList schema
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: currentLang === 'pt' ? 'Início' : 'Home', item: `${site}/${currentLang}/` },
+    { '@type': 'ListItem', position: 2, name: currentLang === 'pt' ? 'Produtos' : 'Products', item: `${site}/${currentLang}/cases/` },
+    { '@type': 'ListItem', position: 3, name: entry.data.title, item: canonicalUrl },
+  ],
+};
+
+// Article schema for case page
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: entry.data.title,
+  description: description,
+  image: heroImage,
+  url: canonicalUrl,
+  author: { '@type': 'Organization', name: 'Expo Stacker', url: site },
+  publisher: { '@type': 'Organization', name: 'Expo Stacker', logo: { '@type': 'ImageObject', url: `${site}/logo.png` } },
+  datePublished: `${entry.data.year ?? '2025'}-01-01`,
+  dateModified: new Date().toISOString().split('T')[0],
+  inLanguage: htmlLang,
+  keywords: entry.data.tags?.join(', ') ?? '',
+  about: entry.data.clientName,
+};
+
+// WebPage schema
+const webPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: title,
+  description: description,
+  url: canonicalUrl,
+  inLanguage: htmlLang,
+  isPartOf: { '@type': 'WebSite', name: 'Expo Stacker', url: site },
+  breadcrumb: { '@type': 'BreadcrumbList', itemListElement: breadcrumbSchema.itemListElement },
+};
+
+// ImageObject schema for hero image
+const imageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ImageObject',
+  url: heroImage,
+  contentUrl: heroImage,
+  caption: `Preview de ${entry.data.title}`,
+  representativeOfPage: true,
+};
+
+const caseSchemas = [breadcrumbSchema, articleSchema, webPageSchema, imageSchema];
 ---
 
 <html lang={htmlLang}>
@@ -70,6 +129,9 @@ const ogImage = `${site}/og-image.png`;
       enUrl={enUrl}
       xDefaultUrl={xDefaultUrl}
       ogImage={ogImage}
+      keywords={keywords}
+      type="article"
+      schema={caseSchemas}
     />
   </head>
   <body class="min-h-screen flex flex-col bg-brand-bg text-brand-text antialiased overflow-x-hidden">
@@ -107,6 +169,7 @@ const ogImage = `${site}/og-image.png`;
         </div>
         <CaseSecurity lang={currentLang} entry={entry} />
         <CaseLessons lang={currentLang} entry={entry} />
+        <CaseRelated lang={currentLang} currentSlug={slug} tags={entry.data.tags} />
         <CaseCTA lang={currentLang} entry={entry} />
       </article>
     </main>

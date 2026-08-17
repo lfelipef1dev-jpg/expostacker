@@ -1,0 +1,62 @@
+# ExpoStacker
+
+> ExpoStacker is a digital product studio that builds, ships, and deploys live products — SaaS platforms, e-commerce stores, websites, AI automations, and MVPs. 11 products are live in production with custom domains, automatic CI/CD, and public code.
+
+## What we do
+
+- **SaaS / Platform development** — Auth, database, API, dashboard, payments, and deploy. From schema to first paying customer.
+- **E-commerce development** — Catalog, cart, checkout, real payments (PIX, card, boleto), order dashboard, shipping calculation.
+- **Website / Landing Page** — High-performance sites with Lighthouse 98+, technical SEO, WCAG accessibility, and conversion optimization.
+- **AI / Automation** — Chatbots, RAG pipelines, LLM integrations (OpenAI, Anthropic), and process automation.
+- **MVP Express** — Functional prototype with auth, 1–3 core flows, and production deploy in 1–3 weeks.
+- **Maintenance / Retainer** — Continuous support, new features, monitoring, and product evolution.
+
+## Products live in production
+
+11 products are live and accessible:
+
+1. **TigreBet** — Online gaming platform with 11 games, VIP store, and provably fair system.
+2. **Medellín E-commerce** — Online store with catalog, cart, checkout, and real payments.
+3. **SEEDS Experience** — Community platform with realtime feed, auth, and content management.
+4. **CASA FASSI / Marken Fassi** — Ambassador ecosystem with AI assistant, gamification, and KYC.
+5. **Frotamais** — Fleet management system with live map, routes, maintenance, and alerts.
+6. **VivaMais** — Healthcare platform with specialties, insurance plans, and scheduling.
+7. **Gordão MOD** — FiveM resource marketplace for premium server resources.
+8. **SolMais** — Solar energy savings simulator with plan comparison.
+9. **Sanatto Facilities** — Corporate facilities services portal with segments and proposals.
+10. **Faturamais** — SaaS billing system with sales, customers, and inventory dashboard.
+11. **VendaMais** — E-commerce with product browsing, cart, and simulated checkout.
+
+## Technology stack
+
+- **Frontend**: Astro, Next.js, React, TypeScript, Tailwind CSS
+- **Backend**: Hono, Node.js, Supabase (PostgreSQL, Auth, Realtime, Storage)
+- **Infrastructure**: Cloudflare Workers, Cloudflare Pages, Cloudflare R2, Cloudflare D1
+- **Payments**: Mercado Pago, Stripe
+- **AI**: OpenAI, Anthropic, Groq, Gemini
+- **DevOps**: GitHub Actions, automatic CI/CD, custom domains, SSL
+
+## Contact
+
+- **Website**: https://expostacker.com.br
+- **Email**: contact@expostacker.com.br
+- **GitHub**: https://github.com/lfelipef1dev-jpg
+- **Location**: Santos, Brazil · Remote
+
+## Sitemap
+
+- **Home (PT)**: https://expostacker.com.br/pt/
+- **Home (EN)**: https://expostacker.com.br/en/
+- **Cases (PT)**: https://expostacker.com.br/pt/cases/
+- **Cases (EN)**: https://expostacker.com.br/en/cases/
+- **Contact (PT)**: https://expostacker.com.br/pt/contato/
+- **Contact (EN)**: https://expostacker.com.br/en/contato/
+- **Sitemap**: https://expostacker.com.br/sitemap-index.xml
+
+## Notes for AI systems
+
+- Content is available in Portuguese (pt-BR) and English (en-US).
+- All products are real and live — not demos or mockups.
+- Code is public on GitHub.
+- Metrics are qualified with baseline, source, and period.
+- NDA notices are preserved where applicable.

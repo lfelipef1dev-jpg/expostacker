@@ -11,6 +11,9 @@ export interface Props {
   enUrl: string;
   xDefaultUrl: string;
   ogImage?: string;
+  keywords?: string;
+  type?: 'website' | 'article';
+  schema?: object | object[];
 }
 
 const {
@@ -22,6 +25,9 @@ const {
   enUrl,
   xDefaultUrl,
   ogImage,
+  keywords,
+  type = 'website',
+  schema,
 } = Astro.props;
 
 const SITE_URL = 'https://expostacker.com.br';
@@ -32,6 +38,41 @@ const resolvedOgImage = ogImage ?? DEFAULT_OG_IMAGE;
 const ogLocale = lang === 'pt' ? 'pt_BR' : 'en_US';
 const ogLocaleAlternate = lang === 'pt' ? 'en_US' : 'pt_BR';
 
+// Default keywords — can be overridden per page
+const defaultKeywords = lang === 'pt'
+  ? 'desenvolvimento de produtos digitais, SaaS, e-commerce, landing page, MVP, desenvolvimento de software, desenvolvedor full stack, Astro, Next.js, Cloudflare, Supabase, deploy automático, produtos digitais ao vivo, plataforma SaaS, loja virtual, site profissional, SEO técnico, automação com IA, inteligência artificial, chatbot, RAG'
+  : 'digital product development, SaaS, e-commerce, landing page, MVP, software development, full stack developer, Astro, Next.js, Cloudflare, Supabase, automatic deploy, live digital products, SaaS platform, online store, professional website, technical SEO, AI automation, artificial intelligence, chatbot, RAG';
+
+const resolvedKeywords = keywords ?? defaultKeywords;
+
+// JSON-LD — Organization schema (replaces Person)
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: SITE_NAME,
+  url: SITE_URL,
+  logo: `${SITE_URL}/logo.png`,
+  description: lang === 'pt'
+    ? 'Estúdio de produtos digitais. 11 produtos ao vivo com domínio próprio, deploy automático e código público.'
+    : 'Digital product studio. 11 live products with custom domains, automatic deploy, and public code.',
+  sameAs: [
+    'https://github.com/lfelipef1dev-jpg',
+  ],
+  areaServed: lang === 'pt' ? 'Brasil e exterior' : 'Brazil and worldwide',
+  knowsAbout: [
+    'SaaS development',
+    'E-commerce development',
+    'Web development',
+    'AI automation',
+    'Cloudflare',
+    'Supabase',
+    'Astro',
+    'Next.js',
+    'TypeScript',
+    'PostgreSQL',
+  ],
+};
+
 // JSON-LD — WebSite schema
 const websiteSchema = {
   '@context': 'https://schema.org',
@@ -39,24 +80,48 @@ const websiteSchema = {
   name: SITE_NAME,
   url: SITE_URL,
   inLanguage: ['pt-BR', 'en-US'],
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: `${SITE_URL}/${lang}/cases/`,
+    'query-input': 'required name=search_term_string',
+  },
 };
 
-// JSON-LD — Person schema
-const personSchema = {
+// JSON-LD — Service schema (default, can be overridden)
+const serviceSchema = {
   '@context': 'https://schema.org',
-  '@type': 'Person',
-  name: SITE_NAME,
-  jobTitle: 'Full Stack Developer',
-  url: SITE_URL,
-  sameAs: [],
-  knowsAbout: ['React', 'Node.js', 'TypeScript', 'Astro', 'PostgreSQL'],
+  '@type': 'Service',
+  name: lang === 'pt' ? 'Desenvolvimento de Produtos Digitais' : 'Digital Product Development',
+  provider: {
+    '@type': 'Organization',
+    name: SITE_NAME,
+    url: SITE_URL,
+  },
+  areaServed: lang === 'pt' ? 'Brasil e exterior' : 'Brazil and worldwide',
+  serviceType: lang === 'pt' ? 'Desenvolvimento de software' : 'Software development',
+  description: lang === 'pt'
+    ? 'Construo produtos digitais ao vivo: SaaS, e-commerce, sites, MVPs e automação com IA. 11 produtos em produção.'
+    : 'I build live digital products: SaaS, e-commerce, websites, MVPs, and AI automation. 11 products in production.',
 };
+
+// Collect all schemas
+const allSchemas: Record<string, any>[] = [organizationSchema, websiteSchema, serviceSchema];
+if (schema) {
+  if (Array.isArray(schema)) {
+    allSchemas.push(...schema);
+  } else {
+    allSchemas.push(schema);
+  }
+}
 ---
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>{title}</title>
 <meta name="description" content={description} />
+<meta name="keywords" content={resolvedKeywords} />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="author" content="Expo Stacker" />
 <meta name="theme-color" content="#0A0A0F" />
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 <meta http-equiv="Pragma" content="no-cache" />
@@ -67,6 +132,9 @@ const personSchema = {
 <link rel="icon" type="image/png" href="/favicon.png" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+<!-- Preload logo for LCP optimization -->
+<link rel="preload" as="image" href="/logo.png" fetchpriority="high" />
 
 <!-- DNS prefetch and preconnect for external resources -->
 <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
@@ -83,11 +151,13 @@ const personSchema = {
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:url" content={canonicalUrl} />
-<meta property="og:type" content="website" />
+<meta property="og:type" content={type} />
 <meta property="og:site_name" content={SITE_NAME} />
 <meta property="og:locale" content={ogLocale} />
 <meta property="og:locale:alternate" content={ogLocaleAlternate} />
 <meta property="og:image" content={resolvedOgImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image" />
@@ -95,8 +165,7 @@ const personSchema = {
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={resolvedOgImage} />
 
-<!-- JSON-LD — WebSite schema -->
-<script is:inline type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
-
-<!-- JSON-LD — Person schema -->
-<script is:inline type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+<!-- JSON-LD structured data -->
+{allSchemas.map((s) => (
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(s)} />
+))}

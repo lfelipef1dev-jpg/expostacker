@@ -1,0 +1,71 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import { ui } from '../../i18n/ui';
+
+export interface Props {
+  lang: keyof typeof ui;
+  currentSlug: string;
+  tags?: string[];
+}
+
+const { lang, currentSlug, tags = [] } = Astro.props;
+
+// Get all cases and find related ones (by shared tags or category)
+const allCases: CollectionEntry<'cases'>[] = await getCollection('cases');
+
+const related = allCases
+  .filter((c) => c.id !== currentSlug)
+  .map((c) => {
+    const sharedTags = (c.data.tags ?? []).filter((t: string) => tags.includes(t)).length;
+    return { entry: c, score: sharedTags };
+  })
+  .sort((a, b) => b.score - a.score || a.entry.id.localeCompare(b.entry.id))
+  .slice(0, 3);
+
+if (related.length === 0) {
+  // Fallback: just get next 3 cases
+  const fallback = allCases
+    .filter((c) => c.id !== currentSlug)
+    .sort((a, b) => a.id.localeCompare(b.id))
+    .slice(0, 3);
+  related.push(...fallback.map((e) => ({ entry: e, score: 0 })));
+}
+---
+
+<section class="py-12 md:py-16 max-w-6xl mx-auto px-4 md:px-6" aria-labelledby="related-cases-title">
+  <h2 id="related-cases-title" class="font-display text-2xl md:text-3xl text-brand-text mb-8">
+    {lang === 'pt' ? 'Veja também outros produtos' : 'See also other products'}
+  </h2>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+    {related.map(({ entry }) => (
+      <a
+        href={`/${lang}/cases/${entry.id}/`}
+        class="group relative p-5 rounded-2xl border border-brand-border bg-brand-surface/40 hover:border-brand-accent/60 transition-colors motion-reduce:transition-none flex flex-col gap-3"
+      >
+        <div class="flex items-center gap-3">
+          <img
+            src={entry.data.heroImage ?? `/cases/${entry.id}.svg`}
+            alt={`Logotipo de ${entry.data.clientName}`}
+            width="32"
+            height="32"
+            loading="lazy"
+            decoding="async"
+            class="w-8 h-8 object-contain rounded-lg shrink-0"
+          />
+          <span class="text-xs font-mono text-brand-text-secondary truncate">
+            {entry.data.clientName}
+          </span>
+        </div>
+        <h3 class="font-display text-lg font-black text-brand-text group-hover:text-brand-accent transition-colors leading-tight">
+          {entry.data.title}
+        </h3>
+        <p class="text-sm text-brand-text-secondary line-clamp-2">
+          {entry.data.shortDescription}
+        </p>
+        <span class="text-xs font-mono text-brand-accent mt-auto">
+          {lang === 'pt' ? 'Ver case →' : 'View case →'}
+        </span>
+      </a>
+    ))}
+  </div>
+</section>

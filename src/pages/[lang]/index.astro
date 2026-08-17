@@ -34,17 +34,48 @@ const canonicalUrl = currentLang === 'pt' ? ptUrl : enUrl;
 const xDefaultUrl = ptUrl;
 
 const title = currentLang === 'pt'
-  ? 'Expo Stacker | 11 produtos digitais em produção — construí o seu'
-  : 'Expo Stacker | 11 digital products live — build yours';
+  ? 'Expo Stacker | Desenvolvimento de produtos digitais — 11 produtos ao vivo'
+  : 'Expo Stacker | Digital product development — 11 live products';
 const description = currentLang === 'pt'
-  ? 'Vitrine de produtos digitais em produção. 11 aplicações ao vivo, com domínio próprio e código público. Construo o próximo produto para você.'
-  : 'Showcase of live digital products. 11 live applications with custom domains and public code. I build your next product.';
+  ? 'Desenvolvimento de produtos digitais ao vivo: SaaS, e-commerce, sites, MVPs e automação com IA. 11 aplicações em produção com domínio próprio, deploy automático e código público. Construo o seu.'
+  : 'Digital product development: SaaS, e-commerce, websites, MVPs, and AI automation. 11 live applications in production with custom domains, automatic deploy, and public code. I build yours.';
+const keywords = currentLang === 'pt'
+  ? 'desenvolvimento de produtos digitais, desenvolvedor SaaS, desenvolvedor e-commerce, criar plataforma SaaS, desenvolvedor full stack Brasil, produtos digitais ao vivo, deploy automático, MVP development, automação com IA, chatbot IA, site profissional, landing page conversão, Cloudflare, Supabase, Astro, Next.js'
+  : 'digital product development, SaaS developer, e-commerce developer, build SaaS platform, full stack developer Brazil, live digital products, automatic deploy, MVP development, AI automation, AI chatbot, professional website, conversion landing page, Cloudflare, Supabase, Astro, Next.js';
+
+// FAQ schema for rich results
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: t('faq.q1'), acceptedAnswer: { '@type': 'Answer', text: t('faq.a1') } },
+    { '@type': 'Question', name: t('faq.q2'), acceptedAnswer: { '@type': 'Answer', text: t('faq.a2') } },
+    { '@type': 'Question', name: t('faq.q3'), acceptedAnswer: { '@type': 'Answer', text: t('faq.a3') } },
+    { '@type': 'Question', name: t('faq.q4'), acceptedAnswer: { '@type': 'Answer', text: t('faq.a4') } },
+    { '@type': 'Question', name: t('faq.q5'), acceptedAnswer: { '@type': 'Answer', text: t('faq.a5') } },
+    { '@type': 'Question', name: t('faq.q6'), acceptedAnswer: { '@type': 'Answer', text: t('faq.a6') } },
+    { '@type': 'Question', name: t('faq.q7'), acceptedAnswer: { '@type': 'Answer', text: t('faq.a7') } },
+    { '@type': 'Question', name: t('faq.q8'), acceptedAnswer: { '@type': 'Answer', text: t('faq.a8') } },
+  ],
+};
+
+// Speakable schema for voice search
+const speakableSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: title,
+  url: canonicalUrl,
+  speakable: {
+    '@type': 'SpeakableSpecification',
+    cssSelector: ['#hero-banner', '#packages-title', '#faq-title'],
+  },
+};
 ---
 
 <html lang={currentLang === 'pt' ? 'pt-BR' : 'en-US'}>
   <head>
     <Fonts />
-    <BaseHead title={title} description={description} lang={currentLang} canonicalUrl={canonicalUrl} ptUrl={ptUrl} enUrl={enUrl} xDefaultUrl={xDefaultUrl} />
+    <BaseHead title={title} description={description} lang={currentLang} canonicalUrl={canonicalUrl} ptUrl={ptUrl} enUrl={enUrl} xDefaultUrl={xDefaultUrl} keywords={keywords} schema={[faqSchema, speakableSchema]} />
   </head>
   <body class="min-h-screen flex flex-col bg-brand-bg text-brand-text antialiased overflow-x-hidden">
     <a href="#main-content" class="skip-link">{t('skip.link')}</a>
