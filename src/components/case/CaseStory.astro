@@ -13,32 +13,47 @@ const t = useTranslations(lang);
 
 <section class="py-12 md:py-16">
   <div class="max-w-6xl mx-auto px-4 md:px-6">
-    <h2 class="font-display text-2xl md:text-3xl text-brand-text">
+    {/* Problem — eyebrow + h2 */}
+    <p class="font-mono text-xs uppercase tracking-widest text-brand-accent mb-2">
+      {lang === 'pt' ? 'O desafio' : 'The challenge'}
+    </p>
+    <h2 class="font-display text-2xl md:text-3xl text-brand-text mb-4">
       {t('case.theProblem')}
     </h2>
-    <p class="mt-4 text-brand-text-secondary leading-relaxed">
+    <p class="text-brand-text-secondary leading-relaxed">
       {entry.data.opening?.[lang] ?? ''}
     </p>
     <p class="mt-4 text-brand-text-secondary leading-relaxed">
       {entry.data.problemDescription ?? ''}
     </p>
 
-    <h2 class="mt-8 font-display text-2xl md:text-3xl text-brand-text">
+    {/* Approach — eyebrow + h2 */}
+    <p class="mt-10 font-mono text-xs uppercase tracking-widest text-brand-accent mb-2">
+      {lang === 'pt' ? 'A abordagem' : 'The approach'}
+    </p>
+    <h2 class="font-display text-2xl md:text-3xl text-brand-text mb-4">
       {t('case.theApproach')}
     </h2>
-    <p class="mt-4 text-brand-text-secondary leading-relaxed">
+    <p class="text-brand-text-secondary leading-relaxed">
       {entry.data.approach?.[lang] ?? entry.data.technicalSolution ?? ''}
     </p>
 
-    <h2 class="mt-8 font-display text-2xl md:text-3xl text-brand-text">
+    {/* Solution — eyebrow + h2 (destaque maior) */}
+    <p class="mt-10 font-mono text-xs uppercase tracking-widest text-brand-accent mb-2">
+      {lang === 'pt' ? 'A solução' : 'The solution'}
+    </p>
+    <h2 class="font-display text-2xl md:text-3xl text-brand-text mb-4">
       {t('case.theSolution')}
     </h2>
-    <p class="mt-4 text-brand-text-secondary leading-relaxed">
+    <p class="text-brand-text-secondary leading-relaxed">
       {entry.data.solutionIntro?.[lang] ?? ''}
     </p>
-    <ul class="mt-4 list-disc pl-5 text-brand-text-secondary leading-relaxed">
+    <ul class="mt-4 space-y-2 text-brand-text-secondary leading-relaxed">
       {(entry.data.solutionItems?.[lang] ?? []).map((item: string) => (
-        <li>{item}</li>
+        <li class="flex gap-3">
+          <span class="shrink-0 text-brand-accent mt-1" aria-hidden="true">→</span>
+          <span>{item}</span>
+        </li>
       ))}
     </ul>
   </div>

@@ -1,11 +1,12 @@
-fix: case TigreBet - remove AI vazio, unifica 11 jogos, tags com Framer Motion, gamification do JSON
+feat: case page UX improvements - results cedo, hero H1 curto, quebras visuais, story com hierarquia
 
-- CaseAI: nao renderiza quando aiPipeline nao existe no JSON (bug: aparecia h2 + texto hardcoded irrelevante)
-- CaseGamification: usa titulo do JSON em vez de texto hardcoded sobre "vendedores"; engagement steps condicional
-- tigrebet.json: removido Minesweeper da lista (mines e minesweeper usam mesma API = 1 jogo)
-- tigrebet.json: tags atualizadas com Framer Motion (esta no package.json mas faltava)
-- tigrebet.json: visualDisclaimer mais preciso sobre frontend vs backend
-- tigrebet.json: adicionado Framer Motion na lista de technologies
+- Results movido para apos Snapshot (posicao 3 em vez de 12) - pesquisa 2026 diz resultados cedo converte mais
+- Hero H1 agora mostra so o titulo do projeto (TigreBet) em vez do paragrafo longo
+- heroHeadline movido para subhead (texto descritivo sob o H1)
+- Quebras visuais: secoes alternadas com bg-brand-surface/20 + border-y para ritmo visual
+- CaseStory: eyebrows (O desafio / A abordagem / A solucao) + solution items com setas em vez de bullets
+- CaseCTA: texto do JSON (ctaTitle/ctaText) em vez de hardcoded sobre "ecossistema"
+- CaseCTA: botoes com rounded-lg + hover + focus-visible ring
 
 Generated with [Devin](https://devin.ai)
 

@@ -86,18 +86,26 @@ const ogImage = `${site}/og-image.png`;
       <article class="max-w-6xl mx-auto px-4 md:px-6">
         <CaseHeroV2 lang={currentLang} entry={entry} slug={slug} />
         <CaseSnapshot lang={currentLang} entry={entry} />
-        <section id="case-content">
-          <CaseStory lang={currentLang} entry={entry} />
-        </section>
+        <CaseResultsV2 lang={currentLang} entry={entry} />
+        <div class="bg-brand-surface/20 border-y border-brand-border">
+          <section id="case-content">
+            <CaseStory lang={currentLang} entry={entry} />
+          </section>
+        </div>
         <CaseTimeline lang={currentLang} entry={entry} />
-        <CaseMethodology lang={currentLang} entry={entry} />
+        <div class="bg-brand-surface/20 border-y border-brand-border">
+          <CaseMethodology lang={currentLang} entry={entry} />
+        </div>
         <CaseArchitecture lang={currentLang} entry={entry} />
-        <CaseTechStack lang={currentLang} entry={entry} />
+        <div class="bg-brand-surface/20 border-y border-brand-border">
+          <CaseTechStack lang={currentLang} entry={entry} />
+        </div>
         <CaseDecisionLog lang={currentLang} entry={entry} />
         <CaseAI lang={currentLang} entry={entry} />
-        <CaseGamification lang={currentLang} entry={entry} />
+        <div class="bg-brand-surface/20 border-y border-brand-border">
+          <CaseGamification lang={currentLang} entry={entry} />
+        </div>
         <CaseSecurity lang={currentLang} entry={entry} />
-        <CaseResultsV2 lang={currentLang} entry={entry} />
         <CaseLessons lang={currentLang} entry={entry} />
         <CaseCTA lang={currentLang} entry={entry} />
       </article>
