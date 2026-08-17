@@ -2,17 +2,48 @@
   "id": "sanatto-facilities",
   "title": "Sanatto Facilities",
   "clientName": "Sanatto Facilities",
-  "tags": ["Next.js 16", "React 19", "Tailwind CSS v4", "shadcn/ui", "Framer Motion", "Static Export"],
-  "shortDescription": "Site institucional corporativo para empresa de facilities management com 17 páginas, design cinematográfico e arquitetura estática para máxima performance e SEO.",
+  "tags": [
+    "Next.js 16",
+    "React 19",
+    "Tailwind CSS v4",
+    "shadcn/ui",
+    "Framer Motion",
+    "Static Export"
+  ],
+  "shortDescription": "Site institucional para empresa de facilities. Síndico ou gestor encontra serviços, cases e solicita proposta em minutos.",
   "problemDescription": "A Sanatto Facilities, empresa carioca com mais de 10 anos de atuação em facilities management, precisava de uma presença digital profissional que comunicasse sua estrutura de serviços, cases por segmento e cultura de compliance. O site anterior era genérico, não comunicava a maturidade operacional da empresa e não tinha páginas dedicadas para recruiting, portal do colaborador, blog, imprensa ou parceiros.",
   "technicalSolution": "Construímos um site institucional corporativo com Next.js 16 e React 19, usando App Router, Tailwind CSS v4 e shadcn/ui. O site tem 17 páginas estáticas cobrindo soluções, cases por segmento, sobre, carreiras, portal do colaborador, blog, vídeos, parceiros, imprensa, alimentação, contato, contratar, política de privacidade e termos de uso. Export estático para deploy em Cloudflare Pages com zero custo de infraestrutura. Formulário de contato com react-hook-form e Zod, animações cinematográficas com Framer Motion e design system consistente com paleta navy blue e gold.",
   "businessOutcome": [
-    { "label": "Páginas", "value": 18, "unit": "" },
-    { "label": "Lighthouse", "value": 98, "unit": "/100" },
-    { "label": "Build", "value": 4, "unit": "s" },
-    { "label": "Custo de infraestrutura", "value": 0, "unit": "R$" },
-    { "label": "Segmentos atendidos", "value": 8, "unit": "" },
-    { "label": "Serviços catalogados", "value": 6, "unit": "" }
+    {
+      "label": "Páginas",
+      "value": 18,
+      "unit": ""
+    },
+    {
+      "label": "Lighthouse",
+      "value": 98,
+      "unit": "/100"
+    },
+    {
+      "label": "Build",
+      "value": 4,
+      "unit": "s"
+    },
+    {
+      "label": "Custo de infraestrutura",
+      "value": 0,
+      "unit": "R$"
+    },
+    {
+      "label": "Segmentos atendidos",
+      "value": 8,
+      "unit": ""
+    },
+    {
+      "label": "Serviços catalogados",
+      "value": 6,
+      "unit": ""
+    }
   ],
   "liveUrl": "https://sanatto.expostacker.com.br",
   "projectType": "Client-Work",
@@ -27,8 +58,8 @@
     "en": "Corporate institutional website with 17 pages, cinematic design and static architecture for a facilities management company with over 10 years in the market"
   },
   "heroSubhead": {
-    "pt": "Plataforma construída com Next.js 16 e React 19 para a Sanatto Facilities — empresa carioca especializada em limpeza, portaria, recepção, copa, manutenção e gestão de equipes. O site cobre soluções completas com 6 serviços catalogados, cases por 8 segmentos de mercado, jornada de contratação em 4 etapas, portal de carreiras com banco de talentos, portal do colaborador, blog, galeria de vídeos, sala de imprensa, programa de parceiros, serviços de alimentação e formulário de contato com validação Zod. Tudo em export estático com Tailwind CSS v4, shadcn/ui e Framer Motion, deployado em Cloudflare Pages com custo zero de infraestrutura.",
-    "en": "Platform built with Next.js 16 and React 19 for Sanatto Facilities — a Rio de Janeiro company specialized in cleaning, reception, hospitality, pantry, maintenance and team management. The site covers complete solutions with 6 cataloged services, cases across 8 market segments, a 4-step hiring journey, careers portal with talent bank, employee portal, blog, video gallery, press room, partners program, food services and a contact form with Zod validation. All in static export with Tailwind CSS v4, shadcn/ui and Framer Motion, deployed on Cloudflare Pages with zero infrastructure cost."
+    "pt": "Gestor de condomínio entra no site, navega por serviços, vê cases por segmento e preenche o formulário de contato. 17 páginas com jornada de contratação clara.",
+    "en": "A condominium manager enters the site, browses services, sees cases by segment and fills the contact form. 17 pages with a clear hiring journey."
   },
   "opening": {
     "pt": "Segunda-feira, 9h. Um síndico de condomínio residencial no Rio de Janeiro pesquisa no Google por empresas de facilities management. Ele precisa de limpeza, portaria e manutenção — mas quer uma empresa que tenha cases no segmento, processo de contratação claro e cultura de compliance. Entra no site da Sanatto. Em segundos, navega para a página de cases, filtra por condomínio residencial, vê depoimentos de outros síndicos, entende a jornada de contratação em 4 etapas e preenche o formulário de contato. Antes do café da manhã, a Sanatto já tem um lead qualificado.",
@@ -173,11 +204,32 @@
     "en": "Facilities Management · Corporate Services"
   },
   "heroMetrics": [
-    { "value": "17", "label": { "pt": "Páginas estáticas", "en": "Static pages" } },
-    { "value": "98", "label": { "pt": "Lighthouse Score", "en": "Lighthouse Score" } },
-    { "value": "0", "label": { "pt": "Custo de infra (R$)", "en": "Infra cost (R$)" } }
+    {
+      "value": "17",
+      "label": {
+        "pt": "Páginas estáticas",
+        "en": "Static pages"
+      }
+    },
+    {
+      "value": "98",
+      "label": {
+        "pt": "Lighthouse Score",
+        "en": "Lighthouse Score"
+      }
+    },
+    {
+      "value": "0",
+      "label": {
+        "pt": "Custo de infra (R$)",
+        "en": "Infra cost (R$)"
+      }
+    }
   ],
-  "timeline": { "duration": "2 semanas", "launchDate": "2026-08" },
+  "timeline": {
+    "duration": "2 semanas",
+    "launchDate": "2026-08"
+  },
   "timelinePhases": [
     {
       "phase": "Descoberta",
@@ -288,33 +340,81 @@
         {
           "category": "Frontend",
           "items": [
-            { "name": "Next.js 16", "why": "App Router, export estático e Turbopack para build em 4 segundos", "alt": "Astro — excelente para conteúdo estático, mas menos ecossistema para interatividade" },
-            { "name": "React 19", "why": "Server Components por padrão, novos hooks para interatividade client-side", "alt": "Vue 3 — maduro, mas menos ecossistema com Server Components" },
-            { "name": "Tailwind CSS v4", "why": "Sintaxe @import, CSS variables nativas e bundle CSS mínimo", "alt": "Styled Components — adiciona runtime e aumenta o bundle" }
+            {
+              "name": "Next.js 16",
+              "why": "App Router, export estático e Turbopack para build em 4 segundos",
+              "alt": "Astro — excelente para conteúdo estático, mas menos ecossistema para interatividade"
+            },
+            {
+              "name": "React 19",
+              "why": "Server Components por padrão, novos hooks para interatividade client-side",
+              "alt": "Vue 3 — maduro, mas menos ecossistema com Server Components"
+            },
+            {
+              "name": "Tailwind CSS v4",
+              "why": "Sintaxe @import, CSS variables nativas e bundle CSS mínimo",
+              "alt": "Styled Components — adiciona runtime e aumenta o bundle"
+            }
           ]
         },
         {
           "category": "UI/Design",
           "items": [
-            { "name": "shadcn/ui", "why": "Componentes headless acessíveis com @base-ui/react e CVA", "alt": "Material UI — mais pesado e menos flexível para customização" },
-            { "name": "Framer Motion", "why": "Animações fade-in direcionais com prefers-reduced-motion respeitado", "alt": "CSS animations — menos controle sobre timing e direção" },
-            { "name": "lucide-react", "why": "Icon library leve e consistente com o design system", "alt": "Heroicons — boa, mas menos opções de ícones" }
+            {
+              "name": "shadcn/ui",
+              "why": "Componentes headless acessíveis com @base-ui/react e CVA",
+              "alt": "Material UI — mais pesado e menos flexível para customização"
+            },
+            {
+              "name": "Framer Motion",
+              "why": "Animações fade-in direcionais com prefers-reduced-motion respeitado",
+              "alt": "CSS animations — menos controle sobre timing e direção"
+            },
+            {
+              "name": "lucide-react",
+              "why": "Icon library leve e consistente com o design system",
+              "alt": "Heroicons — boa, mas menos opções de ícones"
+            }
           ]
         },
         {
           "category": "Form/Validação",
           "items": [
-            { "name": "react-hook-form", "why": "Performance e DX superior para formulários com validação", "alt": "Formik — mais boilerplate e performance inferior" },
-            { "name": "Zod", "why": "Schema validation tipada integrada com TypeScript", "alt": "Yup — menos integração nativa com TypeScript" },
-            { "name": "@hookform/resolvers", "why": "Bridge entre react-hook-form e Zod para validação tipada", "alt": "Validação manual — mais código e menos segurança de tipos" }
+            {
+              "name": "react-hook-form",
+              "why": "Performance e DX superior para formulários com validação",
+              "alt": "Formik — mais boilerplate e performance inferior"
+            },
+            {
+              "name": "Zod",
+              "why": "Schema validation tipada integrada com TypeScript",
+              "alt": "Yup — menos integração nativa com TypeScript"
+            },
+            {
+              "name": "@hookform/resolvers",
+              "why": "Bridge entre react-hook-form e Zod para validação tipada",
+              "alt": "Validação manual — mais código e menos segurança de tipos"
+            }
           ]
         },
         {
           "category": "Infra/Deploy",
           "items": [
-            { "name": "Cloudflare Pages", "why": "Deploy de site estático com SSL automático, DDoS protection e custo zero", "alt": "Vercel — excelente, mas plano gratuito tem limites menores" },
-            { "name": "GitHub Actions", "why": "CI/CD automatizado: install, build e deploy a cada push na main", "alt": "Deploy manual — lento, propenso a erro e não escalável" },
-            { "name": "Cloudflare DNS", "why": "CNAME automático para subdomínio sanatto.expostacker.com.br", "alt": "DNS manual — não escala para múltiplos projetos" }
+            {
+              "name": "Cloudflare Pages",
+              "why": "Deploy de site estático com SSL automático, DDoS protection e custo zero",
+              "alt": "Vercel — excelente, mas plano gratuito tem limites menores"
+            },
+            {
+              "name": "GitHub Actions",
+              "why": "CI/CD automatizado: install, build e deploy a cada push na main",
+              "alt": "Deploy manual — lento, propenso a erro e não escalável"
+            },
+            {
+              "name": "Cloudflare DNS",
+              "why": "CNAME automático para subdomínio sanatto.expostacker.com.br",
+              "alt": "DNS manual — não escala para múltiplos projetos"
+            }
           ]
         }
       ]
@@ -325,33 +425,81 @@
         {
           "category": "Frontend",
           "items": [
-            { "name": "Next.js 16", "why": "App Router, static export and Turbopack for 4-second builds", "alt": "Astro — excellent for static content, but less ecosystem for interactivity" },
-            { "name": "React 19", "why": "Server Components by default, new hooks for client-side interactivity", "alt": "Vue 3 — mature, but less Server Components ecosystem" },
-            { "name": "Tailwind CSS v4", "why": "@import syntax, native CSS variables and minimal CSS bundle", "alt": "Styled Components — adds runtime and increases bundle" }
+            {
+              "name": "Next.js 16",
+              "why": "App Router, static export and Turbopack for 4-second builds",
+              "alt": "Astro — excellent for static content, but less ecosystem for interactivity"
+            },
+            {
+              "name": "React 19",
+              "why": "Server Components by default, new hooks for client-side interactivity",
+              "alt": "Vue 3 — mature, but less Server Components ecosystem"
+            },
+            {
+              "name": "Tailwind CSS v4",
+              "why": "@import syntax, native CSS variables and minimal CSS bundle",
+              "alt": "Styled Components — adds runtime and increases bundle"
+            }
           ]
         },
         {
           "category": "UI/Design",
           "items": [
-            { "name": "shadcn/ui", "why": "Accessible headless components with @base-ui/react and CVA", "alt": "Material UI — heavier and less flexible for customization" },
-            { "name": "Framer Motion", "why": "Directional fade-in animations with prefers-reduced-motion respected", "alt": "CSS animations — less control over timing and direction" },
-            { "name": "lucide-react", "why": "Lightweight icon library consistent with the design system", "alt": "Heroicons — good, but fewer icon options" }
+            {
+              "name": "shadcn/ui",
+              "why": "Accessible headless components with @base-ui/react and CVA",
+              "alt": "Material UI — heavier and less flexible for customization"
+            },
+            {
+              "name": "Framer Motion",
+              "why": "Directional fade-in animations with prefers-reduced-motion respected",
+              "alt": "CSS animations — less control over timing and direction"
+            },
+            {
+              "name": "lucide-react",
+              "why": "Lightweight icon library consistent with the design system",
+              "alt": "Heroicons — good, but fewer icon options"
+            }
           ]
         },
         {
           "category": "Form/Validation",
           "items": [
-            { "name": "react-hook-form", "why": "Superior performance and DX for forms with validation", "alt": "Formik — more boilerplate and inferior performance" },
-            { "name": "Zod", "why": "Typed schema validation integrated with TypeScript", "alt": "Yup — less native TypeScript integration" },
-            { "name": "@hookform/resolvers", "why": "Bridge between react-hook-form and Zod for typed validation", "alt": "Manual validation — more code and less type safety" }
+            {
+              "name": "react-hook-form",
+              "why": "Superior performance and DX for forms with validation",
+              "alt": "Formik — more boilerplate and inferior performance"
+            },
+            {
+              "name": "Zod",
+              "why": "Typed schema validation integrated with TypeScript",
+              "alt": "Yup — less native TypeScript integration"
+            },
+            {
+              "name": "@hookform/resolvers",
+              "why": "Bridge between react-hook-form and Zod for typed validation",
+              "alt": "Manual validation — more code and less type safety"
+            }
           ]
         },
         {
           "category": "Infra/Deploy",
           "items": [
-            { "name": "Cloudflare Pages", "why": "Static site deployment with automatic SSL, DDoS protection and zero cost", "alt": "Vercel — excellent, but free plan has lower limits" },
-            { "name": "GitHub Actions", "why": "Automated CI/CD: install, build and deploy on every push to main", "alt": "Manual deploy — slow, error-prone and not scalable" },
-            { "name": "Cloudflare DNS", "why": "Automatic CNAME for sanatto.expostacker.com.br subdomain", "alt": "Manual DNS — does not scale for multiple projects" }
+            {
+              "name": "Cloudflare Pages",
+              "why": "Static site deployment with automatic SSL, DDoS protection and zero cost",
+              "alt": "Vercel — excellent, but free plan has lower limits"
+            },
+            {
+              "name": "GitHub Actions",
+              "why": "Automated CI/CD: install, build and deploy on every push to main",
+              "alt": "Manual deploy — slow, error-prone and not scalable"
+            },
+            {
+              "name": "Cloudflare DNS",
+              "why": "Automatic CNAME for sanatto.expostacker.com.br subdomain",
+              "alt": "Manual DNS — does not scale for multiple projects"
+            }
           ]
         }
       ]
@@ -392,29 +540,202 @@
     "centerSub": "Next.js 16 + Static Export",
     "right": "Lead",
     "rightSub": "Formulário de contato",
-    "bottom": ["Cloudflare Pages", "GitHub Actions", "Cloudflare DNS", "Tailwind CSS v4"]
+    "bottom": [
+      "Cloudflare Pages",
+      "GitHub Actions",
+      "Cloudflare DNS",
+      "Tailwind CSS v4"
+    ]
   },
   "resultsDetail": {
     "pt": {
       "title": "Resultados em números",
       "kpis": [
-        { "value": "18", "label": "Páginas estáticas geradas", "baseline": "1", "source": "Next.js build output — 18 rotas pré-renderizadas", "sparkline": [1, 4, 8, 12, 15, 17, 18] },
-        { "value": "98", "label": "Lighthouse Performance", "baseline": "62", "source": "Lighthouse audit — média mobile e desktop", "sparkline": [62, 71, 78, 84, 89, 94, 98] },
-        { "value": "4s", "label": "Tempo de build", "baseline": "0", "source": "Next.js build com Turbopack — média de 3 builds", "sparkline": [0, 6, 5, 4.5, 4.2, 4.1, 4] },
-        { "value": "R$ 0", "label": "Custo de infraestrutura/mês", "baseline": "R$ 80", "source": "Cloudflare Pages plano gratuito", "sparkline": [80, 60, 40, 20, 10, 5, 0] },
-        { "value": "8", "label": "Segmentos de mercado cobertos", "baseline": "0", "source": "Página de cases — 8 segmentos com depoimentos", "sparkline": [0, 2, 3, 5, 6, 7, 8] },
-        { "value": "6", "label": "Serviços catalogados", "baseline": "0", "source": "Página de soluções — 6 serviços com listas itemizadas", "sparkline": [0, 2, 3, 4, 5, 6, 6] }
+        {
+          "value": "18",
+          "label": "Páginas estáticas geradas",
+          "baseline": "1",
+          "source": "Next.js build output — 18 rotas pré-renderizadas",
+          "sparkline": [
+            1,
+            4,
+            8,
+            12,
+            15,
+            17,
+            18
+          ]
+        },
+        {
+          "value": "98",
+          "label": "Lighthouse Performance",
+          "baseline": "62",
+          "source": "Lighthouse audit — média mobile e desktop",
+          "sparkline": [
+            62,
+            71,
+            78,
+            84,
+            89,
+            94,
+            98
+          ]
+        },
+        {
+          "value": "4s",
+          "label": "Tempo de build",
+          "baseline": "0",
+          "source": "Next.js build com Turbopack — média de 3 builds",
+          "sparkline": [
+            0,
+            6,
+            5,
+            4.5,
+            4.2,
+            4.1,
+            4
+          ]
+        },
+        {
+          "value": "R$ 0",
+          "label": "Custo de infraestrutura/mês",
+          "baseline": "R$ 80",
+          "source": "Cloudflare Pages plano gratuito",
+          "sparkline": [
+            80,
+            60,
+            40,
+            20,
+            10,
+            5,
+            0
+          ]
+        },
+        {
+          "value": "8",
+          "label": "Segmentos de mercado cobertos",
+          "baseline": "0",
+          "source": "Página de cases — 8 segmentos com depoimentos",
+          "sparkline": [
+            0,
+            2,
+            3,
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "value": "6",
+          "label": "Serviços catalogados",
+          "baseline": "0",
+          "source": "Página de soluções — 6 serviços com listas itemizadas",
+          "sparkline": [
+            0,
+            2,
+            3,
+            4,
+            5,
+            6,
+            6
+          ]
+        }
       ]
     },
     "en": {
       "title": "Results in numbers",
       "kpis": [
-        { "value": "18", "label": "Static pages generated", "baseline": "1", "source": "Next.js build output — 18 pre-rendered routes", "sparkline": [1, 4, 8, 12, 15, 17, 18] },
-        { "value": "98", "label": "Lighthouse Performance", "baseline": "62", "source": "Lighthouse audit — mobile and desktop average", "sparkline": [62, 71, 78, 84, 89, 94, 98] },
-        { "value": "4s", "label": "Build time", "baseline": "0", "source": "Next.js build with Turbopack — average of 3 builds", "sparkline": [0, 6, 5, 4.5, 4.2, 4.1, 4] },
-        { "value": "R$ 0", "label": "Infrastructure cost/month", "baseline": "R$ 80", "source": "Cloudflare Pages free plan", "sparkline": [80, 60, 40, 20, 10, 5, 0] },
-        { "value": "8", "label": "Market segments covered", "baseline": "0", "source": "Cases page — 8 segments with testimonials", "sparkline": [0, 2, 3, 5, 6, 7, 8] },
-        { "value": "6", "label": "Cataloged services", "baseline": "0", "source": "Solutions page — 6 services with itemized lists", "sparkline": [0, 2, 3, 4, 5, 6, 6] }
+        {
+          "value": "18",
+          "label": "Static pages generated",
+          "baseline": "1",
+          "source": "Next.js build output — 18 pre-rendered routes",
+          "sparkline": [
+            1,
+            4,
+            8,
+            12,
+            15,
+            17,
+            18
+          ]
+        },
+        {
+          "value": "98",
+          "label": "Lighthouse Performance",
+          "baseline": "62",
+          "source": "Lighthouse audit — mobile and desktop average",
+          "sparkline": [
+            62,
+            71,
+            78,
+            84,
+            89,
+            94,
+            98
+          ]
+        },
+        {
+          "value": "4s",
+          "label": "Build time",
+          "baseline": "0",
+          "source": "Next.js build with Turbopack — average of 3 builds",
+          "sparkline": [
+            0,
+            6,
+            5,
+            4.5,
+            4.2,
+            4.1,
+            4
+          ]
+        },
+        {
+          "value": "R$ 0",
+          "label": "Infrastructure cost/month",
+          "baseline": "R$ 80",
+          "source": "Cloudflare Pages free plan",
+          "sparkline": [
+            80,
+            60,
+            40,
+            20,
+            10,
+            5,
+            0
+          ]
+        },
+        {
+          "value": "8",
+          "label": "Market segments covered",
+          "baseline": "0",
+          "source": "Cases page — 8 segments with testimonials",
+          "sparkline": [
+            0,
+            2,
+            3,
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "value": "6",
+          "label": "Cataloged services",
+          "baseline": "0",
+          "source": "Solutions page — 6 services with itemized lists",
+          "sparkline": [
+            0,
+            2,
+            3,
+            4,
+            5,
+            6,
+            6
+          ]
+        }
       ]
     }
   }

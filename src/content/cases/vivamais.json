@@ -2,14 +2,34 @@
   "id": "vivamais",
   "title": "VivaMais",
   "clientName": "VivaMais",
-  "tags": ["HTML", "CSS", "JavaScript", "Cloudflare Pages", "SEO", "Schema.org", "Acessibilidade"],
-  "shortDescription": "Site institucional para clinica medica multidisciplinar em Santos, com agendamento, convenios, equipe, depoimentos e SEO local.",
+  "tags": [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "Cloudflare Pages",
+    "SEO",
+    "Schema.org",
+    "Acessibilidade"
+  ],
+  "shortDescription": "Site institucional para clínica médica em Santos. Paciente encontra especialidades, convênios e agenda por WhatsApp em poucos cliques.",
   "problemDescription": "Clinicas medicas de medio porte precisam de uma presenca digital confiavel para captar pacientes, comunicar especialidades, convenios e canais de contato sem depender de plataformas de terceiros. O desafio e entregar um site rapido, acessivel, bem estruturado para SEO local e com um formulario funcional de agendamento.",
   "technicalSolution": "Site estatico em HTML5 semantico, CSS customizado com design system proprio e JavaScript vanilla para interatividade (menu mobile, mascara de telefone, validacao de formulario). Inclui schema.org MedicalClinic para SEO, metadagens Open Graph, skip link, atributos ARIA, formulario de agendamento com LGPD e botao flutuante de WhatsApp. Deploy na Cloudflare Pages com dominio personalizado.",
   "businessOutcome": [
-    { "label": "Especialidades", "value": 6, "unit": "" },
-    { "label": "Convenios", "value": 8, "unit": "" },
-    { "label": "Profissionais", "value": 4, "unit": "" }
+    {
+      "label": "Especialidades",
+      "value": 6,
+      "unit": ""
+    },
+    {
+      "label": "Convenios",
+      "value": 8,
+      "unit": ""
+    },
+    {
+      "label": "Profissionais",
+      "value": 4,
+      "unit": ""
+    }
   ],
   "liveUrl": "https://vivamais.expostacker.com.br",
   "projectType": "Client-Work",
@@ -24,8 +44,8 @@
     "en": "VivaMais — Institutional website for multidisciplinary medical clinic"
   },
   "heroSubhead": {
-    "pt": "Site estatico em HTML5, CSS e JavaScript com SEO local, schema.org, formulario de agendamento, convenios, equipe de especialistas e deploy na Cloudflare Pages.",
-    "en": "Static website in HTML5, CSS and JavaScript with local SEO, schema.org, appointment form, health insurance, team of specialists and deploy on Cloudflare Pages."
+    "pt": "Paciente acessa o site, vê especialidades e convênios, conhece a equipe e clica no botão de WhatsApp para agendar. Rápido, acessível e otimizado para SEO local.",
+    "en": "A patient visits the site, sees specialties and health insurance, meets the team and clicks the WhatsApp button to book. Fast, accessible and optimized for local SEO."
   },
   "opening": {
     "pt": "VivaMais e um site institucional para uma clinica medica ficticia em Santos. A proposta e demonstrar um site de saude rapido, acessivel e otimizado para buscas locais, com estrutura semantica, schema.org, formulario de agendamento e design responsivo.",
@@ -70,10 +90,34 @@
     ]
   },
   "technologies": [
-    { "name": "HTML5", "why": { "pt": "Estrutura semantica acessivel e leve.", "en": "Semantic, accessible and lightweight structure." } },
-    { "name": "CSS", "why": { "pt": "Design system customizado sem dependencias.", "en": "Custom design system without dependencies." } },
-    { "name": "JavaScript", "why": { "pt": "Interatividade leve sem frameworks.", "en": "Lightweight interactivity without frameworks." } },
-    { "name": "Cloudflare Pages", "why": { "pt": "Deploy estatico global com SSL e dominio personalizado.", "en": "Global static deploy with SSL and custom domain." } }
+    {
+      "name": "HTML5",
+      "why": {
+        "pt": "Estrutura semantica acessivel e leve.",
+        "en": "Semantic, accessible and lightweight structure."
+      }
+    },
+    {
+      "name": "CSS",
+      "why": {
+        "pt": "Design system customizado sem dependencias.",
+        "en": "Custom design system without dependencies."
+      }
+    },
+    {
+      "name": "JavaScript",
+      "why": {
+        "pt": "Interatividade leve sem frameworks.",
+        "en": "Lightweight interactivity without frameworks."
+      }
+    },
+    {
+      "name": "Cloudflare Pages",
+      "why": {
+        "pt": "Deploy estatico global com SSL e dominio personalizado.",
+        "en": "Global static deploy with SSL and custom domain."
+      }
+    }
   ],
   "myRole": {
     "pt": "Desenvolvedor frontend e SEO.",
@@ -92,9 +136,27 @@
     "en": "Health and Medical Clinics"
   },
   "heroMetrics": [
-    { "value": "6", "label": { "pt": "Especialidades", "en": "Specialties" } },
-    { "value": "8", "label": { "pt": "Convenios", "en": "Insurance plans" } },
-    { "value": "4", "label": { "pt": "Medicos", "en": "Doctors" } }
+    {
+      "value": "6",
+      "label": {
+        "pt": "Especialidades",
+        "en": "Specialties"
+      }
+    },
+    {
+      "value": "8",
+      "label": {
+        "pt": "Convenios",
+        "en": "Insurance plans"
+      }
+    },
+    {
+      "value": "4",
+      "label": {
+        "pt": "Medicos",
+        "en": "Doctors"
+      }
+    }
   ],
   "timeline": {
     "duration": "1 dia de implementacao",
@@ -105,8 +167,16 @@
       "phase": "Design",
       "period": "1 dia",
       "items": {
-        "pt": ["Landing page one-page", "Paleta de cores confiavel para saude", "Copy de clinica premium"],
-        "en": ["One-page landing", "Trust color palette for health", "Premium clinic copy"]
+        "pt": [
+          "Landing page one-page",
+          "Paleta de cores confiavel para saude",
+          "Copy de clinica premium"
+        ],
+        "en": [
+          "One-page landing",
+          "Trust color palette for health",
+          "Premium clinic copy"
+        ]
       }
     }
   ],
@@ -115,8 +185,20 @@
     "en": "Images and data are fictional for demonstration purposes. Clinic, doctors and patients are not real."
   },
   "methodology": {
-    "pt": ["HTML semantico", "Mobile-first", "Acessibilidade", "SEO local", "Performance sem frameworks"],
-    "en": ["Semantic HTML", "Mobile-first", "Accessibility", "Local SEO", "Performance without frameworks"]
+    "pt": [
+      "HTML semantico",
+      "Mobile-first",
+      "Acessibilidade",
+      "SEO local",
+      "Performance sem frameworks"
+    ],
+    "en": [
+      "Semantic HTML",
+      "Mobile-first",
+      "Accessibility",
+      "Local SEO",
+      "Performance without frameworks"
+    ]
   },
   "security": {
     "pt": {
@@ -145,15 +227,31 @@
         {
           "category": "Frontend",
           "items": [
-            { "name": "HTML5", "why": "Estrutura semantica e acessivel.", "alt": "Framework JS" },
-            { "name": "CSS", "why": "Design leve e customizado.", "alt": "Tailwind" },
-            { "name": "JavaScript", "why": "Interatividade sem dependencias.", "alt": "React" }
+            {
+              "name": "HTML5",
+              "why": "Estrutura semantica e acessivel.",
+              "alt": "Framework JS"
+            },
+            {
+              "name": "CSS",
+              "why": "Design leve e customizado.",
+              "alt": "Tailwind"
+            },
+            {
+              "name": "JavaScript",
+              "why": "Interatividade sem dependencias.",
+              "alt": "React"
+            }
           ]
         },
         {
           "category": "Deploy",
           "items": [
-            { "name": "Cloudflare Pages", "why": "Hospedagem estatica global com SSL.", "alt": "Netlify" }
+            {
+              "name": "Cloudflare Pages",
+              "why": "Hospedagem estatica global com SSL.",
+              "alt": "Netlify"
+            }
           ]
         }
       ]
@@ -164,15 +262,31 @@
         {
           "category": "Frontend",
           "items": [
-            { "name": "HTML5", "why": "Semantic and accessible structure.", "alt": "JS framework" },
-            { "name": "CSS", "why": "Lightweight custom design.", "alt": "Tailwind" },
-            { "name": "JavaScript", "why": "Interactivity without dependencies.", "alt": "React" }
+            {
+              "name": "HTML5",
+              "why": "Semantic and accessible structure.",
+              "alt": "JS framework"
+            },
+            {
+              "name": "CSS",
+              "why": "Lightweight custom design.",
+              "alt": "Tailwind"
+            },
+            {
+              "name": "JavaScript",
+              "why": "Interactivity without dependencies.",
+              "alt": "React"
+            }
           ]
         },
         {
           "category": "Deploy",
           "items": [
-            { "name": "Cloudflare Pages", "why": "Global static hosting with SSL.", "alt": "Netlify" }
+            {
+              "name": "Cloudflare Pages",
+              "why": "Global static hosting with SSL.",
+              "alt": "Netlify"
+            }
           ]
         }
       ]

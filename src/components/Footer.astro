@@ -78,8 +78,8 @@ const socials = [
             style={`border-color: ${social.color}99; box-shadow: 0 0 14px ${social.glow}; color: ${social.color};`}
             title={social.label}
             aria-label={social.label}
-            onMouseover={`this.style.background='${social.color}';this.style.borderColor='${social.color}';this.querySelector('span').style.color='#fff';`}
-            onMouseout={`this.style.background='';this.style.borderColor='${social.color}99';this.querySelector('span').style.color='${social.color}';`}
+            onmouseover={`this.style.background='${social.color}';this.style.borderColor='${social.color}';this.querySelector('span').style.color='#fff';`}
+            onmouseout={`this.style.background='';this.style.borderColor='${social.color}99';this.querySelector('span').style.color='${social.color}';`}
           >
             <span class="inline-flex w-[22px] h-[22px] items-center justify-center" style={`color: ${social.color};`}>
               {social.icon === 'github' && (

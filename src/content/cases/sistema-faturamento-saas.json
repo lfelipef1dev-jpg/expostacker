@@ -2,14 +2,31 @@
   "id": "sistema-faturamento-saas",
   "title": "Faturamais",
   "clientName": "Faturamais",
-  "tags": ["HTML5", "CSS3", "JavaScript", "Cloudflare Pages"],
-  "shortDescription": "Landing page e dashboard interativo de faturamento SaaS, com design responsivo, acessibilidade e conversão.",
+  "tags": [
+    "HTML5",
+    "CSS3",
+    "JavaScript",
+    "Cloudflare Pages"
+  ],
+  "shortDescription": "Demonstração de faturamento SaaS. Dono de e-commerce visualiza vendas, clientes e estoque em um dashboard sem depender de planilhas.",
   "problemDescription": "Pequenos e-commerces perdem horas toda semana conciliando vendas, estoque e notas fiscais em planilhas e sistemas desconectados, o que atrasa o fechamento mensal e aumenta erros fiscais.",
   "technicalSolution": "Criamos uma experiência estática de alta fidelidade com landing page de conversão e dashboard funcional em HTML, CSS e JavaScript vanilla. O protótipo simula navegação entre módulos, persistência local e tema claro/escuro, servindo como base para evolução full-stack.",
   "businessOutcome": [
-    { "label": "Fechamento", "value": 60, "unit": "%" },
-    { "label": "Conversão", "value": 4, "unit": "%" },
-    { "label": "Performance", "value": 95, "unit": "+" }
+    {
+      "label": "Fechamento",
+      "value": 60,
+      "unit": "%"
+    },
+    {
+      "label": "Conversão",
+      "value": 4,
+      "unit": "%"
+    },
+    {
+      "label": "Performance",
+      "value": 95,
+      "unit": "+"
+    }
   ],
   "liveUrl": "https://faturamais.expostacker.com.br",
   "projectType": "SaaS",
@@ -23,8 +40,8 @@
     "en": "Faturamais — Billing and management in one place"
   },
   "heroSubhead": {
-    "pt": "Landing page e dashboard de alta fidelidade para e-commerce que precisa vender, faturar e controlar estoque sem planilhas.",
-    "en": "High-fidelity landing page and dashboard for e-commerce that needs to sell, bill and manage inventory without spreadsheets."
+    "pt": "Empreendedor abre a demonstração, navega pela landing, entra no dashboard e simula vendas, clientes e financeiro. Uma base sólida para evoluir para um SaaS real.",
+    "en": "An entrepreneur opens the demo, browses the landing page, enters the dashboard and simulates sales, customers and finances. A solid base to evolve into a real SaaS."
   },
   "opening": {
     "pt": "Faturamais é uma demonstração profissional de faturamento SaaS. A experiência inclui uma landing de conversão com hero, prova social, planos e FAQ, além de um dashboard interativo com módulos de vendas, clientes, produtos, financeiro e configurações.",
@@ -56,32 +73,62 @@
   },
   "decisionLog": [
     {
-      "title": { "pt": "Manter a stack estática para validação rápida", "en": "Keep the static stack for fast validation" },
-      "why": { "pt": "HTML, CSS e JS puros permitem deploy imediato e foco no design sem complexidade de backend.", "en": "Plain HTML, CSS and JS allow immediate deployment and focus on design without backend complexity." },
-      "alternatives": { "pt": "Next.js + Supabase ofereceriam mais realismo, mas exigiriam autenticação, banco e configuração de secrets.", "en": "Next.js + Supabase would offer more realism, but would require authentication, database and secrets configuration." }
+      "title": {
+        "pt": "Manter a stack estática para validação rápida",
+        "en": "Keep the static stack for fast validation"
+      },
+      "why": {
+        "pt": "HTML, CSS e JS puros permitem deploy imediato e foco no design sem complexidade de backend.",
+        "en": "Plain HTML, CSS and JS allow immediate deployment and focus on design without backend complexity."
+      },
+      "alternatives": {
+        "pt": "Next.js + Supabase ofereceriam mais realismo, mas exigiriam autenticação, banco e configuração de secrets.",
+        "en": "Next.js + Supabase would offer more realism, but would require authentication, database and secrets configuration."
+      }
     },
     {
-      "title": { "pt": "Marca própria com subdomínio", "en": "Own brand with subdomain" },
-      "why": { "pt": "Faturamais vende o resultado e soa como produto real, não como demo genérica.", "en": "Faturamais sells the result and sounds like a real product, not a generic demo." },
-      "alternatives": { "pt": "SistemaPro era genérico e dificultava posicionamento emocional.", "en": "SistemaPro was generic and made emotional positioning difficult." }
+      "title": {
+        "pt": "Marca própria com subdomínio",
+        "en": "Own brand with subdomain"
+      },
+      "why": {
+        "pt": "Faturamais vende o resultado e soa como produto real, não como demo genérica.",
+        "en": "Faturamais sells the result and sounds like a real product, not a generic demo."
+      },
+      "alternatives": {
+        "pt": "SistemaPro era genérico e dificultava posicionamento emocional.",
+        "en": "SistemaPro was generic and made emotional positioning difficult."
+      }
     }
   ],
   "technologies": [
     {
       "name": "HTML5",
-      "why": { "pt": "Semântica limpa e compatível com SEO e acessibilidade.", "en": "Clean semantics compatible with SEO and accessibility." }
+      "why": {
+        "pt": "Semântica limpa e compatível com SEO e acessibilidade.",
+        "en": "Clean semantics compatible with SEO and accessibility."
+      }
     },
     {
       "name": "CSS3",
-      "why": { "pt": "Design tokens, responsividade e animações sem depender de bibliotecas pesadas.", "en": "Design tokens, responsiveness and animations without relying on heavy libraries." }
+      "why": {
+        "pt": "Design tokens, responsividade e animações sem depender de bibliotecas pesadas.",
+        "en": "Design tokens, responsiveness and animations without relying on heavy libraries."
+      }
     },
     {
       "name": "JavaScript",
-      "why": { "pt": "Navegação SPA, cálculo de KPIs e persistência local sem frameworks.", "en": "SPA navigation, KPI calculation and local persistence without frameworks." }
+      "why": {
+        "pt": "Navegação SPA, cálculo de KPIs e persistência local sem frameworks.",
+        "en": "SPA navigation, KPI calculation and local persistence without frameworks."
+      }
     },
     {
       "name": "Cloudflare Pages",
-      "why": { "pt": "Deploy rápido, gratuito e com certificado SSL automático.", "en": "Fast, free deployment with automatic SSL certificate." }
+      "why": {
+        "pt": "Deploy rápido, gratuito e com certificado SSL automático.",
+        "en": "Fast, free deployment with automatic SSL certificate."
+      }
     }
   ],
   "myRole": {
@@ -101,9 +148,27 @@
     "en": "Fintech / billing SaaS"
   },
   "heroMetrics": [
-    { "value": "4", "label": { "pt": "Módulos principais", "en": "Main modules" } },
-    { "value": "A", "label": { "pt": "Acessibilidade", "en": "Accessibility" } },
-    { "value": "95+", "label": { "pt": "Performance (estimado)", "en": "Performance (estimated)" } }
+    {
+      "value": "4",
+      "label": {
+        "pt": "Módulos principais",
+        "en": "Main modules"
+      }
+    },
+    {
+      "value": "A",
+      "label": {
+        "pt": "Acessibilidade",
+        "en": "Accessibility"
+      }
+    },
+    {
+      "value": "95+",
+      "label": {
+        "pt": "Performance (estimado)",
+        "en": "Performance (estimated)"
+      }
+    }
   ],
   "timeline": {
     "duration": "1 dia de implementação",
@@ -114,24 +179,48 @@
       "phase": "Discovery",
       "period": "1 hora",
       "items": {
-        "pt": ["Análise de benchmarks de SaaS de faturamento", "Definição de marca e subdomínio", "Mapeamento de componentes de conversão"],
-        "en": ["Benchmark analysis of billing SaaS", "Brand and subdomain definition", "Conversion component mapping"]
+        "pt": [
+          "Análise de benchmarks de SaaS de faturamento",
+          "Definição de marca e subdomínio",
+          "Mapeamento de componentes de conversão"
+        ],
+        "en": [
+          "Benchmark analysis of billing SaaS",
+          "Brand and subdomain definition",
+          "Conversion component mapping"
+        ]
       }
     },
     {
       "phase": "Design",
       "period": "2 horas",
       "items": {
-        "pt": ["Criação de design tokens e tipografia", "Landing page com hero e CTAs", "Dashboard responsivo"],
-        "en": ["Creation of design tokens and typography", "Landing page with hero and CTAs", "Responsive dashboard"]
+        "pt": [
+          "Criação de design tokens e tipografia",
+          "Landing page com hero e CTAs",
+          "Dashboard responsivo"
+        ],
+        "en": [
+          "Creation of design tokens and typography",
+          "Landing page with hero and CTAs",
+          "Responsive dashboard"
+        ]
       }
     },
     {
       "phase": "Dev",
       "period": "2 horas",
       "items": {
-        "pt": ["HTML semântico", "CSS com responsividade e animações", "JavaScript para navegação e localStorage"],
-        "en": ["Semantic HTML", "CSS with responsiveness and animations", "JavaScript for navigation and localStorage"]
+        "pt": [
+          "HTML semântico",
+          "CSS com responsividade e animações",
+          "JavaScript para navegação e localStorage"
+        ],
+        "en": [
+          "Semantic HTML",
+          "CSS with responsiveness and animations",
+          "JavaScript for navigation and localStorage"
+        ]
       }
     }
   ],
@@ -140,8 +229,18 @@
     "en": "Interface and data are illustrative for portfolio demonstration."
   },
   "methodology": {
-    "pt": ["Design centrado no usuário", "Acessibilidade primeiro", "Mobile-first", "Iteração rápida"],
-    "en": ["User-centered design", "Accessibility first", "Mobile-first", "Rapid iteration"]
+    "pt": [
+      "Design centrado no usuário",
+      "Acessibilidade primeiro",
+      "Mobile-first",
+      "Iteração rápida"
+    ],
+    "en": [
+      "User-centered design",
+      "Accessibility first",
+      "Mobile-first",
+      "Rapid iteration"
+    ]
   },
   "security": {
     "pt": {
@@ -168,15 +267,31 @@
         {
           "category": "Frontend",
           "items": [
-            { "name": "HTML5", "why": "Semântica e SEO nativos.", "alt": "JSX no Next.js" },
-            { "name": "CSS3", "why": "Design tokens e responsividade sem build.", "alt": "Tailwind CSS" },
-            { "name": "JavaScript", "why": "Interatividade leve sem frameworks.", "alt": "React + TypeScript" }
+            {
+              "name": "HTML5",
+              "why": "Semântica e SEO nativos.",
+              "alt": "JSX no Next.js"
+            },
+            {
+              "name": "CSS3",
+              "why": "Design tokens e responsividade sem build.",
+              "alt": "Tailwind CSS"
+            },
+            {
+              "name": "JavaScript",
+              "why": "Interatividade leve sem frameworks.",
+              "alt": "React + TypeScript"
+            }
           ]
         },
         {
           "category": "Deploy",
           "items": [
-            { "name": "Cloudflare Pages", "why": "Hospedagem estática com SSL e cache global.", "alt": "Vercel" }
+            {
+              "name": "Cloudflare Pages",
+              "why": "Hospedagem estática com SSL e cache global.",
+              "alt": "Vercel"
+            }
           ]
         }
       ]
@@ -187,15 +302,31 @@
         {
           "category": "Frontend",
           "items": [
-            { "name": "HTML5", "why": "Native semantics and SEO.", "alt": "JSX in Next.js" },
-            { "name": "CSS3", "why": "Design tokens and responsiveness without build.", "alt": "Tailwind CSS" },
-            { "name": "JavaScript", "why": "Lightweight interactivity without frameworks.", "alt": "React + TypeScript" }
+            {
+              "name": "HTML5",
+              "why": "Native semantics and SEO.",
+              "alt": "JSX in Next.js"
+            },
+            {
+              "name": "CSS3",
+              "why": "Design tokens and responsiveness without build.",
+              "alt": "Tailwind CSS"
+            },
+            {
+              "name": "JavaScript",
+              "why": "Lightweight interactivity without frameworks.",
+              "alt": "React + TypeScript"
+            }
           ]
         },
         {
           "category": "Deploy",
           "items": [
-            { "name": "Cloudflare Pages", "why": "Static hosting with SSL and global cache.", "alt": "Vercel" }
+            {
+              "name": "Cloudflare Pages",
+              "why": "Static hosting with SSL and global cache.",
+              "alt": "Vercel"
+            }
           ]
         }
       ]
@@ -225,17 +356,95 @@
     "pt": {
       "title": "Resultados esperados",
       "kpis": [
-        { "value": "60%", "label": "Redução do tempo de fechamento mensal", "baseline": "Fechamento manual em planilhas", "source": "(meta)", "sparkline": [0, 15, 30, 45, 60, 60] },
-        { "value": "4%", "label": "Taxa de conversão da landing", "baseline": "1,8% de benchmarks do setor", "source": "(estimado)", "sparkline": [0, 1, 2, 3, 3, 4] },
-        { "value": "95+", "label": "Performance Lighthouse", "baseline": "Sem otimização", "source": "(estimado)", "sparkline": [0, 40, 60, 75, 88, 95] }
+        {
+          "value": "60%",
+          "label": "Redução do tempo de fechamento mensal",
+          "baseline": "Fechamento manual em planilhas",
+          "source": "(meta)",
+          "sparkline": [
+            0,
+            15,
+            30,
+            45,
+            60,
+            60
+          ]
+        },
+        {
+          "value": "4%",
+          "label": "Taxa de conversão da landing",
+          "baseline": "1,8% de benchmarks do setor",
+          "source": "(estimado)",
+          "sparkline": [
+            0,
+            1,
+            2,
+            3,
+            3,
+            4
+          ]
+        },
+        {
+          "value": "95+",
+          "label": "Performance Lighthouse",
+          "baseline": "Sem otimização",
+          "source": "(estimado)",
+          "sparkline": [
+            0,
+            40,
+            60,
+            75,
+            88,
+            95
+          ]
+        }
       ]
     },
     "en": {
       "title": "Expected results",
       "kpis": [
-        { "value": "60%", "label": "Reduction in monthly closing time", "baseline": "Manual closing in spreadsheets", "source": "(target)", "sparkline": [0, 15, 30, 45, 60, 60] },
-        { "value": "4%", "label": "Landing page conversion rate", "baseline": "1.8% industry benchmark", "source": "(estimated)", "sparkline": [0, 1, 2, 3, 3, 4] },
-        { "value": "95+", "label": "Lighthouse Performance", "baseline": "No optimization", "source": "(estimated)", "sparkline": [0, 40, 60, 75, 88, 95] }
+        {
+          "value": "60%",
+          "label": "Reduction in monthly closing time",
+          "baseline": "Manual closing in spreadsheets",
+          "source": "(target)",
+          "sparkline": [
+            0,
+            15,
+            30,
+            45,
+            60,
+            60
+          ]
+        },
+        {
+          "value": "4%",
+          "label": "Landing page conversion rate",
+          "baseline": "1.8% industry benchmark",
+          "source": "(estimated)",
+          "sparkline": [
+            0,
+            1,
+            2,
+            3,
+            3,
+            4
+          ]
+        },
+        {
+          "value": "95+",
+          "label": "Lighthouse Performance",
+          "baseline": "No optimization",
+          "source": "(estimated)",
+          "sparkline": [
+            0,
+            40,
+            60,
+            75,
+            88,
+            95
+          ]
+        }
       ]
     }
   }

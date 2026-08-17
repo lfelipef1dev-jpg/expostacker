@@ -2,16 +2,44 @@
   "id": "gordaomod",
   "title": "GordaoMod",
   "clientName": "GordaoMod",
-  "tags": ["HTML5", "CSS3", "Vanilla JS", "Cloudflare Pages", "FiveM", "Acessibilidade", "SEO"],
-  "shortDescription": "Loja oficial de recursos premium para FiveM: 182 produtos, 10 categorias, design cyber/tech com HTML5, CSS3 e Vanilla JS deployado no Cloudflare Pages.",
+  "tags": [
+    "HTML5",
+    "CSS3",
+    "Vanilla JS",
+    "Cloudflare Pages",
+    "FiveM",
+    "Acessibilidade",
+    "SEO"
+  ],
+  "shortDescription": "Loja digital de recursos premium para FiveM. Dono de servidor encontra 182 produtos em 10 categorias e baixa o que precisa.",
   "problemDescription": "A GordaoMod precisava de uma loja online profissional para comercializar scripts, mods, spoofer e recursos premium para servidores GTA V Roleplay FiveM. O desafio era apresentar 182 produtos em 10 categorias com navegacao fluida, ficha tecnica detalhada, busca rapida e design cyber/tech sem depender de frameworks pesados. A solucao deveria ser leve, acessivel, otimizada para SEO e com deploy automatico no ecossistema ExpoStacker.",
   "technicalSolution": "Construimos uma loja estatica em HTML5, CSS3 e Vanilla JS (sem framework), deployada no Cloudflare Pages com dominio customizado gordaomod.expostacker.com.br. O site possui 5 paginas (home, checkout, ficha tecnica, download e recursos), 182 produtos em 10 categorias com tabs dinamicas, busca em tempo real, modal de ficha tecnica com descricoes detalhadas, layout responsivo, meta tags Open Graph, canonical, robots.txt, _headers e otimizacoes de acessibilidade (ARIA, skip link, focus visible, reduced motion).",
   "businessOutcome": [
-    { "label": "Produtos", "value": 182, "unit": "" },
-    { "label": "Categorias", "value": 10, "unit": "" },
-    { "label": "Páginas", "value": 5, "unit": "" },
-    { "label": "Custo de infraestrutura", "value": 0, "unit": "R$" },
-    { "label": "Deploy", "value": 1, "unit": "min (estimado)" }
+    {
+      "label": "Produtos",
+      "value": 182,
+      "unit": ""
+    },
+    {
+      "label": "Categorias",
+      "value": 10,
+      "unit": ""
+    },
+    {
+      "label": "Páginas",
+      "value": 5,
+      "unit": ""
+    },
+    {
+      "label": "Custo de infraestrutura",
+      "value": 0,
+      "unit": "R$"
+    },
+    {
+      "label": "Deploy",
+      "value": 1,
+      "unit": "min (estimado)"
+    }
   ],
   "liveUrl": "https://gordaomod.expostacker.com.br",
   "projectType": "Client-Work",
@@ -26,8 +54,8 @@
     "en": "Official premium resource store for FiveM with 182 products, 10 categories, cyber design and automatic deploy"
   },
   "heroSubhead": {
-    "pt": "Storefront estatico em HTML5, CSS3 e Vanilla JS, deployado no Cloudflare Pages com dominio gordaomod.expostacker.com.br. Navegacao por categorias, busca, modal de ficha tecnica, layout responsivo e otimizacoes de SEO e acessibilidade.",
-    "en": "Static storefront in HTML5, CSS3 and Vanilla JS, deployed on Cloudflare Pages with custom domain gordaomod.expostacker.com.br. Category navigation, search, technical specs modal, responsive layout and SEO/accessibility optimizations."
+    "pt": "Dono de servidor FiveM acessa a loja, filtra por categoria, lê a ficha técnica e baixa recursos premium. 182 produtos com busca, checkout e design cyber/tech.",
+    "en": "A FiveM server owner enters the store, filters by category, reads technical specs and downloads premium resources. 182 products with search, checkout and cyber/tech design."
   },
   "opening": {
     "pt": "Um dono de servidor FiveM acessa a GordaoMod e encontra 182 recursos premium organizados em 10 categorias. Ele navega pelas tabs, busca por nome, abre a ficha tecnica de um produto e le todas as especificacoes em um modal detalhado. O design cyber/tech com acentos roxos, fontes Orbitron e Rajdhani, e grid de cards responsivo transmite profissionalismo. O deploy e automatico a cada push na main via GitHub Actions e Cloudflare Pages.",
@@ -147,10 +175,34 @@
     "en": "Static sites with a lot of inline content require attention to HTML size and performance. For future versions, extracting products to JSON and loading on demand can significantly reduce initial load time."
   },
   "heroMetrics": [
-    { "value": "182", "label": { "pt": "Produtos", "en": "Products" } },
-    { "value": "10", "label": { "pt": "Categorias", "en": "Categories" } },
-    { "value": "<1s", "label": { "pt": "Deploy", "en": "Deploy" } },
-    { "value": "R$0", "label": { "pt": "Infra", "en": "Infra" } }
+    {
+      "value": "182",
+      "label": {
+        "pt": "Produtos",
+        "en": "Products"
+      }
+    },
+    {
+      "value": "10",
+      "label": {
+        "pt": "Categorias",
+        "en": "Categories"
+      }
+    },
+    {
+      "value": "<1s",
+      "label": {
+        "pt": "Deploy",
+        "en": "Deploy"
+      }
+    },
+    {
+      "value": "R$0",
+      "label": {
+        "pt": "Infra",
+        "en": "Infra"
+      }
+    }
   ],
   "timeline": {
     "duration": "4 semanas (estimado)",
@@ -161,47 +213,99 @@
       "phase": "Descoberta",
       "period": "Semana 1",
       "items": {
-        "pt": ["Mapeamento dos 182 produtos no backup", "Escolha da versao publica da loja", "Auditoria de responsividade, SEO e acessibilidade"],
-        "en": ["Mapping of 182 products from backup", "Selection of public store version", "Audit of responsiveness, SEO and accessibility"]
+        "pt": [
+          "Mapeamento dos 182 produtos no backup",
+          "Escolha da versao publica da loja",
+          "Auditoria de responsividade, SEO e acessibilidade"
+        ],
+        "en": [
+          "Mapping of 182 products from backup",
+          "Selection of public store version",
+          "Audit of responsiveness, SEO and accessibility"
+        ]
       }
     },
     {
       "phase": "Correcoes",
       "period": "Semana 2",
       "items": {
-        "pt": ["Correcao de encoding e caracteres especiais", "Revisao de SEO (meta, OG, canonical)", "Melhorias de acessibilidade (ARIA, skip link, focus)"],
-        "en": ["Encoding and special character fix", "SEO review (meta, OG, canonical)", "Accessibility improvements (ARIA, skip link, focus)"]
+        "pt": [
+          "Correcao de encoding e caracteres especiais",
+          "Revisao de SEO (meta, OG, canonical)",
+          "Melhorias de acessibilidade (ARIA, skip link, focus)"
+        ],
+        "en": [
+          "Encoding and special character fix",
+          "SEO review (meta, OG, canonical)",
+          "Accessibility improvements (ARIA, skip link, focus)"
+        ]
       }
     },
     {
       "phase": "Deploy",
       "period": "Semana 3",
       "items": {
-        "pt": ["Criacao do build e workflow", "Configuracao do Cloudflare Pages e CNAME", "Deploy automatico do gordaomod.expostacker.com.br"],
-        "en": [ "Creation of build and workflow", "Cloudflare Pages and CNAME configuration", "Automatic deploy of gordaomod.expostacker.com.br"]
+        "pt": [
+          "Criacao do build e workflow",
+          "Configuracao do Cloudflare Pages e CNAME",
+          "Deploy automatico do gordaomod.expostacker.com.br"
+        ],
+        "en": [
+          "Creation of build and workflow",
+          "Cloudflare Pages and CNAME configuration",
+          "Automatic deploy of gordaomod.expostacker.com.br"
+        ]
       }
     },
     {
       "phase": "Portfolio",
       "period": "Semana 4",
       "items": {
-        "pt": ["Criacao do case e hero SVG", "Integracao com o site principal ExpoStacker", "Build e validacao PT/EN"],
-        "en": ["Creation of case and hero SVG", "Integration with ExpoStacker main site", "Build and PT/EN validation"]
+        "pt": [
+          "Criacao do case e hero SVG",
+          "Integracao com o site principal ExpoStacker",
+          "Build e validacao PT/EN"
+        ],
+        "en": [
+          "Creation of case and hero SVG",
+          "Integration with ExpoStacker main site",
+          "Build and PT/EN validation"
+        ]
       }
     }
   ],
   "methodology": {
-    "pt": ["Revisao de padroes ExpoStacker antes do deploy", "Correcoes defensivas sem quebrar o visual", "Deploy incremental e validacao de rotas", "Criacao de case documentando tecnicas e decisoes"],
-    "en": ["ExpoStacker standards review before deploy", "Defensive fixes without breaking visuals", "Incremental deploy and route validation", "Case creation documenting techniques and decisions"]
+    "pt": [
+      "Revisao de padroes ExpoStacker antes do deploy",
+      "Correcoes defensivas sem quebrar o visual",
+      "Deploy incremental e validacao de rotas",
+      "Criacao de case documentando tecnicas e decisoes"
+    ],
+    "en": [
+      "ExpoStacker standards review before deploy",
+      "Defensive fixes without breaking visuals",
+      "Incremental deploy and route validation",
+      "Case creation documenting techniques and decisions"
+    ]
   },
   "security": {
     "pt": {
       "title": "Seguranca e privacidade",
-      "items": ["Credenciais de Cloudflare mantidas em .deploy.env e nunca commitadas", "Secrets do GitHub injetados pelo workflow, sem hardcoded", "robots.txt orienta crawlers e expoe sitemap", "Cache e headers configurados via _headers para nao expor arquivos sensiveis"]
+      "items": [
+        "Credenciais de Cloudflare mantidas em .deploy.env e nunca commitadas",
+        "Secrets do GitHub injetados pelo workflow, sem hardcoded",
+        "robots.txt orienta crawlers e expoe sitemap",
+        "Cache e headers configurados via _headers para nao expor arquivos sensiveis"
+      ]
     },
     "en": {
       "title": "Security and privacy",
-      "items": ["Cloudflare credentials kept in .deploy.env and never committed", "GitHub secrets injected by workflow, no hardcoded values", "robots.txt guides crawlers and exposes sitemap", "Cache and headers configured via _headers to avoid exposing sensitive files"]
+      "items": [
+        "Cloudflare credentials kept in .deploy.env and never committed",
+        "GitHub secrets injected by workflow, no hardcoded values",
+        "robots.txt guides crawlers and exposes sitemap",
+        "Cache and headers configured via _headers to avoid exposing sensitive files"
+      ]
     }
   },
   "techStack": {
@@ -211,16 +315,36 @@
         {
           "category": "Frontend",
           "items": [
-            { "name": "HTML5", "why": "Estrutura semantica acessivel e indexavel por motores de busca", "alt": "JSX/Templates renderizados no servidor" },
-            { "name": "CSS3", "why": "Design cyber com variaveis, grid, flexbox e media queries sem bibliotecas externas", "alt": "Tailwind ou Bootstrap adicionariam dependencias e classes nao usadas" },
-            { "name": "Vanilla JS", "why": "Interacoes leves para tabs, busca e modal sem bundle", "alt": "React/Vue aumentariam hidratacao e tempo de build" }
+            {
+              "name": "HTML5",
+              "why": "Estrutura semantica acessivel e indexavel por motores de busca",
+              "alt": "JSX/Templates renderizados no servidor"
+            },
+            {
+              "name": "CSS3",
+              "why": "Design cyber com variaveis, grid, flexbox e media queries sem bibliotecas externas",
+              "alt": "Tailwind ou Bootstrap adicionariam dependencias e classes nao usadas"
+            },
+            {
+              "name": "Vanilla JS",
+              "why": "Interacoes leves para tabs, busca e modal sem bundle",
+              "alt": "React/Vue aumentariam hidratacao e tempo de build"
+            }
           ]
         },
         {
           "category": "Deploy",
           "items": [
-            { "name": "Cloudflare Pages", "why": "CDN global, dominio customizado e deploy automatico sem custo", "alt": "Netlify/Vercel com limites de banda e build time" },
-            { "name": "GitHub Actions", "why": "CI/CD nativo ao repo sem ferramentas adicionais", "alt": "CircleCI/Travis exigiriam mais configuracao e custo" }
+            {
+              "name": "Cloudflare Pages",
+              "why": "CDN global, dominio customizado e deploy automatico sem custo",
+              "alt": "Netlify/Vercel com limites de banda e build time"
+            },
+            {
+              "name": "GitHub Actions",
+              "why": "CI/CD nativo ao repo sem ferramentas adicionais",
+              "alt": "CircleCI/Travis exigiriam mais configuracao e custo"
+            }
           ]
         }
       ]
@@ -231,16 +355,36 @@
         {
           "category": "Frontend",
           "items": [
-            { "name": "HTML5", "why": "Accessible semantic structure indexable by search engines", "alt": "JSX/Templates rendered on the server" },
-            { "name": "CSS3", "why": "Cyber design with variables, grid, flexbox and media queries without external libraries", "alt": "Tailwind or Bootstrap would add dependencies and unused classes" },
-            { "name": "Vanilla JS", "why": "Lightweight interactions for tabs, search and modal with zero bundle", "alt": "React/Vue would add hydration and build time" }
+            {
+              "name": "HTML5",
+              "why": "Accessible semantic structure indexable by search engines",
+              "alt": "JSX/Templates rendered on the server"
+            },
+            {
+              "name": "CSS3",
+              "why": "Cyber design with variables, grid, flexbox and media queries without external libraries",
+              "alt": "Tailwind or Bootstrap would add dependencies and unused classes"
+            },
+            {
+              "name": "Vanilla JS",
+              "why": "Lightweight interactions for tabs, search and modal with zero bundle",
+              "alt": "React/Vue would add hydration and build time"
+            }
           ]
         },
         {
           "category": "Deploy",
           "items": [
-            { "name": "Cloudflare Pages", "why": "Global CDN, custom domain and automatic deploy with no cost", "alt": "Netlify/Vercel with bandwidth and build time limits" },
-            { "name": "GitHub Actions", "why": "Native CI/CD to the repo without additional tools", "alt": "CircleCI/Travis would require more configuration and cost" }
+            {
+              "name": "Cloudflare Pages",
+              "why": "Global CDN, custom domain and automatic deploy with no cost",
+              "alt": "Netlify/Vercel with bandwidth and build time limits"
+            },
+            {
+              "name": "GitHub Actions",
+              "why": "Native CI/CD to the repo without additional tools",
+              "alt": "CircleCI/Travis would require more configuration and cost"
+            }
           ]
         }
       ]
@@ -249,11 +393,23 @@
   "architecture": {
     "pt": {
       "title": "Arquitetura",
-      "items": ["Cliente: navegador com HTML5/CSS3/JS", "Host: Cloudflare Pages (CDN global)", "Build: node build.js copia arquivos para dist/", "CI/CD: GitHub Actions roda npm ci, npm run build e deploy no Pages", "Dominio: gordaomod.expostacker.com.br via CNAME proxied na Cloudflare"]
+      "items": [
+        "Cliente: navegador com HTML5/CSS3/JS",
+        "Host: Cloudflare Pages (CDN global)",
+        "Build: node build.js copia arquivos para dist/",
+        "CI/CD: GitHub Actions roda npm ci, npm run build e deploy no Pages",
+        "Dominio: gordaomod.expostacker.com.br via CNAME proxied na Cloudflare"
+      ]
     },
     "en": {
       "title": "Architecture",
-      "items": ["Client: browser with HTML5/CSS3/JS", "Host: Cloudflare Pages (global CDN)", "Build: node build.js copies files to dist/", "CI/CD: GitHub Actions runs npm ci, npm run build and deploys to Pages", "Domain: gordaomod.expostacker.com.br via proxied CNAME on Cloudflare"]
+      "items": [
+        "Client: browser with HTML5/CSS3/JS",
+        "Host: Cloudflare Pages (global CDN)",
+        "Build: node build.js copies files to dist/",
+        "CI/CD: GitHub Actions runs npm ci, npm run build and deploys to Pages",
+        "Domain: gordaomod.expostacker.com.br via proxied CNAME on Cloudflare"
+      ]
     }
   },
   "architectureDiagram": {
@@ -263,30 +419,77 @@
     "centerSub": "build -> dist/",
     "right": "Cloudflare Pages",
     "rightSub": "gordaomod.expostacker.com.br",
-    "bottom": ["HTML5", "CSS3", "Vanilla JS", "_headers", "robots.txt"]
+    "bottom": [
+      "HTML5",
+      "CSS3",
+      "Vanilla JS",
+      "_headers",
+      "robots.txt"
+    ]
   },
   "resultsDetail": {
     "pt": {
       "title": "Resultados",
       "kpis": [
-        { "value": "182", "label": "Produtos publicados", "baseline": "Catalogo completo exposto" },
-        { "value": "10", "label": "Categorias organizadas", "baseline": "Navegacao por tabs" },
-        { "value": "5", "label": "Paginas publicadas", "baseline": "Home, checkout, ficha, download, recursos" },
-        { "value": "<1 min", "label": "Deploy", "baseline": "GitHub Actions + Cloudflare Pages" }
+        {
+          "value": "182",
+          "label": "Produtos publicados",
+          "baseline": "Catalogo completo exposto"
+        },
+        {
+          "value": "10",
+          "label": "Categorias organizadas",
+          "baseline": "Navegacao por tabs"
+        },
+        {
+          "value": "5",
+          "label": "Paginas publicadas",
+          "baseline": "Home, checkout, ficha, download, recursos"
+        },
+        {
+          "value": "<1 min",
+          "label": "Deploy",
+          "baseline": "GitHub Actions + Cloudflare Pages"
+        }
       ]
     },
     "en": {
       "title": "Results",
       "kpis": [
-        { "value": "182", "label": "Products published", "baseline": "Complete catalog exposed" },
-        { "value": "10", "label": "Categories organized", "baseline": "Tab navigation" },
-        { "value": "5", "label": "Pages published", "baseline": "Home, checkout, specs, download, resources" },
-        { "value": "<1 min", "label": "Deploy", "baseline": "GitHub Actions + Cloudflare Pages" }
+        {
+          "value": "182",
+          "label": "Products published",
+          "baseline": "Complete catalog exposed"
+        },
+        {
+          "value": "10",
+          "label": "Categories organized",
+          "baseline": "Tab navigation"
+        },
+        {
+          "value": "5",
+          "label": "Pages published",
+          "baseline": "Home, checkout, specs, download, resources"
+        },
+        {
+          "value": "<1 min",
+          "label": "Deploy",
+          "baseline": "GitHub Actions + Cloudflare Pages"
+        }
       ]
     }
   },
-  "stakeholders": { "pt": "GordaoMod", "en": "GordaoMod" },
-  "sector": { "pt": "Gaming Tech", "en": "Gaming Tech" },
+  "stakeholders": {
+    "pt": "GordaoMod",
+    "en": "GordaoMod"
+  },
+  "sector": {
+    "pt": "Gaming Tech",
+    "en": "Gaming Tech"
+  },
   "nda": false,
-  "visualDisclaimer": { "pt": "", "en": "" }
+  "visualDisclaimer": {
+    "pt": "",
+    "en": ""
+  }
 }

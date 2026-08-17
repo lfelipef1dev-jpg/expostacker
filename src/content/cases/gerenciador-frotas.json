@@ -2,14 +2,36 @@
   "id": "gerenciador-frotas",
   "title": "Gerenciador Inteligente de Frotas",
   "clientName": "Frotamais",
-  "tags": ["Astro", "Hono", "Cloudflare Workers", "D1", "Durable Objects", "Better Auth", "Leaflet", "Tailwind", "RBAC"],
-  "shortDescription": "Plataforma SaaS de gestao de frotas com auth real, D1, VRP, rastreamento SSE, roles, CRUD, relatorios e mapa Leaflet.",
+  "tags": [
+    "Astro",
+    "Hono",
+    "Cloudflare Workers",
+    "D1",
+    "Durable Objects",
+    "Better Auth",
+    "Leaflet",
+    "Tailwind",
+    "RBAC"
+  ],
+  "shortDescription": "Produto de gestão de frotas ao vivo. Gestor vê veículos, rotas, manutenção e alertas no mapa.",
   "problemDescription": "Transportadoras e gestores de frota perdem visibilidade quando controlam tudo em planilhas desatualizadas. Falta uma visao unica de veiculos, motoristas, rotas, manutencao, combustivel, inspecoes e geofences para decidir com agilidade.",
   "technicalSolution": "Aplicacao full-stack com Astro SSR, Hono para API REST com CRUD completo, Cloudflare D1 com Drizzle ORM para persistencia real, Better Auth para autenticacao com roles (admin, gestor, motorista), Durable Objects com SSE para rastreamento em tempo real, algoritmo VRP (Nearest Neighbor + 2-opt) para roteirizacao, Leaflet para mapas com geofences, score de seguranca calculado a partir de eventos de telemetria, paginas de detalhe por veiculo e motorista, relatorios com graficos dinamicos e exportacao CSV, e sino de notificacoes in-app.",
   "businessOutcome": [
-    { "label": "Veículos", "value": 8, "unit": "" },
-    { "label": "Viagens", "value": 6, "unit": "" },
-    { "label": "Redução", "value": 60, "unit": "%" }
+    {
+      "label": "Veículos",
+      "value": 8,
+      "unit": ""
+    },
+    {
+      "label": "Viagens",
+      "value": 6,
+      "unit": ""
+    },
+    {
+      "label": "Redução",
+      "value": 60,
+      "unit": "%"
+    }
   ],
   "liveUrl": "https://frotamais.expostacker.com.br",
   "projectType": "Client-Work",
@@ -23,8 +45,8 @@
     "en": "Frotamais — Fleet platform with D1, real auth, roles and live tracking"
   },
   "heroSubhead": {
-    "pt": "Plataforma SaaS de gestao de frotas com autenticacao Better Auth e roles (admin, gestor, motorista), banco Cloudflare D1 com CRUD completo, roteirizacao VRP, rastreamento em tempo real via SSE e Durable Objects, mapa Leaflet com geofences, score de seguranca calculado de eventos de telemetria, paginas de detalhe por veiculo e motorista, relatorios com graficos dinamicos e exportacao CSV.",
-    "en": "Fleet management SaaS platform with Better Auth authentication and roles (admin, manager, driver), Cloudflare D1 database with full CRUD, VRP routing, real-time tracking via SSE and Durable Objects, Leaflet map with geofences, safety score calculated from telemetry events, vehicle and driver detail pages, reports with dynamic charts and CSV export."
+    "pt": "Gestor de frota abre o painel, vê cada veículo no mapa, consulta rotas otimizadas e acompanha alertas de manutenção em tempo real. Tudo em uma aplicação com autenticação, roles e relatórios.",
+    "en": "A fleet manager opens the dashboard, sees every vehicle on the map, checks optimized routes and follows maintenance alerts in real time. All in one app with authentication, roles and reports."
   },
   "opening": {
     "pt": "Frotamais e uma demonstracao de plataforma SaaS de gestao de frotas evoluida de mock estatico para MVP funcional honesto. A landing page comunica o valor do produto enquanto a area logada exige autenticacao real com roles e mostra dashboard com mapa ao vivo, roteirizacao VRP, KPIs do banco D1, paginas de detalhe por veiculo e motorista, CRUD completo, relatorios com graficos dinamicos, inspecoes DVIR, geofences e score de motorista calculado em tempo real.",
@@ -92,55 +114,175 @@
   },
   "decisionLog": [
     {
-      "title": { "pt": "D1 real em vez de dados em memória", "en": "Real D1 instead of in-memory data" },
-      "why": { "pt": "D1 com Drizzle ORM demonstra capacidade de persistência real, migrations e queries SQL na borda. Mostra domínio de banco serverless sem custo adicional no plano Cloudflare.", "en": "D1 with Drizzle ORM demonstrates real persistence capability, migrations and SQL queries at the edge. Shows serverless database mastery at no extra cost on Cloudflare plan." },
-      "alternatives": { "pt": "Seed em memória — rejeitado por não demonstrar capacidade de banco real.", "en": "In-memory seed — rejected for not demonstrating real database capability." }
+      "title": {
+        "pt": "D1 real em vez de dados em memória",
+        "en": "Real D1 instead of in-memory data"
+      },
+      "why": {
+        "pt": "D1 com Drizzle ORM demonstra capacidade de persistência real, migrations e queries SQL na borda. Mostra domínio de banco serverless sem custo adicional no plano Cloudflare.",
+        "en": "D1 with Drizzle ORM demonstrates real persistence capability, migrations and SQL queries at the edge. Shows serverless database mastery at no extra cost on Cloudflare plan."
+      },
+      "alternatives": {
+        "pt": "Seed em memória — rejeitado por não demonstrar capacidade de banco real.",
+        "en": "In-memory seed — rejected for not demonstrating real database capability."
+      }
     },
     {
-      "title": { "pt": "Better Auth em vez de auth mockado", "en": "Better Auth instead of mocked auth" },
-      "why": { "pt": "Better Auth com adapter Drizzle + D1 mostra autenticação real com sessão, cookies seguros e middleware. Demonstra domínio de segurança para prospects B2B.", "en": "Better Auth with Drizzle adapter + D1 shows real authentication with session, secure cookies and middleware. Demonstrates security mastery for B2B prospects." },
-      "alternatives": { "pt": "Auth mockado sem persistência — rejeitado por não demonstrar capacidade real de auth.", "en": "Mocked auth without persistence — rejected for not demonstrating real auth capability." }
+      "title": {
+        "pt": "Better Auth em vez de auth mockado",
+        "en": "Better Auth instead of mocked auth"
+      },
+      "why": {
+        "pt": "Better Auth com adapter Drizzle + D1 mostra autenticação real com sessão, cookies seguros e middleware. Demonstra domínio de segurança para prospects B2B.",
+        "en": "Better Auth with Drizzle adapter + D1 shows real authentication with session, secure cookies and middleware. Demonstrates security mastery for B2B prospects."
+      },
+      "alternatives": {
+        "pt": "Auth mockado sem persistência — rejeitado por não demonstrar capacidade real de auth.",
+        "en": "Mocked auth without persistence — rejected for not demonstrating real auth capability."
+      }
     },
     {
-      "title": { "pt": "Durable Objects + SSE em vez de polling", "en": "Durable Objects + SSE instead of polling" },
-      "why": { "pt": "Durable Objects mantêm estado compartilhado entre conexões e broadcastam posições via SSE. Demonstra arquitetura realtime na borda sem serviço externo.", "en": "Durable Objects maintain shared state between connections and broadcast positions via SSE. Demonstrates real-time architecture at the edge without external service." },
-      "alternatives": { "pt": "Polling com setInterval — rejeitado por não ser tempo real e gerar carga desnecessária.", "en": "Polling with setInterval — rejected for not being real-time and generating unnecessary load." }
+      "title": {
+        "pt": "Durable Objects + SSE em vez de polling",
+        "en": "Durable Objects + SSE instead of polling"
+      },
+      "why": {
+        "pt": "Durable Objects mantêm estado compartilhado entre conexões e broadcastam posições via SSE. Demonstra arquitetura realtime na borda sem serviço externo.",
+        "en": "Durable Objects maintain shared state between connections and broadcast positions via SSE. Demonstrates real-time architecture at the edge without external service."
+      },
+      "alternatives": {
+        "pt": "Polling com setInterval — rejeitado por não ser tempo real e gerar carga desnecessária.",
+        "en": "Polling with setInterval — rejected for not being real-time and generating unnecessary load."
+      }
     },
     {
-      "title": { "pt": "VRP próprio (Nearest Neighbor + 2-opt) em vez de OR-Tools", "en": "Custom VRP (Nearest Neighbor + 2-opt) instead of OR-Tools" },
-      "why": { "pt": "Implementação própria de Nearest Neighbor + 2-opt com haversine é leve, funciona no Workers e demonstra domínio de algoritmos. OR-Tools WASM pesa 58MB e excede limites do Workers.", "en": "Custom Nearest Neighbor + 2-opt with haversine is lightweight, works on Workers and demonstrates algorithm mastery. OR-Tools WASM weighs 58MB and exceeds Workers limits." },
-      "alternatives": { "pt": "OR-Tools WASM — rejeitado pelo tamanho de 58MB que excede o limite do Workers.", "en": "OR-Tools WASM — rejected for 58MB size exceeding Workers limit." }
+      "title": {
+        "pt": "VRP próprio (Nearest Neighbor + 2-opt) em vez de OR-Tools",
+        "en": "Custom VRP (Nearest Neighbor + 2-opt) instead of OR-Tools"
+      },
+      "why": {
+        "pt": "Implementação própria de Nearest Neighbor + 2-opt com haversine é leve, funciona no Workers e demonstra domínio de algoritmos. OR-Tools WASM pesa 58MB e excede limites do Workers.",
+        "en": "Custom Nearest Neighbor + 2-opt with haversine is lightweight, works on Workers and demonstrates algorithm mastery. OR-Tools WASM weighs 58MB and exceeds Workers limits."
+      },
+      "alternatives": {
+        "pt": "OR-Tools WASM — rejeitado pelo tamanho de 58MB que excede o limite do Workers.",
+        "en": "OR-Tools WASM — rejected for 58MB size exceeding Workers limit."
+      }
     },
     {
-      "title": { "pt": "Leaflet em vez de MapLibre GL", "en": "Leaflet instead of MapLibre GL" },
-      "why": { "pt": "Leaflet pesa 40KB gzipped contra 200KB do MapLibre GL. Para marcadores e polylines de rota, Leaflet é suficiente e mais leve. Usa client:only para evitar problemas de SSR.", "en": "Leaflet weighs 40KB gzipped vs 200KB for MapLibre GL. For markers and route polylines, Leaflet is sufficient and lighter. Uses client:only to avoid SSR issues." },
-      "alternatives": { "pt": "MapLibre GL — rejeitado pelo tamanho e complexidade desnecessária para o caso de uso.", "en": "MapLibre GL — rejected for size and unnecessary complexity for the use case." }
+      "title": {
+        "pt": "Leaflet em vez de MapLibre GL",
+        "en": "Leaflet instead of MapLibre GL"
+      },
+      "why": {
+        "pt": "Leaflet pesa 40KB gzipped contra 200KB do MapLibre GL. Para marcadores e polylines de rota, Leaflet é suficiente e mais leve. Usa client:only para evitar problemas de SSR.",
+        "en": "Leaflet weighs 40KB gzipped vs 200KB for MapLibre GL. For markers and route polylines, Leaflet is sufficient and lighter. Uses client:only to avoid SSR issues."
+      },
+      "alternatives": {
+        "pt": "MapLibre GL — rejeitado pelo tamanho e complexidade desnecessária para o caso de uso.",
+        "en": "MapLibre GL — rejected for size and unnecessary complexity for the use case."
+      }
     },
     {
-      "title": { "pt": "React 18 em vez de React 19", "en": "React 18 instead of React 19" },
-      "why": { "pt": "React 19 gera erro MessageChannel no ambiente do Cloudflare Workers. React 18 e estavel para SSR nesse runtime.", "en": "React 19 triggers a MessageChannel error in the Cloudflare Workers environment. React 18 is stable for SSR in this runtime." },
-      "alternatives": { "pt": "React 19 — rejeitado por incompatibilidade com o ambiente Workers.", "en": "React 19 — rejected for incompatibility with Workers runtime." }
+      "title": {
+        "pt": "React 18 em vez de React 19",
+        "en": "React 18 instead of React 19"
+      },
+      "why": {
+        "pt": "React 19 gera erro MessageChannel no ambiente do Cloudflare Workers. React 18 e estavel para SSR nesse runtime.",
+        "en": "React 19 triggers a MessageChannel error in the Cloudflare Workers environment. React 18 is stable for SSR in this runtime."
+      },
+      "alternatives": {
+        "pt": "React 19 — rejeitado por incompatibilidade com o ambiente Workers.",
+        "en": "React 19 — rejected for incompatibility with Workers runtime."
+      }
     },
     {
-      "title": { "pt": "Roles fixos em vez de RBAC customizavel", "en": "Fixed roles instead of customizable RBAC" },
-      "why": { "pt": "Tres roles fixos (admin, gestor, motorista) com permissoes definidas em codigo cobrem os cenarios de portofolio sem adicionar complexidade de CRUD de permissoes. Middleware checa acesso por role e sidebar filtra itens automaticamente.", "en": "Three fixed roles (admin, manager, driver) with code-defined permissions cover portfolio scenarios without adding RBAC CRUD complexity. Middleware checks role access and sidebar filters items automatically." },
-      "alternatives": { "pt": "RBAC customizavel com CRUD de permissoes — rejeitado por escopo excessivo para um portofolio.", "en": "Customizable RBAC with permission CRUD — rejected for excessive scope for a portfolio." }
+      "title": {
+        "pt": "Roles fixos em vez de RBAC customizavel",
+        "en": "Fixed roles instead of customizable RBAC"
+      },
+      "why": {
+        "pt": "Tres roles fixos (admin, gestor, motorista) com permissoes definidas em codigo cobrem os cenarios de portofolio sem adicionar complexidade de CRUD de permissoes. Middleware checa acesso por role e sidebar filtra itens automaticamente.",
+        "en": "Three fixed roles (admin, manager, driver) with code-defined permissions cover portfolio scenarios without adding RBAC CRUD complexity. Middleware checks role access and sidebar filters items automatically."
+      },
+      "alternatives": {
+        "pt": "RBAC customizavel com CRUD de permissoes — rejeitado por escopo excessivo para um portofolio.",
+        "en": "Customizable RBAC with permission CRUD — rejected for excessive scope for a portfolio."
+      }
     },
     {
-      "title": { "pt": "Graficos SVG puro em vez de Chart.js", "en": "Pure SVG charts instead of Chart.js" },
-      "why": { "pt": "Graficos de barras e donut em SVG puro pesam menos de 3KB contra 60KB+ do Chart.js. Para os graficos do portofolio, SVG e suficiente e mantem o bundle leve.", "en": "Bar and donut charts in pure SVG weigh less than 3KB vs 60KB+ for Chart.js. For portfolio charts, SVG is sufficient and keeps the bundle light." },
-      "alternatives": { "pt": "Chart.js — rejeitado pelo tamanho e complexidade desnecessaria.", "en": "Chart.js — rejected for size and unnecessary complexity." }
+      "title": {
+        "pt": "Graficos SVG puro em vez de Chart.js",
+        "en": "Pure SVG charts instead of Chart.js"
+      },
+      "why": {
+        "pt": "Graficos de barras e donut em SVG puro pesam menos de 3KB contra 60KB+ do Chart.js. Para os graficos do portofolio, SVG e suficiente e mantem o bundle leve.",
+        "en": "Bar and donut charts in pure SVG weigh less than 3KB vs 60KB+ for Chart.js. For portfolio charts, SVG is sufficient and keeps the bundle light."
+      },
+      "alternatives": {
+        "pt": "Chart.js — rejeitado pelo tamanho e complexidade desnecessaria.",
+        "en": "Chart.js — rejected for size and unnecessary complexity."
+      }
     }
   ],
   "technologies": [
-    { "name": "Astro", "why": { "pt": "SSR leve com islands e compatível com Cloudflare Workers.", "en": "Lightweight SSR with islands and compatible with Cloudflare Workers." } },
-    { "name": "Hono", "why": { "pt": "API rápida, pequena e compatível com Workers.", "en": "Fast, small API compatible with Workers." } },
-    { "name": "Cloudflare D1", "why": { "pt": "Banco SQLite serverless na borda com Drizzle ORM.", "en": "Serverless SQLite database at the edge with Drizzle ORM." } },
-    { "name": "Better Auth", "why": { "pt": "Autenticação real com sessão, cookies seguros e adapter Drizzle.", "en": "Real authentication with session, secure cookies and Drizzle adapter." } },
-    { "name": "Durable Objects", "why": { "pt": "Estado compartilhado e SSE para rastreamento em tempo real.", "en": "Shared state and SSE for real-time tracking." } },
-    { "name": "Leaflet", "why": { "pt": "Mapa interativo leve com marcadores e polylines de rota.", "en": "Lightweight interactive map with markers and route polylines." } },
-    { "name": "Tailwind CSS", "why": { "pt": "Design tokens e responsividade sem CSS customizado.", "en": "Design tokens and responsiveness without custom CSS." } },
-    { "name": "Cloudflare Workers", "why": { "pt": "Deploy na borda com SSL e domínio personalizado.", "en": "Edge deployment with SSL and custom domain." } }
+    {
+      "name": "Astro",
+      "why": {
+        "pt": "SSR leve com islands e compatível com Cloudflare Workers.",
+        "en": "Lightweight SSR with islands and compatible with Cloudflare Workers."
+      }
+    },
+    {
+      "name": "Hono",
+      "why": {
+        "pt": "API rápida, pequena e compatível com Workers.",
+        "en": "Fast, small API compatible with Workers."
+      }
+    },
+    {
+      "name": "Cloudflare D1",
+      "why": {
+        "pt": "Banco SQLite serverless na borda com Drizzle ORM.",
+        "en": "Serverless SQLite database at the edge with Drizzle ORM."
+      }
+    },
+    {
+      "name": "Better Auth",
+      "why": {
+        "pt": "Autenticação real com sessão, cookies seguros e adapter Drizzle.",
+        "en": "Real authentication with session, secure cookies and Drizzle adapter."
+      }
+    },
+    {
+      "name": "Durable Objects",
+      "why": {
+        "pt": "Estado compartilhado e SSE para rastreamento em tempo real.",
+        "en": "Shared state and SSE for real-time tracking."
+      }
+    },
+    {
+      "name": "Leaflet",
+      "why": {
+        "pt": "Mapa interativo leve com marcadores e polylines de rota.",
+        "en": "Lightweight interactive map with markers and route polylines."
+      }
+    },
+    {
+      "name": "Tailwind CSS",
+      "why": {
+        "pt": "Design tokens e responsividade sem CSS customizado.",
+        "en": "Design tokens and responsiveness without custom CSS."
+      }
+    },
+    {
+      "name": "Cloudflare Workers",
+      "why": {
+        "pt": "Deploy na borda com SSL e domínio personalizado.",
+        "en": "Edge deployment with SSL and custom domain."
+      }
+    }
   ],
   "myRole": {
     "pt": "Arquiteto, designer e desenvolvedor full-stack do portfólio.",
@@ -159,9 +301,27 @@
     "en": "Fleet Management and Logistics"
   },
   "heroMetrics": [
-    { "value": "8", "label": { "pt": "Veiculos na demo", "en": "Vehicles in demo" } },
-    { "value": "11", "label": { "pt": "Modulos ativos", "en": "Active modules" } },
-    { "value": "3", "label": { "pt": "Roles com permissoes", "en": "Roles with permissions" } }
+    {
+      "value": "8",
+      "label": {
+        "pt": "Veiculos na demo",
+        "en": "Vehicles in demo"
+      }
+    },
+    {
+      "value": "11",
+      "label": {
+        "pt": "Modulos ativos",
+        "en": "Active modules"
+      }
+    },
+    {
+      "value": "3",
+      "label": {
+        "pt": "Roles com permissoes",
+        "en": "Roles with permissions"
+      }
+    }
   ],
   "timeline": {
     "duration": "6 dias de implementação",
@@ -172,40 +332,98 @@
       "phase": "Discovery",
       "period": "1 dia",
       "items": {
-        "pt": ["Pesquisa de benchmarks de gestão de frotas", "Análise de fluxos operacionais de transportadoras brasileiras", "Definição de módulos e arquitetura"],
-        "en": ["Research of fleet management benchmarks", "Analysis of Brazilian freight company operational flows", "Definition of modules and architecture"]
+        "pt": [
+          "Pesquisa de benchmarks de gestão de frotas",
+          "Análise de fluxos operacionais de transportadoras brasileiras",
+          "Definição de módulos e arquitetura"
+        ],
+        "en": [
+          "Research of fleet management benchmarks",
+          "Analysis of Brazilian freight company operational flows",
+          "Definition of modules and architecture"
+        ]
       }
     },
     {
       "phase": "Design",
       "period": "1 dia",
       "items": {
-        "pt": ["Landing page com hero fotográfico", "Paleta azul profundo + laranja de CTA", "Sidebar e top bar do dashboard"],
-        "en": ["Landing page with photographic hero", "Deep blue + orange CTA palette", "Dashboard sidebar and top bar"]
+        "pt": [
+          "Landing page com hero fotográfico",
+          "Paleta azul profundo + laranja de CTA",
+          "Sidebar e top bar do dashboard"
+        ],
+        "en": [
+          "Landing page with photographic hero",
+          "Deep blue + orange CTA palette",
+          "Dashboard sidebar and top bar"
+        ]
       }
     },
     {
       "phase": "Dev base",
       "period": "2 dias",
       "items": {
-        "pt": ["Scaffold Astro + Hono + Tailwind", "Seed de dados ilustrativos brasileiros", "Landing page e módulos do dashboard", "Deploy no Cloudflare Workers"],
-        "en": ["Astro + Hono + Tailwind scaffold", "Brazilian illustrative data seed", "Landing page and dashboard modules", "Deploy on Cloudflare Workers"]
+        "pt": [
+          "Scaffold Astro + Hono + Tailwind",
+          "Seed de dados ilustrativos brasileiros",
+          "Landing page e módulos do dashboard",
+          "Deploy no Cloudflare Workers"
+        ],
+        "en": [
+          "Astro + Hono + Tailwind scaffold",
+          "Brazilian illustrative data seed",
+          "Landing page and dashboard modules",
+          "Deploy on Cloudflare Workers"
+        ]
       }
     },
     {
       "phase": "Dev funcional",
       "period": "2 dias",
       "items": {
-        "pt": ["D1 real com Drizzle migrations", "Better Auth com sessao e middleware", "Durable Object + SSE para rastreamento", "VRP Nearest Neighbor + 2-opt", "Leaflet no dashboard", "Score de seguranca calculado"],
-        "en": ["Real D1 with Drizzle migrations", "Better Auth with session and middleware", "Durable Object + SSE for tracking", "VRP Nearest Neighbor + 2-opt", "Leaflet on dashboard", "Calculated safety score"]
+        "pt": [
+          "D1 real com Drizzle migrations",
+          "Better Auth com sessao e middleware",
+          "Durable Object + SSE para rastreamento",
+          "VRP Nearest Neighbor + 2-opt",
+          "Leaflet no dashboard",
+          "Score de seguranca calculado"
+        ],
+        "en": [
+          "Real D1 with Drizzle migrations",
+          "Better Auth with session and middleware",
+          "Durable Object + SSE for tracking",
+          "VRP Nearest Neighbor + 2-opt",
+          "Leaflet on dashboard",
+          "Calculated safety score"
+        ]
       }
     },
     {
       "phase": "Evolucao MVP",
       "period": "2 dias",
       "items": {
-        "pt": ["Sistema de roles e permissoes (admin, gestor, motorista)", "Paginas de detalhe por veiculo e motorista", "CRUD completo na interface com modais", "Inspecoes DVIR com checklist pre/pos viagem", "Geofences com areas no mapa", "Relatorios com graficos dinamicos e exportacao CSV", "Sino de notificacoes in-app", "Filtros e busca em todos modulos"],
-        "en": ["Roles and permissions system (admin, manager, driver)", "Vehicle and driver detail pages", "Full CRUD in the UI with modals", "DVIR inspections with pre/post trip checklist", "Geofences with map areas", "Reports with dynamic charts and CSV export", "In-app notification bell", "Filters and search on all modules"]
+        "pt": [
+          "Sistema de roles e permissoes (admin, gestor, motorista)",
+          "Paginas de detalhe por veiculo e motorista",
+          "CRUD completo na interface com modais",
+          "Inspecoes DVIR com checklist pre/pos viagem",
+          "Geofences com areas no mapa",
+          "Relatorios com graficos dinamicos e exportacao CSV",
+          "Sino de notificacoes in-app",
+          "Filtros e busca em todos modulos"
+        ],
+        "en": [
+          "Roles and permissions system (admin, manager, driver)",
+          "Vehicle and driver detail pages",
+          "Full CRUD in the UI with modals",
+          "DVIR inspections with pre/post trip checklist",
+          "Geofences with map areas",
+          "Reports with dynamic charts and CSV export",
+          "In-app notification bell",
+          "Filters and search on all modules"
+        ]
       }
     }
   ],
@@ -214,8 +432,26 @@
     "en": "Hero photo is a generic logistics photo (Unsplash, free license). Fleet data is illustrative and persisted in D1 for demonstration. No real CT-e, MDF-e issuance or fiscal integration."
   },
   "methodology": {
-    "pt": ["Pesquisa de benchmarks", "Arquitetura edge-first", "Mobile-first", "Acessibilidade primeiro", "Honestidade no conteúdo", "Algoritmos próprios", "Tempo real na borda", "Deploy contínuo"],
-    "en": ["Benchmark research", "Edge-first architecture", "Mobile-first", "Accessibility first", "Honest content", "Custom algorithms", "Real-time at the edge", "Continuous deploy"]
+    "pt": [
+      "Pesquisa de benchmarks",
+      "Arquitetura edge-first",
+      "Mobile-first",
+      "Acessibilidade primeiro",
+      "Honestidade no conteúdo",
+      "Algoritmos próprios",
+      "Tempo real na borda",
+      "Deploy contínuo"
+    ],
+    "en": [
+      "Benchmark research",
+      "Edge-first architecture",
+      "Mobile-first",
+      "Accessibility first",
+      "Honest content",
+      "Custom algorithms",
+      "Real-time at the edge",
+      "Continuous deploy"
+    ]
   },
   "security": {
     "pt": {
@@ -256,39 +492,91 @@
         {
           "category": "Frontend",
           "items": [
-            { "name": "Astro", "why": "SSR leve e islands para interatividade seletiva.", "alt": "Next.js" },
-            { "name": "React 18", "why": "Compatibilidade com SSR no Workers.", "alt": "React 19" },
-            { "name": "Leaflet", "why": "Mapa interativo leve com marcadores e polylines.", "alt": "MapLibre GL" },
-            { "name": "Tailwind CSS", "why": "Design tokens e responsividade.", "alt": "CSS customizado" }
+            {
+              "name": "Astro",
+              "why": "SSR leve e islands para interatividade seletiva.",
+              "alt": "Next.js"
+            },
+            {
+              "name": "React 18",
+              "why": "Compatibilidade com SSR no Workers.",
+              "alt": "React 19"
+            },
+            {
+              "name": "Leaflet",
+              "why": "Mapa interativo leve com marcadores e polylines.",
+              "alt": "MapLibre GL"
+            },
+            {
+              "name": "Tailwind CSS",
+              "why": "Design tokens e responsividade.",
+              "alt": "CSS customizado"
+            }
           ]
         },
         {
           "category": "Backend",
           "items": [
-            { "name": "Hono", "why": "API pequena e compatível com Workers.", "alt": "Express" },
-            { "name": "Better Auth", "why": "Auth real com sessão e adapter Drizzle.", "alt": "Auth mockado" },
-            { "name": "Drizzle ORM", "why": "Type-safe queries SQL no D1.", "alt": "SQL cru" }
+            {
+              "name": "Hono",
+              "why": "API pequena e compatível com Workers.",
+              "alt": "Express"
+            },
+            {
+              "name": "Better Auth",
+              "why": "Auth real com sessão e adapter Drizzle.",
+              "alt": "Auth mockado"
+            },
+            {
+              "name": "Drizzle ORM",
+              "why": "Type-safe queries SQL no D1.",
+              "alt": "SQL cru"
+            }
           ]
         },
         {
           "category": "Dados e realtime",
           "items": [
-            { "name": "Cloudflare D1", "why": "Banco SQLite serverless na borda.", "alt": "Supabase" },
-            { "name": "Durable Objects", "why": "Estado compartilhado e SSE para realtime.", "alt": "WebSocket service" },
-            { "name": "KV Namespace", "why": "Sessão de auth na borda.", "alt": "Redis" }
+            {
+              "name": "Cloudflare D1",
+              "why": "Banco SQLite serverless na borda.",
+              "alt": "Supabase"
+            },
+            {
+              "name": "Durable Objects",
+              "why": "Estado compartilhado e SSE para realtime.",
+              "alt": "WebSocket service"
+            },
+            {
+              "name": "KV Namespace",
+              "why": "Sessão de auth na borda.",
+              "alt": "Redis"
+            }
           ]
         },
         {
           "category": "Algoritmos",
           "items": [
-            { "name": "Nearest Neighbor + 2-opt", "why": "VRP leve com haversine, funciona no Workers.", "alt": "OR-Tools WASM" },
-            { "name": "Safety Score", "why": "Cálculo real a partir de eventos de telemetria.", "alt": "Score estático mockado" }
+            {
+              "name": "Nearest Neighbor + 2-opt",
+              "why": "VRP leve com haversine, funciona no Workers.",
+              "alt": "OR-Tools WASM"
+            },
+            {
+              "name": "Safety Score",
+              "why": "Cálculo real a partir de eventos de telemetria.",
+              "alt": "Score estático mockado"
+            }
           ]
         },
         {
           "category": "Deploy",
           "items": [
-            { "name": "Cloudflare Workers", "why": "Borda global, SSL e domínio personalizado.", "alt": "Vercel" }
+            {
+              "name": "Cloudflare Workers",
+              "why": "Borda global, SSL e domínio personalizado.",
+              "alt": "Vercel"
+            }
           ]
         }
       ]
@@ -299,39 +587,91 @@
         {
           "category": "Frontend",
           "items": [
-            { "name": "Astro", "why": "Lightweight SSR and islands for selective interactivity.", "alt": "Next.js" },
-            { "name": "React 18", "why": "SSR compatibility on Workers.", "alt": "React 19" },
-            { "name": "Leaflet", "why": "Lightweight interactive map with markers and polylines.", "alt": "MapLibre GL" },
-            { "name": "Tailwind CSS", "why": "Design tokens and responsiveness.", "alt": "Custom CSS" }
+            {
+              "name": "Astro",
+              "why": "Lightweight SSR and islands for selective interactivity.",
+              "alt": "Next.js"
+            },
+            {
+              "name": "React 18",
+              "why": "SSR compatibility on Workers.",
+              "alt": "React 19"
+            },
+            {
+              "name": "Leaflet",
+              "why": "Lightweight interactive map with markers and polylines.",
+              "alt": "MapLibre GL"
+            },
+            {
+              "name": "Tailwind CSS",
+              "why": "Design tokens and responsiveness.",
+              "alt": "Custom CSS"
+            }
           ]
         },
         {
           "category": "Backend",
           "items": [
-            { "name": "Hono", "why": "Small API compatible with Workers.", "alt": "Express" },
-            { "name": "Better Auth", "why": "Real auth with session and Drizzle adapter.", "alt": "Mocked auth" },
-            { "name": "Drizzle ORM", "why": "Type-safe SQL queries on D1.", "alt": "Raw SQL" }
+            {
+              "name": "Hono",
+              "why": "Small API compatible with Workers.",
+              "alt": "Express"
+            },
+            {
+              "name": "Better Auth",
+              "why": "Real auth with session and Drizzle adapter.",
+              "alt": "Mocked auth"
+            },
+            {
+              "name": "Drizzle ORM",
+              "why": "Type-safe SQL queries on D1.",
+              "alt": "Raw SQL"
+            }
           ]
         },
         {
           "category": "Data and realtime",
           "items": [
-            { "name": "Cloudflare D1", "why": "Serverless SQLite database at the edge.", "alt": "Supabase" },
-            { "name": "Durable Objects", "why": "Shared state and SSE for realtime.", "alt": "WebSocket service" },
-            { "name": "KV Namespace", "why": "Auth session at the edge.", "alt": "Redis" }
+            {
+              "name": "Cloudflare D1",
+              "why": "Serverless SQLite database at the edge.",
+              "alt": "Supabase"
+            },
+            {
+              "name": "Durable Objects",
+              "why": "Shared state and SSE for realtime.",
+              "alt": "WebSocket service"
+            },
+            {
+              "name": "KV Namespace",
+              "why": "Auth session at the edge.",
+              "alt": "Redis"
+            }
           ]
         },
         {
           "category": "Algorithms",
           "items": [
-            { "name": "Nearest Neighbor + 2-opt", "why": "Lightweight VRP with haversine, works on Workers.", "alt": "OR-Tools WASM" },
-            { "name": "Safety Score", "why": "Real calculation from telemetry events.", "alt": "Mocked static score" }
+            {
+              "name": "Nearest Neighbor + 2-opt",
+              "why": "Lightweight VRP with haversine, works on Workers.",
+              "alt": "OR-Tools WASM"
+            },
+            {
+              "name": "Safety Score",
+              "why": "Real calculation from telemetry events.",
+              "alt": "Mocked static score"
+            }
           ]
         },
         {
           "category": "Deploy",
           "items": [
-            { "name": "Cloudflare Workers", "why": "Global edge, SSL and custom domain.", "alt": "Vercel" }
+            {
+              "name": "Cloudflare Workers",
+              "why": "Global edge, SSL and custom domain.",
+              "alt": "Vercel"
+            }
           ]
         }
       ]
@@ -377,23 +717,71 @@
     "pt": {
       "title": "Resultados observáveis",
       "kpis": [
-        { "value": "3", "label": "bindings Cloudflare ativos", "baseline": "D1 + KV + Durable Object" },
-        { "value": "8", "label": "veículos na demo", "baseline": "dados ilustrativos em D1" },
-        { "value": "7", "label": "módulos ativos", "baseline": "dashboard funcional com auth" },
-        { "value": "10", "label": "eventos de telemetria", "baseline": "base para score de segurança" },
-        { "value": "<1s", "label": "TTFB estimado", "baseline": "borda Cloudflare" },
-        { "value": "100%", "label": "rotas via VRP real", "baseline": "Nearest Neighbor + 2-opt" }
+        {
+          "value": "3",
+          "label": "bindings Cloudflare ativos",
+          "baseline": "D1 + KV + Durable Object"
+        },
+        {
+          "value": "8",
+          "label": "veículos na demo",
+          "baseline": "dados ilustrativos em D1"
+        },
+        {
+          "value": "7",
+          "label": "módulos ativos",
+          "baseline": "dashboard funcional com auth"
+        },
+        {
+          "value": "10",
+          "label": "eventos de telemetria",
+          "baseline": "base para score de segurança"
+        },
+        {
+          "value": "<1s",
+          "label": "TTFB estimado",
+          "baseline": "borda Cloudflare"
+        },
+        {
+          "value": "100%",
+          "label": "rotas via VRP real",
+          "baseline": "Nearest Neighbor + 2-opt"
+        }
       ]
     },
     "en": {
       "title": "Observable results",
       "kpis": [
-        { "value": "3", "label": "active Cloudflare bindings", "baseline": "D1 + KV + Durable Object" },
-        { "value": "8", "label": "vehicles in demo", "baseline": "illustrative data in D1" },
-        { "value": "7", "label": "active modules", "baseline": "functional dashboard with auth" },
-        { "value": "10", "label": "telemetry events", "baseline": "base for safety score" },
-        { "value": "<1s", "label": "estimated TTFB", "baseline": "Cloudflare edge" },
-        { "value": "100%", "label": "routes via real VRP", "baseline": "Nearest Neighbor + 2-opt" }
+        {
+          "value": "3",
+          "label": "active Cloudflare bindings",
+          "baseline": "D1 + KV + Durable Object"
+        },
+        {
+          "value": "8",
+          "label": "vehicles in demo",
+          "baseline": "illustrative data in D1"
+        },
+        {
+          "value": "7",
+          "label": "active modules",
+          "baseline": "functional dashboard with auth"
+        },
+        {
+          "value": "10",
+          "label": "telemetry events",
+          "baseline": "base for safety score"
+        },
+        {
+          "value": "<1s",
+          "label": "estimated TTFB",
+          "baseline": "Cloudflare edge"
+        },
+        {
+          "value": "100%",
+          "label": "routes via real VRP",
+          "baseline": "Nearest Neighbor + 2-opt"
+        }
       ]
     }
   },

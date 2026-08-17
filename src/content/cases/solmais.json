@@ -2,14 +2,33 @@
   "id": "solmais",
   "title": "SolMais",
   "clientName": "SolMais",
-  "tags": ["HTML5", "CSS3", "JavaScript", "Cloudflare Pages", "Sora", "Inter"],
-  "shortDescription": "Demonstração de energia solar fotovoltaica com hero fotográfico, simulador de economia interativo, comparativo de planos e depoimentos ilustrativos. Estático, sem backend.",
+  "tags": [
+    "HTML5",
+    "CSS3",
+    "JavaScript",
+    "Cloudflare Pages",
+    "Sora",
+    "Inter"
+  ],
+  "shortDescription": "Demonstração de energia solar. Proprietário simula economia, compara planos e entende o retorno antes de contratar.",
   "problemDescription": "Empresas de energia solar precisam comunicar economia, processo e credibilidade em segundos. A maioria dos sites do setor usa fotos genéricas, copy vago e simuladores que parecem planilhas. Falta uma experiência que combine impacto visual real com transparência sobre o que é demonstração.",
   "technicalSolution": "Construímos uma landing page estática premium com hero fotográfico de instalação solar real (Unsplash, licença livre), overlay navy gradient para contraste de texto, tipografia Sora (display) + Inter (body) self-hosted, simulador de economia interativo com cálculos ilustrativos, comparativo de 3 modelos de aquisição, depoimentos variados com disclosure único e FAQ acessível. Animações scroll-triggered via Intersection Observer, respeitando prefers-reduced-motion.",
   "businessOutcome": [
-    { "label": "Performance", "value": 90, "unit": "+" },
-    { "label": "Acessibilidade", "value": 95, "unit": "%" },
-    { "label": "Contraste", "value": 4.6, "unit": ":1" }
+    {
+      "label": "Performance",
+      "value": 90,
+      "unit": "+"
+    },
+    {
+      "label": "Acessibilidade",
+      "value": 95,
+      "unit": "%"
+    },
+    {
+      "label": "Contraste",
+      "value": 4.6,
+      "unit": ":1"
+    }
   ],
   "liveUrl": "https://solmais.expostacker.com.br",
   "projectType": "Client-Work",
@@ -23,8 +42,8 @@
     "en": "SolMais — Solar energy with photographic hero and interactive simulation"
   },
   "heroSubhead": {
-    "pt": "Landing page de energia solar fotovoltaica com foto real de instalação, simulador de economia, comparativo de planos e depoimentos ilustrativos. HTML, CSS e JavaScript vanilla, sem backend.",
-    "en": "Solar energy landing page with real installation photo, savings simulator, plan comparison and illustrative testimonials. HTML, CSS and vanilla JavaScript, no backend."
+    "pt": "Dono de imóvel entra na landing, vê a foto real de instalação, simula economia de energia e compara os 3 modelos de aquisição. Zero coleta de leads, só comunicação clara.",
+    "en": "A property owner enters the landing, sees the real installation photo, simulates energy savings and compares 3 acquisition models. Zero lead collection, just clear communication."
   },
   "opening": {
     "pt": "SolMais é uma demonstração de landing page de energia solar fotovoltaica. A experiência inclui hero com foto real de telhado solar e overlay navy, simulador de economia interativo com cálculos ilustrativos, comparativo de 3 modelos de aquisição (à vista, financiamento, assinatura), depoimentos variados com disclosure único, FAQ acessível e páginas legais.",
@@ -72,51 +91,111 @@
   },
   "decisionLog": [
     {
-      "title": { "pt": "Hero fotográfico em vez de composição CSS", "en": "Photographic hero instead of CSS composition" },
-      "why": { "pt": "Sites solares premium (Tesla, Sunrun, Palmetto) usam fotografia real de instalação. Uma foto de telhado solar comunica o produto em 2 segundos — algo que gradient mesh e cards flutuantes não conseguem.", "en": "Premium solar sites (Tesla, Sunrun, Palmetto) use real installation photography. A solar rooftop photo communicates the product in 2 seconds — something gradient mesh and floating cards cannot." },
-      "alternatives": { "pt": "Composição CSS com gradient mesh e glass cards (como VendaMais) — rejeitada por parecer template vazio para o setor solar.", "en": "CSS composition with gradient mesh and glass cards (like VendaMais) — rejected for looking like an empty template for the solar sector." }
+      "title": {
+        "pt": "Hero fotográfico em vez de composição CSS",
+        "en": "Photographic hero instead of CSS composition"
+      },
+      "why": {
+        "pt": "Sites solares premium (Tesla, Sunrun, Palmetto) usam fotografia real de instalação. Uma foto de telhado solar comunica o produto em 2 segundos — algo que gradient mesh e cards flutuantes não conseguem.",
+        "en": "Premium solar sites (Tesla, Sunrun, Palmetto) use real installation photography. A solar rooftop photo communicates the product in 2 seconds — something gradient mesh and floating cards cannot."
+      },
+      "alternatives": {
+        "pt": "Composição CSS com gradient mesh e glass cards (como VendaMais) — rejeitada por parecer template vazio para o setor solar.",
+        "en": "CSS composition with gradient mesh and glass cards (like VendaMais) — rejected for looking like an empty template for the solar sector."
+      }
     },
     {
-      "title": { "pt": "Sora + Inter em vez de apenas Inter", "en": "Sora + Inter instead of Inter only" },
-      "why": { "pt": "Sora nos títulos dá personalidade tech e diferencia do Inter usado no corpo. Self-hosted mantém performance sem conexão externa.", "en": "Sora in headings gives tech personality and differentiates from Inter used in body. Self-hosted maintains performance without external connection." },
-      "alternatives": { "pt": "Apenas Inter — funcional, mas sem personalidade distintiva nos títulos.", "en": "Inter only — functional, but without distinctive personality in headings." }
+      "title": {
+        "pt": "Sora + Inter em vez de apenas Inter",
+        "en": "Sora + Inter instead of Inter only"
+      },
+      "why": {
+        "pt": "Sora nos títulos dá personalidade tech e diferencia do Inter usado no corpo. Self-hosted mantém performance sem conexão externa.",
+        "en": "Sora in headings gives tech personality and differentiates from Inter used in body. Self-hosted maintains performance without external connection."
+      },
+      "alternatives": {
+        "pt": "Apenas Inter — funcional, mas sem personalidade distintiva nos títulos.",
+        "en": "Inter only — functional, but without distinctive personality in headings."
+      }
     },
     {
-      "title": { "pt": "Laranja escuro #E07B00 em vez de laranja claro #F79320", "en": "Dark orange #E07B00 instead of light orange #F79320" },
-      "why": { "pt": "O laranja claro #F79320 sobre branco tem contraste de 2.28:1, falhando WCAG AA. O laranja escuro #E07B00 atinge 4.6:1, passando AA para texto normal.", "en": "Light orange #F79320 on white has 2.28:1 contrast, failing WCAG AA. Dark orange #E07B00 achieves 4.6:1, passing AA for normal text." },
-      "alternatives": { "pt": "Manter #F79320 — rejeitado por falhar acessibilidade.", "en": "Keep #F79320 — rejected for failing accessibility." }
+      "title": {
+        "pt": "Laranja escuro #E07B00 em vez de laranja claro #F79320",
+        "en": "Dark orange #E07B00 instead of light orange #F79320"
+      },
+      "why": {
+        "pt": "O laranja claro #F79320 sobre branco tem contraste de 2.28:1, falhando WCAG AA. O laranja escuro #E07B00 atinge 4.6:1, passando AA para texto normal.",
+        "en": "Light orange #F79320 on white has 2.28:1 contrast, failing WCAG AA. Dark orange #E07B00 achieves 4.6:1, passing AA for normal text."
+      },
+      "alternatives": {
+        "pt": "Manter #F79320 — rejeitado por falhar acessibilidade.",
+        "en": "Keep #F79320 — rejected for failing accessibility."
+      }
     },
     {
-      "title": { "pt": "Remoção de selos fictícios (INMETRO, ANEEL, ABSOLAR)", "en": "Removal of fake seals (INMETRO, ANEEL, ABSOLAR)" },
-      "why": { "pt": "SolMais é um projeto de portfólio. Usar selos de organismos reais implica certificação ou afiliação que não existe. Eticamente inaceitável.", "en": "SolMais is a portfolio project. Using real organization seals implies certification or affiliation that doesn't exist. Ethically unacceptable." },
-      "alternatives": { "pt": "Reframing dos selos como referências de pesquisa — rejeitado por ainda poder confundir visitantes.", "en": "Reframing seals as research references — rejected for still potentially confusing visitors." }
+      "title": {
+        "pt": "Remoção de selos fictícios (INMETRO, ANEEL, ABSOLAR)",
+        "en": "Removal of fake seals (INMETRO, ANEEL, ABSOLAR)"
+      },
+      "why": {
+        "pt": "SolMais é um projeto de portfólio. Usar selos de organismos reais implica certificação ou afiliação que não existe. Eticamente inaceitável.",
+        "en": "SolMais is a portfolio project. Using real organization seals implies certification or affiliation that doesn't exist. Ethically unacceptable."
+      },
+      "alternatives": {
+        "pt": "Reframing dos selos como referências de pesquisa — rejeitado por ainda poder confundir visitantes.",
+        "en": "Reframing seals as research references — rejected for still potentially confusing visitors."
+      }
     },
     {
-      "title": { "pt": "Schema.org como WebApplication, não LocalBusiness", "en": "Schema.org as WebApplication, not LocalBusiness" },
-      "why": { "pt": "LocalBusiness implica empresa real com endereço, horário e CNPJ. WebApplication reflete corretamente que é uma demonstração web sem operação comercial.", "en": "LocalBusiness implies a real company with address, hours and CNPJ. WebApplication correctly reflects that it's a web demonstration without commercial operation." },
-      "alternatives": { "pt": "LocalBusiness com endereço fictício — rejeitado por criar ambiguidade legal.", "en": "LocalBusiness with fake address — rejected for creating legal ambiguity." }
+      "title": {
+        "pt": "Schema.org como WebApplication, não LocalBusiness",
+        "en": "Schema.org as WebApplication, not LocalBusiness"
+      },
+      "why": {
+        "pt": "LocalBusiness implica empresa real com endereço, horário e CNPJ. WebApplication reflete corretamente que é uma demonstração web sem operação comercial.",
+        "en": "LocalBusiness implies a real company with address, hours and CNPJ. WebApplication correctly reflects that it's a web demonstration without commercial operation."
+      },
+      "alternatives": {
+        "pt": "LocalBusiness com endereço fictício — rejeitado por criar ambiguidade legal.",
+        "en": "LocalBusiness with fake address — rejected for creating legal ambiguity."
+      }
     }
   ],
   "technologies": [
     {
       "name": "HTML5",
-      "why": { "pt": "Semântica limpa com article, section, nav, header, footer, main e details.", "en": "Clean semantics with article, section, nav, header, footer, main and details." }
+      "why": {
+        "pt": "Semântica limpa com article, section, nav, header, footer, main e details.",
+        "en": "Clean semantics with article, section, nav, header, footer, main and details."
+      }
     },
     {
       "name": "CSS3",
-      "why": { "pt": "Design tokens, grid, flexbox, hairline borders, animações scroll via Intersection Observer e responsividade sem frameworks.", "en": "Design tokens, grid, flexbox, hairline borders, scroll animations via Intersection Observer and responsiveness without frameworks." }
+      "why": {
+        "pt": "Design tokens, grid, flexbox, hairline borders, animações scroll via Intersection Observer e responsividade sem frameworks.",
+        "en": "Design tokens, grid, flexbox, hairline borders, scroll animations via Intersection Observer and responsiveness without frameworks."
+      }
     },
     {
       "name": "JavaScript",
-      "why": { "pt": "Simulador, menu mobile, FAQ accordion, smooth scroll e scroll animations sem bibliotecas.", "en": "Simulator, mobile menu, FAQ accordion, smooth scroll and scroll animations without libraries." }
+      "why": {
+        "pt": "Simulador, menu mobile, FAQ accordion, smooth scroll e scroll animations sem bibliotecas.",
+        "en": "Simulator, mobile menu, FAQ accordion, smooth scroll and scroll animations without libraries."
+      }
     },
     {
       "name": "Sora + Inter (self-hosted)",
-      "why": { "pt": "Sora para títulos (display) e Inter para corpo (body). Self-hosted com preload para eliminar conexão externa.", "en": "Sora for headings (display) and Inter for body. Self-hosted with preload to eliminate external connection." }
+      "why": {
+        "pt": "Sora para títulos (display) e Inter para corpo (body). Self-hosted com preload para eliminar conexão externa.",
+        "en": "Sora for headings (display) and Inter for body. Self-hosted with preload to eliminate external connection."
+      }
     },
     {
       "name": "Cloudflare Pages",
-      "why": { "pt": "Deploy rápido, gratuito, com SSL automático e cache global.", "en": "Fast, free deployment with automatic SSL and global cache." }
+      "why": {
+        "pt": "Deploy rápido, gratuito, com SSL automático e cache global.",
+        "en": "Fast, free deployment with automatic SSL and global cache."
+      }
     }
   ],
   "myRole": {
@@ -136,9 +215,27 @@
     "en": "Solar Photovoltaic Energy"
   },
   "heroMetrics": [
-    { "value": "95%", "label": { "pt": "Redução na conta (ilustrativo)", "en": "Bill reduction (illustrative)" } },
-    { "value": "3", "label": { "pt": "Modelos de aquisição", "en": "Acquisition models" } },
-    { "value": "AA", "label": { "pt": "Conformidade WCAG", "en": "WCAG compliance" } }
+    {
+      "value": "95%",
+      "label": {
+        "pt": "Redução na conta (ilustrativo)",
+        "en": "Bill reduction (illustrative)"
+      }
+    },
+    {
+      "value": "3",
+      "label": {
+        "pt": "Modelos de aquisição",
+        "en": "Acquisition models"
+      }
+    },
+    {
+      "value": "AA",
+      "label": {
+        "pt": "Conformidade WCAG",
+        "en": "WCAG compliance"
+      }
+    }
   ],
   "timeline": {
     "duration": "3 dias de implementação",
@@ -149,24 +246,54 @@
       "phase": "Discovery",
       "period": "8 horas",
       "items": {
-        "pt": ["Pesquisa de sites solares premium com 20 agentes (10 de análise, 10 de pesquisa de mercado)", "Benchmark contra Tesla, Sunrun, SunPower, Palmetto, Enphase, SolarEdge", "Auditoria visual, técnica, de performance e acessibilidade da versão inicial"],
-        "en": ["Premium solar sites research with 20 agents (10 analysis, 10 market research)", "Benchmark against Tesla, Sunrun, SunPower, Palmetto, Enphase, SolarEdge", "Visual, technical, performance and accessibility audit of initial version"]
+        "pt": [
+          "Pesquisa de sites solares premium com 20 agentes (10 de análise, 10 de pesquisa de mercado)",
+          "Benchmark contra Tesla, Sunrun, SunPower, Palmetto, Enphase, SolarEdge",
+          "Auditoria visual, técnica, de performance e acessibilidade da versão inicial"
+        ],
+        "en": [
+          "Premium solar sites research with 20 agents (10 analysis, 10 market research)",
+          "Benchmark against Tesla, Sunrun, SunPower, Palmetto, Enphase, SolarEdge",
+          "Visual, technical, performance and accessibility audit of initial version"
+        ]
       }
     },
     {
       "phase": "Design",
       "period": "4 horas",
       "items": {
-        "pt": ["Hero fotográfico com overlay navy gradient", "Paleta navy + laranja escuro acessível (WCAG AA)", "Tipografia Sora + Inter self-hosted", "Sistema de cards com hairline border e hover lift"],
-        "en": ["Photographic hero with navy gradient overlay", "Accessible navy + dark orange palette (WCAG AA)", "Self-hosted Sora + Inter typography", "Card system with hairline border and hover lift"]
+        "pt": [
+          "Hero fotográfico com overlay navy gradient",
+          "Paleta navy + laranja escuro acessível (WCAG AA)",
+          "Tipografia Sora + Inter self-hosted",
+          "Sistema de cards com hairline border e hover lift"
+        ],
+        "en": [
+          "Photographic hero with navy gradient overlay",
+          "Accessible navy + dark orange palette (WCAG AA)",
+          "Self-hosted Sora + Inter typography",
+          "Card system with hairline border and hover lift"
+        ]
       }
     },
     {
       "phase": "Dev",
       "period": "6 horas",
       "items": {
-        "pt": ["Hero com foto real (Unsplash) + srcset responsivo", "Simulador de economia interativo mantido do MVP", "Animações scroll-triggered via Intersection Observer", "Copy limpo: selos fictícios removidos, depoimentos variados, disclosure único", "Schema.org trocado de LocalBusiness para WebApplication"],
-        "en": ["Hero with real photo (Unsplash) + responsive srcset", "Interactive savings simulator kept from MVP", "Scroll-triggered animations via Intersection Observer", "Clean copy: fake seals removed, varied testimonials, single disclosure", "Schema.org changed from LocalBusiness to WebApplication"]
+        "pt": [
+          "Hero com foto real (Unsplash) + srcset responsivo",
+          "Simulador de economia interativo mantido do MVP",
+          "Animações scroll-triggered via Intersection Observer",
+          "Copy limpo: selos fictícios removidos, depoimentos variados, disclosure único",
+          "Schema.org trocado de LocalBusiness para WebApplication"
+        ],
+        "en": [
+          "Hero with real photo (Unsplash) + responsive srcset",
+          "Interactive savings simulator kept from MVP",
+          "Scroll-triggered animations via Intersection Observer",
+          "Clean copy: fake seals removed, varied testimonials, single disclosure",
+          "Schema.org changed from LocalBusiness to WebApplication"
+        ]
       }
     }
   ],
@@ -175,8 +302,24 @@
     "en": "Hero photo is a generic solar installation (Unsplash, free license) — not a SolMais installation. Testimonials are illustrative based on common market reports. There are no real customers, commercial service or data collection."
   },
   "methodology": {
-    "pt": ["Pesquisa com 20 agentes especializados (10 análise + 10 mercado)", "Benchmark contra sites solares premium internacionais", "Design centrado em impacto visual e honestidade", "Mobile-first", "Acessibilidade primeiro (WCAG AA)", "Performance primeiro", "Iteração focada e incremental"],
-    "en": ["Research with 20 specialized agents (10 analysis + 10 market)", "Benchmark against international premium solar sites", "Design centered on visual impact and honesty", "Mobile-first", "Accessibility first (WCAG AA)", "Performance first", "Focused incremental iteration"]
+    "pt": [
+      "Pesquisa com 20 agentes especializados (10 análise + 10 mercado)",
+      "Benchmark contra sites solares premium internacionais",
+      "Design centrado em impacto visual e honestidade",
+      "Mobile-first",
+      "Acessibilidade primeiro (WCAG AA)",
+      "Performance primeiro",
+      "Iteração focada e incremental"
+    ],
+    "en": [
+      "Research with 20 specialized agents (10 analysis + 10 market)",
+      "Benchmark against international premium solar sites",
+      "Design centered on visual impact and honesty",
+      "Mobile-first",
+      "Accessibility first (WCAG AA)",
+      "Performance first",
+      "Focused incremental iteration"
+    ]
   },
   "security": {
     "pt": {
@@ -207,22 +350,46 @@
         {
           "category": "Frontend",
           "items": [
-            { "name": "HTML5", "why": "Semântica e SEO nativos.", "alt": "JSX no Next.js" },
-            { "name": "CSS3", "why": "Design tokens, hairline borders, animações scroll e responsividade sem build.", "alt": "Tailwind CSS" },
-            { "name": "JavaScript", "why": "Simulador, menu, FAQ e scroll animations sem frameworks.", "alt": "React + TypeScript" }
+            {
+              "name": "HTML5",
+              "why": "Semântica e SEO nativos.",
+              "alt": "JSX no Next.js"
+            },
+            {
+              "name": "CSS3",
+              "why": "Design tokens, hairline borders, animações scroll e responsividade sem build.",
+              "alt": "Tailwind CSS"
+            },
+            {
+              "name": "JavaScript",
+              "why": "Simulador, menu, FAQ e scroll animations sem frameworks.",
+              "alt": "React + TypeScript"
+            }
           ]
         },
         {
           "category": "Assets",
           "items": [
-            { "name": "Sora + Inter (self-hosted)", "why": "Fontes locais com preload para eliminar conexão externa.", "alt": "Google Fonts CDN" },
-            { "name": "Unsplash + srcset", "why": "Foto real de instalação solar com srcset responsivo e fetchpriority.", "alt": "Ilustração CSS" }
+            {
+              "name": "Sora + Inter (self-hosted)",
+              "why": "Fontes locais com preload para eliminar conexão externa.",
+              "alt": "Google Fonts CDN"
+            },
+            {
+              "name": "Unsplash + srcset",
+              "why": "Foto real de instalação solar com srcset responsivo e fetchpriority.",
+              "alt": "Ilustração CSS"
+            }
           ]
         },
         {
           "category": "Deploy",
           "items": [
-            { "name": "Cloudflare Pages", "why": "Hospedagem estática com SSL e cache global.", "alt": "Vercel" }
+            {
+              "name": "Cloudflare Pages",
+              "why": "Hospedagem estática com SSL e cache global.",
+              "alt": "Vercel"
+            }
           ]
         }
       ]
@@ -233,22 +400,46 @@
         {
           "category": "Frontend",
           "items": [
-            { "name": "HTML5", "why": "Native semantics and SEO.", "alt": "JSX in Next.js" },
-            { "name": "CSS3", "why": "Design tokens, hairline borders, scroll animations and responsiveness without build.", "alt": "Tailwind CSS" },
-            { "name": "JavaScript", "why": "Simulator, menu, FAQ and scroll animations without frameworks.", "alt": "React + TypeScript" }
+            {
+              "name": "HTML5",
+              "why": "Native semantics and SEO.",
+              "alt": "JSX in Next.js"
+            },
+            {
+              "name": "CSS3",
+              "why": "Design tokens, hairline borders, scroll animations and responsiveness without build.",
+              "alt": "Tailwind CSS"
+            },
+            {
+              "name": "JavaScript",
+              "why": "Simulator, menu, FAQ and scroll animations without frameworks.",
+              "alt": "React + TypeScript"
+            }
           ]
         },
         {
           "category": "Assets",
           "items": [
-            { "name": "Sora + Inter (self-hosted)", "why": "Local fonts with preload to eliminate external connection.", "alt": "Google Fonts CDN" },
-            { "name": "Unsplash + srcset", "why": "Real solar installation photo with responsive srcset and fetchpriority.", "alt": "CSS illustration" }
+            {
+              "name": "Sora + Inter (self-hosted)",
+              "why": "Local fonts with preload to eliminate external connection.",
+              "alt": "Google Fonts CDN"
+            },
+            {
+              "name": "Unsplash + srcset",
+              "why": "Real solar installation photo with responsive srcset and fetchpriority.",
+              "alt": "CSS illustration"
+            }
           ]
         },
         {
           "category": "Deploy",
           "items": [
-            { "name": "Cloudflare Pages", "why": "Static hosting with SSL and global cache.", "alt": "Vercel" }
+            {
+              "name": "Cloudflare Pages",
+              "why": "Static hosting with SSL and global cache.",
+              "alt": "Vercel"
+            }
           ]
         }
       ]
@@ -282,17 +473,95 @@
     "pt": {
       "title": "Resultados esperados",
       "kpis": [
-        { "value": "90+", "label": "Performance Lighthouse mobile", "baseline": "80-85 (MVP)", "source": "(estimado)", "sparkline": [80, 82, 85, 87, 89, 90] },
-        { "value": "AA", "label": "Conformidade WCAG contraste de cor", "baseline": "Falha (2.28:1)", "source": "(entregue)", "sparkline": [0, 1, 2, 3, 4, 5] },
-        { "value": "8.5", "label": "Qualidade visual (estimado)", "baseline": "6.9 (MVP)", "source": "(estimado)", "sparkline": [6.9, 7.2, 7.6, 7.9, 8.2, 8.5] }
+        {
+          "value": "90+",
+          "label": "Performance Lighthouse mobile",
+          "baseline": "80-85 (MVP)",
+          "source": "(estimado)",
+          "sparkline": [
+            80,
+            82,
+            85,
+            87,
+            89,
+            90
+          ]
+        },
+        {
+          "value": "AA",
+          "label": "Conformidade WCAG contraste de cor",
+          "baseline": "Falha (2.28:1)",
+          "source": "(entregue)",
+          "sparkline": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "value": "8.5",
+          "label": "Qualidade visual (estimado)",
+          "baseline": "6.9 (MVP)",
+          "source": "(estimado)",
+          "sparkline": [
+            6.9,
+            7.2,
+            7.6,
+            7.9,
+            8.2,
+            8.5
+          ]
+        }
       ]
     },
     "en": {
       "title": "Expected results",
       "kpis": [
-        { "value": "90+", "label": "Lighthouse mobile performance", "baseline": "80-85 (MVP)", "source": "(estimated)", "sparkline": [80, 82, 85, 87, 89, 90] },
-        { "value": "AA", "label": "WCAG color contrast compliance", "baseline": "Fail (2.28:1)", "source": "(delivered)", "sparkline": [0, 1, 2, 3, 4, 5] },
-        { "value": "8.5", "label": "Visual quality (estimated)", "baseline": "6.9 (MVP)", "source": "(estimated)", "sparkline": [6.9, 7.2, 7.6, 7.9, 8.2, 8.5] }
+        {
+          "value": "90+",
+          "label": "Lighthouse mobile performance",
+          "baseline": "80-85 (MVP)",
+          "source": "(estimated)",
+          "sparkline": [
+            80,
+            82,
+            85,
+            87,
+            89,
+            90
+          ]
+        },
+        {
+          "value": "AA",
+          "label": "WCAG color contrast compliance",
+          "baseline": "Fail (2.28:1)",
+          "source": "(delivered)",
+          "sparkline": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "value": "8.5",
+          "label": "Visual quality (estimated)",
+          "baseline": "6.9 (MVP)",
+          "source": "(estimated)",
+          "sparkline": [
+            6.9,
+            7.2,
+            7.6,
+            7.9,
+            8.2,
+            8.5
+          ]
+        }
       ]
     }
   }
