@@ -84,7 +84,7 @@ const openAppLabel = lang === 'pt' ? 'Abrir aplicação' : 'Open app';
       const metrics = item.data.businessOutcome?.slice(0, 3) ?? [];
       return (
         <article
-          class="bento-card group relative overflow-hidden rounded-3xl border border-brand-border bg-gradient-to-br from-brand-surface/80 to-brand-bg/60 shadow-[0_16px_60px_-20px_rgba(0,0,0,0.5)] backdrop-blur-md hover:border-brand-accent/60 transition-colors duration-200 motion-safe:transition-all motion-safe:duration-200"
+          class="bento-card group relative overflow-hidden rounded-3xl border border-brand-border bg-gradient-to-br from-brand-surface/80 to-brand-bg/60 shadow-[0_16px_60px_-20px_rgba(0,0,0,0.5)] md:backdrop-blur-md hover:border-brand-accent/60 transition-colors duration-200 motion-safe:transition-all motion-safe:duration-200"
           data-category={category}
         >
           {/* Ambient gradients */}
@@ -130,7 +130,7 @@ const openAppLabel = lang === 'pt' ? 'Abrir aplicação' : 'Open app';
                 height="32"
                 loading="lazy"
                 decoding="async"
-                class="w-8 h-8 object-contain rounded-lg bg-brand-bg/40 p-1 border border-brand-border shrink-0"
+                class="w-7 h-7 md:w-8 md:h-8 object-contain rounded-lg shrink-0"
               />
               <span class="text-[11px] font-medium text-brand-text-secondary font-mono truncate">
                 {item.data.clientName}

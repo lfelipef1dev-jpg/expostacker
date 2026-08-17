@@ -75,17 +75,17 @@ const slides = sorted;
               aria-label={`${index + 1} / ${slides.length}: ${item.data.title}`}
               role="group"
             >
-              <div class="relative overflow-hidden rounded-3xl border border-brand-border bg-gradient-to-br from-brand-surface/80 to-brand-bg/60 shadow-[0_24px_80px_-24px_rgba(0,0,0,0.6)] backdrop-blur-md">
+              <div class="relative overflow-hidden rounded-3xl border border-brand-border bg-gradient-to-br from-brand-surface/80 to-brand-bg/60 shadow-[0_24px_80px_-24px_rgba(0,0,0,0.6)] md:backdrop-blur-md">
                 {/* Gradientes ambientais */}
                 <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
                   <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-brand-accent/8 to-transparent"></div>
                   <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-brand-bg/70 to-transparent"></div>
                 </div>
 
-                <div class="relative grid md:grid-cols-2 gap-8 md:gap-12 p-6 pl-12 md:pl-16 lg:pl-20 md:p-10 lg:p-14 items-center h-[500px] md:h-[560px] lg:h-[600px]">
+                <div class="relative grid md:grid-cols-2 gap-6 md:gap-12 p-5 md:pl-16 lg:pl-20 md:p-10 lg:p-14 items-center min-h-[420px] md:h-[560px] lg:h-[600px]">
                   {/* Lado texto */}
                   <div class="flex flex-col h-full justify-between overflow-hidden">
-                    <div class="inline-flex items-center gap-4 mb-5">
+                    <div class="inline-flex items-center gap-3 md:gap-4 mb-4 md:mb-5">
                       <img
                         src={heroImage}
                         alt={`Preview de ${item.data.clientName}`}
@@ -94,19 +94,19 @@ const slides = sorted;
                         loading={index === 0 ? "eager" : "lazy"}
                         fetchpriority={index === 0 ? "high" : "auto"}
                         decoding="async"
-                        class="w-[72px] h-[72px] md:w-[96px] md:h-[96px] lg:w-[120px] lg:h-[120px] object-cover rounded-xl border border-brand-border shadow-lg"
+                        class="w-14 h-14 md:w-24 md:h-24 lg:w-[120px] lg:h-[120px] object-cover rounded-xl shadow-lg md:border md:border-brand-border"
                       />
-                      <span class="font-display text-lg md:text-2xl lg:text-3xl font-black text-brand-text tracking-tight">
+                      <span class="font-display text-base md:text-2xl lg:text-3xl font-black text-brand-text tracking-tight">
                         {item.data.clientName}
                       </span>
                     </div>
 
-                    <p class="text-sm md:text-base lg:text-lg text-brand-text-secondary max-w-xl leading-relaxed line-clamp-4 mb-4">
+                    <p class="text-xs md:text-base lg:text-lg text-brand-text-secondary max-w-xl leading-relaxed line-clamp-3 md:line-clamp-4 mb-3 md:mb-4">
                       {item.data.shortDescription}
                     </p>
 
                     {/* CTAs */}
-                    <div class="flex flex-col sm:flex-row gap-3">
+                    <div class="flex flex-col sm:flex-row gap-2 md:gap-3">
                       <a
                         href={href}
                         class="inline-flex items-center justify-center min-h-[48px] px-5 py-3 bg-brand-accent text-brand-bg font-bold rounded-xl hover:scale-105 motion-safe:transition-transform motion-safe:duration-200 shadow-[0_0_24px_rgba(138,180,248,0.35)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-accent"
@@ -126,7 +126,7 @@ const slides = sorted;
                     </div>
 
                     {/* Metricas — padrao unico: numero grande + label curta 1 linha */}
-                    <div class="grid grid-cols-3 gap-2 md:gap-4 mt-4">
+                    <div class="grid grid-cols-3 gap-2 md:gap-4 mt-3 md:mt-4">
                       {metrics.map((metric) => (
                         <div class="border-l-2 border-brand-accent/30 pl-2 md:pl-3 min-w-0">
                           <span class="block text-lg md:text-xl font-black text-brand-accent font-mono leading-none tabular-nums" title={metric.label}>
@@ -139,7 +139,7 @@ const slides = sorted;
                   </div>
 
                   {/* Lado visual — screenshot 1:1, preenche o card */}
-                  <div class="relative rounded-2xl overflow-hidden border border-brand-border shadow-[0_16px_48px_-16px_rgba(0,0,0,0.5)] h-full hidden md:block">
+                  <div class="relative rounded-2xl overflow-hidden border border-brand-border shadow-[0_16px_48px_-16px_rgba(0,0,0,0.5)] h-44 md:h-full">
                     <img
                       src={heroImage}
                       alt={`Previa da aplicacao ${item.data.title}`}
