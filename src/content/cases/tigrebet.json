@@ -2,7 +2,7 @@
   "id": "tigrebet",
   "title": "TigreBet",
   "clientName": "TigreBet",
-  "tags": ["Next.js 14", "React 18", "TypeScript", "Tailwind CSS", "Express", "PostgreSQL", "Redis", "Sequelize", "Mercado Pago", "JWT", "Cloudflare Workers", "Zustand"],
+  "tags": ["Next.js 14", "React 18", "TypeScript", "Tailwind CSS", "Framer Motion", "Zustand", "Zod", "Express", "PostgreSQL", "Redis", "Sequelize", "Mercado Pago", "JWT", "Cloudflare Workers"],
   "shortDescription": "Plataforma de jogos online com 11 jogos, sistema VIP de 5 niveis, pagamentos via PIX, KYC, provably fair e backend Express com PostgreSQL e Redis.",
   "problemDescription": "O desafio era construir uma plataforma completa de jogos online que combinasse performance de um frontend moderno com a seguranca de um backend robusto. A plataforma precisava suportar 11 jogos diferentes (Fortune Tiger, Crash, Plinko, Double, Mines, Slots, Wingo, Raspadinha, Caixa Premiada, Envelopes e Bomb), sistema de pagamentos reais via PIX com Mercado Pago, sistema VIP com 5 niveis (Bronze a Diamond), KYC para saques, programa de indicacoes, missaoes diarias, jackpots progressivos, provably fair para todos os jogos, e arquitetura hibrida com Cloudflare Worker na edge e backend Node.js local.",
   "technicalSolution": "Construiamos uma plataforma full-stack com frontend Next.js 14 (App Router, TypeScript, Tailwind CSS, Zustand) em export estatico e backend Express com PostgreSQL via Sequelize, Redis para cache/sessaoes, JWT para autenticacao, Mercado Pago para pagamentos PIX, e Cloudflare Worker como proxy reverso na edge. O backend expoe 50+ rotas REST cobrindo autenticacao, 11 jogos, pagamentos, VIP, KYC, missaoes, indicacoes e administracao. O frontend tem 20+ paginas com 11 jogos interativos, animacaoes Framer Motion, sons, confetti e estado global Zustand com persistencia localStorage. Sistema provably fair com RNG seguro, audit logs, rate limiting, Helmet e validacao Zod.",
@@ -48,7 +48,7 @@
   },
   "solutionItems": {
     "pt": [
-      "11 jogos implementados: Fortune Tiger, Crash, Plinko, Double, Mines, Minesweeper, Slots, Wingo, Raspadinha, Caixa Premiada, Envelopes Vermelhos e Bomb — cada um com logica propria, provably fair e RNG seguro",
+      "11 jogos implementados: Fortune Tiger, Crash, Plinko, Double, Mines, Slots, Wingo, Raspadinha, Caixa Premiada, Envelopes Vermelhos e Bomb — cada um com logica propria, provably fair e RNG seguro",
       "Sistema de pagamentos via PIX com Mercado Pago: geracao de QR Code, webhook idempotente, polling de status no frontend, saques com KYC obrigatorio, rollover e limites por nivel VIP",
       "Sistema VIP com 5 niveis (Bronze, Silver, Gold, Platinum, Diamond): cashback progressivo de 1% a 7%, bonus de deposito, bonus semanal e mensal, limites de saque crescentes e suporte prioritario",
       "Autenticacao JWT com bcrypt (12 rounds), tokens de 7 dias, middleware de auth com verificacao de status (banned/suspended), recuperacao de senha via email e registro com codigo de indicacao",
@@ -60,7 +60,7 @@
       "Seguranca: Helmet com CSP, rate limiting em 3 niveis (auth 5/15min, API 100/min, jogos 60/min), express-mongo-sanitize, hpp, xss protection, audit middleware e error handler com Zod/Sequelize/JWT"
     ],
     "en": [
-      "11 games implemented: Fortune Tiger, Crash, Plinko, Double, Mines, Minesweeper, Slots, Wingo, Scratch, Prize Box, Red Envelopes and Bomb — each with its own logic, provably fair and secure RNG",
+      "11 games implemented: Fortune Tiger, Crash, Plinko, Double, Mines, Slots, Wingo, Scratch, Prize Box, Red Envelopes and Bomb — each with its own logic, provably fair and secure RNG",
       "PIX payment system via Mercado Pago: QR Code generation, idempotent webhook, status polling on frontend, withdrawals with mandatory KYC, rollover and VIP-tier limits",
       "VIP system with 5 tiers (Bronze, Silver, Gold, Platinum, Diamond): progressive cashback from 1% to 7%, deposit bonuses, weekly and monthly bonuses, increasing withdrawal limits and priority support",
       "JWT authentication with bcrypt (12 rounds), 7-day tokens, auth middleware with status verification (banned/suspended), password recovery via email and registration with referral code",
@@ -186,6 +186,13 @@
         "pt": "Integracao nativa com PIX para depositos instantaneos com QR Code e webhook idempotente.",
         "en": "Native PIX integration for instant deposits with QR Code and idempotent webhook."
       }
+    },
+    {
+      "name": "Framer Motion",
+      "why": {
+        "pt": "Animacaoes fluidas para jogos com prefers-reduced-motion respeitado.",
+        "en": "Fluid animations for games with prefers-reduced-motion respected."
+      }
     }
   ],
   "myRole": {
@@ -268,8 +275,8 @@
   ],
   "nda": false,
   "visualDisclaimer": {
-    "pt": "Este case study descreve trabalho real. A plataforma esta no ar em tigrebet.expostacker.com.br como demonstracao estatica do frontend. O backend com PostgreSQL e Redis roda separadamente.",
-    "en": "This case study describes real work. The platform is live at tigrebet.expostacker.com.br as a static frontend demo. The backend with PostgreSQL and Redis runs separately."
+    "pt": "Este case study descreve trabalho real. O frontend Next.js 14 esta no ar em tigrebet.expostacker.com.br como export estatico no Cloudflare Pages. O backend Express com PostgreSQL e Redis roda separadamente e nao esta neste repositorio.",
+    "en": "This case study describes real work. The Next.js 14 frontend is live at tigrebet.expostacker.com.br as a static export on Cloudflare Pages. The Express backend with PostgreSQL and Redis runs separately and is not in this repository."
   },
   "methodology": {
     "pt": [

@@ -1,11 +1,11 @@
-feat: contato redesign + footer rebuild + FAQ/About/Process/SocialProof/TrustBar alinhados
+fix: case TigreBet - remove AI vazio, unifica 11 jogos, tags com Framer Motion, gamification do JSON
 
-- Contato: layout split com canais diretos (WhatsApp, email, GitHub), formulario compacto com tipo de projeto, max-w-6xl alinhado
-- Footer: rebuild padrao Medellin - brand + status + social colorido com glow + email + legal, sem nav/projetos
-- FaqSection: removido whitespace-nowrap do titulo (quebra natural)
-- About/Process/SocialProof: alinhamento max-w-7xl + padding + card heights
-- TrustBar: count 32 tecnologias
-- i18n: chaves contato + footer PT/EN
+- CaseAI: nao renderiza quando aiPipeline nao existe no JSON (bug: aparecia h2 + texto hardcoded irrelevante)
+- CaseGamification: usa titulo do JSON em vez de texto hardcoded sobre "vendedores"; engagement steps condicional
+- tigrebet.json: removido Minesweeper da lista (mines e minesweeper usam mesma API = 1 jogo)
+- tigrebet.json: tags atualizadas com Framer Motion (esta no package.json mas faltava)
+- tigrebet.json: visualDisclaimer mais preciso sobre frontend vs backend
+- tigrebet.json: adicionado Framer Motion na lista de technologies
 
 Generated with [Devin](https://devin.ai)
 

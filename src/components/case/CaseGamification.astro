@@ -60,16 +60,15 @@ const mechanics =
   entry?.data?.gamification?.mechanics ??
   fallbackMechanics;
 
-const engagementSteps = [
-  { pt: 'Ação', en: 'Action' },
-  { pt: 'XP', en: 'XP' },
-  { pt: 'Liga', en: 'League' },
-  { pt: 'Badge', en: 'Badge' },
-  { pt: 'Ranking', en: 'Ranking' },
-  { pt: 'Recompensa', en: 'Reward' },
-  { pt: 'Motivação', en: 'Motivation' },
-  { pt: 'Nova ação', en: 'New action' },
-];
+const gamificationTitle =
+  entry?.data?.gamification?.[lang]?.title ??
+  entry?.data?.gamification?.title ??
+  t('case.gamification');
+
+const engagementSteps =
+  entry?.data?.gamification?.[lang]?.engagementSteps ??
+  entry?.data?.gamification?.engagementSteps ??
+  null;
 ---
 
 <section class="py-12 md:py-16 max-w-6xl mx-auto px-4 md:px-6" aria-labelledby="case-gamification-title">
@@ -78,14 +77,8 @@ const engagementSteps = [
       id="case-gamification-title"
       class="font-display text-2xl md:text-3xl text-brand-text mb-2 leading-tight"
     >
-      {t('case.gamification')}
+      {gamificationTitle}
     </h2>
-    <p class="text-sm text-brand-text-secondary leading-relaxed">
-      Sistema de motivação estruturado para vendedores.
-      <span class="block sm:inline text-brand-text-secondary/70">
-        Structured motivation system for sales teams.
-      </span>
-    </p>
   </div>
 
   <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
@@ -98,6 +91,7 @@ const engagementSteps = [
         const description =
           mechanic?.description?.[lang] ??
           mechanic?.description ??
+          mechanic?.desc ??
           '';
         return (
           <article class="p-4 rounded-xl bg-brand-surface/60 border border-brand-border">
@@ -115,34 +109,39 @@ const engagementSteps = [
     }
   </div>
 
-  <div class="mt-6">
-    <h3 class="font-display text-base text-brand-text mb-3">{t('case.gamification')}</h3>
-    <div
-      class="flex flex-col md:flex-row md:items-center md:justify-between gap-2 md:gap-0"
-      role="list"
-      aria-label="Engagement loop"
-    >
-      {
-        engagementSteps.map((step, index) => (
-          <div
-            class="flex items-center shrink-0"
-            role="listitem"
-          >
-            <span class="px-3 py-2 rounded-lg bg-brand-surface border border-brand-border text-sm text-brand-text whitespace-nowrap">
-              {step[lang]}
-            </span>
-            {index < engagementSteps.length - 1 && (
-              <span
-                class="my-0.5 md:my-0 md:mx-1 text-brand-accent text-sm leading-none"
-                aria-hidden="true"
+  {engagementSteps && engagementSteps.length > 0 && (
+    <div class="mt-6">
+      <h3 class="font-display text-base text-brand-text mb-3">{gamificationTitle}</h3>
+      <div
+        class="flex flex-col md:flex-row md:items-center md:justify-between gap-2 md:gap-0"
+        role="list"
+        aria-label="Engagement loop"
+      >
+        {
+          engagementSteps.map((step: any, index: number) => {
+            const label = step?.[lang] ?? step?.label?.[lang] ?? step ?? '—';
+            return (
+              <div
+                class="flex items-center shrink-0"
+                role="listitem"
               >
-                <span class="inline md:hidden">↓</span>
-                <span class="hidden md:inline">→</span>
-              </span>
-            )}
-          </div>
-        ))
-      }
+                <span class="px-3 py-2 rounded-lg bg-brand-surface border border-brand-border text-sm text-brand-text whitespace-nowrap">
+                  {label}
+                </span>
+                {index < engagementSteps.length - 1 && (
+                  <span
+                    class="my-0.5 md:my-0 md:mx-1 text-brand-accent text-sm leading-none"
+                    aria-hidden="true"
+                  >
+                    <span class="inline md:hidden">↓</span>
+                    <span class="hidden md:inline">→</span>
+                  </span>
+                )}
+              </div>
+            );
+          })
+        }
+      </div>
     </div>
-  </div>
+  )}
 </section>
