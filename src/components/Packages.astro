@@ -11,32 +11,62 @@ const t = useTranslations(lang);
 
 const packages = [
   {
-    id: 'saas',
-    name: { pt: 'SaaS / Plataforma', en: 'SaaS / Platform' },
-    tag: { pt: 'Mais pedido', en: 'Most requested' },
-    time: { pt: '6–12 semanas', en: '6–12 weeks' },
+    id: 'site',
+    name: { pt: 'Site / Landing Page', en: 'Website / Landing Page' },
+    tag: { pt: 'Rápido', en: 'Fast' },
+    time: { pt: '1–2 semanas', en: '1–2 weeks' },
     price: { pt: 'Investimento definido na proposta', en: 'Investment defined in proposal' },
     desc: {
-      pt: 'Auth, banco de dados, API, dashboard, pagamento e deploy. Do schema ao primeiro cliente.',
-      en: 'Auth, database, API, dashboard, payments and deploy. From schema to first customer.',
+      pt: 'Performance, SEO, acessibilidade e conversão. Ideal para validar ou lançar.',
+      en: 'Performance, SEO, accessibility and conversion. Ideal to validate or launch.',
     },
     longDesc: {
-      pt: 'Construo uma plataforma SaaS completa com autenticação, banco de dados relacional com Row Level Security, API REST, dashboard administrativo, integração de pagamentos via PIX e cartão, e deploy automático na Cloudflare. O produto nasce pronto para receber os primeiros clientes pagantes. Inclui design system, responsividade mobile-first, SEO técnico, acessibilidade WCAG e código limpo entregue no seu GitHub.',
-      en: 'I build a complete SaaS platform with authentication, relational database with Row Level Security, REST API, admin dashboard, payment integration via PIX and card, and automatic deploy on Cloudflare. The product is born ready to receive the first paying customers. Includes design system, mobile-first responsiveness, technical SEO, WCAG accessibility and clean code delivered to your GitHub.',
+      pt: 'Site institucional ou landing page de alta performance com Lighthouse 98+, SEO técnico completo (schema.org, Open Graph, sitemap, robots.txt), acessibilidade WCAG AA, design mobile-first, animações sutis com Framer Motion, formulário de contato com validação, analytics configurado e deploy automático. Ideal para empresas que precisam de presença digital profissional, captar leads ou validar um produto antes de investir em uma plataforma completa.',
+      en: 'High-performance institutional website or landing page with Lighthouse 98+, complete technical SEO (schema.org, Open Graph, sitemap, robots.txt), WCAG AA accessibility, mobile-first design, subtle Framer Motion animations, contact form with validation, configured analytics and automatic deploy. Ideal for companies that need professional digital presence, lead capture or product validation before investing in a full platform.',
     },
     features: [
-      { pt: 'Auth + roles (admin, gestor, usuário)', en: 'Auth + roles (admin, manager, user)' },
-      { pt: 'Banco relacional + RLS', en: 'Relational DB + RLS' },
-      { pt: 'Dashboard e painel admin', en: 'Dashboard and admin panel' },
-      { pt: 'Pagamentos (PIX, cartão, assinatura)', en: 'Payments (PIX, card, subscription)' },
-      { pt: 'API REST documentada', en: 'Documented REST API' },
-      { pt: 'Deploy automático + domínio próprio', en: 'Auto deploy + own domain' },
+      { pt: 'Design mobile-first exclusivo', en: 'Exclusive mobile-first design' },
+      { pt: 'SEO e performance Lighthouse 98+', en: 'SEO and 98+ Lighthouse performance' },
+      { pt: 'Acessibilidade WCAG AA', en: 'WCAG AA accessibility' },
+      { pt: 'Schema.org e Open Graph', en: 'Schema.org and Open Graph' },
+      { pt: 'Formulário com validação', en: 'Form with validation' },
+      { pt: 'Analytics e eventos configurados', en: 'Analytics and events configured' },
+      { pt: 'Domínio próprio', en: 'Own domain' },
       { pt: 'Código no seu GitHub', en: 'Code in your GitHub' },
-      { pt: '30 dias de suporte pós-entrega', en: '30 days post-launch support' },
     ],
     deliverables: {
-      pt: ['Schema do banco modelado', 'API com 20+ rotas', 'Dashboard com KPIs', 'Sistema de auth com roles', 'Integração de pagamentos', 'Deploy em produção'],
-      en: ['Database schema modeled', 'API with 20+ routes', 'Dashboard with KPIs', 'Auth system with roles', 'Payment integration', 'Production deploy'],
+      pt: ['Design exclusivo', 'Páginas otimizadas', 'SEO técnico completo', 'Formulário de contato', 'Analytics configurado', 'Deploy em produção'],
+      en: ['Exclusive design', 'Optimized pages', 'Complete technical SEO', 'Contact form', 'Analytics configured', 'Production deploy'],
+    },
+    cta: { pt: 'Quero este pacote', en: 'I want this package' },
+  },
+  {
+    id: 'mvp',
+    name: { pt: 'MVP Express', en: 'MVP Express' },
+    tag: { pt: 'Validação', en: 'Validation' },
+    time: { pt: '1–3 semanas', en: '1–3 weeks' },
+    price: { pt: 'Investimento definido na proposta', en: 'Investment defined in proposal' },
+    desc: {
+      pt: 'Protótipo funcional com auth, 1–3 fluxos core e deploy. Para validar antes de investir grande.',
+      en: 'Functional prototype with auth, 1–3 core flows and deploy. To validate before investing big.',
+    },
+    longDesc: {
+      pt: 'MVP funcional entregue em até 3 semanas para validar sua ideia com usuários reais. Inclui autenticação, 1 a 3 fluxos principais do produto, banco de dados, deploy em produção e código limpo. Não é um protótipo de Figma — é um produto que roda, que o usuário pode usar e pagar. Ideal para fundadores que precisam de tração antes de levantar investimento ou contratar um time grande.',
+      en: 'Functional MVP delivered in up to 3 weeks to validate your idea with real users. Includes authentication, 1 to 3 main product flows, database, production deploy and clean code. Not a Figma prototype — it is a product that runs, that the user can use and pay for. Ideal for founders who need traction before raising investment or hiring a large team.',
+    },
+    features: [
+      { pt: 'Auth (email + social)', en: 'Auth (email + social)' },
+      { pt: '1–3 fluxos core do produto', en: '1–3 core product flows' },
+      { pt: 'Banco de dados', en: 'Database' },
+      { pt: 'Deploy em produção', en: 'Production deploy' },
+      { pt: 'Design responsivo', en: 'Responsive design' },
+      { pt: 'Código no seu GitHub', en: 'Code in your GitHub' },
+      { pt: 'Loom de handoff', en: 'Loom handoff walkthrough' },
+      { pt: '15 dias de suporte pós-entrega', en: '15 days post-launch support' },
+    ],
+    deliverables: {
+      pt: ['MVP funcional em produção', '1–3 fluxos core', 'Auth configurada', 'Banco de dados', 'Deploy automático', 'Loom de handoff'],
+      en: ['Functional MVP in production', '1–3 core flows', 'Auth configured', 'Database', 'Auto deploy', 'Loom handoff'],
     },
     cta: { pt: 'Quero este pacote', en: 'I want this package' },
   },
@@ -71,36 +101,6 @@ const packages = [
     cta: { pt: 'Quero este pacote', en: 'I want this package' },
   },
   {
-    id: 'site',
-    name: { pt: 'Site / Landing Page', en: 'Website / Landing Page' },
-    tag: { pt: 'Rápido', en: 'Fast' },
-    time: { pt: '1–2 semanas', en: '1–2 weeks' },
-    price: { pt: 'Investimento definido na proposta', en: 'Investment defined in proposal' },
-    desc: {
-      pt: 'Performance, SEO, acessibilidade e conversão. Ideal para validar ou lançar.',
-      en: 'Performance, SEO, accessibility and conversion. Ideal to validate or launch.',
-    },
-    longDesc: {
-      pt: 'Site institucional ou landing page de alta performance com Lighthouse 98+, SEO técnico completo (schema.org, Open Graph, sitemap, robots.txt), acessibilidade WCAG AA, design mobile-first, animações sutis com Framer Motion, formulário de contato com validação, analytics configurado e deploy automático. Ideal para empresas que precisam de presença digital profissional, captar leads ou validar um produto antes de investir em uma plataforma completa.',
-      en: 'High-performance institutional website or landing page with Lighthouse 98+, complete technical SEO (schema.org, Open Graph, sitemap, robots.txt), WCAG AA accessibility, mobile-first design, subtle Framer Motion animations, contact form with validation, configured analytics and automatic deploy. Ideal for companies that need professional digital presence, lead capture or product validation before investing in a full platform.',
-    },
-    features: [
-      { pt: 'Design mobile-first exclusivo', en: 'Exclusive mobile-first design' },
-      { pt: 'SEO e performance Lighthouse 98+', en: 'SEO and 98+ Lighthouse performance' },
-      { pt: 'Acessibilidade WCAG AA', en: 'WCAG AA accessibility' },
-      { pt: 'Schema.org e Open Graph', en: 'Schema.org and Open Graph' },
-      { pt: 'Formulário com validação', en: 'Form with validation' },
-      { pt: 'Analytics e eventos configurados', en: 'Analytics and events configured' },
-      { pt: 'Domínio próprio', en: 'Own domain' },
-      { pt: 'Código no seu GitHub', en: 'Code in your GitHub' },
-    ],
-    deliverables: {
-      pt: ['Design exclusivo', 'Páginas otimizadas', 'SEO técnico completo', 'Formulário de contato', 'Analytics configurado', 'Deploy em produção'],
-      en: ['Exclusive design', 'Optimized pages', 'Complete technical SEO', 'Contact form', 'Analytics configured', 'Production deploy'],
-    },
-    cta: { pt: 'Quero este pacote', en: 'I want this package' },
-  },
-  {
     id: 'ai',
     name: { pt: 'AI / Automação com IA', en: 'AI / AI Automation' },
     tag: { pt: 'Tendência', en: 'Trending' },
@@ -127,36 +127,6 @@ const packages = [
     deliverables: {
       pt: ['Chatbot ou assistente IA', 'Pipeline RAG (se aplicável)', 'Integração com LLM', 'Interface de chat', 'Controle de custos', 'Deploy em produção'],
       en: ['Chatbot or AI assistant', 'RAG pipeline (if applicable)', 'LLM integration', 'Chat interface', 'Cost control', 'Production deploy'],
-    },
-    cta: { pt: 'Quero este pacote', en: 'I want this package' },
-  },
-  {
-    id: 'mvp',
-    name: { pt: 'MVP Express', en: 'MVP Express' },
-    tag: { pt: 'Validação', en: 'Validation' },
-    time: { pt: '1–3 semanas', en: '1–3 weeks' },
-    price: { pt: 'Investimento definido na proposta', en: 'Investment defined in proposal' },
-    desc: {
-      pt: 'Protótipo funcional com auth, 1–3 fluxos core e deploy. Para validar antes de investir grande.',
-      en: 'Functional prototype with auth, 1–3 core flows and deploy. To validate before investing big.',
-    },
-    longDesc: {
-      pt: 'MVP funcional entregue em até 3 semanas para validar sua ideia com usuários reais. Inclui autenticação, 1 a 3 fluxos principais do produto, banco de dados, deploy em produção e código limpo. Não é um protótipo de Figma — é um produto que roda, que o usuário pode usar e pagar. Ideal para fundadores que precisam de tração antes de levantar investimento ou contratar um time grande.',
-      en: 'Functional MVP delivered in up to 3 weeks to validate your idea with real users. Includes authentication, 1 to 3 main product flows, database, production deploy and clean code. Not a Figma prototype — it is a product that runs, that the user can use and pay for. Ideal for founders who need traction before raising investment or hiring a large team.',
-    },
-    features: [
-      { pt: 'Auth (email + social)', en: 'Auth (email + social)' },
-      { pt: '1–3 fluxos core do produto', en: '1–3 core product flows' },
-      { pt: 'Banco de dados', en: 'Database' },
-      { pt: 'Deploy em produção', en: 'Production deploy' },
-      { pt: 'Design responsivo', en: 'Responsive design' },
-      { pt: 'Código no seu GitHub', en: 'Code in your GitHub' },
-      { pt: 'Loom de handoff', en: 'Loom handoff walkthrough' },
-      { pt: '15 dias de suporte pós-entrega', en: '15 days post-launch support' },
-    ],
-    deliverables: {
-      pt: ['MVP funcional em produção', '1–3 fluxos core', 'Auth configurada', 'Banco de dados', 'Deploy automático', 'Loom de handoff'],
-      en: ['Functional MVP in production', '1–3 core flows', 'Auth configured', 'Database', 'Auto deploy', 'Loom handoff'],
     },
     cta: { pt: 'Quero este pacote', en: 'I want this package' },
   },
@@ -209,11 +179,11 @@ const packages = [
     </p>
   </div>
 
-  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5" data-list>
     {packages.map((pkg) => (
-      <article class="relative p-6 rounded-2xl border border-brand-border bg-brand-surface/40 hover:border-brand-accent/40 transition-colors motion-reduce:transition-none flex flex-col">
-        <span class="absolute -top-3 left-6 px-3 py-1 text-[10px] font-mono font-bold uppercase tracking-wider bg-brand-accent text-brand-bg rounded-full">
-          {pkg.tag[lang]}
+      <article class={`relative p-6 rounded-2xl border transition-colors motion-reduce:transition-none flex flex-col ${pkg.id === 'saas' ? 'border-brand-accent bg-brand-surface/70 shadow-[0_0_40px_-10px_rgba(138,180,248,0.25)]' : 'border-brand-border bg-brand-surface/40 hover:border-brand-accent/40'}`}>
+        <span class={`absolute -top-3 left-6 px-3 py-1 text-[10px] font-mono font-bold uppercase tracking-wider rounded-full ${pkg.id === 'saas' ? 'bg-brand-accent text-brand-bg' : 'bg-brand-accent text-brand-bg'}`}>
+          {pkg.id === 'saas' ? (lang === 'pt' ? 'Mais pedido' : 'Most requested') : pkg.tag[lang]}
         </span>
         <h3 class="font-display text-2xl text-brand-text mb-2">
           {pkg.name[lang]}
@@ -330,6 +300,28 @@ const packages = [
           ))}
         </div>
 
+        {/* Prova social + garantia */}
+        <div class="grid sm:grid-cols-2 gap-3 mb-6">
+          <div class="p-4 rounded-xl border border-brand-border bg-brand-surface/40">
+            <span class="font-display text-2xl text-brand-accent font-black">12</span>
+            <p class="text-xs text-brand-text-secondary mt-1">
+              {lang === 'pt' ? 'produtos entregues e no ar' : 'products delivered and live'}
+            </p>
+          </div>
+          <div class="p-4 rounded-xl border border-brand-border bg-brand-surface/40">
+            <span class="font-display text-2xl text-brand-accent font-black">0</span>
+            <p class="text-xs text-brand-text-secondary mt-1">
+              {lang === 'pt' ? 'lock-in: o código é seu' : 'lock-in: the code is yours'}
+            </p>
+          </div>
+        </div>
+
+        <p class="text-xs text-brand-text-secondary mb-6">
+          {lang === 'pt'
+            ? 'Entrega com domínio e repositório no seu nome. Proposta com escopo e prazo fixos em até 48h.'
+            : 'Delivery with domain and repository in your name. Proposal with fixed scope and timeline within 48h.'}
+        </p>
+
         {/* CTA */}
         <a
           href={`/${lang}/contato/`}
@@ -337,6 +329,9 @@ const packages = [
         >
           {pkg.cta[lang]} →
         </a>
+        <p class="text-center text-xs text-brand-text-secondary mt-3">
+          {lang === 'pt' ? 'Resposta em até 24h · Sem compromisso' : 'Reply within 24h · No commitment'}
+        </p>
       </div>
     </div>
   </div>

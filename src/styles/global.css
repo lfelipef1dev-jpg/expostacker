@@ -30,7 +30,8 @@
 
   html,
   body {
-    @apply bg-brand-bg text-brand-text;
+    background-color: #0A0A0A;
+    color: #E6E6E6;
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

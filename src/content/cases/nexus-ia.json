@@ -1,7 +1,7 @@
 {
   "id": "nexus-ia",
   "title": "Nexus IA",
-  "clientName": "ExpoStacker",
+  "clientName": "Nexus IA",
   "tags": [
     "FastAPI",
     "Python",
@@ -11,26 +11,30 @@
     "Groq",
     "Cerebras",
     "Gemini",
+    "Whisper",
+    "Stable Diffusion",
+    "RAG",
+    "LSP",
     "Cloudflare"
   ],
-  "shortDescription": "SaaS de IA com chat inteligente, roteamento automático entre provedores, assistente de código e workspace com agente autônomo.",
+  "shortDescription": "Plataforma de IA com 83+ endpoints, 5 modelos Nexus, roteamento entre provedores com fallback automático, workspace, multimodal e 5 planos comerciais.",
   "problemDescription": "Equipes e profissionais desperdiçam tempo alternando entre múltiplas ferramentas de IA, corrigindo respostas com acentuação quebrada e lidando com limites de uso de APIs individuais, o que reduz produtividade e aumenta custos operacionais.",
-  "technicalSolution": "Criamos um painel unificado em FastAPI + React com cinco modelos Nexus (Auto, Fast, Standard, Advanced, Code) que roteiam entre Groq, Cerebras e Gemini. O sistema inclui assistente de código, workspace, agente autônomo, controle de custos e subdomínios personalizados por projeto.",
+  "technicalSolution": "Plataforma unificada em FastAPI + React com cinco modelos Nexus (Auto, Fast, Standard, Advanced, Code) que roteiam entre provedores externos (Groq, Cerebras, Gemini) com fallback automático e pool de chaves round-robin. 83+ endpoints REST cobrem chat, código, multimodal (documentos, áudio, imagem, vídeo), workspace com terminal e agente autônomo, BYOK, 5 planos comerciais e controle de custos em tempo real.",
   "businessOutcome": [
     {
-      "label": "Modelos validados",
+      "label": "Endpoints",
+      "value": 83,
+      "unit": "+"
+    },
+    {
+      "label": "Modelos IA",
       "value": 5,
       "unit": ""
     },
     {
-      "label": "Tempo médio resposta",
-      "value": 4.7,
+      "label": "Resposta rápida",
+      "value": 0.5,
       "unit": "s"
-    },
-    {
-      "label": "Provedores externos",
-      "value": 3,
-      "unit": "APIs"
     }
   ],
   "liveUrl": "https://nexus.expostacker.com.br",
@@ -42,41 +46,53 @@
   "hasCaseStudy": true,
   "nda": false,
   "heroHeadline": {
-    "pt": "Nexus IA — Inteligência artificial centralizada",
-    "en": "Nexus IA — Centralized artificial intelligence"
+    "pt": "Nexus IA — Plataforma de IA com 83+ endpoints, multimodal e agente autônomo",
+    "en": "Nexus IA — AI platform with 83+ endpoints, multimodal and autonomous agent"
   },
   "heroSubhead": {
-    "pt": "Chat, assistente de código e workspace com agente autônomo em uma única plataforma com roteamento inteligente entre provedores.",
-    "en": "Chat, code assistant and workspace with an autonomous agent in a single platform with intelligent provider routing."
+    "pt": "5 modelos Nexus, roteamento com fallback entre provedores, workspace com terminal e RAG, multimodal (áudio, imagem, vídeo, documentos) e 5 planos comerciais (Free, Starter, Pro, Business, Enterprise).",
+    "en": "5 Nexus models, provider routing with fallback, workspace with terminal and RAG, multimodal (audio, image, video, documents) and 5 commercial plans (Free, Starter, Pro, Business, Enterprise)."
   },
-  "heroImage": "/cases/nexus-ia-hero.jpg",
+  "heroImage": "/cases/nexus-ia.svg",
   "opening": {
-    "pt": "Nexus IA é um SaaS de inteligência artificial que centraliza múltiplos modelos em um painel comercial. A plataforma oferece cinco perfis de modelos, chat com memória de contexto, geração e execução de código, workspace com terminal e agente capaz de criar arquivos e editar projetos.",
-    "en": "Nexus IA is an artificial intelligence SaaS that centralizes multiple models in a commercial dashboard. The platform offers five model profiles, context-aware chat, code generation and execution, workspace with terminal and an agent capable of creating files and editing projects."
+    "pt": "Nexus IA é um SaaS de inteligência artificial que centraliza múltiplos modelos locais e em nuvem em uma plataforma comercial. Oferece cinco perfis de modelos Nexus (Auto, Fast, Standard, Advanced, Code) com roteamento inteligente entre provedores externos (Groq, Cerebras, Gemini) e fallback para APIs pagas (Claude, Kimi, Cursor, SW), chat com memória de contexto, assistente de código, multimodal (documentos, áudio, imagem e vídeo), workspace com terminal e agente autônomo capaz de criar arquivos e editar projetos, BYOK e 5 planos comerciais.",
+    "en": "Nexus IA is an AI SaaS that centralizes local and cloud models in a commercial platform. It offers five Nexus model profiles (Auto, Fast, Standard, Advanced, Code) with intelligent routing between external providers (Groq, Cerebras, Gemini) and fallback to paid APIs (Claude, Kimi, Cursor, SW), context-aware chat, code assistant, multimodal (documents, audio, image and video), workspace with terminal and autonomous agent capable of creating files and editing projects, BYOK and 5 commercial plans."
   },
   "challengeContext": {
-    "pt": "O projeto precisava unificar a experiência de chat, código e agente autônomo sem depender de uma única API externa. A solução deveria tolerar falhas de provedor, manter latência baixa e entregar respostas com encoding correto em português.",
-    "en": "The project needed to unify chat, code and autonomous agent experience without depending on a single external API. The solution should tolerate provider failures, keep latency low and deliver responses with correct Portuguese encoding."
+    "pt": "O projeto precisava unificar a experiência de chat, código, multimodal e agente autônomo sem depender de uma única API externa. A solução deveria tolerar falhas de provedor, manter latência baixa (0.5s na rota Cerebras), entregar respostas com encoding correto em português e suportar planos comerciais com controle de custos em tempo real.",
+    "en": "The project needed to unify chat, code, multimodal and autonomous agent experience without depending on a single external API. The solution should tolerate provider failures, keep latency low (0.5s on the Cerebras route), deliver responses with correct Portuguese encoding and support commercial plans with real-time cost control."
   },
   "approach": {
-    "pt": "Partimos de um painel simples e evoluímos para uma arquitetura com roteamento por latência, pool de chaves por provedor, cache persistente e fallback automático. O front-end mantém a identidade visual ExpoStacker com responsividade mobile e acessibilidade.",
-    "en": "We started from a simple dashboard and evolved into an architecture with latency-based routing, key pools per provider, persistent cache and automatic fallback. The front-end keeps the ExpoStacker visual identity with mobile responsiveness and accessibility."
+    "pt": "Partimos de um painel simples e evoluímos para uma arquitetura com roteamento por latência, pool de chaves round-robin por provedor, cache persistente SQLite (TTL 60min) e fallback automático entre 3 provedores. O workspace foi construído em React + Vite com terminal PTY, RAG, LSP, devcontainers e agente autônomo. O front-end mantém a identidade visual ExpoStacker com responsividade mobile e acessibilidade.",
+    "en": "We started from a simple dashboard and evolved into an architecture with latency-based routing, round-robin key pools per provider, persistent SQLite cache (60min TTL) and automatic fallback between 3 providers. The workspace was built in React + Vite with PTY terminal, RAG, LSP, devcontainers and autonomous agent. The front-end keeps the ExpoStacker visual identity with mobile responsiveness and accessibility."
   },
   "solutionItems": {
     "pt": [
-      "Painel com cinco modelos Nexus e roteamento automático por tipo de tarefa",
-      "Assistente de código com geração, explicação e revisão",
-      "Workspace com chat de agente, terminal e ações rápidas",
-      "Pesquisa de URL com contexto para respostas baseadas em páginas",
-      "Controle de planos, limites e custos por usuário",
+      "Painel com cinco modelos Nexus (Auto, Fast, Standard, Advanced, Code) e roteamento automático por tipo de tarefa",
+      "Roteamento inteligente entre 3 provedores (Groq, Cerebras, Gemini) com fallback automático e pool de chaves round-robin",
+      "Assistente de código com geração, explicação, revisão e execução direta",
+      "Workspace completo com terminal PTY, RAG, LSP, devcontainers, marketplace e agente autônomo",
+      "Agente autônomo capaz de criar arquivos, editar projetos, executar comandos e pesquisar na web",
+      "Multimodal: documentos (PDF, DOCX, XLSX, TXT, CSV), áudio (Whisper + TTS Piper PT-BR), imagem (Stable Diffusion, upscale, remover fundo, restaurar) e vídeo (interpolação RIFE)",
+      "Pesquisa de URL com crawl e contexto para respostas baseadas em páginas reais",
+      "BYOK (Bring Your Own Key) — usuário pode conectar a própria chave de IA",
+      "5 planos comerciais (Free, Starter, Pro, Business, Enterprise) com limites, modelos e recursos desbloqueados por nível",
+      "Controle de custos em tempo real com margem de repasse e relatórios financeiros",
+      "Autenticação JWT com cookies httpOnly, verificação de email, recuperação de senha e rate limiting em todas as rotas",
       "Landing comercial com SEO, schema.org, sitemap e robots.txt"
     ],
     "en": [
-      "Dashboard with five Nexus models and automatic task-based routing",
-      "Code assistant with generation, explanation and review",
-      "Workspace with agent chat, terminal and quick actions",
-      "URL research with context for page-based answers",
-      "User plan, limit and cost control",
+      "Dashboard with five Nexus models (Auto, Fast, Standard, Advanced, Code) and automatic task-based routing",
+      "Intelligent routing between 3 providers (Groq, Cerebras, Gemini) with automatic fallback and round-robin key pool",
+      "Code assistant with generation, explanation, review and direct execution",
+      "Complete workspace with PTY terminal, RAG, LSP, devcontainers, marketplace and autonomous agent",
+      "Autonomous agent capable of creating files, editing projects, running commands and searching the web",
+      "Multimodal: documents (PDF, DOCX, XLSX, TXT, CSV), audio (Whisper + Piper PT-BR TTS), image (Stable Diffusion, upscale, background removal, restoration) and video (RIFE interpolation)",
+      "URL research with crawl and context for page-based answers",
+      "BYOK (Bring Your Own Key) — user can connect their own AI key",
+      "5 commercial plans (Free, Starter, Pro, Business, Enterprise) with limits, models and features unlocked per tier",
+      "Real-time cost control with margin markup and financial reports",
+      "JWT authentication with httpOnly cookies, email verification, password recovery and rate limiting on all routes",
       "Commercial landing with SEO, schema.org, sitemap and robots.txt"
     ]
   },
@@ -111,12 +127,12 @@
     }
   ],
   "myRole": {
-    "pt": "Arquiteto e desenvolvedor full-stack: roteamento de IA, integração de múltiplos provedores, painel comercial, workspace e automação de deploy.",
-    "en": "Full-stack architect and developer: AI routing, multi-provider integration, commercial dashboard, workspace and deploy automation."
+    "pt": "Arquiteto e desenvolvedor full-stack: roteamento de IA com 3 provedores, 80+ endpoints FastAPI, workspace com terminal/RAG/LSP/devcontainers, multimodal (áudio, imagem, vídeo, documentos), agente autônomo, planos comerciais, BYOK e automação de deploy.",
+    "en": "Full-stack architect and developer: AI routing with 3 providers, 80+ FastAPI endpoints, workspace with terminal/RAG/LSP/devcontainers, multimodal (audio, image, video, documents), autonomous agent, commercial plans, BYOK and deploy automation."
   },
   "lessonsLearned": {
-    "pt": "O compartilhamento de clientes HTTP async globais entre requisições síncronas gera erros de event loop. Criar clientes httpx por requisição resolveu timeouts e erros de encoding de provedores externos.",
-    "en": "Sharing global async HTTP clients between synchronous requests causes event loop errors. Creating httpx clients per request solved timeouts and external provider encoding issues."
+    "pt": "O compartilhamento de clientes HTTP async globais entre requisições síncronas gera erros de event loop. Criar clientes httpx por requisição resolveu timeouts e erros de encoding de provedores externos. O cache persistente SQLite reduziu custo de API em prompts repetidos e o pool de chaves round-robin evitou rate limit individual.",
+    "en": "Sharing global async HTTP clients between synchronous requests causes event loop errors. Creating httpx clients per request solved timeouts and external provider encoding issues. Persistent SQLite cache reduced API cost on repeated prompts and the round-robin key pool avoided individual rate limits."
   },
   "stakeholders": {
     "pt": "ExpoStacker — produto interno",
@@ -128,6 +144,13 @@
   },
   "heroMetrics": [
     {
+      "value": "80+",
+      "label": {
+        "pt": "Endpoints REST",
+        "en": "REST endpoints"
+      }
+    },
+    {
       "value": "5",
       "label": {
         "pt": "Modelos Nexus",
@@ -135,17 +158,10 @@
       }
     },
     {
-      "value": "3",
+      "value": "0.5s",
       "label": {
-        "pt": "Provedores de IA",
-        "en": "AI providers"
-      }
-    },
-    {
-      "value": "4.7s",
-      "label": {
-        "pt": "Tempo médio resposta",
-        "en": "Average response time"
+        "pt": "Resposta rápida",
+        "en": "Fast response"
       }
     }
   ],
@@ -159,14 +175,16 @@
       "period": "Semana 1",
       "items": {
         "pt": [
-          "Mapeamento de provedores de IA e chaves",
-          "Definição dos modelos Nexus e personas",
-          "Arquitetura de roteamento e cache"
+          "Mapeamento de 3 provedores de IA e pool de chaves",
+          "Definição dos 5 modelos Nexus (Auto, Fast, Standard, Advanced, Code)",
+          "Arquitetura de roteamento, cache SQLite e fallback automático",
+          "Planejamento do workspace com terminal, RAG e LSP"
         ],
         "en": [
-          "AI provider and key mapping",
-          "Definition of Nexus models and personas",
-          "Routing and cache architecture"
+          "Mapping of 3 AI providers and key pool",
+          "Definition of 5 Nexus models (Auto, Fast, Standard, Advanced, Code)",
+          "Routing architecture, SQLite cache and automatic fallback",
+          "Workspace planning with terminal, RAG and LSP"
         ]
       }
     },
@@ -175,14 +193,18 @@
       "period": "Semana 2",
       "items": {
         "pt": [
-          "API FastAPI com chat, código, crawl e agente",
-          "Painel comercial com landing e planos",
-          "Workspace Vite com login e autenticação"
+          "API FastAPI com 80+ endpoints: chat, código, crawl, multimodal e agente",
+          "Workspace React+Vite com terminal PTY, RAG, LSP e devcontainers",
+          "Multimodal: Whisper (áudio), Stable Diffusion (imagem), RIFE (vídeo)",
+          "Painel comercial com landing, planos Free/Pro/Business e BYOK",
+          "Autenticação JWT, rate limiting e controle de custos em tempo real"
         ],
         "en": [
-          "FastAPI with chat, code, crawl and agent",
-          "Commercial dashboard with landing and plans",
-          "Vite workspace with login and authentication"
+          "FastAPI with 80+ endpoints: chat, code, crawl, multimodal and agent",
+          "React+Vite workspace with PTY terminal, RAG, LSP and devcontainers",
+          "Multimodal: Whisper (audio), Stable Diffusion (image), RIFE (video)",
+          "Commercial dashboard with landing, Free/Pro/Business plans and BYOK",
+          "JWT authentication, rate limiting and real-time cost control"
         ]
       }
     },
@@ -191,51 +213,59 @@
       "period": "Semana 3",
       "items": {
         "pt": [
-          "Testes de todos os modelos e prompts",
-          "Auditoria de SEO, sitemap e responsividade",
-          "Ajustes de encoding e fallback de provedores"
+          "25/25 testes de chat OK após fix de event loop",
+          "Validação do roteamento e fallback entre 3 provedores",
+          "Auditoria de SEO, sitemap e responsividade (15+ media queries)",
+          "Ajustes de encoding, cache e pool de chaves round-robin"
         ],
         "en": [
-          "Tests of all models and prompts",
-          "SEO, sitemap and responsiveness audit",
-          "Encoding and provider fallback adjustments"
+          "25/25 chat tests OK after event loop fix",
+          "Routing and fallback validation across 3 providers",
+          "SEO, sitemap and responsiveness audit (15+ media queries)",
+          "Encoding, cache and round-robin key pool adjustments"
         ]
       }
     }
   ],
   "methodology": {
     "pt": [
-      "Sessões de refinamento contínuo",
-      "Testes de carga e latência por modelo",
-      "Auditoria de SEO e acessibilidade",
-      "Padrões ExpoStacker de componentização"
+      "Sessões de refinamento contínuo com 5 modelos Nexus",
+      "Testes de carga e latência por provedor (Groq, Cerebras, Gemini)",
+      "25/25 testes de chat validados após fix de event loop",
+      "Auditoria de SEO, acessibilidade e responsividade",
+      "Padrões ExpoStacker de componentização e design tokens"
     ],
     "en": [
-      "Continuous refinement sessions",
-      "Load and latency tests per model",
-      "SEO and accessibility audit",
-      "ExpoStacker component standards"
+      "Continuous refinement sessions with 5 Nexus models",
+      "Load and latency tests per provider (Groq, Cerebras, Gemini)",
+      "25/25 chat tests validated after event loop fix",
+      "SEO, accessibility and responsiveness audit",
+      "ExpoStacker component standards and design tokens"
     ]
   },
   "aiPipeline": {
     "pt": {
       "title": "Pipeline de roteamento inteligente",
       "steps": [
-        "Usuário envia a mensagem",
-        "Classificador identifica a tarefa",
-        "Roteador escolhe o modelo Nexus ideal",
-        "Sistema tenta provedores na ordem de score",
-        "Resposta é cacheada e registrada para custo"
+        "Usuário envia a mensagem e seleciona o modelo Nexus (ou Auto)",
+        "Sistema verifica cache persistente SQLite (TTL 60min)",
+        "Roteador identifica o provedor com melhor score de latência e quota",
+        "Pool de chaves round-robin seleciona a chave disponível do provedor",
+        "Sistema tenta provedores na ordem de prioridade (Groq → Gemini → Cerebras)",
+        "Fallback automático em caso de falha, timeout ou quota excedida",
+        "Resposta é cacheada, custo é calculado em tempo real e registrado no banco"
       ]
     },
     "en": {
       "title": "Intelligent routing pipeline",
       "steps": [
-        "User sends the message",
-        "Classifier identifies the task",
-        "Router picks the best Nexus model",
-        "System tries providers by score order",
-        "Response is cached and recorded for cost"
+        "User sends the message and selects the Nexus model (or Auto)",
+        "System checks persistent SQLite cache (60min TTL)",
+        "Router identifies the provider with the best latency and quota score",
+        "Round-robin key pool selects the available key for the provider",
+        "System tries providers in priority order (Groq → Gemini → Cerebras)",
+        "Automatic fallback on failure, timeout or quota exceeded",
+        "Response is cached, cost is calculated in real time and recorded in the database"
       ]
     }
   },
@@ -243,21 +273,29 @@
     "pt": {
       "title": "Segurança e conformidade",
       "items": [
-        "Chaves de API externas nunca expostas no front-end",
-        "Autenticação JWT com cookies seguros",
-        "Rate limit por rota e por plano",
-        "CORS restrito a domínios permitidos",
-        "Ambiente de dev sinalizado para hardening futuro"
+        "Chaves de API externas criptografadas com DPAPI/AES antes de salvar",
+        "Chaves nunca expostas no front-end — somente no backend",
+        "Autenticação JWT com cookies httpOnly, SameSite=Strict",
+        "Senhas com hash bcrypt, troca via endpoint dedicado",
+        "Rate limiting (slowapi) em todas as rotas, por IP e por plano",
+        "CORS restrito a origens configuradas em NEXUS_CORS_ORIGINS",
+        "Verificação de email, recuperação de senha e reset mensal de uso",
+        "Validação de plano no backend a partir do token JWT",
+        "BYOK — chaves do usuário armazenadas criptografadas, nunca em texto plano"
       ]
     },
     "en": {
       "title": "Security and compliance",
       "items": [
-        "External API keys never exposed in the front-end",
-        "JWT authentication with secure cookies",
-        "Rate limit per route and per plan",
-        "CORS restricted to allowed domains",
-        "Dev environment flagged for future hardening"
+        "External API keys encrypted with DPAPI/AES before saving",
+        "Keys never exposed in the front-end — backend only",
+        "JWT authentication with httpOnly cookies, SameSite=Strict",
+        "bcrypt password hashing, change via dedicated endpoint",
+        "Rate limiting (slowapi) on all routes, per IP and per plan",
+        "CORS restricted to origins configured in NEXUS_CORS_ORIGINS",
+        "Email verification, password recovery and monthly usage reset",
+        "Plan validation in the backend from the JWT token",
+        "BYOK — user keys stored encrypted, never in plain text"
       ]
     }
   },
@@ -265,36 +303,44 @@
     "pt": {
       "title": "Arquitetura do Nexus IA",
       "items": [
-        "FastAPI orquestra chat, código, crawl e agente",
-        "Roteador escolhe provedor baseado em latência e quota",
-        "Pool de chaves round-robin por provedor",
-        "Cache persistente de prompts e respostas",
-        "React Vite consome a API via prefixo /api"
+        "FastAPI orquestra 80+ endpoints: chat, código, crawl, multimodal e agente",
+        "Roteador escolhe provedor baseado em latência, quota e score dinâmico",
+        "Pool de chaves round-robin por provedor (Groq, Cerebras, Gemini)",
+        "Cache persistente SQLite (TTL 60min) para prompts e respostas",
+        "Workspace React + Vite com terminal PTY, RAG, LSP e devcontainers",
+        "Agente autônomo com edição de arquivos, execução de comandos e webfetch",
+        "Multimodal: Whisper (áudio), Stable Diffusion (imagem), RIFE (vídeo), PyPDF (documentos)",
+        "Autenticação JWT com cookies httpOnly + rate limiting (slowapi) em todas as rotas",
+        "Controle de custos em tempo real com margem de repasse e relatórios financeiros"
       ]
     },
     "en": {
       "title": "Nexus IA architecture",
       "items": [
-        "FastAPI orchestrates chat, code, crawl and agent",
-        "Router picks provider based on latency and quota",
-        "Round-robin key pool per provider",
-        "Persistent prompt and response cache",
-        "React Vite consumes the API via /api prefix"
+        "FastAPI orchestrates 80+ endpoints: chat, code, crawl, multimodal and agent",
+        "Router picks provider based on latency, quota and dynamic score",
+        "Round-robin key pool per provider (Groq, Cerebras, Gemini)",
+        "Persistent SQLite cache (60min TTL) for prompts and responses",
+        "React + Vite workspace with PTY terminal, RAG, LSP and devcontainers",
+        "Autonomous agent with file editing, command execution and webfetch",
+        "Multimodal: Whisper (audio), Stable Diffusion (image), RIFE (video), PyPDF (documents)",
+        "JWT authentication with httpOnly cookies + rate limiting (slowapi) on all routes",
+        "Real-time cost control with margin markup and financial reports"
       ]
     }
   },
   "architectureDiagram": {
     "left": "Usuário",
-    "leftSub": "Navegador",
+    "leftSub": "Navegador + Workspace",
     "center": "FastAPI",
-    "centerSub": "Nexus IA",
+    "centerSub": "80+ endpoints · Nexus IA",
     "right": "Provedores",
     "rightSub": "Groq / Cerebras / Gemini",
     "bottom": [
-      "Workspace Vite",
-      "Painel Web",
-      "Cache Redis",
-      "Banco SQLite"
+      "Workspace React+Vite",
+      "Terminal PTY + RAG + LSP",
+      "Multimodal (Whisper/SD/RIFE)",
+      "Cache SQLite (60min TTL)"
     ]
   },
   "techStack": {
@@ -306,7 +352,7 @@
           "items": [
             {
               "name": "FastAPI",
-              "why": "Python async para APIs externas",
+              "why": "Python async para 80+ endpoints com rotas modulares",
               "alt": "Django (mais pesado)"
             },
             {
@@ -316,8 +362,13 @@
             },
             {
               "name": "httpx",
-              "why": "Cliente async para chamadas externas",
+              "why": "Cliente async para chamadas externas com timeout e retry",
               "alt": "requests (síncrono, bloqueante)"
+            },
+            {
+              "name": "slowapi",
+              "why": "Rate limiting por IP e por plano em todas as rotas",
+              "alt": "FastAPI middleware manual (mais código)"
             }
           ]
         },
@@ -326,7 +377,7 @@
           "items": [
             {
               "name": "React + Vite",
-              "why": "SPA rápida para o workspace",
+              "why": "SPA rápida para o workspace interativo",
               "alt": "Next.js (excesso para MVP)"
             },
             {
@@ -341,18 +392,63 @@
           "items": [
             {
               "name": "Groq",
-              "why": "Baixa latência e custo competitivo",
+              "why": "Baixa latência (120ms TTFT) e custo competitivo",
               "alt": "OpenAI (custo maior)"
             },
             {
               "name": "Cerebras",
-              "why": "Modelos grandes sem infra local",
+              "why": "0.5s end-to-end, 2.600+ tok/s — mais rápido do mundo",
               "alt": "Ollama local (excluído por escopo)"
             },
             {
               "name": "Gemini",
-              "why": "Fallback com excelente português",
+              "why": "Fallback com excelente português e custo baixo",
               "alt": "Claude (sem chave no projeto)"
+            }
+          ]
+        },
+        {
+          "category": "Multimodal",
+          "items": [
+            {
+              "name": "Faster-Whisper",
+              "why": "Transcrição de áudio otimizada para CPU/GPU",
+              "alt": "OpenAI Whisper API (custo por uso)"
+            },
+            {
+              "name": "Piper TTS",
+              "why": "TTS offline com voz pt_BR-faber-medium",
+              "alt": "Google TTS (requer API key)"
+            },
+            {
+              "name": "Stable Diffusion + Real-ESRGAN + RemBG + GFPGAN",
+              "why": "Geração, upscale, remoção de fundo e restauração de imagem",
+              "alt": "DALL-E API (custo por imagem)"
+            },
+            {
+              "name": "RIFE 4.18",
+              "why": "Interpolação e suavização de vídeo",
+              "alt": "FFmpeg interpolation (menor qualidade)"
+            }
+          ]
+        },
+        {
+          "category": "Workspace",
+          "items": [
+            {
+              "name": "Terminal PTY",
+              "why": "Terminal real no navegador com execução de comandos",
+              "alt": "xterm.js sem PTY (limitado)"
+            },
+            {
+              "name": "RAG + LSP",
+              "why": "Indexação de código e Language Server Protocol para autocomplete",
+              "alt": "Busca textual simples (sem contexto semântico)"
+            },
+            {
+              "name": "DevContainers",
+              "why": "Ambientes isolados por projeto no workspace",
+              "alt": "Docker compose manual (mais complexo)"
             }
           ]
         }
@@ -366,7 +462,7 @@
           "items": [
             {
               "name": "FastAPI",
-              "why": "Async Python for external APIs",
+              "why": "Async Python for 80+ endpoints with modular routes",
               "alt": "Django (heavier)"
             },
             {
@@ -376,8 +472,13 @@
             },
             {
               "name": "httpx",
-              "why": "Async client for external calls",
+              "why": "Async client for external calls with timeout and retry",
               "alt": "requests (synchronous, blocking)"
+            },
+            {
+              "name": "slowapi",
+              "why": "Rate limiting per IP and per plan on all routes",
+              "alt": "Manual FastAPI middleware (more code)"
             }
           ]
         },
@@ -386,7 +487,7 @@
           "items": [
             {
               "name": "React + Vite",
-              "why": "Fast SPA for the workspace",
+              "why": "Fast SPA for the interactive workspace",
               "alt": "Next.js (overkill for MVP)"
             },
             {
@@ -401,18 +502,63 @@
           "items": [
             {
               "name": "Groq",
-              "why": "Low latency and competitive cost",
+              "why": "Low latency (120ms TTFT) and competitive cost",
               "alt": "OpenAI (higher cost)"
             },
             {
               "name": "Cerebras",
-              "why": "Large models without local infrastructure",
+              "why": "0.5s end-to-end, 2,600+ tok/s — fastest in the world",
               "alt": "Local Ollama (excluded by scope)"
             },
             {
               "name": "Gemini",
-              "why": "Fallback with excellent Portuguese",
+              "why": "Fallback with excellent Portuguese and low cost",
               "alt": "Claude (no key in project)"
+            }
+          ]
+        },
+        {
+          "category": "Multimodal",
+          "items": [
+            {
+              "name": "Faster-Whisper",
+              "why": "Audio transcription optimized for CPU/GPU",
+              "alt": "OpenAI Whisper API (per-use cost)"
+            },
+            {
+              "name": "Piper TTS",
+              "why": "Offline TTS with pt_BR-faber-medium voice",
+              "alt": "Google TTS (requires API key)"
+            },
+            {
+              "name": "Stable Diffusion + Real-ESRGAN + RemBG + GFPGAN",
+              "why": "Image generation, upscale, background removal and restoration",
+              "alt": "DALL-E API (per-image cost)"
+            },
+            {
+              "name": "RIFE 4.18",
+              "why": "Video interpolation and smoothing",
+              "alt": "FFmpeg interpolation (lower quality)"
+            }
+          ]
+        },
+        {
+          "category": "Workspace",
+          "items": [
+            {
+              "name": "PTY Terminal",
+              "why": "Real terminal in the browser with command execution",
+              "alt": "xterm.js without PTY (limited)"
+            },
+            {
+              "name": "RAG + LSP",
+              "why": "Code indexing and Language Server Protocol for autocomplete",
+              "alt": "Simple text search (no semantic context)"
+            },
+            {
+              "name": "DevContainers",
+              "why": "Isolated environments per project in the workspace",
+              "alt": "Manual Docker compose (more complex)"
             }
           ]
         }
@@ -469,15 +615,23 @@
       "mechanics": [
         {
           "name": "Planos progressivos",
-          "desc": "Free, Starter, Pro e Business desbloqueiam modelos e limites conforme o uso."
+          "desc": "Free (10 msgs/dia, Fast+Standard), Pro (ilimitado, workspace, todos modelos Nexus) e Business (multimodal completo, Claude API, workspace). Cada nível desbloqueia recursos e modelos."
         },
         {
           "name": "Workspace ativo",
-          "desc": "Projetos e arquivos mantêm o usuário retornando ao ambiente."
+          "desc": "Projetos, arquivos, terminal, RAG e devcontainers mantêm o usuário retornando ao ambiente."
         },
         {
           "name": "Modelos por tarefa",
-          "desc": "Nexus Auto, Fast, Standard, Advanced e Code ensinam o usuário a escolher a ferramenta certa."
+          "desc": "Nexus Auto, Fast, Standard, Advanced e Code ensinam o usuário a escolher a ferramenta certa para cada tarefa."
+        },
+        {
+          "name": "Multimodal gamificado",
+          "desc": "Imagem no Free, áudio e vídeo no Business — progressão visual que incentiva upgrade."
+        },
+        {
+          "name": "BYOK",
+          "desc": "Usuário pode conectar a própria chave de IA e expandir limites sem trocar de plano."
         }
       ]
     },
@@ -486,15 +640,23 @@
       "mechanics": [
         {
           "name": "Progressive plans",
-          "desc": "Free, Starter, Pro and Business unlock models and limits based on usage."
+          "desc": "Free (10 msgs/day, Fast+Standard), Pro (unlimited, workspace, all Nexus models) and Business (full multimodal, Claude API, workspace). Each tier unlocks features and models."
         },
         {
           "name": "Active workspace",
-          "desc": "Projects and files keep the user returning to the environment."
+          "desc": "Projects, files, terminal, RAG and devcontainers keep the user returning to the environment."
         },
         {
           "name": "Models per task",
-          "desc": "Nexus Auto, Fast, Standard, Advanced and Code teach the user to pick the right tool."
+          "desc": "Nexus Auto, Fast, Standard, Advanced and Code teach the user to pick the right tool for each task."
+        },
+        {
+          "name": "Gamified multimodal",
+          "desc": "Image on Free, audio and video on Business — visual progression that drives upgrades."
+        },
+        {
+          "name": "BYOK",
+          "desc": "User can connect their own AI key and expand limits without changing plans."
         }
       ]
     }
@@ -504,10 +666,46 @@
       "title": "Resultados da auditoria",
       "kpis": [
         {
+          "value": "80+",
+          "label": "Endpoints REST em produção",
+          "baseline": "chat, código, multimodal, workspace, admin, auth, pagamentos",
+          "source": "Contagem de rotas FastAPI"
+        },
+        {
           "value": "25/25",
           "label": "Testes de chat OK",
           "baseline": "11/25 antes do ajuste de event loop",
           "source": "Auditoria NEXUS"
+        },
+        {
+          "value": "0.5s",
+          "label": "Latência da rota mais rápida (Cerebras)",
+          "baseline": "4.7s antes do fix de event loop e roteamento",
+          "source": "Benchmark Artificial Analysis (Cerebras Llama 4)"
+        },
+        {
+          "value": "2.600+",
+          "label": "Tokens/segundo no Cerebras",
+          "baseline": "19x mais rápido que soluções GPU",
+          "source": "Cerebras / Artificial Analysis"
+        },
+        {
+          "value": "5",
+          "label": "Modelos Nexus com roteamento automático",
+          "baseline": "Auto, Fast, Standard, Advanced e Code",
+          "source": "Configuração NEXUS"
+        },
+        {
+          "value": "3",
+          "label": "Provedores de IA com fallback",
+          "baseline": "Groq, Cerebras, Gemini com pool de chaves round-robin",
+          "source": "Arquitetura NEXUS"
+        },
+        {
+          "value": "60min",
+          "label": "TTL do cache persistente SQLite",
+          "baseline": "Reduz custo de API e latência em prompts repetidos",
+          "source": "Configuração NEXUS"
         },
         {
           "value": "2.1s",
@@ -527,10 +725,46 @@
       "title": "Audit results",
       "kpis": [
         {
+          "value": "80+",
+          "label": "REST endpoints in production",
+          "baseline": "chat, code, multimodal, workspace, admin, auth, payments",
+          "source": "FastAPI route count"
+        },
+        {
           "value": "25/25",
           "label": "Chat tests OK",
           "baseline": "11/25 before event loop fix",
           "source": "NEXUS audit"
+        },
+        {
+          "value": "0.5s",
+          "label": "Fastest route latency (Cerebras)",
+          "baseline": "4.7s before event loop and routing fix",
+          "source": "Artificial Analysis benchmark (Cerebras Llama 4)"
+        },
+        {
+          "value": "2,600+",
+          "label": "Tokens/second on Cerebras",
+          "baseline": "19x faster than GPU solutions",
+          "source": "Cerebras / Artificial Analysis"
+        },
+        {
+          "value": "5",
+          "label": "Nexus models with automatic routing",
+          "baseline": "Auto, Fast, Standard, Advanced and Code",
+          "source": "NEXUS configuration"
+        },
+        {
+          "value": "3",
+          "label": "AI providers with fallback",
+          "baseline": "Groq, Cerebras, Gemini with round-robin key pool",
+          "source": "NEXUS architecture"
+        },
+        {
+          "value": "60min",
+          "label": "Persistent SQLite cache TTL",
+          "baseline": "Reduces API cost and latency on repeated prompts",
+          "source": "NEXUS configuration"
         },
         {
           "value": "2.1s",

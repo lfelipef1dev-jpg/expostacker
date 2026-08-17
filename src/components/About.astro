@@ -12,15 +12,15 @@ const t = useTranslations(lang);
 const stack: { category: string; items: string[] }[] = [
   {
     category: lang === 'pt' ? 'Frontend' : 'Frontend',
-    items: ['Next.js', 'React', 'Astro', 'TypeScript', 'Tailwind CSS'],
+    items: ['Next.js', 'React', 'Astro', 'Vite', 'TypeScript', 'Tailwind CSS'],
   },
   {
     category: lang === 'pt' ? 'Backend' : 'Backend',
-    items: ['Hono', 'Node.js', 'Express', 'PostgreSQL', 'Supabase', 'Redis', 'D1'],
+    items: ['FastAPI', 'Python', 'Hono', 'Node.js', 'Express', 'PostgreSQL', 'SQLite', 'Supabase', 'Redis', 'D1'],
   },
   {
     category: lang === 'pt' ? 'Auth e Dados' : 'Auth & Data',
-    items: ['Better Auth', 'JWT', 'RLS', 'Row Level Security'],
+    items: ['Better Auth', 'JWT', 'bcrypt', 'RLS', 'Row Level Security'],
   },
   {
     category: lang === 'pt' ? 'Pagamento' : 'Payments',
@@ -28,11 +28,11 @@ const stack: { category: string; items: string[] }[] = [
   },
   {
     category: lang === 'pt' ? 'Infra' : 'Infra',
-    items: ['Cloudflare Workers', 'Cloudflare Pages', 'R2', 'D1', 'GitHub Actions', 'Docker'],
+    items: ['Cloudflare Workers', 'Cloudflare Pages', 'R2', 'D1', 'GitHub Actions', 'Docker', 'DevContainers'],
   },
   {
     category: lang === 'pt' ? 'IA' : 'AI',
-    items: ['Groq', 'Gemini', 'Cerebras'],
+    items: ['Groq', 'Gemini', 'Cerebras', 'Claude', 'Whisper', 'RAG', 'LSP', 'Stable Diffusion'],
   },
 ];
 
@@ -48,9 +48,9 @@ const services = [
 ];
 
 const stats = [
-  { value: '11', label: t('about.statsProjects') },
+  { value: '12', label: t('about.statsProjects') },
   { value: '100%', label: t('about.statsLive') },
-  { value: '32', label: t('about.statsTech') },
+  { value: '64', label: t('about.statsTech') },
   { value: 'R$0', label: t('about.statsInfra') },
 ];
 ---
