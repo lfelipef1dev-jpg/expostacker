@@ -87,8 +87,8 @@ const openAppLabel = lang === 'pt' ? 'Abrir aplicação' : 'Open app';
           class="bento-card group relative overflow-hidden rounded-3xl border border-brand-border bg-gradient-to-br from-brand-surface/80 to-brand-bg/60 shadow-[0_16px_60px_-20px_rgba(0,0,0,0.5)] md:backdrop-blur-md hover:border-brand-accent/60 transition-colors duration-200 motion-safe:transition-all motion-safe:duration-200"
           data-category={category}
         >
-          {/* Ambient gradients */}
-          <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+          {/* Ambient gradients — só no desktop */}
+          <div class="absolute inset-0 pointer-events-none hidden md:block" aria-hidden="true">
             <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-brand-accent-secondary/10 to-transparent"></div>
             <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-brand-bg/70 to-transparent"></div>
           </div>
