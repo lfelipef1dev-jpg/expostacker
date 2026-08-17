@@ -10,42 +10,96 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 
 const steps = [
-  { title: t('process.step1.title'), time: t('process.step1.time'), desc: t('process.step1.desc') },
-  { title: t('process.step2.title'), time: t('process.step2.time'), desc: t('process.step2.desc') },
-  { title: t('process.step3.title'), time: t('process.step3.time'), desc: t('process.step3.desc') },
-  { title: t('process.step4.title'), time: t('process.step4.time'), desc: t('process.step4.desc') },
+  {
+    number: '01',
+    title: t('process.step1.title'),
+    time: t('process.step1.time'),
+    desc: t('process.step1.desc'),
+    example: lang === 'pt' ? 'VivaMais' : 'VivaMais',
+    exampleDetail: lang === 'pt' ? 'Briefing em 1h' : '1-hour briefing',
+  },
+  {
+    number: '02',
+    title: t('process.step2.title'),
+    time: t('process.step2.time'),
+    desc: t('process.step2.desc'),
+    example: 'Frotamais',
+    exampleDetail: lang === 'pt' ? 'D1 + auth + roles' : 'D1 + auth + roles',
+  },
+  {
+    number: '03',
+    title: t('process.step3.title'),
+    time: t('process.step3.time'),
+    desc: t('process.step3.desc'),
+    example: 'TigreBet',
+    exampleDetail: lang === 'pt' ? '4 meses, 11 jogos' : '4 months, 11 games',
+  },
+  {
+    number: '04',
+    title: t('process.step4.title'),
+    time: t('process.step4.time'),
+    desc: t('process.step4.desc'),
+    example: lang === 'pt' ? '11 projetos' : '11 projects',
+    exampleDetail: '100% live',
+  },
 ];
 ---
 
-<section id="process" class="py-20 md:py-28 max-w-6xl mx-auto px-4 md:px-6" aria-labelledby="process-title">
-  <div class="max-w-2xl mb-12">
-    <p class="font-mono text-xs uppercase tracking-widest text-brand-accent mb-4 flex items-center gap-2">
-      <span class="inline-block h-1.5 w-1.5 rounded-full bg-brand-accent" aria-hidden="true"></span>
-      {t('process.eyebrow')}
-    </p>
-    <h2 id="process-title" class="font-display text-3xl md:text-5xl text-brand-text tracking-tight leading-tight">
-      {t('process.title')}
-    </h2>
-  </div>
+<section id="process" class="py-24 md:py-32 bg-brand-surface/20 border-y border-brand-border" aria-labelledby="process-title">
+  <div class="max-w-7xl mx-auto px-6 md:px-10 lg:px-16">
+    <div class="mb-20">
+      <p class="font-mono text-xs uppercase tracking-widest text-brand-accent mb-4 flex items-center gap-2">
+        <span class="inline-block h-1.5 w-1.5 rounded-full bg-brand-accent" aria-hidden="true"></span>
+        {t('process.eyebrow')}
+      </p>
+      <h2 id="process-title" class="font-display text-3xl md:text-5xl lg:text-6xl text-brand-text tracking-tight leading-tight whitespace-nowrap">
+        {t('process.title')}
+      </h2>
+    </div>
 
-  <div class="grid md:grid-cols-4 gap-5">
-    {steps.map((step, i) => (
-      <article class="flex flex-col gap-3 p-6 rounded-2xl border border-brand-border bg-brand-surface/40">
-        <div class="flex items-center justify-between">
-          <span class="font-display text-4xl font-black text-brand-accent/20" aria-hidden="true">
-            0{i + 1}
-          </span>
-          <span class="text-xs font-mono text-brand-text-secondary px-2.5 py-1 rounded-full border border-brand-border">
-            {step.time}
-          </span>
-        </div>
-        <h3 class="font-display text-lg text-brand-text leading-snug">
-          {step.title}
-        </h3>
-        <p class="text-sm text-brand-text-secondary leading-relaxed">
-          {step.desc}
-        </p>
-      </article>
-    ))}
+    <div class="relative">
+      {/* Linha conectiva horizontal - desktop */}
+      <div class="hidden md:block absolute top-10 left-[12.5%] right-[12.5%] h-px bg-gradient-to-r from-transparent via-brand-accent/30 to-transparent" aria-hidden="true"></div>
+
+      <div class="grid md:grid-cols-4 gap-12 md:gap-8">
+        {steps.map((step) => (
+          <article class="relative flex flex-col gap-5">
+            {/* Numero com circulo */}
+            <div class="relative z-10 flex items-center gap-4">
+              <div class="flex items-center justify-center w-20 h-20 rounded-2xl border border-brand-accent/30 bg-brand-bg/80 backdrop-blur-sm">
+                <span class="font-display text-3xl font-black text-brand-accent leading-none" aria-hidden="true">
+                  {step.number}
+                </span>
+              </div>
+              <div class="flex flex-col gap-1">
+                <span class="text-xs font-mono text-brand-text-secondary px-2.5 py-1 rounded-full border border-brand-border bg-brand-surface/60 w-fit">
+                  {step.time}
+                </span>
+              </div>
+            </div>
+
+            {/* Conteudo */}
+            <div class="flex flex-col gap-3 pt-2">
+              <h3 class="font-display text-xl md:text-2xl text-brand-text leading-snug">
+                {step.title}
+              </h3>
+              <p class="text-sm md:text-base text-brand-text-secondary leading-relaxed">
+                {step.desc}
+              </p>
+
+              {/* Exemplo real */}
+              <div class="mt-2 pt-3 border-t border-brand-border/50">
+                <span class="text-xs font-mono text-brand-accent/80">
+                  {step.example}
+                </span>
+                <span class="text-xs text-brand-text-secondary ml-2">
+                  {step.exampleDetail}
+                </span>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
   </div>
 </section>

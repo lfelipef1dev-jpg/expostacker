@@ -42,29 +42,30 @@ const cards = [
 
 <section
   id="proof"
-  class="py-20 md:py-28 max-w-6xl mx-auto px-4 md:px-6"
+  class="py-24 md:py-32 max-w-7xl mx-auto px-6 md:px-10 lg:px-16"
   aria-labelledby="proof-title"
 >
-  <div class="mb-12 max-w-2xl">
-    <p class="font-mono text-xs uppercase tracking-widest text-brand-accent mb-4">
+  <div class="mb-16">
+    <p class="font-mono text-xs uppercase tracking-widest text-brand-accent mb-4 flex items-center gap-2">
+      <span class="inline-block h-1.5 w-1.5 rounded-full bg-brand-accent" aria-hidden="true"></span>
       {t('proof.eyebrow')}
     </p>
     <h2
       id="proof-title"
-      class="font-display text-3xl md:text-4xl text-brand-text mb-4 leading-tight tracking-tight"
+      class="font-display text-3xl md:text-5xl lg:text-6xl text-brand-text mb-4 leading-tight tracking-tight whitespace-nowrap"
     >
       {t('proof.title')}
     </h2>
-    <p class="text-brand-text-secondary text-base md:text-lg leading-relaxed">
+    <p class="text-brand-text-secondary text-base md:text-lg leading-relaxed max-w-3xl">
       {t('proof.subtitle')}
     </p>
   </div>
 
-  <div class="grid md:grid-cols-3 gap-5">
+  <div class="grid md:grid-cols-3 gap-5 items-stretch">
     {
       cards.map((card) => (
         <article
-          class="group p-6 rounded-2xl border border-brand-border bg-brand-surface/60 hover:border-brand-accent/40 transition-colors motion-reduce:transition-none focus-within:border-brand-accent/40"
+          class="group p-6 rounded-2xl border border-brand-border bg-brand-surface/60 hover:border-brand-accent/40 transition-colors motion-reduce:transition-none focus-within:border-brand-accent/40 flex flex-col h-full"
         >
           <span class="font-mono text-xs uppercase tracking-widest text-brand-accent block mb-3">
             {card.label}
@@ -72,7 +73,7 @@ const cards = [
           <h3 class="font-display text-lg text-brand-text mb-2 leading-snug">
             {card.title}
           </h3>
-          <p class="text-sm text-brand-text-secondary leading-relaxed mb-4">
+          <p class="text-sm text-brand-text-secondary leading-relaxed mb-4 flex-grow">
             {card.desc}
           </p>
           {card.href && card.cta ? (
@@ -86,8 +87,8 @@ const cards = [
               <span aria-hidden="true">↗</span>
             </a>
           ) : (
-            <span class="font-mono text-sm text-brand-text-secondary">
-              React · Node.js · TypeScript · Astro · Cloudflare
+            <span class="font-mono text-xs text-brand-text-secondary leading-relaxed">
+              Next.js · React · Astro · Hono · Supabase · PostgreSQL · Redis · D1 · Cloudflare Workers · Mercado Pago · 32 tecnologias
             </span>
           )}
         </article>

@@ -1,15 +1,11 @@
-feat: refatora BentoGrid com cards visuais modernos
+feat: contato redesign + footer rebuild + FAQ/About/Process/SocialProof/TrustBar alinhados
 
-- Card com imagem de capa 16:9 no topo
-- Eyebrow de categoria sobre a imagem
-- Titulo bold + descricao 2 linhas
-- Tags em chips (max 3)
-- CTAs Ver case + Abrir app
-- Filtros por categoria (Todos, Cliente, Pessoal)
-- Hover: elevacao 4px, borda brilha, sombra sutil, seta anda
-- Grid responsivo: 4 cols desktop, 2 tablet, 1 mobile
-- Mesma identidade visual do FeaturedCase (dark, gradiente, borda)
-- Build 27 paginas, 0 erros
+- Contato: layout split com canais diretos (WhatsApp, email, GitHub), formulario compacto com tipo de projeto, max-w-6xl alinhado
+- Footer: rebuild padrao Medellin - brand + status + social colorido com glow + email + legal, sem nav/projetos
+- FaqSection: removido whitespace-nowrap do titulo (quebra natural)
+- About/Process/SocialProof: alinhamento max-w-7xl + padding + card heights
+- TrustBar: count 32 tecnologias
+- i18n: chaves contato + footer PT/EN
 
 Generated with [Devin](https://devin.ai)
 
