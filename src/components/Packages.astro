@@ -1,0 +1,122 @@
+---
+import { ui } from '../i18n/ui';
+import { useTranslations } from '../i18n/utils';
+
+export interface Props {
+  lang: keyof typeof ui;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const packages = [
+  {
+    name: { pt: 'SaaS / Plataforma', en: 'SaaS / Platform' },
+    tag: { pt: 'Mais pedido', en: 'Most requested' },
+    time: { pt: '6–12 semanas', en: '6–12 weeks' },
+    price: { pt: 'Investimento definido na proposta', en: 'Investment defined in proposal' },
+    desc: {
+      pt: 'Auth, banco de dados, API, dashboard, pagamento e deploy. Do schema ao primeiro cliente.',
+      en: 'Auth, database, API, dashboard, payments and deploy. From schema to first customer.',
+    },
+    features: [
+      { pt: 'Auth + roles', en: 'Auth + roles' },
+      { pt: 'Banco relacional + RLS', en: 'Relational DB + RLS' },
+      { pt: 'Dashboard e admin', en: 'Dashboard and admin' },
+      { pt: 'Pagamentos (PIX, cartão)', en: 'Payments (PIX, card)' },
+      { pt: 'Deploy automático + domínio', en: 'Auto deploy + domain' },
+      { pt: 'Código no seu GitHub', en: 'Code in your GitHub' },
+    ],
+    cta: { pt: 'Quero este pacote', en: 'I want this package' },
+  },
+  {
+    name: { pt: 'E-commerce', en: 'E-commerce' },
+    tag: { pt: 'Conversão', en: 'Conversion' },
+    time: { pt: '3–6 semanas', en: '3–6 weeks' },
+    price: { pt: 'Investimento definido na proposta', en: 'Investment defined in proposal' },
+    desc: {
+      pt: 'Catálogo, carrinho, checkout, pagamento real e painel de pedidos. Venda de verdade.',
+      en: 'Catalog, cart, checkout, real payment and order panel. Real sales.',
+    },
+    features: [
+      { pt: 'Catálogo e carrinho', en: 'Catalog and cart' },
+      { pt: 'Checkout otimizado', en: 'Optimized checkout' },
+      { pt: 'PIX, cartão e boleto', en: 'PIX, card and boleto' },
+      { pt: 'Painel de pedidos', en: 'Order dashboard' },
+      { pt: 'Cálculo de frete', en: 'Shipping calculation' },
+      { pt: 'Código no seu GitHub', en: 'Code in your GitHub' },
+    ],
+    cta: { pt: 'Quero este pacote', en: 'I want this package' },
+  },
+  {
+    name: { pt: 'Site / Landing Page', en: 'Website / Landing Page' },
+    tag: { pt: 'Rápido', en: 'Fast' },
+    time: { pt: '1–2 semanas', en: '1–2 weeks' },
+    price: { pt: 'Investimento definido na proposta', en: 'Investment defined in proposal' },
+    desc: {
+      pt: 'Performance, SEO, acessibilidade e conversão. Ideal para validar ou lançar.',
+      en: 'Performance, SEO, accessibility and conversion. Ideal to validate or launch.',
+    },
+    features: [
+      { pt: 'Design mobile-first', en: 'Mobile-first design' },
+      { pt: 'SEO e performance 98+', en: 'SEO and 98+ performance' },
+      { pt: 'Acessibilidade WCAG', en: 'WCAG accessibility' },
+      { pt: 'Analytics e eventos', en: 'Analytics and events' },
+      { pt: 'Dominio próprio', en: 'Own domain' },
+      { pt: 'Código no seu GitHub', en: 'Code in your GitHub' },
+    ],
+    cta: { pt: 'Quero este pacote', en: 'I want this package' },
+  },
+];
+---
+
+<section id="packages" class="py-20 md:py-28 max-w-6xl mx-auto px-4 md:px-6" aria-labelledby="packages-title">
+  <div class="mb-12">
+    <p class="font-mono text-xs uppercase tracking-widest text-brand-accent mb-4 flex items-center gap-2">
+      <span class="inline-block h-1.5 w-1.5 rounded-full bg-brand-accent" aria-hidden="true" />
+      {lang === 'pt' ? 'Pacotes' : 'Packages'}
+    </p>
+    <h2 id="packages-title" class="font-display text-3xl md:text-5xl text-brand-text tracking-tight mb-4 leading-tight">
+      {lang === 'pt' ? 'Escolha o produto que você quer construir' : 'Choose the product you want to build'}
+    </h2>
+    <p class="text-lg text-brand-text-secondary leading-relaxed max-w-2xl">
+      {lang === 'pt'
+        ? 'Prazo e entrega definidos. Sem cobrança por hora, sem escopo aberto, sem surpresa. Cada pacote tem início, meio e fim claros.'
+        : 'Timeline and deliverables set. No hourly billing, no open scope, no surprises. Every package has a clear start, middle and end.'}
+    </p>
+  </div>
+
+  <div class="grid md:grid-cols-3 gap-5">
+    {packages.map((pkg, i) => (
+      <article class="relative p-6 rounded-2xl border border-brand-border bg-brand-surface/40 hover:border-brand-accent/40 transition-colors motion-reduce:transition-none flex flex-col">
+        <span class="absolute -top-3 left-6 px-3 py-1 text-[10px] font-mono font-bold uppercase tracking-wider bg-brand-accent text-brand-bg rounded-full">
+          {pkg.tag[lang]}
+        </span>
+        <h3 class="font-display text-2xl text-brand-text mb-2">
+          {pkg.name[lang]}
+        </h3>
+        <p class="text-sm text-brand-text-secondary mb-4">{pkg.desc[lang]}</p>
+        <div class="mb-4">
+          <span class="text-2xl font-black text-brand-accent font-mono">{pkg.price[lang]}</span>
+          <span class="block text-xs text-brand-text-secondary mt-1">{pkg.time[lang]}</span>
+        </div>
+        <ul class="space-y-2 mb-6 flex-1">
+          {pkg.features.map((f) => (
+            <li class="flex items-start gap-2 text-sm text-brand-text-secondary">
+              <svg class="w-4 h-4 text-brand-accent shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {f[lang]}
+            </li>
+          ))}
+        </ul>
+        <a
+          href={`/${lang}/contato/`}
+          class="inline-flex items-center justify-center min-h-[48px] px-5 py-3 bg-brand-accent text-brand-bg font-bold rounded-xl hover:scale-105 motion-safe:transition-transform motion-safe:duration-200 shadow-[0_0_24px_rgba(138,180,248,0.35)] text-center"
+        >
+          {pkg.cta[lang]}
+        </a>
+      </article>
+    ))}
+  </div>
+</section>

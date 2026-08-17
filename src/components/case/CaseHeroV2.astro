@@ -16,7 +16,7 @@ const stackBadges = (entry?.data?.tags ?? []).slice(0, 6);
 const liveUrl = entry?.data?.liveUrl ?? '#';
 const hasLiveUrl = Boolean(entry?.data?.liveUrl);
 const heroImage = entry?.data?.heroImage ?? null;
-const eyebrow = lang === 'pt' ? 'PROJETO EM PRODUÇÃO' : 'LIVE PROJECT';
+const eyebrow = lang === 'pt' ? 'PRODUTO EM PRODUÇÃO' : 'LIVE PRODUCT';
 
 // Cache busting e slug serao usados no script client-side
 ---
@@ -267,13 +267,18 @@ const eyebrow = lang === 'pt' ? 'PROJETO EM PRODUÇÃO' : 'LIVE PROJECT';
             <span class="text-brand-text select-all">{entry.data.demoAccess.password}</span>
           </div>
         </div>
+        <ol class="mt-4 text-left text-xs text-brand-text-secondary space-y-1 px-2">
+          <li><span class="text-brand-accent font-bold">1</span> {lang === 'pt' ? 'Acesse com o login acima' : 'Log in with the details above'}</li>
+          <li><span class="text-brand-accent font-bold">2</span> {lang === 'pt' ? 'Navegue pelo painel e veja os fluxos' : 'Browse the dashboard and see the flows'}</li>
+          <li><span class="text-brand-accent font-bold">3</span> {lang === 'pt' ? 'Teste o fluxo principal de conversão' : 'Test the main conversion flow'}</li>
+        </ol>
         <a
           href={liveUrl}
           target="_blank"
           rel="noopener noreferrer"
           class="mt-4 inline-flex items-center justify-center gap-2 min-h-11 px-5 py-2.5 rounded-lg bg-brand-accent text-brand-bg font-semibold text-sm transition-transform hover:scale-[1.02]"
         >
-          {lang === 'pt' ? 'Entrar no app' : 'Open the app'}
+          {lang === 'pt' ? 'Usar agora' : 'Use now'}
           <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path d="M7 17L17 7M17 7H8M17 7V16" stroke-linecap="round" stroke-linejoin="round" />
           </svg>

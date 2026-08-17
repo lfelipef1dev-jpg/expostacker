@@ -3,7 +3,7 @@
   "title": "Medellin E-commerce",
   "clientName": "Medellin RP",
   "tags": ["Vanilla JS", "Node.js", "Express", "MySQL", "Mercado Pago", "Cloudflare Pages", "Cloudflare R2", "Cloudflare Workers", "FiveM", "WebP"],
-  "shortDescription": "Loja VIP e pagamentos para servidor FiveM: 54 páginas, 344 produtos, 10 tiers VIP, 7 temporadas, Mercado Pago e entrega automática in-game.",
+  "shortDescription": "Loja VIP do servidor Medellin RP onde o jogador escolhe itens, paga via Mercado Pago e recebe tudo automaticamente no jogo.",
   "problemDescription": "O servidor Medellin RP (GTA V Roleplay FiveM) precisava de uma loja online profissional para comercializar VIPs, veículos, armas, skins, pets, salários, vouchers e itens sazonais. O desafio: integrar pagamento real (Mercado Pago), validação de preços server-side, entrega automática no jogo via fila de banco de dados, sistema de carrinho persistente, catálogo com 308 produtos em 54 páginas, imagens otimizadas em CDN global (R2 com WebP), e arquitetura híbrida com Worker na edge e backend Node.js — tudo sem custo recorrente de infraestrutura.",
   "technicalSolution": "Construímos uma loja e-commerce estática em HTML5 + CSS3 + Vanilla JS (sem framework) com 54 páginas, deployada no Cloudflare Pages. O backend Node.js/Express roda com MySQL para persistência de pedidos, idempotência de pagamentos e fila de entrega. Um Cloudflare Worker atua como proxy API na edge com fallback direto para Mercado Pago. Imagens servidas via Cloudflare R2 com conversão automática WebP em runtime via MutationObserver. Carrinho persistente em localStorage. Checkout 4 etapas com integração Mercado Pago (PIX, cartão, boleto). Webhook de pagamento com idempotência e entrega automática no FiveM via fila de banco. 10 tiers de VIP, 7 temporadas sazonais, 141 skins de armas, 79 veículos, 26 pets e 45 grandes baús.",
   "businessOutcome": [
@@ -27,8 +27,8 @@
     "en": "Complete VIP store and payment platform for FiveM server with 54 pages, 344 products, 10 VIP tiers, 7 seasonal collections, Mercado Pago checkout and automatic in-game delivery"
   },
   "heroSubhead": {
-    "pt": "Storefront estático em HTML5 + CSS3 + Vanilla JS deployado no Cloudflare Pages. Backend Node.js/Express com MySQL para pedidos, idempotência de pagamentos e fila de entrega. Cloudflare Worker como proxy API na edge com fallback direto para Mercado Pago. Imagens em Cloudflare R2 com conversão WebP em runtime via MutationObserver. Carrinho persistente em localStorage. Checkout 4 etapas com PIX, cartão e boleto. Webhook com entrega automática no FiveM via fila de banco de dados. Zero custo de infraestrutura.",
-    "en": "Static storefront in HTML5 + CSS3 + Vanilla JS deployed on Cloudflare Pages. Node.js/Express backend with MySQL for orders, payment idempotency and delivery queue. Cloudflare Worker as edge API proxy with direct fallback to Mercado Pago. Images on Cloudflare R2 with WebP conversion at runtime via MutationObserver. Persistent cart in localStorage. 4-step checkout with PIX, card and boleto. Webhook with automatic FiveM delivery via database queue. Zero infrastructure cost."
+    "pt": "O jogador abre a loja, navega por 54 páginas de produtos, adiciona VIPs, veículos e skins ao carrinho e finaliza com PIX, cartão ou boleto. O pagamento aprovado entrega os itens na fila do FiveM em segundos.",
+    "en": "The player opens the store, browses 54 pages of products, adds VIPs, vehicles and skins to the cart and checks out with PIX, card or boleto. Once approved, the items are delivered to the FiveM queue in seconds."
   },
   "opening": {
     "pt": "Um jogador do servidor Medellin RP abre a loja no navegador. Navega por 54 páginas organizadas em categorias: VIPs, veículos, blindados, aeronaves, armas e skins, pets, salários, vouchers, mochilas, rolygrams, modificações e itens sazonais. Adiciona produtos ao carrinho, que persiste entre páginas via localStorage. No checkout, informa seu identificador de jogo. A API valida o carrinho server-side, cria uma preferência no Mercado Pago e redireciona para pagamento. Assim que o PIX é confirmado, um webhook processa o pagamento com idempotência, insere os itens na fila de entrega do FiveM e o jogador recebe tudo automaticamente no jogo — tudo rodando em Cloudflare com zero custo de infraestrutura.",
@@ -241,8 +241,8 @@
     "en": "Need an online store that converts?"
   },
   "ctaText": {
-    "pt": "Construí uma loja com 344 produtos, checkout via Mercado Pago e entrega automática no jogo — tudo com zero custo de infra. Posso fazer o mesmo para o seu projeto.",
-    "en": "I built a store with 344 products, Mercado Pago checkout and automatic in-game delivery — all with zero infra cost. I can do the same for yours."
+    "pt": "Construí uma loja com 344 produtos, checkout via Mercado Pago e entrega automática no jogo — tudo com zero custo de infra. Posso fazer o mesmo para o seu produto.",
+    "en": "I built a store with 344 products, Mercado Pago checkout and automatic in-game delivery — all with zero infra cost. I can do the same for your product."
   },
   "timelinePhases": [
     {

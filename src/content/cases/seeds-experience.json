@@ -3,7 +3,7 @@
   "title": "SEEDS Experience",
   "clientName": "SEEDS Experience",
   "tags": ["Next.js 15", "React 19", "Supabase", "Realtime", "AI", "Cloudflare Workers", "PostgreSQL", "RLS"],
-  "shortDescription": "Plataforma full-stack para comunidade exclusiva de mulheres empreendedoras com 51 rotas, matchmaking via IA, realtime e 40 tabelas com RLS.",
+  "shortDescription": "Comunidade exclusiva de mulheres empreendedoras onde a membro entra, conecta-se e acessa oportunidades de capital e mentoria via IA.",
   "problemDescription": "A SEEDS Experience precisava de uma plataforma digital que suportasse uma comunidade exclusiva de mulheres empreendedoras com networking verificado, matchmaking por IA, eventos com RSVP, mensageria em tempo real, fórum, trilhas de aprendizado, gamificação com conquistas, diretório de membros, oportunidades de capital, benefícios de parceiros e moderação administrativa. O sistema precisava ser invite-only, com autenticação por magic link, Row Level Security em todas as tabelas e performance em produção sem custo elevado de infraestrutura.",
   "technicalSolution": "Construímos uma aplicação full-stack com Next.js 15 (App Router), React 19, Supabase (PostgreSQL + Auth + Storage + Realtime) e deploy na Cloudflare Workers via @opennextjs/cloudflare. O banco tem 40 tabelas com RLS habilitado, triggers automáticos para contadores, policies por usuário, índices compostos e parciais. A autenticação é invite-only via magic link. O realtime cobre mensagens e salas de chat. O storage gerencia avatares, imagens do feed e capas de eventos. Integrações de IA com Groq, Gemini e Cerebras para matchmaking e assistente. Rate limiting via Upstash Redis. 51 rotas cobrindo feed, eventos, diretório, conexões, colaborações, fórum, grupos, mensagens, indicações, depoimentos, benefícios, capital, IA, match, mural, notificações, palestrantes, parceiros, perfil, produtos, ranking, salvos, trilhas e vagas, mais área admin completa.",
   "businessOutcome": [
@@ -27,8 +27,8 @@
     "en": "Full-stack platform for an exclusive community of women entrepreneurs with 51 routes, AI matchmaking, realtime messaging and 40 tables with Row Level Security"
   },
   "heroSubhead": {
-    "pt": "Aplicação construída com Next.js 15, React 19 e Supabase (PostgreSQL + Auth + Storage + Realtime). 51 rotas cobrindo feed social, eventos com RSVP, diretório de membros, conexões, colaborações, fórum, grupos, mensagens em tempo real, indicações, depoimentos, benefícios, oportunidades de capital, assistente de IA, matchmaking, mural de conquistas, notificações, palestrantes, parceiros, perfil, produtos, ranking, salvos, trilhas de aprendizado e vagas. Área admin completa com convites, eventos, importação, métricas, moderação e parceiros. Autenticação invite-only via magic link. Deploy na Cloudflare Workers via @opennextjs/cloudflare com custo zero de infraestrutura.",
-    "en": "Application built with Next.js 15, React 19 and Supabase (PostgreSQL + Auth + Storage + Realtime). 51 routes covering social feed, events with RSVP, member directory, connections, collaborations, forum, groups, realtime messaging, referrals, testimonials, benefits, capital opportunities, AI assistant, matchmaking, achievement wall, notifications, speakers, partners, profile, products, ranking, saved items, learning tracks and jobs. Complete admin area with invites, events, import, metrics, moderation and partners. Invite-only authentication via magic link. Deploy on Cloudflare Workers via @opennextjs/cloudflare with zero infrastructure cost."
+    "pt": "A empreendedora recebe o convite, entra com magic link e acessa feed, eventos, diretório e mensagens em tempo real. A IA sugere conexões com complementaridade e o dashboard acompanha oportunidades de capital.",
+    "en": "The entrepreneur receives an invite, signs in with a magic link and accesses the feed, events, directory and real-time messaging. AI suggests complementary connections and the dashboard tracks capital opportunities."
   },
   "opening": {
     "pt": "Uma empreendedora recebe um convite exclusivo por e-mail. Clica no magic link. Em segundos, está autenticada e dentro de uma plataforma com feed social, diretório de outras empreendedoras verificadas, eventos com RSVP, mensagens em tempo real, oportunidades de capital, trilhas de aprendizado e um assistente de IA que faz matchmaking entre perfis complementares. Tudo isso rodando em Cloudflare Workers com Supabase como backend, sem custo de infraestrutura.",
@@ -306,8 +306,8 @@
     "en": "Need a community platform that scales?"
   },
   "ctaText": {
-    "pt": "Construí uma plataforma com 51 rotas, 40 tabelas com RLS, realtime e 3 integrações de IA — tudo com zero custo de infra. Posso fazer o mesmo para o seu projeto.",
-    "en": "I built a platform with 51 routes, 40 tables with RLS, realtime and 3 AI integrations — all with zero infra cost. I can do the same for yours."
+    "pt": "Construí uma plataforma com 51 rotas, 40 tabelas com RLS, realtime e 3 integrações de IA — tudo com zero custo de infra. Posso fazer o mesmo para o seu produto.",
+    "en": "I built a platform with 51 routes, 40 tables with RLS, realtime and 3 AI integrations — all with zero infra cost. I can do the same for your product."
   },
   "methodology": {
     "pt": [

@@ -8,10 +8,12 @@ import Header from '../../components/Header.astro';
 import HeroBanner from '../../components/HeroBanner.astro';
 import TrustBar from '../../components/TrustBar.astro';
 import ProblemStatement from '../../components/ProblemStatement.astro';
+import Packages from '../../components/Packages.astro';
 import BentoGrid from '../../components/BentoGrid.astro';
 import ProcessSection from '../../components/ProcessSection.astro';
 import About from '../../components/About.astro';
 import SocialProof from '../../components/SocialProof.astro';
+import LeadMagnet from '../../components/LeadMagnet.astro';
 import FaqSection from '../../components/FaqSection.astro';
 import Footer from '../../components/Footer.astro';
 
@@ -32,11 +34,11 @@ const canonicalUrl = currentLang === 'pt' ? ptUrl : enUrl;
 const xDefaultUrl = ptUrl;
 
 const title = currentLang === 'pt'
-  ? 'Expo Stacker | Desenvolvedor Full Stack — React, Node.js, TypeScript'
-  : 'Expo Stacker | Full Stack Developer — React, Node.js, TypeScript';
+  ? 'Expo Stacker | 11 produtos digitais em produção — construí o seu'
+  : 'Expo Stacker | 11 digital products live — build yours';
 const description = currentLang === 'pt'
-  ? 'Desenvolvedor Full Stack especializado em React, Node.js e TypeScript. Construo aplicações web escaláveis e performáticas.'
-  : 'Full Stack Developer specializing in React, Node.js, and TypeScript. I build scalable, performant web applications.';
+  ? 'Vitrine de produtos digitais em produção. 11 aplicações ao vivo, com domínio próprio e código público. Construo o próximo produto para você.'
+  : 'Showcase of live digital products. 11 live applications with custom domains and public code. I build your next product.';
 ---
 
 <html lang={currentLang === 'pt' ? 'pt-BR' : 'en-US'}>
@@ -51,10 +53,12 @@ const description = currentLang === 'pt'
       <HeroBanner lang={currentLang} />
       <TrustBar lang={currentLang} />
       <ProblemStatement lang={currentLang} />
+      <Packages lang={currentLang} />
       <BentoGrid lang={currentLang} />
       <ProcessSection lang={currentLang} />
       <About lang={currentLang} />
       <SocialProof lang={currentLang} />
+      <LeadMagnet lang={currentLang} />
       <FaqSection lang={currentLang} />
     </main>
     <Footer lang={currentLang} />

@@ -11,18 +11,16 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 
 const cases: CollectionEntry<'cases'>[] = await getCollection('cases');
-const featuredIndex = cases.findIndex((c) => c.data.featured);
-const others = cases.filter((_, i) => i !== (featuredIndex >= 0 ? featuredIndex : 0));
 
 // Ordenar por priority manual (menor = primeiro). Sem priority fica por ultimo (ordem alfabetica).
-const othersSorted = [...others].sort((a, b) => {
+const othersSorted = [...cases].sort((a, b) => {
   const pa = a.data.priority ?? 999;
   const pb = b.data.priority ?? 999;
   if (pa !== pb) return pa - pb;
   return a.id.localeCompare(b.id);
 });
 
-const categories = Array.from(new Set(others.map((c) => c.data.category).filter(Boolean))) as string[];
+const categories = Array.from(new Set(cases.map((c) => c.data.category).filter(Boolean))) as string[];
 const filterAll = lang === 'pt' ? 'Todos' : 'All';
 const filterLabel = (cat: string) => {
   const map: Record<string, { pt: string; en: string }> = {
