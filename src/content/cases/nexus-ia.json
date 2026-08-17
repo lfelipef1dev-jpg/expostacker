@@ -1,0 +1,549 @@
+{
+  "id": "nexus-ia",
+  "title": "Nexus IA",
+  "clientName": "ExpoStacker",
+  "tags": [
+    "FastAPI",
+    "Python",
+    "React",
+    "Vite",
+    "AI",
+    "Groq",
+    "Cerebras",
+    "Gemini",
+    "Cloudflare"
+  ],
+  "shortDescription": "SaaS de IA com chat inteligente, roteamento automático entre provedores, assistente de código e workspace com agente autônomo.",
+  "problemDescription": "Equipes e profissionais desperdiçam tempo alternando entre múltiplas ferramentas de IA, corrigindo respostas com acentuação quebrada e lidando com limites de uso de APIs individuais, o que reduz produtividade e aumenta custos operacionais.",
+  "technicalSolution": "Criamos um painel unificado em FastAPI + React com cinco modelos Nexus (Auto, Fast, Standard, Advanced, Code) que roteiam entre Groq, Cerebras e Gemini. O sistema inclui assistente de código, workspace, agente autônomo, controle de custos e subdomínios personalizados por projeto.",
+  "businessOutcome": [
+    {
+      "label": "Modelos validados",
+      "value": 5,
+      "unit": ""
+    },
+    {
+      "label": "Tempo médio resposta",
+      "value": 4.7,
+      "unit": "s"
+    },
+    {
+      "label": "Provedores externos",
+      "value": 3,
+      "unit": "APIs"
+    }
+  ],
+  "liveUrl": "https://nexus.expostacker.com.br",
+  "projectType": "SaaS",
+  "featured": true,
+  "category": "client",
+  "year": 2026,
+  "priority": 1,
+  "hasCaseStudy": true,
+  "nda": false,
+  "heroHeadline": {
+    "pt": "Nexus IA — Inteligência artificial centralizada",
+    "en": "Nexus IA — Centralized artificial intelligence"
+  },
+  "heroSubhead": {
+    "pt": "Chat, assistente de código e workspace com agente autônomo em uma única plataforma com roteamento inteligente entre provedores.",
+    "en": "Chat, code assistant and workspace with an autonomous agent in a single platform with intelligent provider routing."
+  },
+  "opening": {
+    "pt": "Nexus IA é um SaaS de inteligência artificial que centraliza múltiplos modelos em um painel comercial. A plataforma oferece cinco perfis de modelos, chat com memória de contexto, geração e execução de código, workspace com terminal e agente capaz de criar arquivos e editar projetos.",
+    "en": "Nexus IA is an artificial intelligence SaaS that centralizes multiple models in a commercial dashboard. The platform offers five model profiles, context-aware chat, code generation and execution, workspace with terminal and an agent capable of creating files and editing projects."
+  },
+  "challengeContext": {
+    "pt": "O projeto precisava unificar a experiência de chat, código e agente autônomo sem depender de uma única API externa. A solução deveria tolerar falhas de provedor, manter latência baixa e entregar respostas com encoding correto em português.",
+    "en": "The project needed to unify chat, code and autonomous agent experience without depending on a single external API. The solution should tolerate provider failures, keep latency low and deliver responses with correct Portuguese encoding."
+  },
+  "approach": {
+    "pt": "Partimos de um painel simples e evoluímos para uma arquitetura com roteamento por latência, pool de chaves por provedor, cache persistente e fallback automático. O front-end mantém a identidade visual ExpoStacker com responsividade mobile e acessibilidade.",
+    "en": "We started from a simple dashboard and evolved into an architecture with latency-based routing, key pools per provider, persistent cache and automatic fallback. The front-end keeps the ExpoStacker visual identity with mobile responsiveness and accessibility."
+  },
+  "solutionItems": {
+    "pt": [
+      "Painel com cinco modelos Nexus e roteamento automático por tipo de tarefa",
+      "Assistente de código com geração, explicação e revisão",
+      "Workspace com chat de agente, terminal e ações rápidas",
+      "Pesquisa de URL com contexto para respostas baseadas em páginas",
+      "Controle de planos, limites e custos por usuário",
+      "Landing comercial com SEO, schema.org, sitemap e robots.txt"
+    ],
+    "en": [
+      "Dashboard with five Nexus models and automatic task-based routing",
+      "Code assistant with generation, explanation and review",
+      "Workspace with agent chat, terminal and quick actions",
+      "URL research with context for page-based answers",
+      "User plan, limit and cost control",
+      "Commercial landing with SEO, schema.org, sitemap and robots.txt"
+    ]
+  },
+  "technologies": [
+    {
+      "name": "FastAPI",
+      "why": {
+        "pt": "Python async com alta performance para orquestrar múltiplas APIs externas sem bloquear requisições.",
+        "en": "Async Python with high performance to orchestrate multiple external APIs without blocking requests."
+      }
+    },
+    {
+      "name": "React + Vite",
+      "why": {
+        "pt": "Workspace interativo com build rápido e experiência de SPA sem recarregamento.",
+        "en": "Interactive workspace with fast build and SPA experience without reload."
+      }
+    },
+    {
+      "name": "Groq / Cerebras / Gemini",
+      "why": {
+        "pt": "Pool de provedores com fallback automático mantém o serviço disponível mesmo com falhas individuais.",
+        "en": "Provider pool with automatic fallback keeps the service available even with individual failures."
+      }
+    },
+    {
+      "name": "Cloudflare Pages",
+      "why": {
+        "pt": "Deploy automático de subdomínios com cache global e certificado SSL gerenciado.",
+        "en": "Automatic deployment of subdomains with global cache and managed SSL certificate."
+      }
+    }
+  ],
+  "myRole": {
+    "pt": "Arquiteto e desenvolvedor full-stack: roteamento de IA, integração de múltiplos provedores, painel comercial, workspace e automação de deploy.",
+    "en": "Full-stack architect and developer: AI routing, multi-provider integration, commercial dashboard, workspace and deploy automation."
+  },
+  "lessonsLearned": {
+    "pt": "O compartilhamento de clientes HTTP async globais entre requisições síncronas gera erros de event loop. Criar clientes httpx por requisição resolveu timeouts e erros de encoding de provedores externos.",
+    "en": "Sharing global async HTTP clients between synchronous requests causes event loop errors. Creating httpx clients per request solved timeouts and external provider encoding issues."
+  },
+  "stakeholders": {
+    "pt": "ExpoStacker — produto interno",
+    "en": "ExpoStacker — internal product"
+  },
+  "sector": {
+    "pt": "Inteligência artificial e produtividade",
+    "en": "Artificial intelligence and productivity"
+  },
+  "heroMetrics": [
+    {
+      "value": "5",
+      "label": {
+        "pt": "Modelos Nexus",
+        "en": "Nexus models"
+      }
+    },
+    {
+      "value": "3",
+      "label": {
+        "pt": "Provedores de IA",
+        "en": "AI providers"
+      }
+    },
+    {
+      "value": "4.7s",
+      "label": {
+        "pt": "Tempo médio resposta",
+        "en": "Average response time"
+      }
+    }
+  ],
+  "timeline": {
+    "duration": "3 semanas",
+    "launchDate": "2026-08"
+  },
+  "timelinePhases": [
+    {
+      "phase": "Descoberta",
+      "period": "Semana 1",
+      "items": {
+        "pt": [
+          "Mapeamento de provedores de IA e chaves",
+          "Definição dos modelos Nexus e personas",
+          "Arquitetura de roteamento e cache"
+        ],
+        "en": [
+          "AI provider and key mapping",
+          "Definition of Nexus models and personas",
+          "Routing and cache architecture"
+        ]
+      }
+    },
+    {
+      "phase": "Construção",
+      "period": "Semana 2",
+      "items": {
+        "pt": [
+          "API FastAPI com chat, código, crawl e agente",
+          "Painel comercial com landing e planos",
+          "Workspace Vite com login e autenticação"
+        ],
+        "en": [
+          "FastAPI with chat, code, crawl and agent",
+          "Commercial dashboard with landing and plans",
+          "Vite workspace with login and authentication"
+        ]
+      }
+    },
+    {
+      "phase": "Validação",
+      "period": "Semana 3",
+      "items": {
+        "pt": [
+          "Testes de todos os modelos e prompts",
+          "Auditoria de SEO, sitemap e responsividade",
+          "Ajustes de encoding e fallback de provedores"
+        ],
+        "en": [
+          "Tests of all models and prompts",
+          "SEO, sitemap and responsiveness audit",
+          "Encoding and provider fallback adjustments"
+        ]
+      }
+    }
+  ],
+  "methodology": {
+    "pt": [
+      "Sessões de refinamento contínuo",
+      "Testes de carga e latência por modelo",
+      "Auditoria de SEO e acessibilidade",
+      "Padrões ExpoStacker de componentização"
+    ],
+    "en": [
+      "Continuous refinement sessions",
+      "Load and latency tests per model",
+      "SEO and accessibility audit",
+      "ExpoStacker component standards"
+    ]
+  },
+  "aiPipeline": {
+    "pt": {
+      "title": "Pipeline de roteamento inteligente",
+      "steps": [
+        "Usuário envia a mensagem",
+        "Classificador identifica a tarefa",
+        "Roteador escolhe o modelo Nexus ideal",
+        "Sistema tenta provedores na ordem de score",
+        "Resposta é cacheada e registrada para custo"
+      ]
+    },
+    "en": {
+      "title": "Intelligent routing pipeline",
+      "steps": [
+        "User sends the message",
+        "Classifier identifies the task",
+        "Router picks the best Nexus model",
+        "System tries providers by score order",
+        "Response is cached and recorded for cost"
+      ]
+    }
+  },
+  "security": {
+    "pt": {
+      "title": "Segurança e conformidade",
+      "items": [
+        "Chaves de API externas nunca expostas no front-end",
+        "Autenticação JWT com cookies seguros",
+        "Rate limit por rota e por plano",
+        "CORS restrito a domínios permitidos",
+        "Ambiente de dev sinalizado para hardening futuro"
+      ]
+    },
+    "en": {
+      "title": "Security and compliance",
+      "items": [
+        "External API keys never exposed in the front-end",
+        "JWT authentication with secure cookies",
+        "Rate limit per route and per plan",
+        "CORS restricted to allowed domains",
+        "Dev environment flagged for future hardening"
+      ]
+    }
+  },
+  "architecture": {
+    "pt": {
+      "title": "Arquitetura do Nexus IA",
+      "items": [
+        "FastAPI orquestra chat, código, crawl e agente",
+        "Roteador escolhe provedor baseado em latência e quota",
+        "Pool de chaves round-robin por provedor",
+        "Cache persistente de prompts e respostas",
+        "React Vite consome a API via prefixo /api"
+      ]
+    },
+    "en": {
+      "title": "Nexus IA architecture",
+      "items": [
+        "FastAPI orchestrates chat, code, crawl and agent",
+        "Router picks provider based on latency and quota",
+        "Round-robin key pool per provider",
+        "Persistent prompt and response cache",
+        "React Vite consumes the API via /api prefix"
+      ]
+    }
+  },
+  "architectureDiagram": {
+    "left": "Usuário",
+    "leftSub": "Navegador",
+    "center": "FastAPI",
+    "centerSub": "Nexus IA",
+    "right": "Provedores",
+    "rightSub": "Groq / Cerebras / Gemini",
+    "bottom": [
+      "Workspace Vite",
+      "Painel Web",
+      "Cache Redis",
+      "Banco SQLite"
+    ]
+  },
+  "techStack": {
+    "pt": {
+      "title": "Stack tecnológica",
+      "categories": [
+        {
+          "category": "Backend",
+          "items": [
+            {
+              "name": "FastAPI",
+              "why": "Python async para APIs externas",
+              "alt": "Django (mais pesado)"
+            },
+            {
+              "name": "SQLite",
+              "why": "Banco local sem dependência de infra externa",
+              "alt": "Postgres (escala futura)"
+            },
+            {
+              "name": "httpx",
+              "why": "Cliente async para chamadas externas",
+              "alt": "requests (síncrono, bloqueante)"
+            }
+          ]
+        },
+        {
+          "category": "Frontend",
+          "items": [
+            {
+              "name": "React + Vite",
+              "why": "SPA rápida para o workspace",
+              "alt": "Next.js (excesso para MVP)"
+            },
+            {
+              "name": "Tailwind",
+              "why": "Tokens consistentes com ExpoStacker",
+              "alt": "CSS puro (mais lento para prototipar)"
+            }
+          ]
+        },
+        {
+          "category": "IA",
+          "items": [
+            {
+              "name": "Groq",
+              "why": "Baixa latência e custo competitivo",
+              "alt": "OpenAI (custo maior)"
+            },
+            {
+              "name": "Cerebras",
+              "why": "Modelos grandes sem infra local",
+              "alt": "Ollama local (excluído por escopo)"
+            },
+            {
+              "name": "Gemini",
+              "why": "Fallback com excelente português",
+              "alt": "Claude (sem chave no projeto)"
+            }
+          ]
+        }
+      ]
+    },
+    "en": {
+      "title": "Technology stack",
+      "categories": [
+        {
+          "category": "Backend",
+          "items": [
+            {
+              "name": "FastAPI",
+              "why": "Async Python for external APIs",
+              "alt": "Django (heavier)"
+            },
+            {
+              "name": "SQLite",
+              "why": "Local database without external infrastructure",
+              "alt": "Postgres (future scale)"
+            },
+            {
+              "name": "httpx",
+              "why": "Async client for external calls",
+              "alt": "requests (synchronous, blocking)"
+            }
+          ]
+        },
+        {
+          "category": "Frontend",
+          "items": [
+            {
+              "name": "React + Vite",
+              "why": "Fast SPA for the workspace",
+              "alt": "Next.js (overkill for MVP)"
+            },
+            {
+              "name": "Tailwind",
+              "why": "Tokens consistent with ExpoStacker",
+              "alt": "Plain CSS (slower to prototype)"
+            }
+          ]
+        },
+        {
+          "category": "AI",
+          "items": [
+            {
+              "name": "Groq",
+              "why": "Low latency and competitive cost",
+              "alt": "OpenAI (higher cost)"
+            },
+            {
+              "name": "Cerebras",
+              "why": "Large models without local infrastructure",
+              "alt": "Local Ollama (excluded by scope)"
+            },
+            {
+              "name": "Gemini",
+              "why": "Fallback with excellent Portuguese",
+              "alt": "Claude (no key in project)"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "decisionLog": [
+    {
+      "title": {
+        "pt": "Usar roteamento por provedor com fallback",
+        "en": "Use provider routing with fallback"
+      },
+      "why": {
+        "pt": "Evita falhas por indisponibilidade ou quota de um único provedor externo.",
+        "en": "Prevents failures due to unavailability or quota of a single external provider."
+      },
+      "alternatives": {
+        "pt": "Provedor único simplifica o código, mas cria ponto único de falha.",
+        "en": "Single provider simplifies code but creates a single point of failure."
+      }
+    },
+    {
+      "title": {
+        "pt": "MVP com SQLite em vez de Postgres",
+        "en": "MVP with SQLite instead of Postgres"
+      },
+      "why": {
+        "pt": "SQLite remove a dependência de banco externo e acelera o deploy inicial.",
+        "en": "SQLite removes external database dependency and speeds up initial deploy."
+      },
+      "alternatives": {
+        "pt": "Postgres oferece mais escala, mas exige configuração de infra extra.",
+        "en": "Postgres offers more scale, but requires extra infrastructure setup."
+      }
+    },
+    {
+      "title": {
+        "pt": "Painel em HTML/CSS vanilla + React Vite para workspace",
+        "en": "Dashboard in vanilla HTML/CSS + React Vite for workspace"
+      },
+      "why": {
+        "pt": "Landing rápida e leve; workspace complexo SPA em React para interatividade.",
+        "en": "Fast and light landing; complex interactive workspace as React SPA."
+      },
+      "alternatives": {
+        "pt": "Tudo em React aumentaria o bundle da landing e prejudicaria SEO.",
+        "en": "Everything in React would increase landing bundle and hurt SEO."
+      }
+    }
+  ],
+  "gamification": {
+    "pt": {
+      "title": "Mecânicas de engajamento",
+      "mechanics": [
+        {
+          "name": "Planos progressivos",
+          "desc": "Free, Starter, Pro e Business desbloqueiam modelos e limites conforme o uso."
+        },
+        {
+          "name": "Workspace ativo",
+          "desc": "Projetos e arquivos mantêm o usuário retornando ao ambiente."
+        },
+        {
+          "name": "Modelos por tarefa",
+          "desc": "Nexus Auto, Fast, Standard, Advanced e Code ensinam o usuário a escolher a ferramenta certa."
+        }
+      ]
+    },
+    "en": {
+      "title": "Engagement mechanics",
+      "mechanics": [
+        {
+          "name": "Progressive plans",
+          "desc": "Free, Starter, Pro and Business unlock models and limits based on usage."
+        },
+        {
+          "name": "Active workspace",
+          "desc": "Projects and files keep the user returning to the environment."
+        },
+        {
+          "name": "Models per task",
+          "desc": "Nexus Auto, Fast, Standard, Advanced and Code teach the user to pick the right tool."
+        }
+      ]
+    }
+  },
+  "resultsDetail": {
+    "pt": {
+      "title": "Resultados da auditoria",
+      "kpis": [
+        {
+          "value": "25/25",
+          "label": "Testes de chat OK",
+          "baseline": "11/25 antes do ajuste de event loop",
+          "source": "Auditoria NEXUS"
+        },
+        {
+          "value": "2.1s",
+          "label": "Tempo de carregamento do landing",
+          "baseline": "sem cache de assets (estimado)",
+          "source": "Teste local"
+        },
+        {
+          "value": "15+",
+          "label": "Media queries para responsividade",
+          "baseline": "layout adaptável de 320px a 1200px",
+          "source": "Auditoria CSS"
+        }
+      ]
+    },
+    "en": {
+      "title": "Audit results",
+      "kpis": [
+        {
+          "value": "25/25",
+          "label": "Chat tests OK",
+          "baseline": "11/25 before event loop fix",
+          "source": "NEXUS audit"
+        },
+        {
+          "value": "2.1s",
+          "label": "Landing load time",
+          "baseline": "without asset cache (estimated)",
+          "source": "Local test"
+        },
+        {
+          "value": "15+",
+          "label": "Media queries for responsiveness",
+          "baseline": "adaptable layout from 320px to 1200px",
+          "source": "CSS audit"
+        }
+      ]
+    }
+  }
+}
