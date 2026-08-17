@@ -53,7 +53,6 @@
     "pt": "5 modelos Nexus, roteamento com fallback entre provedores, workspace com terminal e RAG, multimodal (áudio, imagem, vídeo, documentos) e 5 planos comerciais (Free, Starter, Pro, Business, Enterprise).",
     "en": "5 Nexus models, provider routing with fallback, workspace with terminal and RAG, multimodal (audio, image, video, documents) and 5 commercial plans (Free, Starter, Pro, Business, Enterprise)."
   },
-  "heroImage": "/cases/nexus-ia.svg",
   "opening": {
     "pt": "Nexus IA é um SaaS de inteligência artificial que centraliza múltiplos modelos locais e em nuvem em uma plataforma comercial. Oferece cinco perfis de modelos Nexus (Auto, Fast, Standard, Advanced, Code) com roteamento inteligente entre provedores externos (Groq, Cerebras, Gemini) e fallback para APIs pagas (Claude, Kimi, Cursor, SW), chat com memória de contexto, assistente de código, multimodal (documentos, áudio, imagem e vídeo), workspace com terminal e agente autônomo capaz de criar arquivos e editar projetos, BYOK e 5 planos comerciais.",
     "en": "Nexus IA is an AI SaaS that centralizes local and cloud models in a commercial platform. It offers five Nexus model profiles (Auto, Fast, Standard, Advanced, Code) with intelligent routing between external providers (Groq, Cerebras, Gemini) and fallback to paid APIs (Claude, Kimi, Cursor, SW), context-aware chat, code assistant, multimodal (documents, audio, image and video), workspace with terminal and autonomous agent capable of creating files and editing projects, BYOK and 5 commercial plans."
