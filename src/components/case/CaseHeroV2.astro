@@ -115,8 +115,21 @@ const eyebrow = lang === 'pt' ? 'PRODUTO EM PRODUÇÃO' : 'LIVE PRODUCT';
             class="relative aspect-[4/3] min-h-[300px] md:min-h-[400px] bg-gradient-to-br from-brand-surface to-brand-bg overflow-hidden"
             id={`preview-${slug}`}
           >
-            {/* Iframe gerado dinamicamente para evitar cache */}
-            {hasLiveUrl && (
+            {/* Hero image (banner) */}
+            {heroImage && (
+              <img
+                src={heroImage}
+                alt={`${entry?.data?.title} — preview`}
+                class="absolute inset-0 w-full h-full object-cover"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
+                width="1200"
+                height="630"
+              />
+            )}
+            {/* Iframe (only if no heroImage and has liveUrl) */}
+            {!heroImage && hasLiveUrl && (
               <script is:inline define:vars={{ slug, liveUrl, previewTitle: entry?.data?.title }}>
                 (function(){
                   var container = document.getElementById('preview-' + slug);
@@ -135,21 +148,8 @@ const eyebrow = lang === 'pt' ? 'PRODUTO EM PRODUÇÃO' : 'LIVE PRODUCT';
                 })();
               </script>
             )}
-            {/* Image (only if no liveUrl) */}
-            {!hasLiveUrl && heroImage && (
-              <img
-                src={heroImage}
-                alt={`${entry?.data?.title} — preview`}
-                class="absolute inset-0 w-full h-full object-cover"
-                loading="eager"
-                fetchpriority="high"
-                decoding="async"
-                width="800"
-                height="600"
-              />
-            )}
-            {/* Placeholder layer (only if no liveUrl and no heroImage) */}
-            {!hasLiveUrl && !heroImage && (
+            {/* Placeholder layer (only if no heroImage and no liveUrl) */}
+            {!heroImage && !hasLiveUrl && (
               <div class="absolute inset-0 p-6 flex flex-col gap-4">
                 {/* Placeholder: stylized app UI */}
                 <div class="flex items-center justify-between">
