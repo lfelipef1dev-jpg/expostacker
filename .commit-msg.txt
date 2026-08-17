@@ -1,12 +1,11 @@
-feat: case page UX improvements - results cedo, hero H1 curto, quebras visuais, story com hierarquia
+fix: case Medellin - contagem de produtos real (344), gamification do JSON, visualDisclaimer, CTA
 
-- Results movido para apos Snapshot (posicao 3 em vez de 12) - pesquisa 2026 diz resultados cedo converte mais
-- Hero H1 agora mostra so o titulo do projeto (TigreBet) em vez do paragrafo longo
-- heroHeadline movido para subhead (texto descritivo sob o H1)
-- Quebras visuais: secoes alternadas com bg-brand-surface/20 + border-y para ritmo visual
-- CaseStory: eyebrows (O desafio / A abordagem / A solucao) + solution items com setas em vez de bullets
-- CaseCTA: texto do JSON (ctaTitle/ctaText) em vez de hardcoded sobre "ecossistema"
-- CaseCTA: botoes com rounded-lg + hover + focus-visible ring
+- Contagem de produtos corrigida de 308 para 344 (verificado: products.js 114 + skins 138 + vehicles 27 + pets 28 + grandes-baus 37)
+- Breakdown atualizado: 85 veiculos (27 blindados + 58 especiais), 138 skins, 28 pets, 37 grandes baús
+- Gamification adicionado ao JSON: 8 mecânicas reais (VIP Tiers, Temporadas, Combos, Baús, Skins, Pets, Mochilas, Rolygrams)
+- Removido fallback "vendedores" do CaseGamification para Medellin
+- visualDisclaimer adicionado: storefront no ar + backend no repo
+- ctaTitle/ctaText adicionados ao JSON (era fallback generico)
 
 Generated with [Devin](https://devin.ai)
 

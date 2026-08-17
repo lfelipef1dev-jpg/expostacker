@@ -3,12 +3,12 @@
   "title": "Medellin E-commerce",
   "clientName": "Medellin RP",
   "tags": ["Vanilla JS", "Node.js", "Express", "MySQL", "Mercado Pago", "Cloudflare Pages", "Cloudflare R2", "Cloudflare Workers", "FiveM", "WebP"],
-  "shortDescription": "Loja VIP e pagamentos para servidor FiveM: 54 páginas, 308 produtos, 10 tiers VIP, 7 temporadas, Mercado Pago e entrega automática in-game.",
+  "shortDescription": "Loja VIP e pagamentos para servidor FiveM: 54 páginas, 344 produtos, 10 tiers VIP, 7 temporadas, Mercado Pago e entrega automática in-game.",
   "problemDescription": "O servidor Medellin RP (GTA V Roleplay FiveM) precisava de uma loja online profissional para comercializar VIPs, veículos, armas, skins, pets, salários, vouchers e itens sazonais. O desafio: integrar pagamento real (Mercado Pago), validação de preços server-side, entrega automática no jogo via fila de banco de dados, sistema de carrinho persistente, catálogo com 308 produtos em 54 páginas, imagens otimizadas em CDN global (R2 com WebP), e arquitetura híbrida com Worker na edge e backend Node.js — tudo sem custo recorrente de infraestrutura.",
   "technicalSolution": "Construímos uma loja e-commerce estática em HTML5 + CSS3 + Vanilla JS (sem framework) com 54 páginas, deployada no Cloudflare Pages. O backend Node.js/Express roda com MySQL para persistência de pedidos, idempotência de pagamentos e fila de entrega. Um Cloudflare Worker atua como proxy API na edge com fallback direto para Mercado Pago. Imagens servidas via Cloudflare R2 com conversão automática WebP em runtime via MutationObserver. Carrinho persistente em localStorage. Checkout 4 etapas com integração Mercado Pago (PIX, cartão, boleto). Webhook de pagamento com idempotência e entrega automática no FiveM via fila de banco. 10 tiers de VIP, 7 temporadas sazonais, 141 skins de armas, 79 veículos, 26 pets e 45 grandes baús.",
   "businessOutcome": [
     { "label": "Páginas", "value": 54, "unit": "" },
-    { "label": "Produtos", "value": 308, "unit": "" },
+    { "label": "Produtos", "value": 344, "unit": "" },
     { "label": "Tiers VIP", "value": 10, "unit": "" },
     { "label": "Temporadas sazonais", "value": 7, "unit": "" },
     { "label": "Custo de infraestrutura", "value": 0, "unit": "R$" },
@@ -23,8 +23,8 @@
   "hasCaseStudy": true,
   "heroImage": "/cases/medellin-ecommerce.svg",
   "heroHeadline": {
-    "pt": "Plataforma completa de loja VIP e pagamentos para servidor FiveM com 54 páginas, 308 produtos, 10 tiers de VIP, 7 temporadas sazonais, checkout via Mercado Pago e entrega automática in-game",
-    "en": "Complete VIP store and payment platform for FiveM server with 54 pages, 308 products, 10 VIP tiers, 7 seasonal collections, Mercado Pago checkout and automatic in-game delivery"
+    "pt": "Plataforma completa de loja VIP e pagamentos para servidor FiveM com 54 páginas, 344 produtos, 10 tiers de VIP, 7 temporadas sazonais, checkout via Mercado Pago e entrega automática in-game",
+    "en": "Complete VIP store and payment platform for FiveM server with 54 pages, 344 products, 10 VIP tiers, 7 seasonal collections, Mercado Pago checkout and automatic in-game delivery"
   },
   "heroSubhead": {
     "pt": "Storefront estático em HTML5 + CSS3 + Vanilla JS deployado no Cloudflare Pages. Backend Node.js/Express com MySQL para pedidos, idempotência de pagamentos e fila de entrega. Cloudflare Worker como proxy API na edge com fallback direto para Mercado Pago. Imagens em Cloudflare R2 com conversão WebP em runtime via MutationObserver. Carrinho persistente em localStorage. Checkout 4 etapas com PIX, cartão e boleto. Webhook com entrega automática no FiveM via fila de banco de dados. Zero custo de infraestrutura.",
@@ -35,8 +35,8 @@
     "en": "A player on the Medellin RP server opens the store in their browser. They browse 54 pages organized by categories: VIPs, vehicles, armored, aircraft, weapons and skins, pets, salaries, vouchers, backpacks, rolygrams, modifications and seasonal items. They add products to the cart, which persists across pages via localStorage. At checkout, they enter their game identifier. The API validates the cart server-side, creates a Mercado Pago preference and redirects to payment. As soon as PIX is confirmed, a webhook processes the payment with idempotency, inserts items into the FiveM delivery queue and the player receives everything automatically in-game — all running on Cloudflare with zero infrastructure cost."
   },
   "challengeContext": {
-    "pt": "O Medellin RP é um servidor de GTA V Roleplay no FiveM com uma comunidade ativa de jogadores. A loja precisava comercializar 308 produtos digitais — VIPs (10 tiers), veículos (79 modelos), armas e skins (141 itens), pets (26), salários (6), vouchers (6), mochilas (7), rolygrams (4), modificações e itens sazonais (7 temporadas). O desafio era construir uma plataforma que combinasse performance de um site estático com a segurança de um backend que valida preços server-side, processa pagamentos reais via Mercado Pago (PIX, cartão, boleto), garante idempotência de webhooks, entrega itens automaticamente no jogo via fila de banco de dados, e serve 772 MB de imagens otimizadas em WebP via CDN global — tudo sem custo recorrente.",
-    "en": "Medellin RP is a GTA V Roleplay server on FiveM with an active community of players. The store needed to sell 308 digital products — VIPs (10 tiers), vehicles (79 models), weapons and skins (141 items), pets (26), salaries (6), vouchers (6), backpacks (7), rolygrams (4), modifications and seasonal items (7 seasons). The challenge was building a platform that combined static site performance with the security of a backend that validates prices server-side, processes real payments via Mercado Pago (PIX, card, boleto), guarantees webhook idempotency, delivers items automatically in-game via database queue, and serves 772 MB of optimized WebP images via global CDN — all with zero recurring cost."
+    "pt": "O Medellin RP é um servidor de GTA V Roleplay no FiveM com uma comunidade ativa de jogadores. A loja precisava comercializar 344 produtos digitais — VIPs (10 tiers), veículos (85 modelos), armas e skins (138 itens), pets (28), salários (6), vouchers (6), mochilas (7), rolygrams (4), modificações e itens sazonais (7 temporadas). O desafio era construir uma plataforma que combinasse performance de um site estático com a segurança de um backend que valida preços server-side, processa pagamentos reais via Mercado Pago (PIX, cartão, boleto), garante idempotência de webhooks, entrega itens automaticamente no jogo via fila de banco de dados, e serve 772 MB de imagens otimizadas em WebP via CDN global — tudo sem custo recorrente.",
+    "en": "Medellin RP is a GTA V Roleplay server on FiveM with an active community of players. The store needed to sell 344 digital products — VIPs (10 tiers), vehicles (85 models), weapons and skins (138 items), pets (28), salaries (6), vouchers (6), backpacks (7), rolygrams (4), modifications and seasonal items (7 seasons). The challenge was building a platform that combined static site performance with the security of a backend that validates prices server-side, processes real payments via Mercado Pago (PIX, card, boleto), guarantees webhook idempotency, delivers items automatically in-game via database queue, and serves 772 MB of optimized WebP images via global CDN — all with zero recurring cost."
   },
   "approach": {
     "pt": "Arquitetamos uma solução híbrida em 3 camadas: (1) Storefront estático em HTML5 + CSS3 + Vanilla JS com 54 páginas, deployado no Cloudflare Pages — sem framework, sem build, sem custo. (2) Cloudflare Worker como proxy API na edge com fallback direto para Mercado Pago se o backend estiver indisponível. (3) Backend Node.js/Express com MySQL para persistência de pedidos, idempotência de pagamentos, fila de entrega FiveM e rate limiting. As imagens (772 MB) ficam no Cloudflare R2 com conversão automática PNG → WebP em runtime via MutationObserver que reescreve URLs de img, source, link e meta tags. O carrinho persiste em localStorage. O checkout tem 4 etapas com validação server-side de preços. Webhooks do Mercado Pago processam pagamentos com idempotência via tabela processed_payments e inserem itens na fila medellin_loja_pending para o FiveM entregar automaticamente.",
@@ -49,7 +49,7 @@
   "solutionItems": {
     "pt": [
       "54 páginas HTML: home, checkout 4 etapas, painel do cliente, 10 páginas de VIP (Bronze, Prata, Ouro, Platinum, Black, Policia, PVP, Facção Prata/Ouro/Premium), 11 páginas sazonais (Ano Novo, Carnaval, Black Friday, Halloween, Natal, Páscoa, Férias), 6 páginas de veículos (veículos, aeronaves, blindados, grandes baús + detalhes), 2 páginas de armas, 7 páginas de mochilas, 4 páginas de rolygram, 4 páginas de outros itens, salários, farm, modificações e 7 páginas de detalhe dinâmico",
-      "308 produtos no catálogo: 10 VIPs, 79 veículos (25 blindados 16 tiros, 7 blindados 32 tiros, 5 full blindados, 8 full voadores, 34 especiais), 141 skins de armas (30 lendárias, 52 épicas, 59 padrão), 26 pets, 45 grandes baús, 7 mochilas, 6 salários, 6 vouchers, 4 rolygrams, 4 itens de farm, 4 modificações, 28 produtos sazonais (4 por temporada × 7 temporadas)",
+      "344 produtos no catálogo: 10 VIPs, 85 veículos (27 blindados + 58 especiais via JSON), 138 skins de armas, 28 pets, 37 grandes baús, 7 mochilas, 6 salários, 6 vouchers, 4 rolygrams, 4 itens de farm, 14 modificações/scripts, 21 produtos sazonais (promos + combos)",
       "Arquitetura híbrida em 3 camadas: Cloudflare Pages (storefront estático), Cloudflare Worker (proxy API na edge com fallback Mercado Pago), Node.js/Express + MySQL (backend de pedidos, pagamentos e fila de entrega)",
       "Integração Mercado Pago com 3 métodos: PIX, cartão de crédito e boleto. Webhook com idempotência via tabela medellin_loja_processed_payments. Validação de preços server-side (preços vêm do products.js no backend, não do client)",
       "Entrega automática no FiveM: webhook insere itens na tabela medellin_loja_pending com license e account_id do jogador. O servidor FiveM lê a fila, entrega os itens in-game e marca delivered_at",
@@ -65,7 +65,7 @@
     ],
     "en": [
       "54 HTML pages: home, 4-step checkout, customer panel, 10 VIP pages (Bronze, Silver, Gold, Platinum, Black, Police, PVP, Faction Silver/Gold/Premium), 11 seasonal pages (New Year, Carnival, Black Friday, Halloween, Christmas, Easter, Vacation), 6 vehicle pages (vehicles, aircraft, armored, large boxes + details), 2 weapon pages, 7 backpack pages, 4 rolygram pages, 4 other item pages, salaries, farm, modifications and 7 dynamic detail pages",
-      "308 products in catalog: 10 VIPs, 79 vehicles (25 armored 16-shot, 7 armored 32-shot, 5 full armored, 8 full flying, 34 special), 141 weapon skins (30 legendary, 52 epic, 59 standard), 26 pets, 45 large boxes, 7 backpacks, 6 salaries, 6 vouchers, 4 rolygrams, 4 farm items, 4 modifications, 28 seasonal products (4 per season × 7 seasons)",
+      "344 products in catalog: 10 VIPs, 85 vehicles (27 armored + 58 special via JSON), 138 weapon skins, 28 pets, 37 large boxes, 7 backpacks, 6 salaries, 6 vouchers, 4 rolygrams, 4 farm items, 14 modifications/scripts, 21 seasonal products (promos + combos)",
       "Hybrid architecture in 3 layers: Cloudflare Pages (static storefront), Cloudflare Worker (edge API proxy with Mercado Pago fallback), Node.js/Express + MySQL (backend for orders, payments and delivery queue)",
       "Mercado Pago integration with 3 methods: PIX, credit card and boleto. Webhook with idempotency via medellin_loja_processed_payments table. Server-side price validation (prices come from products.js on the backend, not from the client)",
       "Automatic FiveM delivery: webhook inserts items into medellin_loja_pending table with player license and account_id. The FiveM server reads the queue, delivers items in-game and marks delivered_at",
@@ -228,10 +228,22 @@
   },
   "heroMetrics": [
     { "value": "54", "label": { "pt": "Páginas no storefront", "en": "Storefront pages" } },
-    { "value": "308", "label": { "pt": "Produtos no catálogo", "en": "Products in catalog" } },
+    { "value": "344", "label": { "pt": "Produtos no catálogo", "en": "Products in catalog" } },
     { "value": "0", "label": { "pt": "Custo de infra (R$)", "en": "Infra cost (R$)" } }
   ],
   "timeline": { "duration": "Projeto contínuo", "launchDate": "2026-08" },
+  "visualDisclaimer": {
+    "pt": "Este case study descreve trabalho real. O storefront estático está no ar em medellin.expostacker.com.br no Cloudflare Pages. O backend Node.js/Express com MySQL e o Cloudflare Worker estão no repositório do projeto.",
+    "en": "This case study describes real work. The static storefront is live at medellin.expostacker.com.br on Cloudflare Pages. The Node.js/Express backend with MySQL and the Cloudflare Worker are in the project repository."
+  },
+  "ctaTitle": {
+    "pt": "Precisa de uma loja online que converte?",
+    "en": "Need an online store that converts?"
+  },
+  "ctaText": {
+    "pt": "Construí uma loja com 344 produtos, checkout via Mercado Pago e entrega automática no jogo — tudo com zero custo de infra. Posso fazer o mesmo para o seu projeto.",
+    "en": "I built a store with 344 products, Mercado Pago checkout and automatic in-game delivery — all with zero infra cost. I can do the same for yours."
+  },
   "timelinePhases": [
     {
       "phase": "Storefront",
@@ -315,6 +327,34 @@
         "Images (772 MB) on Cloudflare R2 with WebP conversion at runtime via MutationObserver",
         "Cart persists in localStorage (browser) — no server-side session needed",
         "Automatic deploy: git push → GitHub Actions → Cloudflare Pages in ~1 minute"
+      ]
+    }
+  },
+  "gamification": {
+    "pt": {
+      "title": "Mecânicas de engajamento da loja",
+      "mechanics": [
+        { "name": "VIP Tiers", "desc": "10 tiers: Bronze, Prata, Ouro, Platinum, Black, Policia, PVP, Facção Prata, Facção Ouro, Facção Premium" },
+        { "name": "Temporadas", "desc": "7 temporadas sazonais: Ano Novo, Carnaval, Black Friday, Férias, Halloween, Natal, Páscoa" },
+        { "name": "Combos", "desc": "Super Combos e Medellin Edition por temporada com desconto progressivo" },
+        { "name": "Grandes Baús", "desc": "37 baús premiados com itens aleatórios de diferentes raridades" },
+        { "name": "Skins de Armas", "desc": "138 skins com tiers de raridade (lendária, épica, padrão)" },
+        { "name": "Pets", "desc": "28 pets colecionáveis com página de detalhe" },
+        { "name": "Mochilas", "desc": "7 mochilas com capacidades de 10kg a 400kg" },
+        { "name": "Rolygrams", "desc": "4 rolygrams para verificação e destaque social no servidor" }
+      ]
+    },
+    "en": {
+      "title": "Store engagement mechanics",
+      "mechanics": [
+        { "name": "VIP Tiers", "desc": "10 tiers: Bronze, Silver, Gold, Platinum, Black, Police, PVP, Faction Silver, Faction Gold, Faction Premium" },
+        { "name": "Seasons", "desc": "7 seasonal collections: New Year, Carnival, Black Friday, Vacation, Halloween, Christmas, Easter" },
+        { "name": "Combos", "desc": "Super Combos and Medellin Edition per season with progressive discount" },
+        { "name": "Large Boxes", "desc": "37 prize boxes with random items of different rarities" },
+        { "name": "Weapon Skins", "desc": "138 skins with rarity tiers (legendary, epic, standard)" },
+        { "name": "Pets", "desc": "28 collectible pets with detail page" },
+        { "name": "Backpacks", "desc": "7 backpacks with capacities from 10kg to 400kg" },
+        { "name": "Rolygrams", "desc": "4 rolygrams for verification and social highlight on the server" }
       ]
     }
   },
@@ -508,7 +548,7 @@
       "title": "Resultados",
       "kpis": [
         { "value": "54", "label": "Páginas no storefront", "baseline": "0", "source": "Contagem de arquivos HTML" },
-        { "value": "308", "label": "Produtos no catálogo", "baseline": "0", "source": "api/products.js + data files" },
+        { "value": "344", "label": "Produtos no catálogo", "baseline": "0", "source": "api/products.js + skins-catalog + vehicles + pets + grandes-baus" },
         { "value": "10", "label": "Tiers de VIP", "baseline": "0", "source": "Páginas VIP" },
         { "value": "7", "label": "Temporadas sazonais", "baseline": "0", "source": "vips-temporadas.html" },
         { "value": "3", "label": "Métodos de pagamento", "baseline": "0", "source": "Mercado Pago: PIX, cartão, boleto" },
@@ -519,7 +559,7 @@
       "title": "Results",
       "kpis": [
         { "value": "54", "label": "Storefront pages", "baseline": "0", "source": "HTML file count" },
-        { "value": "308", "label": "Products in catalog", "baseline": "0", "source": "api/products.js + data files" },
+        { "value": "344", "label": "Products in catalog", "baseline": "0", "source": "api/products.js + skins-catalog + vehicles + pets + grandes-baus" },
         { "value": "10", "label": "VIP tiers", "baseline": "0", "source": "VIP pages" },
         { "value": "7", "label": "Seasonal collections", "baseline": "0", "source": "vips-temporadas.html" },
         { "value": "3", "label": "Payment methods", "baseline": "0", "source": "Mercado Pago: PIX, card, boleto" },
