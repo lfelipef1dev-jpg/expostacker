@@ -77,10 +77,9 @@ const openAppLabel = lang === 'pt' ? 'Abrir aplicação' : 'Open app';
     {othersSorted.map((item) => {
       const href = `/${lang}/cases/${item.id}/`;
       const liveUrl = item.data.liveUrl;
-      const heroImage = `/cases/${item.id}-hero.jpg?v=2`;
+      const bannerImage = `/banner/${item.id}-banner.jpg?v=2`;
       const logoPath = item.data.heroImage ?? `/cases/${item.id}.svg`;
       const category = item.data.category ?? 'client';
-      const domain = liveUrl ? new URL(liveUrl).hostname : '';
       const metrics = item.data.businessOutcome?.slice(0, 3) ?? [];
       return (
         <article
@@ -93,30 +92,18 @@ const openAppLabel = lang === 'pt' ? 'Abrir aplicação' : 'Open app';
             <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-brand-bg/70 to-transparent"></div>
           </div>
 
-          {/* Mockup de browser com screenshot do hero */}
-          <div class="relative bg-brand-bg/60 border-b border-brand-border">
-            {/* Barra do browser */}
-            <div class="flex items-center gap-2 px-3 py-2.5 bg-brand-surface/80 border-b border-brand-border">
-              <span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
-              <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
-              <span class="w-2.5 h-2.5 rounded-full bg-green-500/80"></span>
-              <div class="flex-1 ml-2 px-2.5 py-1 rounded-md bg-brand-bg/60 text-[10px] text-brand-text-secondary font-mono truncate border border-brand-border">
-                {domain}
-              </div>
-            </div>
-            {/* Screenshot do hero */}
-            <div class="relative overflow-hidden">
-              <img
-                src={heroImage}
-                alt={`Screenshot do produto ${item.data.title} — ${item.data.clientName} ao vivo`}
-                width="1440"
-                height="900"
-                loading="lazy"
-                decoding="async"
-                class="w-full h-auto block transition-transform duration-300 motion-safe:group-hover:scale-105"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-brand-bg/50 via-transparent to-transparent pointer-events-none" aria-hidden="true"></div>
-            </div>
+          {/* Imagem do banner */}
+          <div class="relative aspect-square overflow-hidden border-b border-brand-border">
+            <img
+              src={bannerImage}
+              alt={`Banner do projeto ${item.data.title} — ${item.data.clientName}`}
+              width="900"
+              height="900"
+              loading="lazy"
+              decoding="async"
+              class="w-full h-full object-cover transition-transform duration-300 motion-safe:group-hover:scale-105"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-bg/40 via-transparent to-transparent pointer-events-none" aria-hidden="true"></div>
           </div>
 
           {/* Conteúdo embaixo */}
