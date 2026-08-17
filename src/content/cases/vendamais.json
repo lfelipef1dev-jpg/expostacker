@@ -1,7 +1,7 @@
 {
   "id": "vendamais",
   "title": "VendaMais",
-  "clientName": "Operação Interna de Demonstração",
+  "clientName": "VendaMais",
   "tags": ["HTML5", "CSS3", "JavaScript", "Cloudflare Pages"],
   "shortDescription": "E-commerce de demonstração com catálogo de 24 produtos, carrinho, checkout simulado, depoimentos e design responsivo com acessibilidade.",
   "problemDescription": "Lojas virtuais de pequeno porte precisam de uma experiência de compra completa — catálogo, filtros, busca, carrinho, checkout e prova social — mas muitas não conseguem validar o design e o fluxo de conversão sem investir em backend e gateway de pagamento antes de saber o que funciona.",

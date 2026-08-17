@@ -1,7 +1,7 @@
 {
   "id": "gerenciador-frotas",
   "title": "Gerenciador Inteligente de Frotas",
-  "clientName": "Portfólio ExpoStacker",
+  "clientName": "Frotamais",
   "tags": ["Astro", "Hono", "Cloudflare Workers", "D1", "Durable Objects", "Better Auth", "Leaflet", "Tailwind", "RBAC"],
   "shortDescription": "Plataforma SaaS de gestao de frotas com auth real, D1, VRP, rastreamento SSE, roles, CRUD, relatorios e mapa Leaflet.",
   "problemDescription": "Transportadoras e gestores de frota perdem visibilidade quando controlam tudo em planilhas desatualizadas. Falta uma visao unica de veiculos, motoristas, rotas, manutencao, combustivel, inspecoes e geofences para decidir com agilidade.",

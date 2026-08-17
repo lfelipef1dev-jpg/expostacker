@@ -1,7 +1,7 @@
 {
   "id": "sistema-faturamento-saas",
   "title": "Faturamais",
-  "clientName": "Operação Interna de Demonstração",
+  "clientName": "Faturamais",
   "tags": ["HTML5", "CSS3", "JavaScript", "Cloudflare Pages"],
   "shortDescription": "Landing page e dashboard interativo de faturamento SaaS, com design responsivo, acessibilidade e conversão.",
   "problemDescription": "Pequenos e-commerces perdem horas toda semana conciliando vendas, estoque e notas fiscais em planilhas e sistemas desconectados, o que atrasa o fechamento mensal e aumenta erros fiscais.",

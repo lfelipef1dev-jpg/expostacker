@@ -1,7 +1,7 @@
 {
   "id": "solmais",
   "title": "SolMais",
-  "clientName": "Operação Interna de Demonstração",
+  "clientName": "SolMais",
   "tags": ["HTML5", "CSS3", "JavaScript", "Cloudflare Pages", "Sora", "Inter"],
   "shortDescription": "Demonstração de energia solar fotovoltaica com hero fotográfico, simulador de economia interativo, comparativo de planos e depoimentos ilustrativos. Estático, sem backend.",
   "problemDescription": "Empresas de energia solar precisam comunicar economia, processo e credibilidade em segundos. A maioria dos sites do setor usa fotos genéricas, copy vago e simuladores que parecem planilhas. Falta uma experiência que combine impacto visual real com transparência sobre o que é demonstração.",
