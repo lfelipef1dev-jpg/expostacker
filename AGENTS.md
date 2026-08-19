@@ -179,6 +179,33 @@ O script faz tudo automaticamente:
 | Repo GitHub | Worker | Dominio | Banco |
 |---|---|---|---|
 | seeds-experience | seeds-app | seeds.expostacker.com.br | Supabase (phhurravjunielzxatxe) |
+| nexus-ia | nexus-web | nexusia.expostacker.com.br | Supabase (hfwiyxmezjfokescnzih) |
+
+### Arquitetura de bancos — REGRA ABSOLUTA
+
+Cada projeto full-stack tem seu **próprio projeto Supabase** (URL, keys, auth, banco).
+NUNCA compartilhar banco entre projetos. Cada produto é uma ilha:
+
+- Pode ser vendido, migrado, pausado, excluído independentemente
+- Auth independente (cada produto tem seus próprios usuários)
+- Se um banco cair, os outros continuam no ar
+- Um erro em um projeto não afeta os outros
+
+### Regras de banco de dados — OBRIGATÓRIO
+
+1. **Backup antes de qualquer alteração** no banco
+   - SEEDS: `python scripts/backup_seeds.py`
+   - NEXUS: `python scripts/backup_nexus.py` (a criar)
+2. **Mostrar o comando exato** antes de executar no banco
+3. **Esperar confirmação explícita** do usuário antes de rodar
+4. **Nunca** rodar `DROP`, `DELETE`, `TRUNCATE`, `ALTER` sem os passos 1-3
+5. **Operações proibidas sem confirmação:**
+   - `DROP TABLE`, `DROP SCHEMA`
+   - `DELETE FROM` sem `WHERE`
+   - `TRUNCATE`
+   - `ALTER TABLE` que mude tipo de coluna ou remova coluna
+6. **Plano Supabase Free:** sem PITR, snapshot diário sem garantia
+   - Backup manual é obrigatório antes de qualquer mudança
 
 ## Deploy Automatico — Projetos Full-Stack
 
