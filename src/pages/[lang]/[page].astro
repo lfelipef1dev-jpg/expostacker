@@ -1,0 +1,175 @@
+---
+import '../../styles/global.css';
+import { ui } from '../../i18n/ui';
+import Fonts from '../../components/Fonts.astro';
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import About from '../../components/About.astro';
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'pt', page: 'sobre' } },
+    { params: { lang: 'pt', page: 'privacidade' } },
+    { params: { lang: 'pt', page: 'termos' } },
+    { params: { lang: 'en', page: 'about' } },
+    { params: { lang: 'en', page: 'privacy' } },
+    { params: { lang: 'en', page: 'terms' } },
+  ];
+}
+
+const { lang } = Astro.params;
+const segments = Astro.url.pathname.split('/').filter(Boolean);
+const page = segments[1] || '';
+type ValidLang = keyof typeof ui;
+const currentLang: ValidLang = (lang as ValidLang) in ui ? (lang as ValidLang) : 'pt';
+
+const htmlLangMap = { pt: 'pt-BR', en: 'en-US' } as const;
+const htmlLang = htmlLangMap[currentLang];
+const t = ui[currentLang];
+
+const site = 'https://expostacker.com.br';
+
+const pageList = [
+  { slug: { pt: 'sobre', en: 'about' }, title: { pt: 'Sobre | Expo Stacker', en: 'About | Expo Stacker' }, description: { pt: 'Conheça quem está por trás da Expo Stacker: produtos digitais ao vivo, do primeiro clique ao deploy.', en: 'Meet the person behind Expo Stacker: live digital products, from first click to deploy.' }, name: { pt: 'Sobre', en: 'About' } },
+  { slug: { pt: 'privacidade', en: 'privacy' }, title: { pt: 'Política de Privacidade | Expo Stacker', en: 'Privacy Policy | Expo Stacker' }, description: { pt: 'Política de privacidade da Expo Stacker. Entenda como tratamos dados, cookies e seus direitos.', en: 'Expo Stacker privacy policy. Understand how we handle data, cookies and your rights.' }, name: { pt: 'Privacidade', en: 'Privacy' } },
+  { slug: { pt: 'termos', en: 'terms' }, title: { pt: 'Termos de Uso | Expo Stacker', en: 'Terms of Use | Expo Stacker' }, description: { pt: 'Termos de uso do site da Expo Stacker. Leia as regras de uso, propriedade intelectual e responsabilidades.', en: 'Expo Stacker website terms of use. Read the rules of use, intellectual property and liability.' }, name: { pt: 'Termos', en: 'Terms' } },
+] as const;
+
+const currentGroup = pageList.find((p) => p.slug[currentLang] === page)!;
+const altLang = currentLang === 'pt' ? 'en' : 'pt';
+const currentSlug = currentGroup.slug[currentLang];
+const altSlug = currentGroup.slug[altLang];
+const canonicalUrl = `${site}/${currentLang}/${currentSlug}/`;
+const altUrl = `${site}/${altLang}/${altSlug}/`;
+const xDefaultUrl = `${site}/pt/${currentGroup.slug.pt}/`;
+const currentPage = { title: currentGroup.title[currentLang], description: currentGroup.description[currentLang], name: currentGroup.name[currentLang], slug: currentSlug };
+
+const breadcrumbs = [
+  { name: currentLang === 'pt' ? 'Início' : 'Home', url: `${site}/${currentLang}/` },
+  { name: currentPage.name, url: canonicalUrl },
+];
+
+const skipLinkText = t['skip.link'];
+
+const privacyContent = {
+  pt: {
+    updated: 'Última atualização: 28 de agosto de 2026',
+    intro: 'A Expo Stacker valoriza a privacidade dos visitantes. Este documento explica como coletamos, usamos e protegemos informações no site expostacker.com.br.',
+    sections: [
+      { h2: '1. Dados que coletamos', p: 'Coletamos apenas dados fornecidos voluntariamente por você, como nome, e-mail e mensagem, ao usar o formulário de contato. Não vendemos dados a terceiros.' },
+      { h2: '2. Uso das informações', p: 'As informações são usadas para responder dúvidas, enviar propostas e melhorar a comunicação. Não usamos seus dados para envio de spam.' },
+      { h2: '3. Cookies e tecnologias similares', p: 'Utilizamos cookies essenciais para o funcionamento do site e, quando ativado, o Google Analytics 4 para entender o tráfego. Você pode desativar cookies no navegador.' },
+      { h2: '4. Segurança', p: 'Adotamos medidas técnicas e administrativas para proteger os dados contra acesso não autorizado, vazamento ou destruição.' },
+      { h2: '5. Seus direitos', p: 'Você pode solicitar acesso, correção, exclusão ou portabilidade dos seus dados enviando um e-mail para contato@expostacker.com.br.' },
+      { h2: '6. Alterações nesta política', p: 'Esta política pode ser atualizada periodicamente. A data da última revisão está indicada no início do documento.' },
+    ],
+  },
+  en: {
+    updated: 'Last updated: August 28, 2026',
+    intro: 'Expo Stacker values visitor privacy. This document explains how we collect, use and protect information on expostacker.com.br.',
+    sections: [
+      { h2: '1. Data we collect', p: 'We only collect data voluntarily provided by you, such as name, email and message, when using the contact form. We do not sell data to third parties.' },
+      { h2: '2. Use of information', p: 'The information is used to answer questions, send proposals and improve communication. We do not use your data for spam.' },
+      { h2: '3. Cookies and similar technologies', p: 'We use essential cookies for the website to function and, when enabled, Google Analytics 4 to understand traffic. You can disable cookies in your browser.' },
+      { h2: '4. Security', p: 'We adopt technical and administrative measures to protect data against unauthorized access, leakage or destruction.' },
+      { h2: '5. Your rights', p: 'You may request access, correction, deletion or portability of your data by emailing contato@expostacker.com.br.' },
+      { h2: '6. Changes to this policy', p: 'This policy may be updated periodically. The last review date is indicated at the top of the document.' },
+    ],
+  },
+};
+
+const termsContent = {
+  pt: {
+    updated: 'Última atualização: 28 de agosto de 2026',
+    intro: 'Ao acessar expostacker.com.br, você concorda com estes termos de uso. Leia atentamente antes de continuar navegando.',
+    sections: [
+      { h2: '1. Uso do site', p: 'O conteúdo deste site é fornecido para informação sobre os serviços da Expo Stacker. O uso indevido, como tentativas de invasão, é proibido.' },
+      { h2: '2. Propriedade intelectual', p: 'Todo o conteúdo, marca, logotipos e código do site são de propriedade da Expo Stacker, salvo indicação em contrário. Não é permitida cópia sem autorização.' },
+      { h2: '3. Projetos e cases', p: 'Os cases e produtos apresentados são reais e em produção. Resultados passados não representam garantia de resultados futuros.' },
+      { h2: '4. Limitação de responsabilidade', p: 'A Expo Stacker não se responsabiliza por danos diretos ou indiretos decorrentes do uso do site ou de informações nele contidas.' },
+      { h2: '5. Links externos', p: 'O site pode conter links para sites de terceiros. Não nos responsabilizamos pelo conteúdo ou políticas desses sites.' },
+      { h2: '6. Alterações nos termos', p: 'Estes termos podem ser atualizados a qualquer momento. A data da última revisão está indicada no início do documento.' },
+    ],
+  },
+  en: {
+    updated: 'Last updated: August 28, 2026',
+    intro: 'By accessing expostacker.com.br, you agree to these terms of use. Please read them carefully before continuing to browse.',
+    sections: [
+      { h2: '1. Use of the website', p: 'The content of this website is provided for information about Expo Stacker services. Misuse, such as intrusion attempts, is prohibited.' },
+      { h2: '2. Intellectual property', p: 'All content, brand, logos and website code are the property of Expo Stacker, unless otherwise stated. Copying without authorization is not permitted.' },
+      { h2: '3. Projects and case studies', p: 'The case studies and products presented are real and in production. Past results do not represent a guarantee of future results.' },
+      { h2: '4. Limitation of liability', p: 'Expo Stacker is not liable for direct or indirect damages arising from the use of the website or information contained therein.' },
+      { h2: '5. External links', p: 'The site may contain links to third-party sites. We are not responsible for the content or policies of those sites.' },
+      { h2: '6. Changes to terms', p: 'These terms may be updated at any time. The last review date is indicated at the top of the document.' },
+    ],
+  },
+};
+---
+
+<html lang={htmlLang}>
+  <head>
+    <Fonts />
+    <BaseHead
+      title={currentPage.title}
+      description={currentPage.description}
+      lang={currentLang}
+      canonicalUrl={canonicalUrl}
+      ptUrl={currentLang === 'pt' ? canonicalUrl : xDefaultUrl}
+      enUrl={currentLang === 'en' ? canonicalUrl : altUrl}
+      xDefaultUrl={xDefaultUrl}
+      breadcrumbs={breadcrumbs}
+      type="article"
+    />
+    <link rel="alternate" hreflang={htmlLang} href={canonicalUrl} />
+    <link rel="alternate" hreflang={altLang} href={altUrl} />
+    <link rel="alternate" hreflang="x-default" href={xDefaultUrl} />
+  </head>
+  <body class="min-h-screen flex flex-col bg-brand-bg text-brand-text antialiased">
+    <a href="#main-content" class="skip-link">{skipLinkText}</a>
+    <Header lang={currentLang} />
+    <main id="main-content" class="flex-1 pt-28 md:pt-32 pb-16 md:pb-20">
+      {page === 'sobre' || page === 'about' ? (
+        <div class="max-w-6xl mx-auto px-6 md:px-10">
+          <div class="mb-10">
+            <p class="font-mono text-xs uppercase tracking-widest text-brand-accent mb-3 flex items-center gap-2">
+              <span class="inline-block h-1.5 w-1.5 rounded-full bg-brand-accent" aria-hidden="true"></span>
+              {t['about.eyebrow']}
+            </p>
+            <h1 class="font-display text-3xl md:text-5xl text-brand-text tracking-tight leading-tight">
+              {t['about.title']}
+            </h1>
+          </div>
+          <About lang={currentLang} />
+        </div>
+      ) : (
+        <article class="max-w-3xl mx-auto px-6 md:px-10">
+          <div class="mb-10">
+            <p class="font-mono text-xs uppercase tracking-widest text-brand-accent mb-3 flex items-center gap-2">
+              <span class="inline-block h-1.5 w-1.5 rounded-full bg-brand-accent" aria-hidden="true"></span>
+              {page === 'privacidade' || page === 'privacy' ? (currentLang === 'pt' ? 'Política' : 'Policy') : (currentLang === 'pt' ? 'Termos' : 'Terms')}
+            </p>
+            <h1 class="font-display text-3xl md:text-5xl text-brand-text tracking-tight leading-tight">
+              {currentPage.name}
+            </h1>
+            <p class="mt-4 text-sm text-brand-text-secondary font-mono">
+              {page === 'privacidade' || page === 'privacy' ? privacyContent[currentLang].updated : termsContent[currentLang].updated}
+            </p>
+          </div>
+          <p class="text-lg text-brand-text-secondary leading-relaxed mb-10">
+            {page === 'privacidade' || page === 'privacy' ? privacyContent[currentLang].intro : termsContent[currentLang].intro}
+          </p>
+          <div class="flex flex-col gap-8">
+            {(page === 'privacidade' || page === 'privacy' ? privacyContent[currentLang].sections : termsContent[currentLang].sections).map((section) => (
+              <section>
+                <h2 class="font-display text-xl md:text-2xl text-brand-text mb-3">{section.h2}</h2>
+                <p class="text-base text-brand-text-secondary leading-relaxed">{section.p}</p>
+              </section>
+            ))}
+          </div>
+        </article>
+      )}
+    </main>
+    <Footer lang={currentLang} />
+  </body>
+</html>

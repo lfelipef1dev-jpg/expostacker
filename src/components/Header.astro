@@ -14,7 +14,7 @@ const otherLabel = languages[otherLang];
 
 const nav = [
   { href: `/${lang}/#cases`, label: t('nav.cases'), target: 'cases' },
-  { href: `/${lang}/#about`, label: t('nav.about'), target: 'about' },
+  { href: `/${lang}/${lang === 'pt' ? 'sobre' : 'about'}/`, label: t('nav.about'), target: '' },
   { href: `/${lang}/#process`, label: lang === 'pt' ? 'Processo' : 'Process', target: 'process' },
   { href: `/${lang}/contato/`, label: t('nav.contact'), target: 'contato' },
 ];
