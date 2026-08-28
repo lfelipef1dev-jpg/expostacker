@@ -119,11 +119,7 @@ const termsContent = {
       enUrl={currentLang === 'en' ? canonicalUrl : altUrl}
       xDefaultUrl={xDefaultUrl}
       breadcrumbs={breadcrumbs}
-      type="article"
     />
-    <link rel="alternate" hreflang={htmlLang} href={canonicalUrl} />
-    <link rel="alternate" hreflang={altLang} href={altUrl} />
-    <link rel="alternate" hreflang="x-default" href={xDefaultUrl} />
   </head>
   <body class="min-h-screen flex flex-col bg-brand-bg text-brand-text antialiased">
     <a href="#main-content" class="skip-link">{skipLinkText}</a>
