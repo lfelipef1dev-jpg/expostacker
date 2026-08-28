@@ -1,6 +1,6 @@
 # Expo Stacker
 
-> Expo Stacker is a digital product studio that builds, ships, and deploys live products — SaaS platforms, e-commerce stores, websites, AI automations, and MVPs. 11 products are live in production with custom domains, automatic CI/CD, and public code.
+> Expo Stacker is a digital product studio that builds, ships, and deploys live products — SaaS platforms, e-commerce stores, websites, AI automations, and MVPs. Products are live in production with custom domains, automatic CI/CD, and public code.
 
 ## What we do
 
@@ -13,9 +13,9 @@
 
 ## Products live in production
 
-11 products are live and accessible:
+Products are live and accessible:
 
-1. **TigreBet** — Online gaming platform with 11 games, VIP store, and provably fair system.
+1. **TigreBet** — Online gaming platform with games, VIP store, and provably fair system.
 2. **Medellín E-commerce** — Online store with catalog, cart, checkout, and real payments.
 3. **SEEDS Experience** — Community platform with realtime feed, auth, and content management.
 4. **CASA FASSI / Marken Fassi** — Ambassador ecosystem with AI assistant, gamification, and KYC.
@@ -26,6 +26,7 @@
 9. **Sanatto Facilities** — Corporate facilities services portal with segments and proposals.
 10. **Faturamais** — SaaS billing system with sales, customers, and inventory dashboard.
 11. **VendaMais** — E-commerce with product browsing, cart, and simulated checkout.
+12. **Nexus IA** — AI platform with 83+ endpoints, provider routing, workspace with autonomous agent and commercial plans.
 
 ## Technology stack
 

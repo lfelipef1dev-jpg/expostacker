@@ -303,13 +303,13 @@ const packages = [
         {/* Prova social + garantia */}
         <div class="grid sm:grid-cols-2 gap-3 mb-6">
           <div class="p-4 rounded-xl border border-brand-border bg-brand-surface/40">
-            <span class="font-display text-2xl text-brand-accent font-black">12</span>
+            <span class="font-display text-2xl text-brand-accent font-black">{lang === 'pt' ? 'Ao vivo' : 'Live'}</span>
             <p class="text-xs text-brand-text-secondary mt-1">
               {lang === 'pt' ? 'produtos entregues e no ar' : 'products delivered and live'}
             </p>
           </div>
           <div class="p-4 rounded-xl border border-brand-border bg-brand-surface/40">
-            <span class="font-display text-2xl text-brand-accent font-black">0</span>
+            <span class="font-display text-2xl text-brand-accent font-black">{lang === 'pt' ? 'Sem' : 'No'}</span>
             <p class="text-xs text-brand-text-secondary mt-1">
               {lang === 'pt' ? 'lock-in: o código é seu' : 'lock-in: the code is yours'}
             </p>

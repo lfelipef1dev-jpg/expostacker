@@ -4,12 +4,14 @@ const path = require('path');
 
 const SITE_URL = 'https://expostacker.com.br';
 const distDir = path.join(__dirname, '..', 'dist');
+const casesDir = path.join(__dirname, '..', 'src', 'content', 'cases');
 
-const cases = [
-  'tigrebet', 'medellin-ecommerce', 'seeds-experience', 'marken-fassi',
-  'gerenciador-frotas', 'vivamais', 'gordaomod', 'solmais',
-  'sanatto-facilities', 'sistema-faturamento-saas', 'vendamais'
-];
+// Descobre os cases dinamicamente a partir da pasta de conteúdo
+const cases = fs
+  .readdirSync(casesDir)
+  .filter((f) => f.endsWith('.json'))
+  .map((f) => f.replace('.json', ''))
+  .sort();
 
 const pages = [
   { url: '/pt/', images: ['/og-image.png', '/logo.png', '/favicon.png'] },
@@ -35,8 +37,8 @@ cases.forEach((slug) => {
 });
 
 // Add contact pages
-pages.push({ url: '/pt/contato/', images: ['/logo.png'] });
-pages.push({ url: '/en/contato/', images: ['/logo.png'] });
+pages.push({ url: '/pt/contato/', images: ['/og-image.png', '/logo.png'] });
+pages.push({ url: '/en/contato/', images: ['/og-image.png', '/logo.png'] });
 
 const imageSitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -52,4 +54,4 @@ ${page.images.map((img) => `    <image:image>
 
 const outputPath = path.join(distDir, 'sitemap-images.xml');
 fs.writeFileSync(outputPath, imageSitemap.trim());
-console.log(`Image sitemap generated: ${outputPath} (${pages.length} pages)`);
+console.log(`Image sitemap generated: ${outputPath} (${pages.length} pages, ${cases.length} cases)`);
