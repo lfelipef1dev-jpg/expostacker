@@ -1,6 +1,6 @@
-# ExpoStacker
+# Expo Stacker
 
-> ExpoStacker is a digital product studio that builds, ships, and deploys live products — SaaS platforms, e-commerce stores, websites, AI automations, and MVPs. 11 products are live in production with custom domains, automatic CI/CD, and public code.
+> Expo Stacker is a digital product studio that builds, ships, and deploys live products — SaaS platforms, e-commerce stores, websites, AI automations, and MVPs. 11 products are live in production with custom domains, automatic CI/CD, and public code.
 
 ## What we do
 
@@ -39,7 +39,7 @@
 ## Contact
 
 - **Website**: https://expostacker.com.br
-- **Email**: contact@expostacker.com.br
+- **Email**: contato@expostacker.com.br
 - **GitHub**: https://github.com/lfelipef1dev-jpg
 - **Location**: Santos, Brazil · Remote
 

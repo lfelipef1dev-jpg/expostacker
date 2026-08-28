@@ -1,5 +1,7 @@
 ---
 import '../../../styles/global.css';
+import fs from 'node:fs';
+import path from 'node:path';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { ui } from '../../../i18n/ui';
 import { useTranslations } from '../../../i18n/utils';
@@ -58,64 +60,30 @@ const xDefaultUrl = ptUrl;
 const title = currentLang === 'pt'
   ? `${entry.data.title} — Case | Expo Stacker`
   : `${entry.data.title} — Case Study | Expo Stacker`;
-const description = (entry.data.shortDescription ?? '').slice(0, 160);
+const rawDescription = entry.data.shortDescription ?? '';
+const description = rawDescription.length > 157 ? rawDescription.slice(0, 157) + '...' : rawDescription;
 const ogImage = `${site}/og-image.png`;
 const heroImage = `${site}/cases/${slug}-hero.jpg`;
 const keywords = currentLang === 'pt'
   ? `${entry.data.title}, ${entry.data.clientName}, case de desenvolvimento, produto digital ao vivo, ${entry.data.tags?.join(', ') ?? ''}`
   : `${entry.data.title}, ${entry.data.clientName}, development case study, live digital product, ${entry.data.tags?.join(', ') ?? ''}`;
 
-// BreadcrumbList schema
-const breadcrumbSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: currentLang === 'pt' ? 'Início' : 'Home', item: `${site}/${currentLang}/` },
-    { '@type': 'ListItem', position: 2, name: currentLang === 'pt' ? 'Produtos' : 'Products', item: `${site}/${currentLang}/cases/` },
-    { '@type': 'ListItem', position: 3, name: entry.data.title, item: canonicalUrl },
-  ],
-};
+// Breadcrumbs e datas
+const breadcrumbs = [
+  { name: currentLang === 'pt' ? 'Início' : 'Home', url: `${site}/${currentLang}/` },
+  { name: currentLang === 'pt' ? 'Produtos' : 'Products', url: `${site}/${currentLang}/cases/` },
+  { name: entry.data.title, url: canonicalUrl },
+];
 
-// Article schema for case page
-const articleSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Article',
-  headline: entry.data.title,
-  description: description,
-  image: heroImage,
-  url: canonicalUrl,
-  author: { '@type': 'Organization', name: 'Expo Stacker', url: site },
-  publisher: { '@type': 'Organization', name: 'Expo Stacker', logo: { '@type': 'ImageObject', url: `${site}/logo.png` } },
-  datePublished: `${entry.data.year ?? '2025'}-01-01`,
-  dateModified: new Date().toISOString().split('T')[0],
-  inLanguage: htmlLang,
-  keywords: entry.data.tags?.join(', ') ?? '',
-  about: entry.data.clientName,
-};
-
-// WebPage schema
-const webPageSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'WebPage',
-  name: title,
-  description: description,
-  url: canonicalUrl,
-  inLanguage: htmlLang,
-  isPartOf: { '@type': 'WebSite', name: 'Expo Stacker', url: site },
-  breadcrumb: { '@type': 'BreadcrumbList', itemListElement: breadcrumbSchema.itemListElement },
-};
-
-// ImageObject schema for hero image
-const imageSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'ImageObject',
-  url: heroImage,
-  contentUrl: heroImage,
-  caption: `Preview de ${entry.data.title}`,
-  representativeOfPage: true,
-};
-
-const caseSchemas = [breadcrumbSchema, articleSchema, webPageSchema, imageSchema];
+const datePublished = `${entry.data.year ?? '2025'}-01-01`;
+let dateModified = datePublished;
+try {
+  const filePath = path.resolve(process.cwd(), 'src/content/cases', `${slug}.json`);
+  const stats = fs.statSync(filePath);
+  dateModified = stats.mtime.toISOString().split('T')[0];
+} catch {
+  // fallback para data publicada
+}
 ---
 
 <html lang={htmlLang}>
@@ -131,7 +99,9 @@ const caseSchemas = [breadcrumbSchema, articleSchema, webPageSchema, imageSchema
       ogImage={ogImage}
       keywords={keywords}
       type="article"
-      schema={caseSchemas}
+      breadcrumbs={breadcrumbs}
+      datePublished={datePublished}
+      dateModified={dateModified}
     />
   </head>
   <body class="min-h-screen flex flex-col bg-brand-bg text-brand-text antialiased overflow-x-hidden">
@@ -144,7 +114,22 @@ const caseSchemas = [breadcrumbSchema, articleSchema, webPageSchema, imageSchema
 
     <Header lang={currentLang} />
 
-    <main id="main-content" class="flex-1 pt-32 pb-20">
+    <nav aria-label={currentLang === 'pt' ? 'Breadcrumb' : 'Breadcrumb'} class="max-w-6xl mx-auto px-4 md:px-6 pt-24 md:pt-28">
+      <ol class="flex flex-wrap items-center gap-2 text-sm text-brand-text-secondary">
+        {breadcrumbs.map((crumb, index) => (
+          <li class="flex items-center gap-2">
+            {index > 0 && <span aria-hidden="true">/</span>}
+            {index === breadcrumbs.length - 1 ? (
+              <span class="text-brand-text" aria-current="page">{crumb.name}</span>
+            ) : (
+              <a href={crumb.url} class="hover:text-brand-accent transition-colors">{crumb.name}</a>
+            )}
+          </li>
+        ))}
+      </ol>
+    </nav>
+
+    <main id="main-content" class="flex-1 pt-8 pb-20">
       <article class="max-w-6xl mx-auto px-4 md:px-6">
         <CaseHeroV2 lang={currentLang} entry={entry} slug={slug} />
         <CaseSnapshot lang={currentLang} entry={entry} />

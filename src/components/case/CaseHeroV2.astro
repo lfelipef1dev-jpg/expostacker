@@ -137,16 +137,21 @@ const eyebrow = lang === 'pt' ? 'PRODUTO EM PRODUÇÃO' : 'LIVE PRODUCT';
             )}
             {/* Hero image fallback (only if no liveUrl) */}
             {!hasLiveUrl && heroImage && (
-              <img
-                src={heroImage}
-                alt={`${entry?.data?.title} — preview`}
-                class="absolute inset-0 w-full h-full object-cover"
-                loading="eager"
-                fetchpriority="high"
-                decoding="async"
-                width="1200"
-                height="630"
-              />
+              <picture class="contents">
+                {heroImage.endsWith('.jpg') && (
+                  <source srcset={heroImage.replace('.jpg', '.webp')} type="image/webp" />
+                )}
+                <img
+                  src={heroImage}
+                  alt={`${entry?.data?.title} — preview`}
+                  class="absolute inset-0 w-full h-full object-cover"
+                  loading="eager"
+                  fetchpriority="high"
+                  decoding="async"
+                  width="1200"
+                  height="630"
+                />
+              </picture>
             )}
             {/* Placeholder layer (only if no liveUrl and no heroImage) */}
             {!hasLiveUrl && !heroImage && (

@@ -26,6 +26,8 @@ jobs:
         run: npm ci
 
       - name: Build Static Site
+        env:
+          PUBLIC_GA4_ID: ${{ secrets.PUBLIC_GA4_ID }}
         run: npm run build
 
       - name: Deploy to Cloudflare Pages

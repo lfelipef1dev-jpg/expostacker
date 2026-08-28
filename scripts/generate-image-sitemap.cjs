@@ -12,22 +12,22 @@ const cases = [
 ];
 
 const pages = [
-  { url: '/pt/', images: ['/logo.png', '/favicon.png'] },
-  { url: '/en/', images: ['/logo.png', '/favicon.png'] },
+  { url: '/pt/', images: ['/og-image.png', '/logo.png', '/favicon.png'] },
+  { url: '/en/', images: ['/og-image.png', '/logo.png', '/favicon.png'] },
 ];
 
 // Add case pages with their hero images
 cases.forEach((slug) => {
   pages.push({
     url: `/pt/cases/${slug}/`,
-    images: [`/cases/${slug}-hero.jpg`, `/cases/${slug}.svg`, `/banner/${slug}-banner.jpg`].filter((img) => {
+    images: [`/cases/${slug}-hero.webp`, `/cases/${slug}-hero.jpg`, `/cases/${slug}.svg`, `/banner/${slug}-banner.webp`, `/banner/${slug}-banner.jpg`].filter((img) => {
       const filePath = path.join(distDir, img);
       return fs.existsSync(filePath);
     }),
   });
   pages.push({
     url: `/en/cases/${slug}/`,
-    images: [`/cases/${slug}-hero.jpg`, `/cases/${slug}.svg`, `/banner/${slug}-banner.jpg`].filter((img) => {
+    images: [`/cases/${slug}-hero.webp`, `/cases/${slug}-hero.jpg`, `/cases/${slug}.svg`, `/banner/${slug}-banner.webp`, `/banner/${slug}-banner.jpg`].filter((img) => {
       const filePath = path.join(distDir, img);
       return fs.existsSync(filePath);
     }),

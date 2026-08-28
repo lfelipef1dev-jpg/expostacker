@@ -15,3 +15,9 @@ Thumbs.db
 
 # Deploy config (credenciais - nunca commitar)
 .deploy.env
+
+# Backups locais
+backups/
+
+# Config Devin local
+.devin/

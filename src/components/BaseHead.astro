@@ -1,6 +1,5 @@
 ---
-// BaseHead.astro — componente reutilizável de <head> para o portfólio Expo Stacker
-// Renderiza APENAS o conteúdo que vai dentro de <head> (sem <html> nem <body>).
+// BaseHead.astro — head unificado com @graph, CWV, GA4 e segurança
 
 export interface Props {
   title: string;
@@ -13,7 +12,12 @@ export interface Props {
   ogImage?: string;
   keywords?: string;
   type?: 'website' | 'article';
-  schema?: object | object[];
+  breadcrumbs?: { name: string; url: string }[];
+  datePublished?: string;
+  dateModified?: string;
+  authorName?: string;
+  authorUrl?: string;
+  speakableSelectors?: string[];
 }
 
 const {
@@ -27,36 +31,54 @@ const {
   ogImage,
   keywords,
   type = 'website',
-  schema,
+  breadcrumbs,
+  datePublished,
+  dateModified,
+  authorName,
+  authorUrl,
+  speakableSelectors,
 } = Astro.props;
 
 const SITE_URL = 'https://expostacker.com.br';
 const SITE_NAME = 'Expo Stacker';
-const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.svg`;
+const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.png`;
 const resolvedOgImage = ogImage ?? DEFAULT_OG_IMAGE;
 
 const ogLocale = lang === 'pt' ? 'pt_BR' : 'en_US';
 const ogLocaleAlternate = lang === 'pt' ? 'en_US' : 'pt_BR';
 
-// Default keywords — can be overridden per page
 const defaultKeywords = lang === 'pt'
   ? 'desenvolvimento de produtos digitais, SaaS, e-commerce, landing page, MVP, desenvolvimento de software, desenvolvedor full stack, Astro, Next.js, Cloudflare, Supabase, deploy automático, produtos digitais ao vivo, plataforma SaaS, loja virtual, site profissional, SEO técnico, automação com IA, inteligência artificial, chatbot, RAG'
   : 'digital product development, SaaS, e-commerce, landing page, MVP, software development, full stack developer, Astro, Next.js, Cloudflare, Supabase, automatic deploy, live digital products, SaaS platform, online store, professional website, technical SEO, AI automation, artificial intelligence, chatbot, RAG';
 
 const resolvedKeywords = keywords ?? defaultKeywords;
 
-// JSON-LD — Organization schema (replaces Person)
-const organizationSchema = {
-  '@context': 'https://schema.org',
+const authorFullName = authorName ?? (lang === 'pt' ? 'Luis Felipe' : 'Luis Felipe');
+const authorPage = authorUrl ?? `${SITE_URL}/${lang}/sobre/`;
+
+// IDs estáveis para @graph
+const orgId = `${SITE_URL}/#organization`;
+const websiteId = `${SITE_URL}/#website`;
+const personId = `${SITE_URL}/#person`;
+const webpageId = `${canonicalUrl}#webpage`;
+const articleId = type === 'article' ? `${canonicalUrl}#article` : undefined;
+
+// Entidades
+const organization = {
   '@type': 'Organization',
+  '@id': orgId,
   name: SITE_NAME,
   url: SITE_URL,
-  logo: `${SITE_URL}/logo.png`,
-  description: lang === 'pt'
-    ? 'Estúdio de produtos digitais. 12 produtos ao vivo com domínio próprio, deploy automático e código público.'
-    : 'Digital product studio. 12 live products with custom domains, automatic deploy, and public code.',
+  logo: {
+    '@type': 'ImageObject',
+    url: `${SITE_URL}/logo.png`,
+    width: 512,
+    height: 128,
+  },
+  founder: { '@id': personId },
   sameAs: [
     'https://github.com/lfelipef1dev-jpg',
+    'https://www.linkedin.com/in/lfelipef1dev',
   ],
   areaServed: lang === 'pt' ? 'Brasil e exterior' : 'Brazil and worldwide',
   knowsAbout: [
@@ -73,46 +95,98 @@ const organizationSchema = {
   ],
 };
 
-// JSON-LD — WebSite schema
-const websiteSchema = {
-  '@context': 'https://schema.org',
+const person = {
+  '@type': 'Person',
+  '@id': personId,
+  name: authorFullName,
+  url: authorPage,
+  jobTitle: lang === 'pt' ? 'Desenvolvedor de Produtos Digitais' : 'Digital Product Developer',
+  worksFor: { '@id': orgId },
+  sameAs: [
+    'https://github.com/lfelipef1dev-jpg',
+    'https://www.linkedin.com/in/lfelipef1dev',
+  ],
+  knowsAbout: [
+    'SaaS development',
+    'E-commerce development',
+    'Web development',
+    'AI automation',
+    'Cloudflare',
+    'Supabase',
+    'Astro',
+    'Next.js',
+  ],
+};
+
+const website = {
   '@type': 'WebSite',
+  '@id': websiteId,
   name: SITE_NAME,
   url: SITE_URL,
   inLanguage: ['pt-BR', 'en-US'],
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: `${SITE_URL}/${lang}/cases/`,
-    'query-input': 'required name=search_term_string',
-  },
+  publisher: { '@id': orgId },
 };
 
-// JSON-LD — Service schema (default, can be overridden)
-const serviceSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Service',
-  name: lang === 'pt' ? 'Desenvolvimento de Produtos Digitais' : 'Digital Product Development',
-  provider: {
-    '@type': 'Organization',
-    name: SITE_NAME,
-    url: SITE_URL,
-  },
-  areaServed: lang === 'pt' ? 'Brasil e exterior' : 'Brazil and worldwide',
-  serviceType: lang === 'pt' ? 'Desenvolvimento de software' : 'Software development',
-  description: lang === 'pt'
-    ? 'Construo produtos digitais ao vivo: SaaS, e-commerce, sites, MVPs e automação com IA. 12 produtos em produção.'
-    : 'I build live digital products: SaaS, e-commerce, websites, MVPs, and AI automation. 12 products in production.',
+const webpage = {
+  '@type': 'WebPage',
+  '@id': webpageId,
+  url: canonicalUrl,
+  name: title,
+  description,
+  inLanguage: lang === 'pt' ? 'pt-BR' : 'en-US',
+  isPartOf: { '@id': websiteId },
+  about: { '@id': orgId },
+  ...(speakableSelectors && {
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: speakableSelectors,
+    },
+  }),
 };
 
-// Collect all schemas
-const allSchemas: Record<string, any>[] = [organizationSchema, websiteSchema, serviceSchema];
-if (schema) {
-  if (Array.isArray(schema)) {
-    allSchemas.push(...schema);
-  } else {
-    allSchemas.push(schema);
-  }
+let graph = [organization, person, website, webpage];
+
+if (type === 'article' && articleId) {
+  const article = {
+    '@type': 'Article',
+    '@id': articleId,
+    headline: title,
+    description,
+    image: resolvedOgImage,
+    url: canonicalUrl,
+    author: { '@id': personId },
+    publisher: { '@id': orgId },
+    datePublished: datePublished ?? '2025-01-01',
+    dateModified: dateModified ?? datePublished ?? '2025-01-01',
+    inLanguage: lang === 'pt' ? 'pt-BR' : 'en-US',
+    mainEntityOfPage: { '@id': webpageId },
+  };
+  graph.push(article);
+  // WebPage aponta para o Article como mainEntity
+  (webpage as any).mainEntity = { '@id': articleId };
 }
+
+if (breadcrumbs && breadcrumbs.length > 0) {
+  const breadcrumbList = {
+    '@type': 'BreadcrumbList',
+    '@id': `${canonicalUrl}#breadcrumbs`,
+    itemListElement: breadcrumbs.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  };
+  graph.push(breadcrumbList);
+  (webpage as any).breadcrumb = { '@id': `${canonicalUrl}#breadcrumbs` };
+}
+
+const schemaScript = {
+  '@context': 'https://schema.org',
+  '@graph': graph,
+};
+
+const ga4Id = (import.meta.env as any).PUBLIC_GA4_ID ?? '';
 ---
 
 <meta charset="utf-8" />
@@ -121,11 +195,8 @@ if (schema) {
 <meta name="description" content={description} />
 <meta name="keywords" content={resolvedKeywords} />
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-<meta name="author" content="Expo Stacker" />
+<meta name="author" content={authorFullName} />
 <meta name="theme-color" content="#0A0A0F" />
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-<meta http-equiv="Pragma" content="no-cache" />
-<meta http-equiv="Expires" content="0" />
 <link rel="canonical" href={canonicalUrl} />
 
 <!-- Favicon -->
@@ -166,6 +237,13 @@ if (schema) {
 <meta name="twitter:image" content={resolvedOgImage} />
 
 <!-- JSON-LD structured data -->
-{allSchemas.map((s) => (
-  <script is:inline type="application/ld+json" set:html={JSON.stringify(s)} />
-))}
+<script is:inline type="application/ld+json" set:html={JSON.stringify(schemaScript)} />
+
+<!-- GA4 -->
+{ga4Id && (
+  <>
+    <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${ga4Id}`}></script>
+    <script is:inline set:html={`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${ga4Id}',{send_page_view:true});`} />
+    <script is:inline set:html={`document.addEventListener('DOMContentLoaded',function(){document.body.addEventListener('click',function(e){var a=e.target.closest('a[href]');if(!a)return;var h=a.getAttribute('href');if(h&&h.includes('wa.me'))gtag('event','whatsapp_click');if(h&&h.startsWith('mailto:'))gtag('event','email_click');if(h&&h.startsWith('tel:'))gtag('event','phone_click');});var f=document.querySelector('form');if(f)f.addEventListener('submit',function(){gtag('event','generate_lead');});});`} />
+  </>
+)}

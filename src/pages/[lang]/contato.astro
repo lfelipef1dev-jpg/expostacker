@@ -41,6 +41,11 @@ const emailHelp = currentLang === 'pt' ? 'Usado apenas para responder a esta men
 const messageHelp = currentLang === 'pt' ? 'Conte o contexto do projeto e o problema que precisa resolver.' : 'Share the project context and the problem you need solved.';
 const errorRequired = currentLang === 'pt' ? 'Este campo é obrigatório.' : 'This field is required.';
 
+const breadcrumbs = [
+  { name: currentLang === 'pt' ? 'Início' : 'Home', url: `${site}/${currentLang}/` },
+  { name: currentLang === 'pt' ? 'Contato' : 'Contact', url: canonicalUrl },
+];
+
 const whatsappUrl = 'https://wa.me/5513999999999?text=' + encodeURIComponent(
   currentLang === 'pt' ? 'Olá! Tenho um projeto para conversar.' : 'Hi! I have a project to discuss.'
 );
@@ -84,6 +89,7 @@ const channels = [
       enUrl={enUrl}
       xDefaultUrl={xDefaultUrl}
       keywords={keywords}
+      breadcrumbs={breadcrumbs}
     />
   </head>
   <body class="min-h-screen flex flex-col bg-brand-bg text-brand-text antialiased">
