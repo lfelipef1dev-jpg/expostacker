@@ -28,6 +28,8 @@ jobs:
       - name: Build Static Site
         env:
           PUBLIC_GA4_ID: ${{ secrets.PUBLIC_GA4_ID }}
+          PUBLIC_GSC_TOKEN: ${{ secrets.PUBLIC_GSC_TOKEN }}
+          PUBLIC_BING_TOKEN: ${{ secrets.PUBLIC_BING_TOKEN }}
         run: npm run build
 
       - name: Deploy to Cloudflare Pages

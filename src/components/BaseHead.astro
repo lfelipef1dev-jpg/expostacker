@@ -187,6 +187,8 @@ const schemaScript = {
 };
 
 const ga4Id = (import.meta.env as any).PUBLIC_GA4_ID ?? '';
+const gscToken = (import.meta.env as any).PUBLIC_GSC_TOKEN ?? '';
+const bingToken = (import.meta.env as any).PUBLIC_BING_TOKEN ?? '';
 ---
 
 <meta charset="utf-8" />
@@ -238,6 +240,10 @@ const ga4Id = (import.meta.env as any).PUBLIC_GA4_ID ?? '';
 
 <!-- JSON-LD structured data -->
 <script is:inline type="application/ld+json" set:html={JSON.stringify(schemaScript)} />
+
+<!-- Google Search Console e Bing verification -->
+{gscToken && <meta name="google-site-verification" content={gscToken} />}
+{bingToken && <meta name="msvalidate.01" content={bingToken} />}
 
 <!-- GA4 -->
 {ga4Id && (
