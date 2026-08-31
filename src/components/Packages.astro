@@ -32,7 +32,6 @@ const packages = [
       { pt: 'Formulário com validação', en: 'Form with validation' },
       { pt: 'Analytics e eventos configurados', en: 'Analytics and events configured' },
       { pt: 'Domínio próprio', en: 'Own domain' },
-      { pt: 'Código no seu GitHub', en: 'Code in your GitHub' },
     ],
     deliverables: {
       pt: ['Design exclusivo', 'Páginas otimizadas', 'SEO técnico completo', 'Formulário de contato', 'Analytics configurado', 'Deploy em produção'],
@@ -60,7 +59,6 @@ const packages = [
       { pt: 'Banco de dados', en: 'Database' },
       { pt: 'Deploy em produção', en: 'Production deploy' },
       { pt: 'Design responsivo', en: 'Responsive design' },
-      { pt: 'Código no seu GitHub', en: 'Code in your GitHub' },
       { pt: 'Loom de handoff', en: 'Loom handoff walkthrough' },
       { pt: '15 dias de suporte pós-entrega', en: '15 days post-launch support' },
     ],
@@ -91,7 +89,6 @@ const packages = [
       { pt: 'PIX, cartão e boleto via Mercado Pago', en: 'PIX, card and boleto via Mercado Pago' },
       { pt: 'Painel de pedidos', en: 'Order dashboard' },
       { pt: 'Cálculo de frete e cupons', en: 'Shipping calculation and coupons' },
-      { pt: 'Código no seu GitHub', en: 'Code in your GitHub' },
       { pt: '30 dias de suporte pós-entrega', en: '30 days post-launch support' },
     ],
     deliverables: {
@@ -121,7 +118,6 @@ const packages = [
       { pt: 'Design de prompts e cost control', en: 'Prompt design and cost control' },
       { pt: 'Interface de chat', en: 'Chat interface' },
       { pt: 'Automação de processos', en: 'Process automation' },
-      { pt: 'Código no seu GitHub', en: 'Code in your GitHub' },
       { pt: '30 dias de suporte pós-entrega', en: '30 days post-launch support' },
     ],
     deliverables: {
@@ -176,6 +172,11 @@ const packages = [
       {lang === 'pt'
         ? 'Prazo e entrega definidos. Sem cobrança por hora, sem escopo aberto, sem surpresa. Cada serviço tem início, meio e fim claros.'
         : 'Timeline and deliverables set. No hourly billing, no open scope, no surprises. Every service has a clear start, middle and end.'}
+    </p>
+    <p class="mt-3 text-sm text-brand-accent font-semibold">
+      {lang === 'pt'
+        ? 'O produto é seu. Código, domínio e infraestrutura sob seu controle quando aplicável. Sem lock-in.'
+        : 'The product is yours. Code, domain and infrastructure under your control when applicable. No lock-in.'}
     </p>
   </div>
 
@@ -299,28 +300,6 @@ const packages = [
             </span>
           ))}
         </div>
-
-        {/* Prova social + garantia */}
-        <div class="grid sm:grid-cols-2 gap-3 mb-6">
-          <div class="p-4 rounded-xl border border-brand-border bg-brand-surface/40">
-            <span class="font-display text-2xl text-brand-accent font-black">{lang === 'pt' ? 'Ao vivo' : 'Live'}</span>
-            <p class="text-xs text-brand-text-secondary mt-1">
-              {lang === 'pt' ? 'produtos entregues e no ar' : 'products delivered and live'}
-            </p>
-          </div>
-          <div class="p-4 rounded-xl border border-brand-border bg-brand-surface/40">
-            <span class="font-display text-2xl text-brand-accent font-black">{lang === 'pt' ? 'Sem' : 'No'}</span>
-            <p class="text-xs text-brand-text-secondary mt-1">
-              {lang === 'pt' ? 'lock-in: o código é seu' : 'lock-in: the code is yours'}
-            </p>
-          </div>
-        </div>
-
-        <p class="text-xs text-brand-text-secondary mb-6">
-          {lang === 'pt'
-            ? 'Entrega com domínio e repositório no seu nome. Proposta com escopo e prazo fixos em até 48h.'
-            : 'Delivery with domain and repository in your name. Proposal with fixed scope and timeline within 48h.'}
-        </p>
 
         {/* CTA */}
         <a
