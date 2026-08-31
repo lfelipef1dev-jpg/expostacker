@@ -18,6 +18,7 @@ export interface Props {
   authorName?: string;
   authorUrl?: string;
   speakableSelectors?: string[];
+  isHomepage?: boolean;
 }
 
 const {
@@ -37,6 +38,7 @@ const {
   authorName,
   authorUrl,
   speakableSelectors,
+  isHomepage = false,
 } = Astro.props;
 
 const SITE_URL = 'https://expostacker.com.br';
@@ -53,7 +55,7 @@ const defaultKeywords = lang === 'pt'
 
 const resolvedKeywords = keywords ?? defaultKeywords;
 
-const authorFullName = authorName ?? (lang === 'pt' ? 'Luis Felipe' : 'Luis Felipe');
+const authorFullName = authorName ?? 'Felipe';
 const authorPage = authorUrl ?? `${SITE_URL}/${lang}/sobre/`;
 
 // IDs estáveis para @graph
@@ -136,6 +138,7 @@ const webpage = {
   inLanguage: lang === 'pt' ? 'pt-BR' : 'en-US',
   isPartOf: { '@id': websiteId },
   about: { '@id': orgId },
+  ...(dateModified && { dateModified }),
   ...(speakableSelectors && {
     speakable: {
       '@type': 'SpeakableSpecification',
@@ -144,7 +147,26 @@ const webpage = {
   }),
 };
 
-let graph: any[] = [organization, person, website, webpage];
+// WebSite so na home; Service como tipo principal na home
+let graph: any[] = [organization, person];
+
+if (isHomepage) {
+  graph.push(website);
+  const service = {
+    '@type': 'Service',
+    '@id': `${SITE_URL}/#service`,
+    name: lang === 'pt' ? 'Desenvolvimento de Produtos Digitais' : 'Digital Product Development',
+    serviceType: lang === 'pt'
+      ? 'SaaS, Plataformas, E-commerce, IA, Sistemas, Automação'
+      : 'SaaS, Platforms, E-commerce, AI, Systems, Automation',
+    provider: { '@id': orgId },
+    areaServed: lang === 'pt' ? 'Brasil e exterior' : 'Brazil and worldwide',
+    url: SITE_URL,
+  };
+  graph.push(service);
+}
+
+graph.push(webpage);
 
 if (type === 'article' && articleId) {
   const article = {

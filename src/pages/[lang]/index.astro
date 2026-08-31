@@ -38,8 +38,8 @@ const title = currentLang === 'pt'
   ? 'ExpoStacker | Produtos Digitais, SaaS, IA e E-commerce'
   : 'ExpoStacker | Digital Products, SaaS, AI and E-commerce';
 const description = currentLang === 'pt'
-  ? 'Construímos produtos digitais completos — SaaS, plataformas, e-commerce, IA e sistemas — da estratégia ao deploy. Estúdio de produtos digitais com capacidade comprovada de execução.'
-  : 'We build complete digital products — SaaS, platforms, e-commerce, AI and systems — from strategy to deploy. Digital product studio with proven execution capability.';
+  ? 'Construímos produtos digitais completos — SaaS, plataformas, e-commerce, IA e sistemas — da estratégia ao deploy.'
+  : 'We build complete digital products — SaaS, platforms, e-commerce, AI and systems — from strategy to deploy.';
 const keywords = currentLang === 'pt'
   ? 'desenvolvimento de produtos digitais, desenvolvedor SaaS, desenvolvedor e-commerce, criar plataforma SaaS, desenvolvedor full stack Brasil, produtos digitais ao vivo, deploy automático, MVP development, automação com IA, chatbot IA, site profissional, landing page conversão, Cloudflare, Supabase, Astro, Next.js'
   : 'digital product development, SaaS developer, e-commerce developer, build SaaS platform, full stack developer Brazil, live digital products, automatic deploy, MVP development, AI automation, AI chatbot, professional website, conversion landing page, Cloudflare, Supabase, Astro, Next.js';
@@ -61,6 +61,8 @@ const speakableSelectors = ['#hero-banner', '#packages-title', '#faq-title'];
       xDefaultUrl={xDefaultUrl}
       keywords={keywords}
       speakableSelectors={speakableSelectors}
+      isHomepage={true}
+      dateModified="2026-08-28"
     />
   </head>
   <body class="min-h-screen flex flex-col bg-brand-bg text-brand-text antialiased overflow-x-hidden">

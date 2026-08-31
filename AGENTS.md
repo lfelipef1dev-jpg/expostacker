@@ -517,3 +517,83 @@ A ordem e definida por:
 - NUNCA reordenar cases sem autorizacao explicita do usuario
 - NUNCA usar score automatico para ordenar
 - A ordenacao reflete **estrategia comercial**, nao complexidade tecnica
+
+## SEO 2026 — Auditoria e Padroes
+
+### Padrao seguido
+
+O site segue a "Ordem Tecnica Obrigatória SEO 2026" (5 fases):
+1. Fundamentos tecnicos (HTTPS, HSTS, mobile-first, performance)
+2. Crawl e indexacao (robots.txt, sitemap, canonical, hreflang)
+3. On-page (title, meta description, H1, H2-H6, Open Graph, Twitter Cards)
+4. Schema (JSON-LD com @graph: Organization, Person, WebSite, WebPage, Service, BreadcrumbList, Article)
+5. Cadastro e monitoramento (GA4, GSC, Bing)
+
+### Status atual (auditoria 2026-08-28)
+
+| Item | Status |
+|------|--------|
+| HTTPS + redirect 301 | OK |
+| HSTS | OK (preload) |
+| Mobile-first | OK |
+| Performance (TTFB) | OK (318ms) |
+| robots.txt | OK |
+| sitemap.xml | OK |
+| Canonical | OK (todas paginas) |
+| hreflang | OK (pt-BR, en, x-default) |
+| title unico | OK (54 chars) |
+| meta description | OK (~110 chars) |
+| H1 unico | OK |
+| Open Graph | OK |
+| Twitter Cards | OK |
+| Schema JSON-LD | OK (@graph com Organization, Person, WebSite, WebPage, Service) |
+| BreadcrumbList | OK (subpaginas) |
+| WebSite schema | OK (so na home) |
+| dateModified | OK (adicionado) |
+| GA4 | OK (instalado) |
+| E-E-A-T | OK (autor visivel) |
+| FAQPage | OK (ausente - extinto 07/05/2026) |
+
+### PENDENTE — Cadastros manuais necessarios
+
+Estes cadastros exigem login manual e devem ser feitos para TODOS os sites
+do ecossistema de uma vez. A IA nao pode fazer estes cadastros.
+
+#### 1. Google Search Console (GSC)
+
+- URL: https://search.google.com/search-console
+- Acao: adicionar propriedade `expostacker.com.br`
+- Verificacao: via meta tag `google-site-verification` (token em env var `PUBLIC_GSC_TOKEN`)
+  OU via DNS (TXT record)
+- Apos verificacao: submeter sitemap `https://expostacker.com.br/sitemap-index.xml`
+- Monitorar: indexacao, Core Web Vitals, queries, clicks, impressoes
+
+#### 2. Bing Webmaster Tools
+
+- URL: https://www.bing.com/webmasters
+- Acao: adicionar site `expostacker.com.br`
+- Verificacao: via meta tag `msvalidate.01` (token em env var `PUBLIC_BING_TOKEN`)
+  OU via DNS
+- Apos verificacao: submeter sitemap
+- Importante: Bing alimenta Copilot/AI search
+
+### Como ativar os tokens apos cadastro
+
+1. Obter token no Google Search Console (propriedade > Verificacao > Tag HTML)
+2. Obter token no Bing Webmaster Tools (Configuracoes > Verificacao)
+3. Adicionar como env vars no Cloudflare Pages:
+   - `PUBLIC_GSC_TOKEN` = token do Google
+   - `PUBLIC_BING_TOKEN` = token do Bing
+4. Redeploy (git push) — as meta tags aparecem automaticamente no `<head>`
+
+### Sites do ecossistema que precisam cadastro
+
+| Site | URL | GSC | Bing |
+|------|-----|-----|------|
+| ExpoStacker | expostacker.com.br | PENDENTE | PENDENTE |
+| StackPost | stackpost.expostacker.com.br | PENDENTE | PENDENTE |
+| Nexus IA | nexusia.expostacker.com.br | PENDENTE | PENDENTE |
+| SEEDS | seeds.expostacker.com.br | PENDENTE | PENDENTE |
+| CASA FASSI | marken.expostacker.com.br | PENDENTE | PENDENTE |
+| Sanatto | sanatto.expostacker.com.br | PENDENTE | PENDENTE |
+| Medellin | medellin.expostacker.com.br | PENDENTE | PENDENTE |
