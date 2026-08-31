@@ -37,16 +37,21 @@ const slides = sorted;
   </div>
 
   <div class="relative max-w-6xl mx-auto px-4 md:px-6">
-    {/* H1 unico da home — copy comercial, nao tecnico */}
+    {/* H1 unico da home — copy premium, sem numeros fixos */}
     <h1 class="font-display text-3xl md:text-5xl lg:text-6xl font-black text-brand-text tracking-tight leading-tight mb-4">
       {lang === 'pt'
-        ? 'Transforme sua ideia em um produto digital funcionando.'
-        : 'Turn your idea into a digital product that works.'}
+        ? 'Transformamos ideias em produtos digitais que chegam ao mercado.'
+        : 'We turn ideas into digital products that reach the market.'}
     </h1>
-    <p class="text-base md:text-lg text-brand-text-secondary max-w-3xl mb-8 leading-relaxed">
+    <p class="text-base md:text-lg text-brand-text-secondary max-w-3xl mb-4 leading-relaxed">
       {lang === 'pt'
-        ? 'Da estratégia ao deploy. Sem protótipo parado. Sem código abandonado. SaaS, e-commerce, IA, plataformas e sistemas — construídos, publicados e testáveis. 13 produtos no ar provam que entrego, não prometo.'
-        : 'From strategy to deploy. No stalled prototype. No abandoned code. SaaS, e-commerce, AI, platforms and systems — built, shipped and testable. 13 live products prove I deliver, not promise.'}
+        ? 'Da estratégia e arquitetura ao desenvolvimento, deploy e evolução. Construímos software pensado para funcionar no mundo real.'
+        : 'From strategy and architecture to development, deploy and evolution. We build software designed to work in the real world.'}
+    </p>
+    <p class="text-sm md:text-base text-brand-accent font-semibold max-w-3xl mb-8 leading-relaxed">
+      {lang === 'pt'
+        ? 'Não entregamos apenas código. Entregamos produtos prontos para serem usados.'
+        : 'We do not just deliver code. We deliver products ready to be used.'}
     </p>
 
     {/* CTAs do hero */}
@@ -63,6 +68,7 @@ const slides = sorted;
       >
         {t('hero.ctaSecondary')}
       </a>
+
     </div>
 
     {/* Eyebrow + disponibilidade */}

@@ -12,8 +12,8 @@ const t = useTranslations(lang);
 const packages = [
   {
     id: 'site',
-    name: { pt: 'Site / Landing Page', en: 'Website / Landing Page' },
-    tag: { pt: 'Rápido', en: 'Fast' },
+    name: { pt: 'Websites & Landing Pages', en: 'Websites & Landing Pages' },
+    tag: { pt: 'Conversão', en: 'Conversion' },
     time: { pt: '1–2 semanas', en: '1–2 weeks' },
     price: { pt: 'Investimento definido na proposta', en: 'Investment defined in proposal' },
     desc: {
@@ -38,7 +38,7 @@ const packages = [
       pt: ['Design exclusivo', 'Páginas otimizadas', 'SEO técnico completo', 'Formulário de contato', 'Analytics configurado', 'Deploy em produção'],
       en: ['Exclusive design', 'Optimized pages', 'Complete technical SEO', 'Contact form', 'Analytics configured', 'Production deploy'],
     },
-    cta: { pt: 'Quero este pacote', en: 'I want this package' },
+    cta: { pt: 'Começar meu projeto', en: 'Start my project' },
   },
   {
     id: 'mvp',
@@ -68,7 +68,7 @@ const packages = [
       pt: ['MVP funcional em produção', '1–3 fluxos core', 'Auth configurada', 'Banco de dados', 'Deploy automático', 'Loom de handoff'],
       en: ['Functional MVP in production', '1–3 core flows', 'Auth configured', 'Database', 'Auto deploy', 'Loom handoff'],
     },
-    cta: { pt: 'Quero este pacote', en: 'I want this package' },
+    cta: { pt: 'Começar meu projeto', en: 'Start my project' },
   },
   {
     id: 'ecommerce',
@@ -98,12 +98,12 @@ const packages = [
       pt: ['Catálogo de produtos', 'Carrinho e checkout', 'Integração Mercado Pago', 'Painel de pedidos', 'Página de confirmação', 'Deploy em produção'],
       en: ['Product catalog', 'Cart and checkout', 'Mercado Pago integration', 'Order dashboard', 'Confirmation page', 'Production deploy'],
     },
-    cta: { pt: 'Quero este pacote', en: 'I want this package' },
+    cta: { pt: 'Começar meu projeto', en: 'Start my project' },
   },
   {
     id: 'ai',
-    name: { pt: 'AI / Automação com IA', en: 'AI / AI Automation' },
-    tag: { pt: 'Tendência', en: 'Trending' },
+    name: { pt: 'IA & Automação', en: 'AI & Automation' },
+    tag: { pt: 'Inteligência', en: 'Intelligence' },
     time: { pt: '2–4 semanas', en: '2–4 weeks' },
     price: { pt: 'Investimento definido na proposta', en: 'Investment defined in proposal' },
     desc: {
@@ -128,11 +128,11 @@ const packages = [
       pt: ['Chatbot ou assistente IA', 'Pipeline RAG (se aplicável)', 'Integração com LLM', 'Interface de chat', 'Controle de custos', 'Deploy em produção'],
       en: ['Chatbot or AI assistant', 'RAG pipeline (if applicable)', 'LLM integration', 'Chat interface', 'Cost control', 'Production deploy'],
     },
-    cta: { pt: 'Quero este pacote', en: 'I want this package' },
+    cta: { pt: 'Começar meu projeto', en: 'Start my project' },
   },
   {
     id: 'retainer',
-    name: { pt: 'Manutenção / Retainer', en: 'Maintenance / Retainer' },
+    name: { pt: 'Evolução & Retainer', en: 'Evolution & Retainer' },
     tag: { pt: 'Contínuo', en: 'Ongoing' },
     time: { pt: 'Mensal', en: 'Monthly' },
     price: { pt: 'Investimento definido na proposta', en: 'Investment defined in proposal' },
@@ -158,7 +158,7 @@ const packages = [
       pt: ['Sprints quinzenais', 'Correções de bugs', 'Novas features', 'Monitoramento', 'Relatório mensal', 'Suporte por email/WhatsApp'],
       en: ['Biweekly sprints', 'Bug fixes', 'New features', 'Monitoring', 'Monthly report', 'Email/WhatsApp support'],
     },
-    cta: { pt: 'Quero este pacote', en: 'I want this package' },
+    cta: { pt: 'Começar meu projeto', en: 'Start my project' },
   },
 ];
 ---
@@ -167,15 +167,15 @@ const packages = [
   <div class="mb-12">
     <p class="font-mono text-xs uppercase tracking-widest text-brand-accent mb-4 flex items-center gap-2">
       <span class="inline-block h-1.5 w-1.5 rounded-full bg-brand-accent" aria-hidden="true" />
-      {lang === 'pt' ? 'Pacotes' : 'Packages'}
+      {lang === 'pt' ? 'Serviços' : 'Services'}
     </p>
     <h2 id="packages-title" class="font-display text-3xl md:text-5xl text-brand-text tracking-tight mb-4 leading-tight">
-      {lang === 'pt' ? 'Escolha o produto que você quer construir' : 'Choose the product you want to build'}
+      {lang === 'pt' ? 'O que construímos' : 'What we build'}
     </h2>
     <p class="text-lg text-brand-text-secondary leading-relaxed max-w-2xl">
       {lang === 'pt'
-        ? 'Prazo e entrega definidos. Sem cobrança por hora, sem escopo aberto, sem surpresa. Cada pacote tem início, meio e fim claros.'
-        : 'Timeline and deliverables set. No hourly billing, no open scope, no surprises. Every package has a clear start, middle and end.'}
+        ? 'Prazo e entrega definidos. Sem cobrança por hora, sem escopo aberto, sem surpresa. Cada serviço tem início, meio e fim claros.'
+        : 'Timeline and deliverables set. No hourly billing, no open scope, no surprises. Every service has a clear start, middle and end.'}
     </p>
   </div>
 

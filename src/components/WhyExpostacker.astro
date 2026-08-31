@@ -10,45 +10,45 @@ const { lang } = Astro.props;
 const differentials = [
   {
     icon: 'product',
-    title: lang === 'pt' ? 'Produto real, não protótipo' : 'Real product, not prototype',
+    title: lang === 'pt' ? 'Produto, não apenas código' : 'Product, not just code',
     desc: lang === 'pt'
-      ? 'Você não recebe uma pasta ZIP. Recebe um produto funcionando em produção, com domínio, SSL e usuários reais.'
-      : 'You do not receive a ZIP folder. You receive a working product in production, with domain, SSL and real users.',
+      ? 'O objetivo é colocar software funcionando nas mãos dos usuários. Não entregamos código — entregamos produtos prontos para serem usados.'
+      : 'The goal is to put working software in the hands of users. We do not deliver code — we deliver products ready to be used.',
   },
   {
     icon: 'ownership',
-    title: lang === 'pt' ? 'Código e infraestrutura seus' : 'Code and infra are yours',
+    title: lang === 'pt' ? 'Transparência' : 'Transparency',
     desc: lang === 'pt'
-      ? 'Domínio, GitHub, Cloudflare e Supabase no seu nome. Você tem controle total. Sem lock-in, sem dependência técnica.'
-      : 'Domain, GitHub, Cloudflare and Supabase in your name. You have full control. No lock-in, no technical dependency.',
+      ? 'O cliente acompanha a evolução do projeto. Entregas incrementais, demos ao vivo e comunicação direta. Sem camadas desnecessárias.'
+      : 'The client follows the project evolution. Incremental deliveries, live demos and direct communication. No unnecessary layers.',
   },
   {
     icon: 'price',
-    title: lang === 'pt' ? 'Preço fixo, sem hora' : 'Fixed price, no hourly',
+    title: lang === 'pt' ? 'Arquitetura preparada para evolução' : 'Architecture prepared for evolution',
     desc: lang === 'pt'
-      ? 'Você paga pelo produto, não pelas horas. Escopo, prazo e investimento definidos na proposta. Sem surpresa.'
-      : 'You pay for the product, not the hours. Scope, timeline and investment defined in the proposal. No surprises.',
+      ? 'Construímos pensando além da primeira versão. O produto nasce pronto para receber novas funcionalidades sem retrabalho.'
+      : 'We build thinking beyond the first version. The product is born ready to receive new features without rework.',
   },
   {
     icon: 'weekly',
-    title: lang === 'pt' ? 'Entregas semanais' : 'Weekly deliveries',
+    title: lang === 'pt' ? 'Sem dependência artificial' : 'No artificial dependency',
     desc: lang === 'pt'
-      ? 'Você acompanha o progresso real. Demos ao vivo toda semana. Nada de ficar 3 meses sem ver o que está sendo construído.'
-      : 'You track real progress. Live demos every week. No 3 months without seeing what is being built.',
+      ? 'Quando aplicável, domínio, código, infraestrutura e contas permanecem sob controle do cliente. Sem lock-in.'
+      : 'When applicable, domain, code, infrastructure and accounts remain under the client control. No lock-in.',
   },
   {
     icon: 'deploy',
-    title: lang === 'pt' ? 'Deploy em produção' : 'Production deploy',
+    title: lang === 'pt' ? 'Comunicação direta' : 'Direct communication',
     desc: lang === 'pt'
-      ? 'CI/CD automático. O produto vai para produção assim que o código é aprovado. Não espera o fim do projeto para ver no ar.'
-      : 'Automatic CI/CD. The product goes to production as soon as code is approved. No waiting until project end to see it live.',
+      ? 'Processo objetivo, sem gerente de contas no meio. Você fala diretamente com quem constrói. Decisões rápidas, sem ruído.'
+      : 'Objective process, no account manager in between. You talk directly to the builder. Fast decisions, no noise.',
   },
   {
     icon: 'serverless',
-    title: lang === 'pt' ? 'Stack serverless de baixo custo' : 'Low-cost serverless stack',
+    title: lang === 'pt' ? 'Engenharia + visão de produto' : 'Engineering + product vision',
     desc: lang === 'pt'
-      ? 'Cloudflare Workers + Supabase. Você paga só quando usar. Infraestrutura otimizada de baixo custo operacional.'
-      : 'Cloudflare Workers + Supabase. You pay only when you use it. Optimized low-cost operational infrastructure.',
+      ? 'Não apenas implementamos funcionalidades. Pensamos em como o produto será utilizado, como escala e como gera valor.'
+      : 'We do not just implement features. We think about how the product will be used, how it scales and how it generates value.',
   },
 ];
 ---
@@ -61,12 +61,12 @@ const differentials = [
         {lang === 'pt' ? 'Por que ExpoStacker' : 'Why ExpoStacker'}
       </p>
       <h2 id="why-title" class="font-display text-3xl md:text-5xl text-brand-text tracking-tight leading-tight mb-4">
-        {lang === 'pt' ? 'Você não contrata um dev. Contrata quem entrega produto.' : 'You do not hire a dev. You hire someone who delivers a product.'}
+        {lang === 'pt' ? 'Por que ExpoStacker?' : 'Why ExpoStacker?'}
       </h2>
       <p class="text-lg text-brand-text-secondary leading-relaxed">
         {lang === 'pt'
-          ? '6 razões que diferenciam a ExpoStacker de freelancer tradicional e agência de sites.'
-          : '6 reasons that differentiate ExpoStacker from traditional freelancers and website agencies.'}
+          ? 'Construímos produtos digitais com engenharia, visão de produto e processo claro.'
+          : 'We build digital products with engineering, product vision and a clear process.'}
       </p>
     </div>
 

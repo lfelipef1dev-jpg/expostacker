@@ -10,11 +10,11 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 
 const stats = [
-  { value: '13', label: t('trust.projects') },
-  { value: '100%', label: t('trust.live') },
-  { value: lang === 'pt' ? 'Do conceito' : 'Concept', label: lang === 'pt' ? 'ao deploy' : 'to deploy' },
-  { value: '100%', label: t('trust.code') },
-  { value: 'CI/CD', label: t('trust.deploy') },
+  { value: lang === 'pt' ? 'Produto' : 'Product', label: t('trust.projects') },
+  { value: lang === 'pt' ? 'Arquitetura' : 'Architecture', label: t('trust.live') },
+  { value: lang === 'pt' ? 'Produção' : 'Production', label: t('trust.technologies') },
+  { value: lang === 'pt' ? 'Transparência' : 'Transparency', label: t('trust.code') },
+  { value: lang === 'pt' ? 'Evolução' : 'Evolution', label: t('trust.deploy') },
 ];
 ---
 
