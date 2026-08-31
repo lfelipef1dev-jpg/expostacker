@@ -30,7 +30,7 @@
       "unit": "s"
     },
     {
-      "label": "Custo de infraestrutura",
+      "label": "Stack serverless",
       "value": 0,
       "unit": "R$"
     },
@@ -49,7 +49,7 @@
   "projectType": "Client-Work",
   "featured": false,
   "priority": 11,
-  "category": "client",
+  "category": "site",
   "year": 2026,
   "hasCaseStudy": true,
   "heroImage": "/cases/sanatto-facilities.jpg",
@@ -338,7 +338,7 @@
       "title": "Stack tecnológico",
       "categories": [
         {
-          "category": "Frontend",
+          "category": "site",
           "items": [
             {
               "name": "Next.js 16",
@@ -358,7 +358,7 @@
           ]
         },
         {
-          "category": "UI/Design",
+          "category": "site",
           "items": [
             {
               "name": "shadcn/ui",
@@ -378,7 +378,7 @@
           ]
         },
         {
-          "category": "Form/Validação",
+          "category": "site",
           "items": [
             {
               "name": "react-hook-form",
@@ -398,7 +398,7 @@
           ]
         },
         {
-          "category": "Infra/Deploy",
+          "category": "site",
           "items": [
             {
               "name": "Cloudflare Pages",
@@ -423,7 +423,7 @@
       "title": "Technology stack",
       "categories": [
         {
-          "category": "Frontend",
+          "category": "site",
           "items": [
             {
               "name": "Next.js 16",
@@ -443,7 +443,7 @@
           ]
         },
         {
-          "category": "UI/Design",
+          "category": "site",
           "items": [
             {
               "name": "shadcn/ui",
@@ -463,7 +463,7 @@
           ]
         },
         {
-          "category": "Form/Validation",
+          "category": "site",
           "items": [
             {
               "name": "react-hook-form",
@@ -483,7 +483,7 @@
           ]
         },
         {
-          "category": "Infra/Deploy",
+          "category": "site",
           "items": [
             {
               "name": "Cloudflare Pages",

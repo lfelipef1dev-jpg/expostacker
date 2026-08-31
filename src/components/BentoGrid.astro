@@ -24,11 +24,11 @@ const categories = Array.from(new Set(cases.map((c) => c.data.category).filter(B
 const filterAll = lang === 'pt' ? 'Todos' : 'All';
 const filterLabel = (cat: string) => {
   const map: Record<string, { pt: string; en: string }> = {
-    client: { pt: 'Cliente', en: 'Client' },
-    personal: { pt: 'Pessoal', en: 'Personal' },
-    saas: { pt: 'SaaS', en: 'SaaS' },
+    saas: { pt: 'SaaS / Plataforma', en: 'SaaS / Platform' },
     ecommerce: { pt: 'E-commerce', en: 'E-commerce' },
-    landing: { pt: 'Landing Page', en: 'Landing Page' },
+    ai: { pt: 'IA', en: 'AI' },
+    systems: { pt: 'Sistemas', en: 'Systems' },
+    site: { pt: 'Sites', en: 'Sites' },
   };
   return map[cat]?.[lang] ?? cat;
 };

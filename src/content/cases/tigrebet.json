@@ -17,8 +17,8 @@
   "liveUrl": "https://tigrebet.expostacker.com.br",
   "projectType": "Client-Work",
   "featured": false,
-  "priority": 3,
-  "category": "client",
+  "priority": 9,
+  "category": "saas",
   "year": 2026,
   "hasCaseStudy": true,
   "heroImage": "/cases/tigrebet.svg",
@@ -357,7 +357,7 @@
       "title": "Stack tecnologico",
       "categories": [
         {
-          "category": "Frontend",
+          "category": "saas",
           "items": [
             { "name": "Next.js 14", "why": "App Router, export estatico e code-splitting para jogos rapidos", "alt": "Create React App — sem SSR, sem export estatico, bundle maior" },
             { "name": "React 18", "why": "Hooks e concorrencia para animacaoes de jogos fluidas", "alt": "Vue 3 — maduro, mas menos ecossistema com Next.js" },
@@ -366,7 +366,7 @@
           ]
         },
         {
-          "category": "Backend",
+          "category": "saas",
           "items": [
             { "name": "Express", "why": "Framework minimalista com controle fino de middleware para 50+ rotas", "alt": "NestJS — mais opinado e verboso para este escopo" },
             { "name": "Sequelize", "why": "ORM tipado com migrations e associacaoes para 10 tabelas", "alt": "Prisma — mais moderno, mas menos maduro em 2026 para PostgreSQL" },
@@ -375,7 +375,7 @@
           ]
         },
         {
-          "category": "Dados/Cache",
+          "category": "saas",
           "items": [
             { "name": "PostgreSQL", "why": "Consistencia ACID para transacaoes financeiras e 10 tabelas relacionais", "alt": "MongoDB — flexivel, mas menos previsivel para transacaoes" },
             { "name": "Redis", "why": "Cache de sessaoes, leaderboards e filas com fallback graceful", "alt": "Memcached — limitado a chave-valor simples" },
@@ -383,7 +383,7 @@
           ]
         },
         {
-          "category": "Pagamento/Infra",
+          "category": "saas",
           "items": [
             { "name": "Mercado Pago (PIX)", "why": "Integracao nativa com PIX para depositos instantaneos no Brasil", "alt": "Stripe — menos adocao no Brasil para PIX" },
             { "name": "Cloudflare Worker", "why": "Proxy reverso na edge com CORS e fallback 503 graceful", "alt": "NGINX — exige servidor e nao tem edge global" },
@@ -397,7 +397,7 @@
       "title": "Technology stack",
       "categories": [
         {
-          "category": "Frontend",
+          "category": "saas",
           "items": [
             { "name": "Next.js 14", "why": "App Router, static export and code-splitting for fast games", "alt": "Create React App — no SSR, no static export, larger bundle" },
             { "name": "React 18", "why": "Hooks and concurrency for fluid game animations", "alt": "Vue 3 — mature, but less ecosystem with Next.js" },
@@ -406,7 +406,7 @@
           ]
         },
         {
-          "category": "Backend",
+          "category": "saas",
           "items": [
             { "name": "Express", "why": "Minimalist framework with fine middleware control for 50+ routes", "alt": "NestJS — more opinionated and verbose for this scope" },
             { "name": "Sequelize", "why": "Typed ORM with migrations and associations for 10 tables", "alt": "Prisma — more modern, but less mature in 2026 for PostgreSQL" },
@@ -415,7 +415,7 @@
           ]
         },
         {
-          "category": "Data/Cache",
+          "category": "saas",
           "items": [
             { "name": "PostgreSQL", "why": "ACID consistency for financial transactions and 10 relational tables", "alt": "MongoDB — flexible, but less predictable for transactions" },
             { "name": "Redis", "why": "Session cache, leaderboards and queues with graceful fallback", "alt": "Memcached — limited to simple key-value storage" },
@@ -423,7 +423,7 @@
           ]
         },
         {
-          "category": "Payment/Infra",
+          "category": "saas",
           "items": [
             { "name": "Mercado Pago (PIX)", "why": "Native PIX integration for instant deposits in Brazil", "alt": "Stripe — less adoption in Brazil for PIX" },
             { "name": "Cloudflare Worker", "why": "Edge reverse proxy with CORS and graceful 503 fallback", "alt": "NGINX — requires server and no global edge" },

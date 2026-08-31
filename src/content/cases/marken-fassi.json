@@ -7,9 +7,9 @@
   "problemDescription": "O varejo premium de enxovais enfrentava vendedores de lojas multimarcas com conhecimento técnico limitado sobre tecidos, fios e diferenciais da marca, resultando em atendimento genérico e baixo ticket médio. Havia pouca retenção de conhecimento após treinamentos pontuais, ausência de conexão entre vendedores e a marca, dificuldade em escalar o relacionamento com centenas de lojistas espalhados pelo Brasil e falta de reconhecimento contínuo para a excelência em vendas.",
   "technicalSolution": "A CASA FASSI é uma Learning Experience Platform (LXP) frontend que combina microlearning de 10 a 60 segundos, gamificação inspirada em Duolingo e Nike Run Club, comunidade para compartilhamento de vitrines, assistente FASSI.AI para dúvidas técnicas, programa de benefícios com tiers de Bronze a Rubi Negro e dashboards para lojistas acompanharem o desempenho da equipe. A plataforma conecta a marca diretamente a quem fala com o cliente final, transformando vendedores em especialistas confiantes.",
   "businessOutcome": [
-    { "label": "Vendas", "value": 28, "unit": "%" },
-    { "label": "Engajamento", "value": 67, "unit": "%" },
-    { "label": "Churn", "value": 42, "unit": "%" },
+    { "label": "Vendas (piloto)", "value": 28, "unit": "%" },
+    { "label": "Engajamento (piloto)", "value": 67, "unit": "%" },
+    { "label": "Churn (piloto)", "value": 42, "unit": "%" },
     { "label": "Ticket Médio (alvo)", "value": 1850, "unit": "R$" },
     { "label": "Taxa de Certificação (piloto)", "value": 78, "unit": "%" },
     { "label": "Tempo de Resposta FASSI.AI (alvo)", "value": 2, "unit": "s" }
@@ -22,8 +22,8 @@
   },
   "projectType": "Client-Work",
   "featured": false,
-  "priority": 7,
-  "category": "client",
+  "priority": 6,
+  "category": "ecommerce",
   "year": 2024,
   "hasCaseStudy": true,
   "heroHeadline": {
@@ -338,7 +338,7 @@
       "title": "Stack tecnológico",
       "categories": [
         {
-          "category": "Frontend",
+          "category": "ecommerce",
           "items": [
             { "name": "Next.js 15 (static export)", "why": "Export estático com App Router para carregar lições em milissegundos, mesmo em 3G/4G", "alt": "Astro — forte para conteúdo estático, mas menos ecossistema para interatividade rica" },
             { "name": "React 19", "why": "Hooks atualizados e concorrência para animações de gamificação fluidas", "alt": "Vue 3 — maduro, mas menos ecossistema com Server Components" },
@@ -347,14 +347,14 @@
           ]
         },
         {
-          "category": "Estado/Dados",
+          "category": "ecommerce",
           "items": [
             { "name": "Zustand + persist", "why": "State management leve com persistência em localStorage — progresso, XP e streaks sobrevivem offline", "alt": "Redux Toolkit — mais boilerplate e curva de aprendizado maior" },
             { "name": "Dados estruturados (TS)", "why": "Catálogo, trilhas e respostas do FASSI.AI em arquivos TypeScript tipados, sem necessidade de banco", "alt": "PostgreSQL — seria necessário backend e infraestrutura, inviável para MVP estático" }
           ]
         },
         {
-          "category": "Infra",
+          "category": "ecommerce",
           "items": [
             { "name": "Cloudflare Pages", "why": "Hosting estático com CDN global, zero custo e deploy automático via GitHub Actions", "alt": "Vercel — excelente para Next.js, mas custo em escala" },
             { "name": "Lucide React", "why": "Ícones SVG tree-shakeable para interface leve e acessível", "alt": "Icon fonts — mais pesadas e menos acessíveis" }
@@ -366,7 +366,7 @@
       "title": "Technology stack",
       "categories": [
         {
-          "category": "Frontend",
+          "category": "ecommerce",
           "items": [
             { "name": "Next.js 15 (static export)", "why": "Static export with App Router to load lessons in milliseconds, even on 3G/4G", "alt": "Astro — strong for static content, but less ecosystem for rich interactivity" },
             { "name": "React 19", "why": "Updated hooks and concurrency for fluid gamification animations", "alt": "Vue 3 — mature, but less Server Components ecosystem" },
@@ -375,14 +375,14 @@
           ]
         },
         {
-          "category": "State/Data",
+          "category": "ecommerce",
           "items": [
             { "name": "Zustand + persist", "why": "Lightweight state management with localStorage persistence — progress, XP and streaks survive offline", "alt": "Redux Toolkit — more boilerplate and steeper learning curve" },
             { "name": "Structured data (TS)", "why": "Catalog, tracks and FASSI.AI answers in typed TypeScript files, no database needed", "alt": "PostgreSQL — would require backend and infrastructure, unviable for static MVP" }
           ]
         },
         {
-          "category": "Infra",
+          "category": "ecommerce",
           "items": [
             { "name": "Cloudflare Pages", "why": "Static hosting with global CDN, zero cost and automatic deploy via GitHub Actions", "alt": "Vercel — excellent for Next.js, but cost at scale" },
             { "name": "Lucide React", "why": "Tree-shakeable SVG icons for a lightweight, accessible interface", "alt": "Icon fonts — heavier and less accessible" }

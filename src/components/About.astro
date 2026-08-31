@@ -48,10 +48,10 @@ const services = [
 ];
 
 const stats = [
-  { value: lang === 'pt' ? 'Ao vivo' : 'Live', label: t('about.statsProjects') },
+  { value: '13', label: t('about.statsProjects') },
   { value: '100%', label: t('about.statsLive') },
-  { value: '64', label: t('about.statsTech') },
-  { value: 'R$0', label: t('about.statsInfra') },
+  { value: lang === 'pt' ? 'Zero' : 'Zero', label: t('about.statsTech') },
+  { value: lang === 'pt' ? 'Serverless' : 'Serverless', label: t('about.statsInfra') },
 ];
 ---
 
@@ -146,25 +146,54 @@ const stats = [
     </div>
   </div>
 
-  <!-- Availability -->
-  <div class="mt-16">
-    <span
-      class="inline-flex items-center gap-2 border border-brand-accent/30 bg-brand-accent/8 text-brand-accent rounded-full px-4 py-2 min-h-[48px] text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-bg"
-    >
-      <span
-        class="relative inline-flex h-2 w-2"
-        aria-hidden="true"
-      >
+  <!-- Founder section (sem foto) -->
+  <div class="mt-20 pt-12 border-t border-brand-border">
+    <div class="grid lg:grid-cols-[1fr_2fr] gap-8 lg:gap-12 items-start">
+      <div class="flex flex-col gap-3">
+        <p class="font-mono text-xs uppercase tracking-widest text-brand-accent">
+          {lang === 'pt' ? 'Quem constrói' : 'Who builds'}
+        </p>
+        <h3 class="font-display text-2xl md:text-3xl text-brand-text leading-tight">
+          {lang === 'pt' ? 'Felipe — Founder & Product Engineer' : 'Felipe — Founder & Product Engineer'}
+        </h3>
         <span
-          class="absolute inline-flex h-full w-full rounded-full bg-brand-accent opacity-75 motion-reduce:animate-none animate-ping"
+          class="inline-flex items-center gap-2 border border-brand-accent/30 bg-brand-accent/8 text-brand-accent rounded-full px-4 py-2 min-h-[48px] text-sm w-fit focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-bg"
         >
+          <span class="relative inline-flex h-2 w-2" aria-hidden="true">
+            <span class="absolute inline-flex h-full w-full rounded-full bg-brand-accent opacity-75 motion-reduce:animate-none animate-ping"></span>
+            <span class="relative inline-flex h-2 w-2 rounded-full bg-brand-accent"></span>
+          </span>
+          {t('about.availability')}
         </span>
-        <span
-          class="relative inline-flex h-2 w-2 rounded-full bg-brand-accent"
-        >
-        </span>
-      </span>
-      {t('about.availability')}
-    </span>
+      </div>
+      <div class="flex flex-col gap-4">
+        <p class="text-base text-brand-text-secondary leading-relaxed">
+          {lang === 'pt'
+            ? 'Product Engineer com 13 produtos em produção. Não vendo código — entrego produtos no ar. Cada projeto sai do conceito ao deploy com domínio, código e infraestrutura no nome do cliente. Sem lock-in, sem dependência técnica, sem pasta ZIP.'
+            : 'Product Engineer with 13 products in production. I do not sell code — I deliver live products. Every project goes from concept to deploy with domain, code and infrastructure in the client name. No lock-in, no technical dependency, no ZIP folder.'}
+        </p>
+        <p class="text-base text-brand-text-secondary leading-relaxed">
+          {lang === 'pt'
+            ? 'Especializado em SaaS, plataformas, e-commerce e IA. Stack serverless (Cloudflare Workers + Supabase) que mantém o custo de infraestrutura baixo — você paga só quando usar. Fale diretamente com quem constrói, não com gerente de contas.'
+            : 'Specialized in SaaS, platforms, e-commerce and AI. Serverless stack (Cloudflare Workers + Supabase) that keeps infrastructure cost low — you pay only when you use it. Talk directly to the builder, not an account manager.'}
+        </p>
+        <div class="flex flex-wrap gap-3 mt-2">
+          <a
+            href={`/${lang}/contato/`}
+            class="inline-flex items-center justify-center px-5 py-2.5 bg-brand-accent text-brand-bg font-bold rounded-xl hover:scale-105 transition-transform text-sm min-h-[44px]"
+          >
+            {lang === 'pt' ? 'Falar diretamente comigo' : 'Talk to me directly'} →
+          </a>
+          <a
+            href="https://github.com/lfelipef1dev-jpg"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center px-5 py-2.5 border border-brand-border text-brand-text-secondary font-semibold rounded-xl hover:border-brand-accent/60 hover:text-brand-accent transition-colors text-sm min-h-[44px]"
+          >
+            {lang === 'pt' ? 'Ver GitHub' : 'View GitHub'}
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>

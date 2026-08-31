@@ -27,7 +27,7 @@
   "liveUrl": "https://stackpost.expostacker.com.br",
   "projectType": "SaaS",
   "featured": true,
-  "category": "client",
+  "category": "saas",
   "year": 2026,
   "priority": 2,
   "hasCaseStudy": true,
@@ -344,7 +344,7 @@
       "title": "Stack tecnológica",
       "categories": [
         {
-          "category": "Backend",
+          "category": "saas",
           "items": [
             {
               "name": "Next.js 15 (App Router)",
@@ -369,7 +369,7 @@
           ]
         },
         {
-          "category": "Frontend",
+          "category": "saas",
           "items": [
             {
               "name": "React 19",
@@ -389,7 +389,7 @@
           ]
         },
         {
-          "category": "Integração",
+          "category": "saas",
           "items": [
             {
               "name": "OAuth 2.0 (Google, Discord, Meta)",
@@ -409,7 +409,7 @@
           ]
         },
         {
-          "category": "Pagamentos",
+          "category": "saas",
           "items": [
             {
               "name": "Mercado Pago (PIX)",
@@ -419,7 +419,7 @@
           ]
         },
         {
-          "category": "DX (Developer Experience)",
+          "category": "saas",
           "items": [
             {
               "name": "OpenAPI 3.1 + Scalar",
@@ -444,7 +444,7 @@
       "title": "Technology stack",
       "categories": [
         {
-          "category": "Backend",
+          "category": "saas",
           "items": [
             {
               "name": "Next.js 15 (App Router)",
@@ -469,7 +469,7 @@
           ]
         },
         {
-          "category": "Frontend",
+          "category": "saas",
           "items": [
             {
               "name": "React 19",
@@ -489,7 +489,7 @@
           ]
         },
         {
-          "category": "Integration",
+          "category": "saas",
           "items": [
             {
               "name": "OAuth 2.0 (Google, Discord, Meta)",
@@ -509,7 +509,7 @@
           ]
         },
         {
-          "category": "Payments",
+          "category": "saas",
           "items": [
             {
               "name": "Mercado Pago (PIX)",
@@ -519,7 +519,7 @@
           ]
         },
         {
-          "category": "DX (Developer Experience)",
+          "category": "saas",
           "items": [
             {
               "name": "OpenAPI 3.1 + Scalar",

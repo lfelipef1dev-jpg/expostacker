@@ -11,14 +11,14 @@
     { "label": "Produtos", "value": 344, "unit": "" },
     { "label": "Tiers VIP", "value": 10, "unit": "" },
     { "label": "Temporadas sazonais", "value": 7, "unit": "" },
-    { "label": "Custo de infraestrutura", "value": 0, "unit": "R$" },
+    { "label": "Stack serverless", "value": 0, "unit": "R$" },
     { "label": "Métodos de pagamento", "value": 3, "unit": "" }
   ],
   "liveUrl": "https://medellin.expostacker.com.br",
   "projectType": "Client-Work",
   "featured": false,
-  "priority": 4,
-  "category": "client",
+  "priority": 3,
+  "category": "ecommerce",
   "year": 2026,
   "hasCaseStudy": true,
   "heroImage": "/cases/medellin-ecommerce.svg",
@@ -406,7 +406,7 @@
       "title": "Stack técnica",
       "categories": [
         {
-          "category": "Frontend",
+          "category": "ecommerce",
           "items": [
             {
               "name": "HTML5 + CSS3 + Vanilla JS",
@@ -426,7 +426,7 @@
           ]
         },
         {
-          "category": "Backend",
+          "category": "ecommerce",
           "items": [
             {
               "name": "Node.js + Express",
@@ -446,7 +446,7 @@
           ]
         },
         {
-          "category": "Infraestrutura",
+          "category": "ecommerce",
           "items": [
             {
               "name": "Cloudflare Pages",
@@ -476,7 +476,7 @@
       "title": "Tech stack",
       "categories": [
         {
-          "category": "Frontend",
+          "category": "ecommerce",
           "items": [
             {
               "name": "HTML5 + CSS3 + Vanilla JS",
@@ -496,7 +496,7 @@
           ]
         },
         {
-          "category": "Backend",
+          "category": "ecommerce",
           "items": [
             {
               "name": "Node.js + Express",
@@ -516,7 +516,7 @@
           ]
         },
         {
-          "category": "Infrastructure",
+          "category": "ecommerce",
           "items": [
             {
               "name": "Cloudflare Pages",

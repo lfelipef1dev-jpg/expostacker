@@ -227,7 +227,67 @@ const channels = [
                   <option value="saas">{t['contact.projectTypeSaas']}</option>
                   <option value="ecommerce">{t['contact.projectTypeEcommerce']}</option>
                   <option value="site">{t['contact.projectTypeSite']}</option>
+                  <option value="ai">{t['contact.projectTypeAi']}</option>
+                  <option value="systems">{t['contact.projectTypeSystems']}</option>
                   <option value="other">{t['contact.projectTypeOther']}</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="objective" class="block text-sm font-medium text-brand-text mb-1.5">{t['contact.objective']}</label>
+                <input
+                  type="text"
+                  id="objective"
+                  name="objective"
+                  placeholder={t['contact.objectivePlaceholder']}
+                  class="w-full min-h-[44px] px-3 py-2.5 rounded-lg bg-brand-bg border border-brand-border text-brand-text text-sm placeholder-brand-text-secondary/50 focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent"
+                />
+              </div>
+
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="budget" class="block text-sm font-medium text-brand-text mb-1.5">{t['contact.budget']}</label>
+                  <select
+                    id="budget"
+                    name="budget"
+                    class="w-full min-h-[44px] px-3 py-2.5 rounded-lg bg-brand-bg border border-brand-border text-brand-text text-sm focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent"
+                  >
+                    <option value="" disabled selected>{t['contact.budgetPlaceholder']}</option>
+                    <option value="budget1">{t['contact.budget1']}</option>
+                    <option value="budget2">{t['contact.budget2']}</option>
+                    <option value="budget3">{t['contact.budget3']}</option>
+                    <option value="budget4">{t['contact.budget4']}</option>
+                    <option value="flex">{t['contact.budgetFlex']}</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="timeline" class="block text-sm font-medium text-brand-text mb-1.5">{t['contact.timeline']}</label>
+                  <select
+                    id="timeline"
+                    name="timeline"
+                    class="w-full min-h-[44px] px-3 py-2.5 rounded-lg bg-brand-bg border border-brand-border text-brand-text text-sm focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent"
+                  >
+                    <option value="" disabled selected>{t['contact.timelinePlaceholder']}</option>
+                    <option value="timeline1">{t['contact.timeline1']}</option>
+                    <option value="timeline2">{t['contact.timeline2']}</option>
+                    <option value="timeline3">{t['contact.timeline3']}</option>
+                    <option value="timeline4">{t['contact.timeline4']}</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label for="existingDesign" class="block text-sm font-medium text-brand-text mb-1.5">{t['contact.existingDesign']}</label>
+                <select
+                  id="existingDesign"
+                  name="existingDesign"
+                  class="w-full min-h-[44px] px-3 py-2.5 rounded-lg bg-brand-bg border border-brand-border text-brand-text text-sm focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent"
+                >
+                  <option value="" disabled selected>{t['contact.projectTypePlaceholder']}</option>
+                  <option value="yes">{t['contact.existingDesignYes']}</option>
+                  <option value="no">{t['contact.existingDesignNo']}</option>
+                  <option value="partial">{t['contact.existingDesignPartial']}</option>
                 </select>
               </div>
 
@@ -236,7 +296,7 @@ const channels = [
                 <textarea
                   id="message"
                   name="message"
-                  rows="4"
+                  rows="3"
                   required
                   aria-describedby="message-help message-error"
                   class="w-full min-h-[44px] px-3 py-2.5 rounded-lg bg-brand-bg border border-brand-border text-brand-text text-sm placeholder-brand-text-secondary/50 focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent resize-y"

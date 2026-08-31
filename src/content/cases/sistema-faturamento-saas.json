@@ -13,7 +13,7 @@
   "technicalSolution": "Criamos uma experiência estática de alta fidelidade com landing page de conversão e dashboard funcional em HTML, CSS e JavaScript vanilla. O protótipo simula navegação entre módulos, persistência local e tema claro/escuro, servindo como base para evolução full-stack.",
   "businessOutcome": [
     {
-      "label": "Fechamento",
+      "label": "Fechamento (estimado)",
       "value": 60,
       "unit": "%"
     },
@@ -32,7 +32,7 @@
   "projectType": "SaaS",
   "featured": false,
   "priority": 12,
-  "category": "client",
+  "category": "saas",
   "year": 2024,
   "hasCaseStudy": true,
   "heroHeadline": {
@@ -265,7 +265,7 @@
       "title": "Stack técnica",
       "categories": [
         {
-          "category": "Frontend",
+          "category": "saas",
           "items": [
             {
               "name": "HTML5",
@@ -285,7 +285,7 @@
           ]
         },
         {
-          "category": "Deploy",
+          "category": "saas",
           "items": [
             {
               "name": "Cloudflare Pages",
@@ -300,7 +300,7 @@
       "title": "Tech stack",
       "categories": [
         {
-          "category": "Frontend",
+          "category": "saas",
           "items": [
             {
               "name": "HTML5",
@@ -320,7 +320,7 @@
           ]
         },
         {
-          "category": "Deploy",
+          "category": "saas",
           "items": [
             {
               "name": "Cloudflare Pages",

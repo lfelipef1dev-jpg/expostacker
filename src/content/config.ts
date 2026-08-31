@@ -18,7 +18,7 @@ const casesCollection = defineCollection({
     businessOutcome: z.array(
       z.object({
         label: z.string(),
-        value: z.number(),
+        value: z.union([z.number(), z.string()]),
         unit: z.string()
       })
     ),
@@ -29,7 +29,7 @@ const casesCollection = defineCollection({
     }).optional(),
     projectType: z.enum(['SaaS', 'Client-Work', 'Open-Source']),
     featured: z.boolean().default(false),
-    category: z.enum(['personal', 'client', 'experiment', 'opensource']).default('client').optional(),
+    category: z.enum(['personal', 'client', 'experiment', 'opensource', 'saas', 'ecommerce', 'ai', 'systems', 'site']).default('client').optional(),
     year: z.number().optional(),
     priority: z.number().optional(),
     hasCaseStudy: z.boolean().default(true),

@@ -1,0 +1,120 @@
+---
+import { ui } from '../i18n/ui';
+
+export interface Props {
+  lang: keyof typeof ui;
+}
+
+const { lang } = Astro.props;
+
+const differentials = [
+  {
+    icon: 'product',
+    title: lang === 'pt' ? 'Produto real, não protótipo' : 'Real product, not prototype',
+    desc: lang === 'pt'
+      ? 'Você não recebe uma pasta ZIP. Recebe um produto funcionando em produção, com domínio, SSL e usuários reais.'
+      : 'You do not receive a ZIP folder. You receive a working product in production, with domain, SSL and real users.',
+  },
+  {
+    icon: 'ownership',
+    title: lang === 'pt' ? 'Código e infraestrutura seus' : 'Code and infra are yours',
+    desc: lang === 'pt'
+      ? 'Domínio, GitHub, Cloudflare e Supabase no seu nome. Você tem controle total. Sem lock-in, sem dependência técnica.'
+      : 'Domain, GitHub, Cloudflare and Supabase in your name. You have full control. No lock-in, no technical dependency.',
+  },
+  {
+    icon: 'price',
+    title: lang === 'pt' ? 'Preço fixo, sem hora' : 'Fixed price, no hourly',
+    desc: lang === 'pt'
+      ? 'Você paga pelo produto, não pelas horas. Escopo, prazo e investimento definidos na proposta. Sem surpresa.'
+      : 'You pay for the product, not the hours. Scope, timeline and investment defined in the proposal. No surprises.',
+  },
+  {
+    icon: 'weekly',
+    title: lang === 'pt' ? 'Entregas semanais' : 'Weekly deliveries',
+    desc: lang === 'pt'
+      ? 'Você acompanha o progresso real. Demos ao vivo toda semana. Nada de ficar 3 meses sem ver o que está sendo construído.'
+      : 'You track real progress. Live demos every week. No 3 months without seeing what is being built.',
+  },
+  {
+    icon: 'deploy',
+    title: lang === 'pt' ? 'Deploy em produção' : 'Production deploy',
+    desc: lang === 'pt'
+      ? 'CI/CD automático. O produto vai para produção assim que o código é aprovado. Não espera o fim do projeto para ver no ar.'
+      : 'Automatic CI/CD. The product goes to production as soon as code is approved. No waiting until project end to see it live.',
+  },
+  {
+    icon: 'serverless',
+    title: lang === 'pt' ? 'Stack serverless de baixo custo' : 'Low-cost serverless stack',
+    desc: lang === 'pt'
+      ? 'Cloudflare Workers + Supabase. Você paga só quando usar. Infraestrutura inicial otimizada — não R$0 ilusório, mas custo real baixo.'
+      : 'Cloudflare Workers + Supabase. You pay only when you use it. Optimized initial infrastructure — not illusory $0, but real low cost.',
+  },
+];
+---
+
+<section class="py-20 md:py-28 bg-brand-surface/20 border-y border-brand-border" aria-labelledby="why-title">
+  <div class="max-w-6xl mx-auto px-4 md:px-6">
+    <div class="mb-12 max-w-3xl">
+      <p class="font-mono text-xs uppercase tracking-widest text-brand-accent mb-4 flex items-center gap-2">
+        <span class="inline-block h-1.5 w-1.5 rounded-full bg-brand-accent" aria-hidden="true"></span>
+        {lang === 'pt' ? 'Por que ExpoStacker' : 'Why ExpoStacker'}
+      </p>
+      <h2 id="why-title" class="font-display text-3xl md:text-5xl text-brand-text tracking-tight leading-tight mb-4">
+        {lang === 'pt' ? 'Você não contrata um dev. Contrata quem entrega produto.' : 'You do not hire a dev. You hire someone who delivers a product.'}
+      </h2>
+      <p class="text-lg text-brand-text-secondary leading-relaxed">
+        {lang === 'pt'
+          ? '6 razões que diferenciam a ExpoStacker de freelancer tradicional e agência de sites.'
+          : '6 reasons that differentiate ExpoStacker from traditional freelancers and website agencies.'}
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      {differentials.map((d) => (
+        <article class="flex flex-col gap-3 p-6 rounded-2xl border border-brand-border bg-brand-surface/40 hover:border-brand-accent/40 transition-colors motion-reduce:transition-none">
+          <div class="w-10 h-10 rounded-xl border border-brand-accent/30 bg-brand-accent/10 flex items-center justify-center text-brand-accent">
+            {d.icon === 'product' && (
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M5 12l5 5L20 7" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            )}
+            {d.icon === 'ownership' && (
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <rect x="3" y="11" width="18" height="11" rx="2" />
+                <path d="M7 11V7a5 5 0 0110 0v4" stroke-linecap="round" />
+              </svg>
+            )}
+            {d.icon === 'price' && (
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            )}
+            {d.icon === 'weekly' && (
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <rect x="3" y="4" width="18" height="18" rx="2" />
+                <path d="M16 2v4M8 2v4M3 10h18" stroke-linecap="round" />
+              </svg>
+            )}
+            {d.icon === 'deploy' && (
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            )}
+            {d.icon === 'serverless' && (
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            )}
+          </div>
+          <h3 class="font-display text-lg text-brand-text leading-snug">
+            {d.title}
+          </h3>
+          <p class="text-sm text-brand-text-secondary leading-relaxed">
+            {d.desc}
+          </p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

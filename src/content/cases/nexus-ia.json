@@ -40,7 +40,7 @@
   "liveUrl": "https://nexusia.expostacker.com.br",
   "projectType": "SaaS",
   "featured": true,
-  "category": "client",
+  "category": "ai",
   "year": 2026,
   "priority": 1,
   "hasCaseStudy": true,
@@ -347,7 +347,7 @@
       "title": "Stack tecnológica",
       "categories": [
         {
-          "category": "Backend",
+          "category": "ai",
           "items": [
             {
               "name": "FastAPI",
@@ -372,7 +372,7 @@
           ]
         },
         {
-          "category": "Frontend",
+          "category": "ai",
           "items": [
             {
               "name": "React + Vite",
@@ -387,7 +387,7 @@
           ]
         },
         {
-          "category": "IA",
+          "category": "ai",
           "items": [
             {
               "name": "Groq",
@@ -407,7 +407,7 @@
           ]
         },
         {
-          "category": "Multimodal",
+          "category": "ai",
           "items": [
             {
               "name": "Faster-Whisper",
@@ -432,7 +432,7 @@
           ]
         },
         {
-          "category": "Workspace",
+          "category": "ai",
           "items": [
             {
               "name": "Terminal PTY",
@@ -457,7 +457,7 @@
       "title": "Technology stack",
       "categories": [
         {
-          "category": "Backend",
+          "category": "ai",
           "items": [
             {
               "name": "FastAPI",
@@ -482,7 +482,7 @@
           ]
         },
         {
-          "category": "Frontend",
+          "category": "ai",
           "items": [
             {
               "name": "React + Vite",
@@ -497,7 +497,7 @@
           ]
         },
         {
-          "category": "AI",
+          "category": "ai",
           "items": [
             {
               "name": "Groq",
@@ -517,7 +517,7 @@
           ]
         },
         {
-          "category": "Multimodal",
+          "category": "ai",
           "items": [
             {
               "name": "Faster-Whisper",
@@ -542,7 +542,7 @@
           ]
         },
         {
-          "category": "Workspace",
+          "category": "ai",
           "items": [
             {
               "name": "PTY Terminal",

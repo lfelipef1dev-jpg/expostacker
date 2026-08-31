@@ -32,7 +32,7 @@
   "projectType": "Client-Work",
   "featured": false,
   "priority": 13,
-  "category": "client",
+  "category": "ecommerce",
   "year": 2024,
   "hasCaseStudy": true,
   "heroHeadline": {
@@ -317,7 +317,7 @@
       "title": "Stack técnica",
       "categories": [
         {
-          "category": "Frontend",
+          "category": "ecommerce",
           "items": [
             {
               "name": "HTML5",
@@ -337,7 +337,7 @@
           ]
         },
         {
-          "category": "Assets",
+          "category": "ecommerce",
           "items": [
             {
               "name": "Inter (self-hosted)",
@@ -352,7 +352,7 @@
           ]
         },
         {
-          "category": "Deploy",
+          "category": "ecommerce",
           "items": [
             {
               "name": "Cloudflare Pages",
@@ -367,7 +367,7 @@
       "title": "Tech stack",
       "categories": [
         {
-          "category": "Frontend",
+          "category": "ecommerce",
           "items": [
             {
               "name": "HTML5",
@@ -387,7 +387,7 @@
           ]
         },
         {
-          "category": "Assets",
+          "category": "ecommerce",
           "items": [
             {
               "name": "Inter (self-hosted)",
@@ -402,7 +402,7 @@
           ]
         },
         {
-          "category": "Deploy",
+          "category": "ecommerce",
           "items": [
             {
               "name": "Cloudflare Pages",

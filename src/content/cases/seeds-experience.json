@@ -10,15 +10,15 @@
     { "label": "Rotas", "value": 51, "unit": "" },
     { "label": "Tabelas", "value": 40, "unit": "" },
     { "label": "Tabelas RLS", "value": 40, "unit": "" },
-    { "label": "Custo de infraestrutura", "value": 0, "unit": "R$" },
+    { "label": "Stack serverless", "value": 0, "unit": "R$" },
     { "label": "Integrações de IA", "value": 3, "unit": "" },
     { "label": "Índices de banco", "value": 40, "unit": "+" }
   ],
   "liveUrl": "https://seeds.expostacker.com.br",
   "projectType": "SaaS",
   "featured": false,
-  "priority": 6,
-  "category": "personal",
+  "priority": 5,
+  "category": "saas",
   "year": 2026,
   "hasCaseStudy": true,
   "heroImage": "/cases/seeds-experience.jpg",
@@ -369,7 +369,7 @@
       "title": "Stack técnica",
       "categories": [
         {
-          "category": "Frontend",
+          "category": "saas",
           "items": [
             { "name": "Next.js 15", "why": "App Router com Server Components e API routes. 51 rotas com renderização dinâmica.", "alt": "Pages Router — sem Server Components, menos DX" },
             { "name": "React 19", "why": "Server Components por padrão, hooks atualizados e streaming.", "alt": "React 18 — sem Server Components nativos" },
@@ -377,7 +377,7 @@
           ]
         },
         {
-          "category": "Backend",
+          "category": "saas",
           "items": [
             { "name": "Supabase", "why": "PostgreSQL + Auth + Storage + Realtime em um serviço. RLS no banco.", "alt": "Firebase — sem SQL completo, sem RLS" },
             { "name": "PostgreSQL + RLS", "why": "40 tabelas com Row Level Security e policies por usuário.", "alt": "MongoDB — sem transações ACID, sem RLS" },
@@ -385,7 +385,7 @@
           ]
         },
         {
-          "category": "Infra/IA",
+          "category": "saas",
           "items": [
             { "name": "Cloudflare Workers", "why": "Hosting full-stack com zero custo, edge global, deploy automático.", "alt": "Netlify — plano free limitado, sem edge global" },
             { "name": "@opennextjs/cloudflare", "why": "Adapter que converte Next.js App Router para Workers.", "alt": "Vercel — excelente, mas custo maior em escala" },
@@ -399,7 +399,7 @@
       "title": "Tech stack",
       "categories": [
         {
-          "category": "Frontend",
+          "category": "saas",
           "items": [
             { "name": "Next.js 15", "why": "App Router with Server Components and API routes. 51 routes with dynamic rendering.", "alt": "Pages Router — no Server Components, less DX" },
             { "name": "React 19", "why": "Server Components by default, updated hooks and streaming.", "alt": "React 18 — no native Server Components" },
@@ -407,7 +407,7 @@
           ]
         },
         {
-          "category": "Backend",
+          "category": "saas",
           "items": [
             { "name": "Supabase", "why": "PostgreSQL + Auth + Storage + Realtime in one service. RLS at the database.", "alt": "Firebase — no complete SQL, no RLS" },
             { "name": "PostgreSQL + RLS", "why": "40 tables with Row Level Security and per-user policies.", "alt": "MongoDB — no ACID transactions, no RLS" },
@@ -415,7 +415,7 @@
           ]
         },
         {
-          "category": "Infra/AI",
+          "category": "saas",
           "items": [
             { "name": "Cloudflare Workers", "why": "Full-stack hosting with zero cost, global edge, automatic deploy.", "alt": "Netlify — limited free plan, no global edge" },
             { "name": "@opennextjs/cloudflare", "why": "Adapter that converts Next.js App Router to Workers.", "alt": "Vercel — excellent, but higher cost at scale" },

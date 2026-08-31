@@ -33,8 +33,8 @@
   "liveUrl": "https://solmais.expostacker.com.br",
   "projectType": "Client-Work",
   "featured": false,
-  "priority": 9,
-  "category": "client",
+  "priority": 8,
+  "category": "site",
   "year": 2026,
   "hasCaseStudy": true,
   "heroHeadline": {
@@ -348,7 +348,7 @@
       "title": "Stack técnica",
       "categories": [
         {
-          "category": "Frontend",
+          "category": "site",
           "items": [
             {
               "name": "HTML5",
@@ -368,7 +368,7 @@
           ]
         },
         {
-          "category": "Assets",
+          "category": "site",
           "items": [
             {
               "name": "Sora + Inter (self-hosted)",
@@ -383,7 +383,7 @@
           ]
         },
         {
-          "category": "Deploy",
+          "category": "site",
           "items": [
             {
               "name": "Cloudflare Pages",
@@ -398,7 +398,7 @@
       "title": "Tech stack",
       "categories": [
         {
-          "category": "Frontend",
+          "category": "site",
           "items": [
             {
               "name": "HTML5",
@@ -418,7 +418,7 @@
           ]
         },
         {
-          "category": "Assets",
+          "category": "site",
           "items": [
             {
               "name": "Sora + Inter (self-hosted)",
@@ -433,7 +433,7 @@
           ]
         },
         {
-          "category": "Deploy",
+          "category": "site",
           "items": [
             {
               "name": "Cloudflare Pages",

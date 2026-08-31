@@ -34,8 +34,8 @@
   "liveUrl": "https://vivamais.expostacker.com.br",
   "projectType": "Client-Work",
   "featured": false,
-  "priority": 8,
-  "category": "client",
+  "priority": 7,
+  "category": "site",
   "year": 2026,
   "hasCaseStudy": true,
   "heroImage": "/cases/vivamais.jpg",
@@ -225,7 +225,7 @@
       "title": "Stack tecnica",
       "categories": [
         {
-          "category": "Frontend",
+          "category": "site",
           "items": [
             {
               "name": "HTML5",
@@ -245,7 +245,7 @@
           ]
         },
         {
-          "category": "Deploy",
+          "category": "site",
           "items": [
             {
               "name": "Cloudflare Pages",
@@ -260,7 +260,7 @@
       "title": "Tech stack",
       "categories": [
         {
-          "category": "Frontend",
+          "category": "site",
           "items": [
             {
               "name": "HTML5",
@@ -280,7 +280,7 @@
           ]
         },
         {
-          "category": "Deploy",
+          "category": "site",
           "items": [
             {
               "name": "Cloudflare Pages",

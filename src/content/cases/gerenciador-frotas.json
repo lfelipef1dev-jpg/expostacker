@@ -28,7 +28,7 @@
       "unit": ""
     },
     {
-      "label": "Redução",
+      "label": "Redução (estimado)",
       "value": 60,
       "unit": "%"
     }
@@ -36,8 +36,8 @@
   "liveUrl": "https://frotamais.expostacker.com.br",
   "projectType": "Client-Work",
   "featured": true,
-  "priority": 5,
-  "category": "client",
+  "priority": 4,
+  "category": "systems",
   "year": 2026,
   "hasCaseStudy": true,
   "heroHeadline": {
@@ -490,7 +490,7 @@
       "title": "Stack técnica",
       "categories": [
         {
-          "category": "Frontend",
+          "category": "systems",
           "items": [
             {
               "name": "Astro",
@@ -515,7 +515,7 @@
           ]
         },
         {
-          "category": "Backend",
+          "category": "systems",
           "items": [
             {
               "name": "Hono",
@@ -535,7 +535,7 @@
           ]
         },
         {
-          "category": "Dados e realtime",
+          "category": "systems",
           "items": [
             {
               "name": "Cloudflare D1",
@@ -555,7 +555,7 @@
           ]
         },
         {
-          "category": "Algoritmos",
+          "category": "systems",
           "items": [
             {
               "name": "Nearest Neighbor + 2-opt",
@@ -570,7 +570,7 @@
           ]
         },
         {
-          "category": "Deploy",
+          "category": "systems",
           "items": [
             {
               "name": "Cloudflare Workers",
@@ -585,7 +585,7 @@
       "title": "Tech stack",
       "categories": [
         {
-          "category": "Frontend",
+          "category": "systems",
           "items": [
             {
               "name": "Astro",
@@ -610,7 +610,7 @@
           ]
         },
         {
-          "category": "Backend",
+          "category": "systems",
           "items": [
             {
               "name": "Hono",
@@ -630,7 +630,7 @@
           ]
         },
         {
-          "category": "Data and realtime",
+          "category": "systems",
           "items": [
             {
               "name": "Cloudflare D1",
@@ -650,7 +650,7 @@
           ]
         },
         {
-          "category": "Algorithms",
+          "category": "systems",
           "items": [
             {
               "name": "Nearest Neighbor + 2-opt",
@@ -665,7 +665,7 @@
           ]
         },
         {
-          "category": "Deploy",
+          "category": "systems",
           "items": [
             {
               "name": "Cloudflare Workers",
