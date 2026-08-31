@@ -37,17 +37,33 @@ const slides = sorted;
   </div>
 
   <div class="relative max-w-6xl mx-auto px-4 md:px-6">
-    {/* H1 unico da home — keyword principal + resposta direta */}
+    {/* H1 unico da home — copy comercial, nao tecnico */}
     <h1 class="font-display text-3xl md:text-5xl lg:text-6xl font-black text-brand-text tracking-tight leading-tight mb-4">
       {lang === 'pt'
-        ? 'Desenvolvimento de produtos digitais ao vivo — SaaS, e-commerce e IA'
-        : 'Live digital product development — SaaS, e-commerce, and AI'}
+        ? 'Transforme sua ideia em um produto digital funcionando.'
+        : 'Turn your idea into a digital product that works.'}
     </h1>
     <p class="text-base md:text-lg text-brand-text-secondary max-w-3xl mb-8 leading-relaxed">
       {lang === 'pt'
-        ? 'Expo Stacker constrói e entrega produtos digitais em produção: plataformas SaaS, lojas online, automações com IA e MVPs. Código público, domínio próprio e deploy automático.'
-        : 'Expo Stacker builds and ships live digital products: SaaS platforms, online stores, AI automations, and MVPs. Public code, custom domain, and automatic deploy.'}
+        ? 'Da estratégia ao deploy. Sem protótipo parado. Sem código abandonado. SaaS, e-commerce, IA, plataformas e sistemas — construídos, publicados e testáveis. 13 produtos no ar provam que entrego, não prometo.'
+        : 'From strategy to deploy. No stalled prototype. No abandoned code. SaaS, e-commerce, AI, platforms and systems — built, shipped and testable. 13 live products prove I deliver, not promise.'}
     </p>
+
+    {/* CTAs do hero */}
+    <div class="flex flex-col sm:flex-row gap-3 mb-8">
+      <a
+        href={`/${lang}/contato/`}
+        class="inline-flex items-center justify-center min-h-12 px-6 py-3 rounded-xl bg-brand-accent text-brand-bg font-bold text-center transition-transform hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-bg shadow-[0_0_32px_rgba(138,180,248,0.35)]"
+      >
+        {t('hero.ctaPrimary')}
+      </a>
+      <a
+        href="#cases"
+        class="inline-flex items-center justify-center min-h-12 px-6 py-3 rounded-xl border border-brand-border text-brand-text font-semibold text-center transition-colors hover:border-brand-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-bg"
+      >
+        {t('hero.ctaSecondary')}
+      </a>
+    </div>
 
     {/* Eyebrow + disponibilidade */}
     <div class="mb-6 flex items-center justify-between">
