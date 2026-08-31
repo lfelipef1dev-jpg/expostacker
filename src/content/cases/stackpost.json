@@ -1,0 +1,788 @@
+{
+  "id": "stackpost",
+  "title": "StackPost — API Unificada de Redes Sociais",
+  "clientName": "StackPost",
+  "tags": [
+    "Next.js 15",
+    "React 19",
+    "TypeScript",
+    "Cloudflare Workers",
+    "OpenNext",
+    "Supabase",
+    "Mercado Pago",
+    "Multi-tenant",
+    "OAuth 2.0",
+    "API REST",
+    "Webhooks",
+    "MCP"
+  ],
+  "shortDescription": "API unificada de redes sociais multi-tenant com 15+ plataformas, 165 endpoints REST, OAuth centralizado, agendamento, analytics, comentários, webhooks e SDKs para TS/Python/Go.",
+  "problemDescription": "SaaS, agências e agentes de IA precisam publicar em múltiplas redes sociais, mas cada plataforma tem OAuth próprio, rate limits diferentes, APIs que mudam sem aviso e webhooks inconsistentes. Manter 15 integrações em casa custa meses de engenharia e um time dedicado só pra isso.",
+  "technicalSolution": "StackPost é uma API unificada multi-tenant construída em Next.js 15 + Cloudflare Workers (OpenNext) com Supabase como banco. 165 endpoints REST cobrem publicação, agendamento, analytics, comentários, importação, mídia (upload multipart, presigned, TUS, URL import até 1GB), webhooks HMAC com retry e replay, idempotência, RBAC com organizações e audit logs. OAuth 2.0 centralizado para Google, Discord, Facebook/Meta e demais plataformas. 15+ adaptadores de plataforma (Instagram, Facebook, LinkedIn, Discord, TikTok, YouTube, X, Pinterest, Threads, Reddit, Snapchat, Bluesky, Mastodon, Slack, Google Business). SDKs em TypeScript, Python e Go, CLI e MCP server para agentes de IA. Cobrança por uso via Mercado Pago (PIX) com planos e créditos.",
+  "businessOutcome": [
+    { "label": "Plataformas", "value": 15, "unit": "+" },
+    { "label": "Endpoints", "value": 165, "unit": "" },
+    { "label": "SDKs", "value": 3, "unit": "" }
+  ],
+  "liveUrl": "https://stackpost.expostacker.com.br",
+  "projectType": "SaaS",
+  "featured": true,
+  "category": "client",
+  "year": 2026,
+  "priority": 2,
+  "hasCaseStudy": true,
+  "nda": false,
+  "heroHeadline": {
+    "pt": "StackPost — API unificada de redes sociais com 15+ plataformas, OAuth centralizado e webhooks HMAC",
+    "en": "StackPost — unified social media API with 15+ platforms, centralized OAuth and HMAC webhooks"
+  },
+  "heroSubhead": {
+    "pt": "165 endpoints REST para publicação, agendamento, analytics, comentários e mídia. Multi-tenant com organizações, RBAC, audit logs, SDKs em TS/Python/Go, CLI e MCP server para agentes de IA. Cobrança por uso via PIX.",
+    "en": "165 REST endpoints for posting, scheduling, analytics, comments and media. Multi-tenant with organizations, RBAC, audit logs, SDKs in TS/Python/Go, CLI and MCP server for AI agents. Usage-based billing via PIX."
+  },
+  "opening": {
+    "pt": "StackPost é um SaaS de infraestrutura social que elimina meses de engenharia necessários para manter integrações individuais com cada rede. Em vez de implementar 15 OAuth flows, 15 APIs de publicação, 15 sistemas de analytics e 15 tratamentos de webhook, o cliente consome uma única API REST. Multi-tenant por design: cada organização tem suas contas conectadas, usuários com RBAC, audit logs e isolamento total. Adaptadores de plataforma abstraem as diferenças entre Instagram, Facebook, LinkedIn, Discord, TikTok, YouTube, X, Pinterest, Threads, Reddit, Snapchat, Bluesky, Mastodon, Slack e Google Business. SDKs em TypeScript, Python e Go, CLI para automação e MCP server para agentes de IA.",
+    "en": "StackPost is a social infrastructure SaaS that eliminates months of engineering required to maintain individual integrations with each network. Instead of implementing 15 OAuth flows, 15 publishing APIs, 15 analytics systems and 15 webhook handlers, the customer consumes a single REST API. Multi-tenant by design: each organization has its connected accounts, RBAC users, audit logs and full isolation. Platform adapters abstract the differences between Instagram, Facebook, LinkedIn, Discord, TikTok, YouTube, X, Pinterest, Threads, Reddit, Snapchat, Bluesky, Mastodon, Slack and Google Business. SDKs in TypeScript, Python and Go, CLI for automation and MCP server for AI agents."
+  },
+  "challengeContext": {
+    "pt": "Publicar em redes sociais parece simples até você precisar fazer em escala. Cada plataforma tem OAuth 2.0 com escopos diferentes, endpoints que mudam sem aviso (Meta deprecou a Graph API v18 em meses), rate limits inconsistentes, formatos de mídia incompatíveis e webhooks que chegam duplicados ou fora de ordem. Manter 15 integrações em casa exige um time dedicado e custa meses de engenharia. SaaS que precisam de posting, agências que gerenciam dezenas de contas e agentes de IA que precisam publicar em nome de usuários acabam reféns dessa complexidade.",
+    "en": "Posting to social media seems simple until you need to do it at scale. Each platform has OAuth 2.0 with different scopes, endpoints that change without notice (Meta deprecated Graph API v18 in months), inconsistent rate limits, incompatible media formats and webhooks that arrive duplicated or out of order. Maintaining 15 integrations in-house requires a dedicated team and costs months of engineering. SaaS that need posting, agencies managing dozens of accounts and AI agents that need to post on behalf of users end up hostage to this complexity."
+  },
+  "approach": {
+    "pt": "Tratamos a integração social como infraestrutura, não como feature. A arquitetura multi-tenant isola cada organização com suas contas conectadas, usuários e permissões. OAuth 2.0 é centralizado: o cliente não implementa nenhum flow, só conecta a conta uma vez. Adaptadores de plataforma abstraem as diferenças — publicar no Instagram ou no Bluesky usa o mesmo endpoint REST. Webhooks são HMAC-signed com retry exponencial e replay para garantir entrega. Idempotência em todos os endpoints de escrita evita duplicação. O MCP server expõe a API para agentes de IA, permitindo que Claude, Cursor e outros publiquem em redes sociais diretamente.",
+    "en": "We treat social integration as infrastructure, not as a feature. The multi-tenant architecture isolates each organization with its connected accounts, users and permissions. OAuth 2.0 is centralized: the customer implements no flow, just connects the account once. Platform adapters abstract the differences — posting to Instagram or Bluesky uses the same REST endpoint. Webhooks are HMAC-signed with exponential retry and replay to guarantee delivery. Idempotency on all write endpoints prevents duplication. The MCP server exposes the API to AI agents, allowing Claude, Cursor and others to post to social media directly."
+  },
+  "solutionItems": {
+    "pt": [
+      "165 endpoints REST unificados para publicação, agendamento, analytics, comentários, importação e mídia",
+      "15+ adaptadores de plataforma: Instagram, Facebook, LinkedIn, Discord, TikTok, YouTube, X, Pinterest, Threads, Reddit, Snapchat, Bluesky, Mastodon, Slack, Google Business",
+      "OAuth 2.0 centralizado para Google, Discord, Facebook/Meta e demais plataformas — o cliente não implementa nenhum flow",
+      "Multi-tenant com organizações, RBAC, roles, audit logs e isolamento total entre contas",
+      "Mídia: upload multipart, presigned upload, TUS/resumable upload, URL import — arquivos até 1GB",
+      "Agendamento com retry, best-time ML, A/B testing, bulk posting e cross-posting entre plataformas",
+      "Webhooks HMAC-signed com retry exponencial, replay e idempotência em todos os endpoints de escrita",
+      "Analytics unificada: alcance, impressões, engajamento e métricas por plataforma em uma única resposta",
+      "Comentários: listagem, importação, resposta automática e Comment → DM para conversão",
+      "SDKs em TypeScript, Python e Go com tipagem completa e exemplos",
+      "CLI para automação de linha de comando e MCP server para agentes de IA (Claude, Cursor)",
+      "Cobrança por uso via Mercado Pago (PIX) — pague pelo que consumir, não por conta conectada",
+      "OpenAPI 3.1 com Scalar API reference, documentação interativa e exemplos por linguagem",
+      "Auth custom com bcryptjs + jose JWT, cookie HttpOnly, token de 7 dias, SameSite=Lax para OAuth redirects"
+    ],
+    "en": [
+      "165 unified REST endpoints for posting, scheduling, analytics, comments, imports and media",
+      "15+ platform adapters: Instagram, Facebook, LinkedIn, Discord, TikTok, YouTube, X, Pinterest, Threads, Reddit, Snapchat, Bluesky, Mastodon, Slack, Google Business",
+      "Centralized OAuth 2.0 for Google, Discord, Facebook/Meta and other platforms — the customer implements no flow",
+      "Multi-tenant with organizations, RBAC, roles, audit logs and full isolation between accounts",
+      "Media: multipart upload, presigned upload, TUS/resumable upload, URL import — files up to 1GB",
+      "Scheduling with retry, best-time ML, A/B testing, bulk posting and cross-posting across platforms",
+      "HMAC-signed webhooks with exponential retry, replay and idempotency on all write endpoints",
+      "Unified analytics: reach, impressions, engagement and per-platform metrics in a single response",
+      "Comments: listing, import, automated reply and Comment → DM for conversion",
+      "SDKs in TypeScript, Python and Go with full typing and examples",
+      "CLI for command-line automation and MCP server for AI agents (Claude, Cursor)",
+      "Usage-based billing via Mercado Pago (PIX) — pay for what you consume, not per connected account",
+      "OpenAPI 3.1 with Scalar API reference, interactive documentation and per-language examples",
+      "Custom auth with bcryptjs + jose JWT, HttpOnly cookie, 7-day token, SameSite=Lax for OAuth redirects"
+    ]
+  },
+  "technologies": [
+    {
+      "name": "Next.js 15 (App Router)",
+      "why": {
+        "pt": "App Router com SSR e API routes na mesma aplicação. OpenNext adapta para Cloudflare Workers sem mudar o código.",
+        "en": "App Router with SSR and API routes in the same app. OpenNext adapts to Cloudflare Workers without changing code."
+      }
+    },
+    {
+      "name": "Cloudflare Workers + OpenNext",
+      "why": {
+        "pt": "Deploy global edge com cold start próximo de zero. OpenNext converte Next.js para o runtime do Workers.",
+        "en": "Global edge deploy with near-zero cold start. OpenNext converts Next.js to the Workers runtime."
+      }
+    },
+    {
+      "name": "Supabase (Postgres + Auth + Storage)",
+      "why": {
+        "pt": "Postgres com RLS, Storage para mídia e service-role HTTP client. Cada projeto tem seu próprio Supabase.",
+        "en": "Postgres with RLS, Storage for media and service-role HTTP client. Each project has its own Supabase."
+      }
+    },
+    {
+      "name": "TypeScript",
+      "why": {
+        "pt": "Tipagem em toda a API, SDKs e adaptadores. Erros pegos em compile time, não em runtime.",
+        "en": "Typing across the entire API, SDKs and adapters. Errors caught at compile time, not runtime."
+      }
+    },
+    {
+      "name": "Mercado Pago (PIX)",
+      "why": {
+        "pt": "Cobrança por uso com PIX e QR code. Preference checkout retorna init_point para redirect.",
+        "en": "Usage-based billing with PIX and QR code. Preference checkout returns init_point for redirect."
+      }
+    },
+    {
+      "name": "bcryptjs + jose (JWT)",
+      "why": {
+        "pt": "Hash de senha com bcrypt e JWT assinado com jose. Cookie HttpOnly de 7 dias com SameSite=Lax para OAuth.",
+        "en": "Password hash with bcrypt and JWT signed with jose. 7-day HttpOnly cookie with SameSite=Lax for OAuth."
+      }
+    }
+  ],
+  "myRole": {
+    "pt": "Arquiteto e desenvolvedor full-stack: desenhei a arquitetura multi-tenant com organizações e RBAC, implementei os 165 endpoints REST com Next.js App Router, construí os 15+ adaptadores de plataforma com OAuth centralizado, configurei o deploy Cloudflare Workers com OpenNext, integrei Supabase com RLS, implementei webhooks HMAC com retry e idempotência, criei os SDKs em TS/Python/Go, o CLI e o MCP server, e integrei cobrança por uso via Mercado Pago.",
+    "en": "Full-stack architect and developer: designed the multi-tenant architecture with organizations and RBAC, implemented the 165 REST endpoints with Next.js App Router, built the 15+ platform adapters with centralized OAuth, configured Cloudflare Workers deploy with OpenNext, integrated Supabase with RLS, implemented HMAC webhooks with retry and idempotency, created the TS/Python/Go SDKs, the CLI and the MCP server, and integrated usage-based billing via Mercado Pago."
+  },
+  "lessonsLearned": {
+    "pt": "OAuth centralizado é o maior economizador de tempo. Cada plataforma tem escopos, redirects e quirks diferentes — abstraí-los uma vez economiza meses em cada novo cliente. Webhooks sem idempotência viram duplicação silenciosa. SameSite=Lax (não Strict) é obrigatório para OAuth redirects funcionarem. Cloudflare Workers tem limites de CPU/memória que aparecem só sob carga — throttling nos adaptadores evita 503 em massa. MCP server mudou o posicionamento: StackPost não é mais só uma API, é infraestrutura para agentes de IA.",
+    "en": "Centralized OAuth is the biggest time saver. Each platform has different scopes, redirects and quirks — abstracting them once saves months per new customer. Webhooks without idempotency become silent duplication. SameSite=Lax (not Strict) is mandatory for OAuth redirects to work. Cloudflare Workers has CPU/memory limits that only show under load — throttling in adapters avoids mass 503s. The MCP server changed the positioning: StackPost is no longer just an API, it's infrastructure for AI agents."
+  },
+  "stakeholders": {
+    "pt": "ExpoStacker — produto interno",
+    "en": "ExpoStacker — internal product"
+  },
+  "sector": {
+    "pt": "Infraestrutura social · API · SaaS",
+    "en": "Social infrastructure · API · SaaS"
+  },
+  "heroMetrics": [
+    { "value": "15+", "label": { "pt": "Plataformas", "en": "Platforms" } },
+    { "value": "165", "label": { "pt": "Endpoints REST", "en": "REST endpoints" } },
+    { "value": "3", "label": { "pt": "SDKs (TS/Py/Go)", "en": "SDKs (TS/Py/Go)" } }
+  ],
+  "timeline": {
+    "duration": "4 semanas",
+    "launchDate": "2026-08"
+  },
+  "timelinePhases": [
+    {
+      "phase": "Arquitetura",
+      "period": "Semana 1",
+      "items": {
+        "pt": [
+          "Desenho multi-tenant com organizações, RBAC e isolamento",
+          "Schema do Supabase com RLS em todas as tabelas",
+          "Estrutura de adaptadores de plataforma com interface unificada",
+          "OAuth 2.0 centralizado para Google, Discord e Facebook/Meta"
+        ],
+        "en": [
+          "Multi-tenant design with organizations, RBAC and isolation",
+          "Supabase schema with RLS on all tables",
+          "Platform adapter structure with unified interface",
+          "Centralized OAuth 2.0 for Google, Discord and Facebook/Meta"
+        ]
+      }
+    },
+    {
+      "phase": "Construção",
+      "period": "Semana 2-3",
+      "items": {
+        "pt": [
+          "165 endpoints REST: publicação, agendamento, analytics, comentários, mídia",
+          "15+ adaptadores de plataforma com OAuth e abstração de diferenças",
+          "Mídia: multipart, presigned, TUS/resumable, URL import até 1GB",
+          "Webhooks HMAC com retry exponencial, replay e idempotência",
+          "Cobrança por uso via Mercado Pago (PIX) com planos e créditos"
+        ],
+        "en": [
+          "165 REST endpoints: posting, scheduling, analytics, comments, media",
+          "15+ platform adapters with OAuth and difference abstraction",
+          "Media: multipart, presigned, TUS/resumable, URL import up to 1GB",
+          "HMAC webhooks with exponential retry, replay and idempotency",
+          "Usage-based billing via Mercado Pago (PIX) with plans and credits"
+        ]
+      }
+    },
+    {
+      "phase": "Validação",
+      "period": "Semana 4",
+      "items": {
+        "pt": [
+          "Deploy Cloudflare Workers com OpenNext",
+          "SDKs em TypeScript, Python e Go com tipagem completa",
+          "CLI e MCP server para agentes de IA",
+          "OpenAPI 3.1 com Scalar API reference",
+          "Teste de produção: 20/20 páginas OK, responsividade e velocidade validadas"
+        ],
+        "en": [
+          "Cloudflare Workers deploy with OpenNext",
+          "SDKs in TypeScript, Python and Go with full typing",
+          "CLI and MCP server for AI agents",
+          "OpenAPI 3.1 with Scalar API reference",
+          "Production test: 20/20 pages OK, responsiveness and speed validated"
+        ]
+      }
+    }
+  ],
+  "methodology": {
+    "pt": [
+      "Arquitetura multi-tenant desde o início — não bolt-on",
+      "Adaptadores com interface unificada para abstrair diferenças entre plataformas",
+      "OAuth centralizado — o cliente nunca implementa flow",
+      "Idempotência em todos os endpoints de escrita",
+      "Webhooks HMAC com retry e replay para garantir entrega",
+      "Throttling nos adaptadores para respeitar rate limits por plataforma",
+      "Teste de produção completo: páginas, responsividade, velocidade e links"
+    ],
+    "en": [
+      "Multi-tenant architecture from the start — not bolt-on",
+      "Adapters with unified interface to abstract differences between platforms",
+      "Centralized OAuth — the customer never implements a flow",
+      "Idempotency on all write endpoints",
+      "HMAC webhooks with retry and replay to guarantee delivery",
+      "Throttling in adapters to respect per-platform rate limits",
+      "Full production test: pages, responsiveness, speed and links"
+    ]
+  },
+  "aiPipeline": {
+    "pt": {
+      "title": "Pipeline de publicação via MCP",
+      "steps": [
+        "Agente de IA (Claude, Cursor) chama o MCP server do StackPost",
+        "MCP server valida permissões da organização e RBAC do usuário",
+        "Sistema identifica o adaptador da plataforma de destino (ex: Instagram)",
+        "Adaptador normaliza conteúdo, mídia e metadados para o formato da plataforma",
+        "OAuth token da conta conectada é recuperado do Supabase (criptografado)",
+        "Publicação é enviada para a plataforma com idempotency key",
+        "Webhook HMAC é disparado para o cliente com status de sucesso ou falha",
+        "Analytics é coletada e unificada na próxima chamada de metrics"
+      ]
+    },
+    "en": {
+      "title": "Publishing pipeline via MCP",
+      "steps": [
+        "AI agent (Claude, Cursor) calls the StackPost MCP server",
+        "MCP server validates organization permissions and user RBAC",
+        "System identifies the target platform adapter (e.g. Instagram)",
+        "Adapter normalizes content, media and metadata to the platform format",
+        "OAuth token of the connected account is retrieved from Supabase (encrypted)",
+        "Post is sent to the platform with idempotency key",
+        "HMAC webhook is fired to the customer with success or failure status",
+        "Analytics is collected and unified in the next metrics call"
+      ]
+    }
+  },
+  "security": {
+    "pt": {
+      "title": "Segurança e conformidade",
+      "items": [
+        "Senhas com hash bcryptjs, JWT assinado com jose",
+        "Cookie HttpOnly de 7 dias com SameSite=Lax para OAuth redirects",
+        "Middleware protege rotas autenticadas e libera rotas públicas de marketing/docs",
+        "Supabase RLS ativado em todas as tabelas do schema público",
+        "OAuth tokens criptografados antes de salvar no banco",
+        "Webhooks assinados com HMAC para garantir origem e integridade",
+        "Idempotency keys em todos os endpoints de escrita evitam duplicação",
+        "RBAC com organizações, roles e audit logs para rastreabilidade",
+        "Rate limiting por organização para evitar abuso da API"
+      ]
+    },
+    "en": {
+      "title": "Security and compliance",
+      "items": [
+        "Passwords hashed with bcryptjs, JWT signed with jose",
+        "7-day HttpOnly cookie with SameSite=Lax for OAuth redirects",
+        "Middleware protects authenticated routes and allows public marketing/docs routes",
+        "Supabase RLS enabled on all public schema tables",
+        "OAuth tokens encrypted before saving to the database",
+        "Webhooks signed with HMAC to guarantee origin and integrity",
+        "Idempotency keys on all write endpoints prevent duplication",
+        "RBAC with organizations, roles and audit logs for traceability",
+        "Per-organization rate limiting to prevent API abuse"
+      ]
+    }
+  },
+  "architecture": {
+    "pt": {
+      "title": "Arquitetura do StackPost",
+      "items": [
+        "Next.js 15 App Router com 165 endpoints REST e SSR na mesma aplicação",
+        "OpenNext adapta o build para Cloudflare Workers (edge global, cold start próximo de zero)",
+        "Supabase Postgres com RLS em todas as tabelas — cada organização isolada",
+        "15+ adaptadores de plataforma com interface unificada abstraem OAuth, formatos e rate limits",
+        "OAuth 2.0 centralizado: Google, Discord, Facebook/Meta e demais plataformas",
+        "Mídia: multipart, presigned, TUS/resumable e URL import (até 1GB)",
+        "Webhooks HMAC com retry exponencial, replay e idempotência",
+        "Multi-tenant: organizações, RBAC, roles, audit logs e isolamento total",
+        "SDKs TS/Python/Go + CLI + MCP server para agentes de IA",
+        "Cobrança por uso via Mercado Pago (PIX) — preference checkout com init_point"
+      ]
+    },
+    "en": {
+      "title": "StackPost architecture",
+      "items": [
+        "Next.js 15 App Router with 165 REST endpoints and SSR in the same app",
+        "OpenNext adapts the build to Cloudflare Workers (global edge, near-zero cold start)",
+        "Supabase Postgres with RLS on all tables — each organization isolated",
+        "15+ platform adapters with unified interface abstract OAuth, formats and rate limits",
+        "Centralized OAuth 2.0: Google, Discord, Facebook/Meta and other platforms",
+        "Media: multipart, presigned, TUS/resumable and URL import (up to 1GB)",
+        "HMAC webhooks with exponential retry, replay and idempotency",
+        "Multi-tenant: organizations, RBAC, roles, audit logs and full isolation",
+        "TS/Python/Go SDKs + CLI + MCP server for AI agents",
+        "Usage-based billing via Mercado Pago (PIX) — preference checkout with init_point"
+      ]
+    }
+  },
+  "architectureDiagram": {
+    "left": "Cliente",
+    "leftSub": "SaaS · Agência · Agente IA",
+    "center": "StackPost API",
+    "centerSub": "165 endpoints · Next.js + Workers",
+    "right": "Plataformas",
+    "rightSub": "Instagram · LinkedIn · X · TikTok +12",
+    "bottom": [
+      "Supabase (Postgres + RLS + Storage)",
+      "OAuth 2.0 centralizado",
+      "Adaptadores de plataforma",
+      "Webhooks HMAC + MCP server"
+    ]
+  },
+  "techStack": {
+    "pt": {
+      "title": "Stack tecnológica",
+      "categories": [
+        {
+          "category": "Backend",
+          "items": [
+            {
+              "name": "Next.js 15 (App Router)",
+              "why": "API routes e SSR na mesma app, OpenNext para Workers",
+              "alt": "Express separado (mais serviços pra manter)"
+            },
+            {
+              "name": "Cloudflare Workers + OpenNext",
+              "why": "Edge global, cold start próximo de zero, deploy automático",
+              "alt": "Vercel (custo maior em escala)"
+            },
+            {
+              "name": "Supabase (Postgres)",
+              "why": "Banco com RLS, Storage e service-role HTTP client",
+              "alt": "Prisma + Postgres direto (mais código)"
+            },
+            {
+              "name": "bcryptjs + jose",
+              "why": "Hash de senha e JWT assinado, cookie HttpOnly de 7 dias",
+              "alt": "NextAuth (menos controle sobre o cookie)"
+            }
+          ]
+        },
+        {
+          "category": "Frontend",
+          "items": [
+            {
+              "name": "React 19",
+              "why": "Server Components e hooks de concorrência para o dashboard",
+              "alt": "Vue (ecossistema menor para SaaS)"
+            },
+            {
+              "name": "Tailwind CSS v3",
+              "why": "Tokens consistentes, CSS pequeno, dark mode nativo",
+              "alt": "CSS puro (mais lento para iterar)"
+            },
+            {
+              "name": "react-icons/fa6",
+              "why": "Ícones oficiais de todas as plataformas sociais",
+              "alt": "SVG manual (manutenção alta)"
+            }
+          ]
+        },
+        {
+          "category": "Integração",
+          "items": [
+            {
+              "name": "OAuth 2.0 (Google, Discord, Meta)",
+              "why": "OAuth centralizado — cliente não implementa nenhum flow",
+              "alt": "Cada cliente implementa o próprio (meses de engenharia)"
+            },
+            {
+              "name": "Adaptadores de plataforma (15+)",
+              "why": "Interface unificada abstrai diferenças entre redes",
+              "alt": "SDK oficial de cada plataforma (15 dependências, 15 manutenções)"
+            },
+            {
+              "name": "Webhooks HMAC",
+              "why": "Retry exponencial, replay e idempotência garantem entrega",
+              "alt": "Polling (custo de API, latência alta)"
+            }
+          ]
+        },
+        {
+          "category": "Pagamentos",
+          "items": [
+            {
+              "name": "Mercado Pago (PIX)",
+              "why": "Preference checkout com init_point, PIX e QR code",
+              "alt": "Stripe (sem PIX no Brasil)"
+            }
+          ]
+        },
+        {
+          "category": "DX (Developer Experience)",
+          "items": [
+            {
+              "name": "OpenAPI 3.1 + Scalar",
+              "why": "Documentação interativa com exemplos por linguagem",
+              "alt": "Swagger UI (UX inferior)"
+            },
+            {
+              "name": "SDKs TS/Python/Go",
+              "why": "Tipagem completa, exemplos e versionamento semver",
+              "alt": "Apenas REST (mais código no cliente)"
+            },
+            {
+              "name": "MCP server",
+              "why": "Agentes de IA (Claude, Cursor) publicam diretamente",
+              "alt": "Sem MCP (IA não consegue publicar sem código custom)"
+            }
+          ]
+        }
+      ]
+    },
+    "en": {
+      "title": "Technology stack",
+      "categories": [
+        {
+          "category": "Backend",
+          "items": [
+            {
+              "name": "Next.js 15 (App Router)",
+              "why": "API routes and SSR in the same app, OpenNext for Workers",
+              "alt": "Separate Express (more services to maintain)"
+            },
+            {
+              "name": "Cloudflare Workers + OpenNext",
+              "why": "Global edge, near-zero cold start, automatic deploy",
+              "alt": "Vercel (higher cost at scale)"
+            },
+            {
+              "name": "Supabase (Postgres)",
+              "why": "Database with RLS, Storage and service-role HTTP client",
+              "alt": "Prisma + direct Postgres (more code)"
+            },
+            {
+              "name": "bcryptjs + jose",
+              "why": "Password hash and signed JWT, 7-day HttpOnly cookie",
+              "alt": "NextAuth (less cookie control)"
+            }
+          ]
+        },
+        {
+          "category": "Frontend",
+          "items": [
+            {
+              "name": "React 19",
+              "why": "Server Components and concurrency hooks for the dashboard",
+              "alt": "Vue (smaller ecosystem for SaaS)"
+            },
+            {
+              "name": "Tailwind CSS v3",
+              "why": "Consistent tokens, small CSS, native dark mode",
+              "alt": "Plain CSS (slower to iterate)"
+            },
+            {
+              "name": "react-icons/fa6",
+              "why": "Official icons for all social platforms",
+              "alt": "Manual SVG (high maintenance)"
+            }
+          ]
+        },
+        {
+          "category": "Integration",
+          "items": [
+            {
+              "name": "OAuth 2.0 (Google, Discord, Meta)",
+              "why": "Centralized OAuth — customer implements no flow",
+              "alt": "Each customer implements their own (months of engineering)"
+            },
+            {
+              "name": "Platform adapters (15+)",
+              "why": "Unified interface abstracts differences between networks",
+              "alt": "Official SDK per platform (15 dependencies, 15 maintenances)"
+            },
+            {
+              "name": "HMAC Webhooks",
+              "why": "Exponential retry, replay and idempotency guarantee delivery",
+              "alt": "Polling (API cost, high latency)"
+            }
+          ]
+        },
+        {
+          "category": "Payments",
+          "items": [
+            {
+              "name": "Mercado Pago (PIX)",
+              "why": "Preference checkout with init_point, PIX and QR code",
+              "alt": "Stripe (no PIX in Brazil)"
+            }
+          ]
+        },
+        {
+          "category": "DX (Developer Experience)",
+          "items": [
+            {
+              "name": "OpenAPI 3.1 + Scalar",
+              "why": "Interactive documentation with per-language examples",
+              "alt": "Swagger UI (inferior UX)"
+            },
+            {
+              "name": "TS/Python/Go SDKs",
+              "why": "Full typing, examples and semver versioning",
+              "alt": "REST only (more client code)"
+            },
+            {
+              "name": "MCP server",
+              "why": "AI agents (Claude, Cursor) post directly",
+              "alt": "No MCP (AI cannot post without custom code)"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "decisionLog": [
+    {
+      "title": {
+        "pt": "Multi-tenant desde o início, não bolt-on",
+        "en": "Multi-tenant from the start, not bolt-on"
+      },
+      "why": {
+        "pt": "Isolamento entre organizações com RLS no Supabase desde o schema. Adicionar multi-tenant depois custa refator de meses.",
+        "en": "Isolation between organizations with RLS in Supabase from the schema. Adding multi-tenant later costs months of refactor."
+      },
+      "alternatives": {
+        "pt": "Single-tenant com deploy por cliente escalaria custo e operação linearmente.",
+        "en": "Single-tenant with per-customer deploy would scale cost and operation linearly."
+      }
+    },
+    {
+      "title": {
+        "pt": "Adaptadores com interface unificada",
+        "en": "Adapters with unified interface"
+      },
+      "why": {
+        "pt": "Cada plataforma tem OAuth, formatos e rate limits diferentes. Uma interface unificada permite adicionar plataformas novas sem mudar o código do cliente.",
+        "en": "Each platform has different OAuth, formats and rate limits. A unified interface allows adding new platforms without changing customer code."
+      },
+      "alternatives": {
+        "pt": "SDK oficial de cada plataforma criaria 15 dependências e 15 manutenções independentes.",
+        "en": "Official SDK per platform would create 15 dependencies and 15 independent maintenances."
+      }
+    },
+    {
+      "title": {
+        "pt": "Cloudflare Workers em vez de Vercel",
+        "en": "Cloudflare Workers instead of Vercel"
+      },
+      "why": {
+        "pt": "Edge global com cold start próximo de zero e custo previsível. OpenNext permite usar Next.js sem mudar código.",
+        "en": "Global edge with near-zero cold start and predictable cost. OpenNext allows using Next.js without changing code."
+      },
+      "alternatives": {
+        "pt": "Vercel seria mais simples no início, mas o custo escala rápido com tráfego de API.",
+        "en": "Vercel would be simpler at first, but cost scales fast with API traffic."
+      }
+    },
+    {
+      "title": {
+        "pt": "MCP server para agentes de IA",
+        "en": "MCP server for AI agents"
+      },
+      "why": {
+        "pt": "Agentes de IA (Claude, Cursor) não conseguem publicar em redes sociais sem código custom. MCP server expõe a API nativamente para eles.",
+        "en": "AI agents (Claude, Cursor) cannot post to social media without custom code. MCP server exposes the API natively to them."
+      },
+      "alternatives": {
+        "pt": "Apenas REST exigiria que cada agente implementasse integração manual.",
+        "en": "REST only would require each agent to implement manual integration."
+      }
+    },
+    {
+      "title": {
+        "pt": "Cobrança por uso, não por conta",
+        "en": "Usage-based billing, not per account"
+      },
+      "why": {
+        "pt": "SaaS e agências gerenciam dezenas de contas. Cobrança por conta conectada desincentiva uso. Cobrança por uso alinha custo com valor.",
+        "en": "SaaS and agencies manage dozens of accounts. Per-account billing discourages usage. Usage-based billing aligns cost with value."
+      },
+      "alternatives": {
+        "pt": "Plano fixo por conta limitaria escala e criaria atrito na adição de perfis.",
+        "en": "Fixed plan per account would limit scale and create friction in adding profiles."
+      }
+    }
+  ],
+  "gamification": {
+    "pt": {
+      "title": "Mecânicas de produto",
+      "mechanics": [
+        {
+          "name": "Planos por uso",
+          "desc": "Créditos e planos com limites por consumo — pague pelo que usar, não por conta conectada. Upgrade e downgrade automáticos."
+        },
+        {
+          "name": "Multi-tenant com organizações",
+          "desc": "Cada organização tem suas contas, usuários, roles e audit logs. Convida membros, define permissões e isola dados."
+        },
+        {
+          "name": "Plataformas progressivas",
+          "desc": "Conecte uma plataforma de cada vez. Cada adaptador é independente — adicionar Instagram não exige configurar LinkedIn."
+        },
+        {
+          "name": "Webhooks com replay",
+          "desc": "Receba notificações HMAC-signed de cada evento. Replay permite reprocessar webhooks perdidos sem duplicação."
+        },
+        {
+          "name": "MCP para agentes de IA",
+          "desc": "Claude, Cursor e outros agentes publicam diretamente via MCP server — sem código custom, sem integração manual."
+        }
+      ]
+    },
+    "en": {
+      "title": "Product mechanics",
+      "mechanics": [
+        {
+          "name": "Usage-based plans",
+          "desc": "Credits and plans with consumption limits — pay for what you use, not per connected account. Automatic upgrade and downgrade."
+        },
+        {
+          "name": "Multi-tenant with organizations",
+          "desc": "Each organization has its accounts, users, roles and audit logs. Invite members, set permissions and isolate data."
+        },
+        {
+          "name": "Progressive platforms",
+          "desc": "Connect one platform at a time. Each adapter is independent — adding Instagram doesn't require setting up LinkedIn."
+        },
+        {
+          "name": "Webhooks with replay",
+          "desc": "Receive HMAC-signed notifications for each event. Replay allows reprocessing lost webhooks without duplication."
+        },
+        {
+          "name": "MCP for AI agents",
+          "desc": "Claude, Cursor and other agents post directly via MCP server — no custom code, no manual integration."
+        }
+      ]
+    }
+  },
+  "resultsDetail": {
+    "pt": {
+      "title": "Resultados da auditoria",
+      "kpis": [
+        {
+          "value": "15+",
+          "label": "Plataformas sociais com adaptador unificado",
+          "baseline": "Instagram, Facebook, LinkedIn, Discord, TikTok, YouTube, X, Pinterest, Threads, Reddit, Snapchat, Bluesky, Mastodon, Slack, Google Business",
+          "source": "Contagem de adaptadores"
+        },
+        {
+          "value": "165",
+          "label": "Endpoints REST em produção",
+          "baseline": "publicação, agendamento, analytics, comentários, mídia, webhooks, auth, billing",
+          "source": "Contagem de rotas Next.js"
+        },
+        {
+          "value": "20/20",
+          "label": "Páginas públicas testadas em produção",
+          "baseline": "home, docs, platform pages, demo, security, ai-agents, plans",
+          "source": "Teste de produção"
+        },
+        {
+          "value": "3",
+          "label": "SDKs com tipagem completa",
+          "baseline": "TypeScript, Python, Go",
+          "source": "Repositório StackPost"
+        },
+        {
+          "value": "1GB",
+          "label": "Tamanho máximo de mídia por upload",
+          "baseline": "multipart, presigned, TUS/resumable, URL import",
+          "source": "Configuração StackPost"
+        },
+        {
+          "value": "7 dias",
+          "label": "Validade do JWT (cookie HttpOnly)",
+          "baseline": "SameSite=Lax para OAuth redirects",
+          "source": "Configuração de auth"
+        },
+        {
+          "value": "HMAC",
+          "label": "Assinatura de webhooks com retry e replay",
+          "baseline": "retry exponencial + idempotência em todos os writes",
+          "source": "Arquitetura StackPost"
+        },
+        {
+          "value": "PIX",
+          "label": "Cobrança por uso via Mercado Pago",
+          "baseline": "preference checkout com init_point, QR code",
+          "source": "Integração Mercado Pago"
+        },
+        {
+          "value": "MCP",
+          "label": "Server para agentes de IA (Claude, Cursor)",
+          "baseline": "publicação direta sem código custom",
+          "source": "Repositório StackPost"
+        }
+      ]
+    },
+    "en": {
+      "title": "Audit results",
+      "kpis": [
+        {
+          "value": "15+",
+          "label": "Social platforms with unified adapter",
+          "baseline": "Instagram, Facebook, LinkedIn, Discord, TikTok, YouTube, X, Pinterest, Threads, Reddit, Snapchat, Bluesky, Mastodon, Slack, Google Business",
+          "source": "Adapter count"
+        },
+        {
+          "value": "165",
+          "label": "REST endpoints in production",
+          "baseline": "posting, scheduling, analytics, comments, media, webhooks, auth, billing",
+          "source": "Next.js route count"
+        },
+        {
+          "value": "20/20",
+          "label": "Public pages tested in production",
+          "baseline": "home, docs, platform pages, demo, security, ai-agents, plans",
+          "source": "Production test"
+        },
+        {
+          "value": "3",
+          "label": "SDKs with full typing",
+          "baseline": "TypeScript, Python, Go",
+          "source": "StackPost repository"
+        },
+        {
+          "value": "1GB",
+          "label": "Maximum media size per upload",
+          "baseline": "multipart, presigned, TUS/resumable, URL import",
+          "source": "StackPost configuration"
+        },
+        {
+          "value": "7 days",
+          "label": "JWT validity (HttpOnly cookie)",
+          "baseline": "SameSite=Lax for OAuth redirects",
+          "source": "Auth configuration"
+        },
+        {
+          "value": "HMAC",
+          "label": "Webhook signing with retry and replay",
+          "baseline": "exponential retry + idempotency on all writes",
+          "source": "StackPost architecture"
+        },
+        {
+          "value": "PIX",
+          "label": "Usage-based billing via Mercado Pago",
+          "baseline": "preference checkout with init_point, QR code",
+          "source": "Mercado Pago integration"
+        },
+        {
+          "value": "MCP",
+          "label": "Server for AI agents (Claude, Cursor)",
+          "baseline": "direct posting without custom code",
+          "source": "StackPost repository"
+        }
+      ]
+    }
+  }
+}
