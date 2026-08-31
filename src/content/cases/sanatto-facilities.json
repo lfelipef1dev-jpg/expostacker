@@ -12,7 +12,7 @@
   ],
   "shortDescription": "Site institucional para empresa de facilities. Síndico ou gestor encontra serviços, cases e solicita proposta em minutos.",
   "problemDescription": "A Sanatto Facilities, empresa carioca com mais de 10 anos de atuação em facilities management, precisava de uma presença digital profissional que comunicasse sua estrutura de serviços, cases por segmento e cultura de compliance. O site anterior era genérico, não comunicava a maturidade operacional da empresa e não tinha páginas dedicadas para recruiting, portal do colaborador, blog, imprensa ou parceiros.",
-  "technicalSolution": "Construímos um site institucional corporativo com Next.js 16 e React 19, usando App Router, Tailwind CSS v4 e shadcn/ui. O site tem 17 páginas estáticas cobrindo soluções, cases por segmento, sobre, carreiras, portal do colaborador, blog, vídeos, parceiros, imprensa, alimentação, contato, contratar, política de privacidade e termos de uso. Export estático para deploy em Cloudflare Pages com zero custo de infraestrutura. Formulário de contato com react-hook-form e Zod, animações cinematográficas com Framer Motion e design system consistente com paleta navy blue e gold.",
+  "technicalSolution": "Construímos um site institucional corporativo com Next.js 16 e React 19, usando App Router, Tailwind CSS v4 e shadcn/ui. O site tem 17 páginas estáticas cobrindo soluções, cases por segmento, sobre, carreiras, portal do colaborador, blog, vídeos, parceiros, imprensa, alimentação, contato, contratar, política de privacidade e termos de uso. Export estático para deploy em Cloudflare Pages com infraestrutura de baixo custo. Formulário de contato com react-hook-form e Zod, animações cinematográficas com Framer Motion e design system consistente com paleta navy blue e gold.",
   "businessOutcome": [
     {
       "label": "Páginas",
@@ -70,7 +70,7 @@
     "en": "Sanatto Facilities served condominiums, corporate businesses, industries, schools, hospitals, retail, law firms and logistics centers across Brazil. But its digital presence did not reflect this maturity. The previous site was a single generic page, without dedicated pages for each service, without cases by segment, without a careers portal and without content for press or partners. The company lost leads to competitors with more structured sites, despite having a more consolidated operation."
   },
   "approach": {
-    "pt": "Tratamos o site institucional como um produto digital, não como um panfleto online. Primeiro mapeamos toda a estrutura de serviços da Sanatto: 6 serviços principais, 8 segmentos de mercado, jornada de contratação em 4 etapas, programa de parceiros, portal de carreiras e portal do colaborador. A partir daí desenhamos uma arquitetura de informação com 17 páginas independentes, cada uma com hero section cinematográfico, conteúdo estruturado e CTAs claros. O design system foi construído com Tailwind CSS v4 e shadcn/ui, usando uma paleta navy blue e gold que comunica seriedade e premium. Animações Framer Motion com fade-in direcional criam ritmo sem comprometer performance. Export estático para garantir Lighthouse 98+ e zero custo de infraestrutura.",
+    "pt": "Tratamos o site institucional como um produto digital, não como um panfleto online. Primeiro mapeamos toda a estrutura de serviços da Sanatto: 6 serviços principais, 8 segmentos de mercado, jornada de contratação em 4 etapas, programa de parceiros, portal de carreiras e portal do colaborador. A partir daí desenhamos uma arquitetura de informação com 17 páginas independentes, cada uma com hero section cinematográfico, conteúdo estruturado e CTAs claros. O design system foi construído com Tailwind CSS v4 e shadcn/ui, usando uma paleta navy blue e gold que comunica seriedade e premium. Animações Framer Motion com fade-in direcional criam ritmo sem comprometer performance. Export estático para garantir Lighthouse 98+ e infraestrutura de baixo custo.",
     "en": "We treated the institutional site as a digital product, not an online brochure. First we mapped Sanatto's entire service structure: 6 main services, 8 market segments, a 4-step hiring journey, partners program, careers portal and employee portal. From there we designed an information architecture with 17 independent pages, each with a cinematic hero section, structured content and clear CTAs. The design system was built with Tailwind CSS v4 and shadcn/ui, using a navy blue and gold palette that communicates seriousness and premium quality. Framer Motion animations with directional fade-in create rhythm without compromising performance. Static export to guarantee Lighthouse 98+ and zero infrastructure cost."
   },
   "solutionIntro": {
@@ -106,7 +106,7 @@
         "en": "Next.js 16 with static export instead of SSR"
       },
       "why": {
-        "pt": "Um site institucional não precisa de renderização dinâmica no servidor. Export estático garante Lighthouse 98+, zero custo de infraestrutura no Cloudflare Pages e carregamento instantâneo em qualquer conexão.",
+        "pt": "Um site institucional não precisa de renderização dinâmica no servidor. Export estático garante Lighthouse 98+, infraestrutura de baixo custo no Cloudflare Pages e carregamento instantâneo em qualquer conexão.",
         "en": "An institutional site does not need server-side rendering. Static export guarantees Lighthouse 98+, zero infrastructure cost on Cloudflare Pages and instant loading on any connection."
       },
       "alternatives": {
@@ -219,11 +219,7 @@
       }
     },
     {
-      "value": "0",
-      "label": {
-        "pt": "Custo de infra (R$)",
-        "en": "Infra cost (R$)"
-      }
+      "value": "Low", "label": { "pt": "Stack serverless", "en": "Serverless stack" }
     }
   ],
   "timeline": {
@@ -297,7 +293,7 @@
       "Definir design system com paleta, tipografia e componentes reutilizáveis",
       "Construir cada página com hero section, conteúdo estruturado e CTA claro",
       "Validar responsividade mobile e acessibilidade em cada página",
-      "Export estático para garantir performance e zero custo de infraestrutura",
+      "Export estático para garantir performance e infraestrutura de baixo custo",
       "Deploy automatizado via GitHub Actions para eliminar operação manual"
     ],
     "en": [

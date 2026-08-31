@@ -154,7 +154,7 @@
     {
       "name": "Cloudflare Pages",
       "why": {
-        "pt": "Deploy automatico, cache global e dominio customizado com zero custo de infraestrutura.",
+        "pt": "Deploy automatico, cache global e dominio customizado com infraestrutura de baixo custo.",
         "en": "Automatic deploy, global cache and custom domain with zero infrastructure cost."
       }
     },
@@ -197,7 +197,7 @@
       }
     },
     {
-      "value": "R$0",
+      "value": "Low",
       "label": {
         "pt": "Infra",
         "en": "Infra"

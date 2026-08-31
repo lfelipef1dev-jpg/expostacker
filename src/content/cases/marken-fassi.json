@@ -356,7 +356,7 @@
         {
           "category": "ecommerce",
           "items": [
-            { "name": "Cloudflare Pages", "why": "Hosting estático com CDN global, zero custo e deploy automático via GitHub Actions", "alt": "Vercel — excelente para Next.js, mas custo em escala" },
+            { "name": "Cloudflare Pages", "why": "Hosting estático com CDN global, baixo custo e deploy automático via GitHub Actions", "alt": "Vercel — excelente para Next.js, mas custo em escala" },
             { "name": "Lucide React", "why": "Ícones SVG tree-shakeable para interface leve e acessível", "alt": "Icon fonts — mais pesadas e menos acessíveis" }
           ]
         }

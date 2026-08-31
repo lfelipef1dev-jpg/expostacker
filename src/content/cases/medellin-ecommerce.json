@@ -31,7 +31,7 @@
     "en": "The player opens the store, browses 54 pages of products, adds VIPs, vehicles and skins to the cart and checks out with PIX, card or boleto. Once approved, the items are delivered to the FiveM queue in seconds."
   },
   "opening": {
-    "pt": "Um jogador do servidor Medellin RP abre a loja no navegador. Navega por 54 páginas organizadas em categorias: VIPs, veículos, blindados, aeronaves, armas e skins, pets, salários, vouchers, mochilas, rolygrams, modificações e itens sazonais. Adiciona produtos ao carrinho, que persiste entre páginas via localStorage. No checkout, informa seu identificador de jogo. A API valida o carrinho server-side, cria uma preferência no Mercado Pago e redireciona para pagamento. Assim que o PIX é confirmado, um webhook processa o pagamento com idempotência, insere os itens na fila de entrega do FiveM e o jogador recebe tudo automaticamente no jogo — tudo rodando em Cloudflare com zero custo de infraestrutura.",
+    "pt": "Um jogador do servidor Medellin RP abre a loja no navegador. Navega por 54 páginas organizadas em categorias: VIPs, veículos, blindados, aeronaves, armas e skins, pets, salários, vouchers, mochilas, rolygrams, modificações e itens sazonais. Adiciona produtos ao carrinho, que persiste entre páginas via localStorage. No checkout, informa seu identificador de jogo. A API valida o carrinho server-side, cria uma preferência no Mercado Pago e redireciona para pagamento. Assim que o PIX é confirmado, um webhook processa o pagamento com idempotência, insere os itens na fila de entrega do FiveM e o jogador recebe tudo automaticamente no jogo — tudo rodando em Cloudflare com infraestrutura de baixo custo.",
     "en": "A player on the Medellin RP server opens the store in their browser. They browse 54 pages organized by categories: VIPs, vehicles, armored, aircraft, weapons and skins, pets, salaries, vouchers, backpacks, rolygrams, modifications and seasonal items. They add products to the cart, which persists across pages via localStorage. At checkout, they enter their game identifier. The API validates the cart server-side, creates a Mercado Pago preference and redirects to payment. As soon as PIX is confirmed, a webhook processes the payment with idempotency, inserts items into the FiveM delivery queue and the player receives everything automatically in-game — all running on Cloudflare with zero infrastructure cost."
   },
   "challengeContext": {
@@ -43,7 +43,7 @@
     "en": "We architected a hybrid solution in 3 layers: (1) Static storefront in HTML5 + CSS3 + Vanilla JS with 54 pages, deployed on Cloudflare Pages — no framework, no build, no cost. (2) Cloudflare Worker as edge API proxy with direct fallback to Mercado Pago if the backend is unavailable. (3) Node.js/Express backend with MySQL for order persistence, payment idempotency, FiveM delivery queue and rate limiting. Images (772 MB) are on Cloudflare R2 with automatic PNG → WebP conversion at runtime via MutationObserver that rewrites URLs for img, source, link and meta tags. The cart persists in localStorage. Checkout has 4 steps with server-side price validation. Mercado Pago webhooks process payments with idempotency via processed_payments table and insert items into the medellin_loja_pending queue for FiveM to deliver automatically."
   },
   "solutionIntro": {
-    "pt": "A plataforma Medellin E-commerce é uma loja VIP completa com 54 páginas, 308 produtos, 10 tiers de VIP, 7 temporadas sazonais, checkout via Mercado Pago com 3 métodos de pagamento, entrega automática no FiveM, imagens em CDN R2 com WebP, e arquitetura híbrida Cloudflare Pages + Worker + Node.js — tudo com zero custo de infraestrutura.",
+    "pt": "A plataforma Medellin E-commerce é uma loja VIP completa com 54 páginas, 308 produtos, 10 tiers de VIP, 7 temporadas sazonais, checkout via Mercado Pago com 3 métodos de pagamento, entrega automática no FiveM, imagens em CDN R2 com WebP, e arquitetura híbrida Cloudflare Pages + Worker + Node.js — tudo com infraestrutura de baixo custo.",
     "en": "The Medellin E-commerce platform is a complete VIP store with 54 pages, 308 products, 10 VIP tiers, 7 seasonal collections, Mercado Pago checkout with 3 payment methods, automatic FiveM delivery, R2 CDN images with WebP, and hybrid Cloudflare Pages + Worker + Node.js architecture — all with zero infrastructure cost."
   },
   "solutionItems": {
@@ -184,7 +184,7 @@
     {
       "name": "Cloudflare Pages",
       "why": {
-        "pt": "Hosting do storefront estático com zero custo no plano Free. Deploy automático via GitHub Actions. CDN global. Subdomínio medellin.expostacker.com.br com CNAME para medellin-ecommerce.pages.dev.",
+        "pt": "Hosting do storefront estático com baixo custo no plano Free. Deploy automático via GitHub Actions. CDN global. Subdomínio medellin.expostacker.com.br com CNAME para medellin-ecommerce.pages.dev.",
         "en": "Static storefront hosting with zero cost on the Free plan. Automatic deploy via GitHub Actions. Global CDN. Subdomain medellin.expostacker.com.br with CNAME to medellin-ecommerce.pages.dev."
       }
     },
@@ -229,7 +229,7 @@
   "heroMetrics": [
     { "value": "54", "label": { "pt": "Páginas no storefront", "en": "Storefront pages" } },
     { "value": "344", "label": { "pt": "Produtos no catálogo", "en": "Products in catalog" } },
-    { "value": "0", "label": { "pt": "Custo de infra (R$)", "en": "Infra cost (R$)" } }
+    { "value": "Low", "label": { "pt": "Stack serverless", "en": "Serverless stack" } }
   ],
   "timeline": { "duration": "Projeto contínuo", "launchDate": "2026-08" },
   "visualDisclaimer": {
@@ -241,7 +241,7 @@
     "en": "Need an online store that converts?"
   },
   "ctaText": {
-    "pt": "Construí uma loja com 344 produtos, checkout via Mercado Pago e entrega automática no jogo — tudo com zero custo de infra. Posso fazer o mesmo para o seu produto.",
+    "pt": "Construí uma loja com 344 produtos, checkout via Mercado Pago e entrega automática no jogo — tudo com infraestrutura de baixo custo. Posso fazer o mesmo para o seu produto.",
     "en": "I built a store with 344 products, Mercado Pago checkout and automatic in-game delivery — all with zero infra cost. I can do the same for your product."
   },
   "timelinePhases": [
@@ -450,7 +450,7 @@
           "items": [
             {
               "name": "Cloudflare Pages",
-              "why": "Hosting estático com zero custo, CDN global, deploy automático via GitHub Actions. Subdomínio customizado.",
+              "why": "Hosting estático com baixo custo, CDN global, deploy automático via GitHub Actions. Subdomínio customizado.",
               "alt": "Netlify/Vercel teriam custo no plano Free para tráfego elevado. Cloudflare Pages é mais generoso."
             },
             {
@@ -552,7 +552,7 @@
         { "value": "10", "label": "Tiers de VIP", "baseline": "0", "source": "Páginas VIP" },
         { "value": "7", "label": "Temporadas sazonais", "baseline": "0", "source": "vips-temporadas.html" },
         { "value": "3", "label": "Métodos de pagamento", "baseline": "0", "source": "Mercado Pago: PIX, cartão, boleto" },
-        { "value": "0", "label": "Custo de infra (R$)", "baseline": "—", "source": "Cloudflare plano Free" }
+        { "value": "0", "label": "Stack serverless", "baseline": "—", "source": "Cloudflare plano Free" }
       ]
     },
     "en": {
@@ -563,7 +563,7 @@
         { "value": "10", "label": "VIP tiers", "baseline": "0", "source": "VIP pages" },
         { "value": "7", "label": "Seasonal collections", "baseline": "0", "source": "vips-temporadas.html" },
         { "value": "3", "label": "Payment methods", "baseline": "0", "source": "Mercado Pago: PIX, card, boleto" },
-        { "value": "0", "label": "Infra cost (R$)", "baseline": "—", "source": "Cloudflare Free plan" }
+        { "value": "0", "label": "Serverless stack", "baseline": "—", "source": "Cloudflare Free plan" }
       ]
     }
   }

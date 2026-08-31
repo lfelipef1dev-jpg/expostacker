@@ -31,7 +31,7 @@
     "en": "The entrepreneur receives an invite, signs in with a magic link and accesses the feed, events, directory and real-time messaging. AI suggests complementary connections and the dashboard tracks capital opportunities."
   },
   "opening": {
-    "pt": "Uma empreendedora recebe um convite exclusivo por e-mail. Clica no magic link. Em segundos, está autenticada e dentro de uma plataforma com feed social, diretório de outras empreendedoras verificadas, eventos com RSVP, mensagens em tempo real, oportunidades de capital, trilhas de aprendizado e um assistente de IA que faz matchmaking entre perfis complementares. Tudo isso rodando em Cloudflare Workers com Supabase como backend, sem custo de infraestrutura.",
+    "pt": "Uma empreendedora recebe um convite exclusivo por e-mail. Clica no magic link. Em segundos, está autenticada e dentro de uma plataforma com feed social, diretório de outras empreendedoras verificadas, eventos com RSVP, mensagens em tempo real, oportunidades de capital, trilhas de aprendizado e um assistente de IA que faz matchmaking entre perfis complementares. Tudo isso rodando em Cloudflare Workers com Supabase como backend, infraestrutura de baixo custo.",
     "en": "An entrepreneur receives an exclusive invite by email. Clicks the magic link. In seconds, she is authenticated and inside a platform with a social feed, directory of other verified entrepreneurs, events with RSVP, realtime messaging, capital opportunities, learning tracks and an AI assistant that matches complementary profiles. All running on Cloudflare Workers with Supabase as backend, with no infrastructure cost."
   },
   "challengeContext": {
@@ -39,7 +39,7 @@
     "en": "SEEDS Experience is an exclusive community of women entrepreneurs. The challenge was to build a platform that supported verified networking, curated events, AI matchmaking, realtime messaging, gamification with achievements, discussion forum, learning tracks, member directory, capital opportunities, partner benefits and administrative moderation — all with database-level security (RLS on all tables), invite-only authentication and production performance."
   },
   "approach": {
-    "pt": "Arquitetamos uma aplicação full-stack com Next.js 15 App Router e Supabase como backend completo. O banco foi modelado com 40 tabelas distribuídas em 8 grupos funcionais: core, social, eventos, negócios, aprendizado, comunicação, reconhecimento e moderação. Row Level Security habilitado em todas as tabelas com policies por usuário. Triggers automáticos para contadores de reações, comentários e saves. Mais de 40 índices incluindo compostos e parciais. Autenticação invite-only via magic link com tabela de convites. Realtime via Supabase para mensagens e salas. Storage para avatares, imagens do feed e capas de eventos. Integrações de IA com Groq, Gemini e Cerebras para matchmaking e assistente. Deploy na Cloudflare Workers via @opennextjs/cloudflare para zero custo de infraestrutura.",
+    "pt": "Arquitetamos uma aplicação full-stack com Next.js 15 App Router e Supabase como backend completo. O banco foi modelado com 40 tabelas distribuídas em 8 grupos funcionais: core, social, eventos, negócios, aprendizado, comunicação, reconhecimento e moderação. Row Level Security habilitado em todas as tabelas com policies por usuário. Triggers automáticos para contadores de reações, comentários e saves. Mais de 40 índices incluindo compostos e parciais. Autenticação invite-only via magic link com tabela de convites. Realtime via Supabase para mensagens e salas. Storage para avatares, imagens do feed e capas de eventos. Integrações de IA com Groq, Gemini e Cerebras para matchmaking e assistente. Deploy na Cloudflare Workers via @opennextjs/cloudflare para infraestrutura de baixo custo.",
     "en": "We architected a full-stack application with Next.js 15 App Router and Supabase as the complete backend. The database was modeled with 40 tables distributed across 8 functional groups: core, social, events, business, learning, communication, recognition and moderation. Row Level Security enabled on all tables with per-user policies. Automatic triggers for reaction, comment and save counters. Over 40 indexes including composite and partial. Invite-only authentication via magic link with invites table. Realtime via Supabase for messages and rooms. Storage for avatars, feed images and event covers. AI integrations with Groq, Gemini and Cerebras for matchmaking and assistant. Deploy on Cloudflare Workers via @opennextjs/cloudflare for zero infrastructure cost."
   },
   "solutionIntro": {
@@ -93,7 +93,7 @@
         "en": "Cloudflare Workers via OpenNext instead of Netlify"
       },
       "why": {
-        "pt": "Cloudflare Workers oferece zero custo de infraestrutura no plano Free, deploy automático via GitHub Actions, edge network global e compatibilidade com Next.js App Router via @opennextjs/cloudflare. O subdomínio seeds.expostacker.com.br fica no mesmo ecossistema DNS dos outros projetos.",
+        "pt": "Cloudflare Workers oferece infraestrutura de baixo custo no plano Free, deploy automático via GitHub Actions, edge network global e compatibilidade com Next.js App Router via @opennextjs/cloudflare. O subdomínio seeds.expostacker.com.br fica no mesmo ecossistema DNS dos outros projetos.",
         "en": "Cloudflare Workers offers zero infrastructure cost on the Free plan, automatic deploy via GitHub Actions, global edge network and compatibility with Next.js App Router via @opennextjs/cloudflare. The subdomain seeds.expostacker.com.br stays in the same DNS ecosystem as the other projects."
       },
       "alternatives": {
@@ -148,7 +148,7 @@
     {
       "name": "Cloudflare Workers",
       "why": {
-        "pt": "Hosting full-stack com zero custo no plano Free, edge network global, deploy automático via GitHub Actions e subdomínio no mesmo ecossistema DNS.",
+        "pt": "Hosting full-stack com baixo custo no plano Free, edge network global, deploy automático via GitHub Actions e subdomínio no mesmo ecossistema DNS.",
         "en": "Full-stack hosting with zero cost on the Free plan, global edge network, automatic deploy via GitHub Actions and subdomain in the same DNS ecosystem."
       }
     },
@@ -172,7 +172,7 @@
     "en": "I acted as tech lead and full stack developer: modeled the database with 40 tables and RLS, architected the application with Next.js 15 App Router, implemented the 51 routes with protection middleware, configured Supabase Auth with invite-only magic link, enabled Realtime for messages, configured Storage for images, integrated 3 AI APIs with rate limiting, migrated deploy from Netlify to Cloudflare Workers via @opennextjs/cloudflare, automated CI/CD with GitHub Actions and documented the full-stack deploy flow for reuse in future projects."
   },
   "lessonsLearned": {
-    "pt": "O maior aprendizado foi que Supabase + Cloudflare Workers é uma combinação poderosa para aplicações full-stack com zero custo de infraestrutura. A migração de Netlify para Workers via @opennextjs/cloudflare preservou o banco de dados intacto — só mudou a camada de hosting. RLS em todas as 40 tabelas provou que segurança no banco é mais robusta que middleware. E o fato de env vars precisarem estar em dois lugares (GitHub Secrets para build + Worker secrets para runtime) foi uma lição importante: sem o secret no Worker, o app quebra em runtime mesmo com build perfeito.",
+    "pt": "O maior aprendizado foi que Supabase + Cloudflare Workers é uma combinação poderosa para aplicações full-stack com infraestrutura de baixo custo. A migração de Netlify para Workers via @opennextjs/cloudflare preservou o banco de dados intacto — só mudou a camada de hosting. RLS em todas as 40 tabelas provou que segurança no banco é mais robusta que middleware. E o fato de env vars precisarem estar em dois lugares (GitHub Secrets para build + Worker secrets para runtime) foi uma lição importante: sem o secret no Worker, o app quebra em runtime mesmo com build perfeito.",
     "en": "The biggest lesson was that Supabase + Cloudflare Workers is a powerful combination for full-stack applications with zero infrastructure cost. Migrating from Netlify to Workers via @opennextjs/cloudflare kept the database intact — only the hosting layer changed. RLS on all 40 tables proved that database-level security is more robust than middleware. And the fact that env vars need to be in two places (GitHub Secrets for build + Worker secrets for runtime) was an important lesson: without the secret in the Worker, the app breaks at runtime even with a perfect build."
   },
   "stakeholders": {
@@ -186,7 +186,7 @@
   "heroMetrics": [
     { "value": "51", "label": { "pt": "Rotas na aplicação", "en": "App routes" } },
     { "value": "40", "label": { "pt": "Tabelas com RLS", "en": "Tables with RLS" } },
-    { "value": "0", "label": { "pt": "Custo de infra (R$)", "en": "Infra cost (R$)" } }
+    { "value": "Low", "label": { "pt": "Stack serverless", "en": "Serverless stack" } }
   ],
   "timeline": { "duration": "Projeto contínuo", "launchDate": "2026-08" },
   "timelinePhases": [
@@ -306,7 +306,7 @@
     "en": "Need a community platform that scales?"
   },
   "ctaText": {
-    "pt": "Construí uma plataforma com 51 rotas, 40 tabelas com RLS, realtime e 3 integrações de IA — tudo com zero custo de infra. Posso fazer o mesmo para o seu produto.",
+    "pt": "Construí uma plataforma com 51 rotas, 40 tabelas com RLS, realtime e 3 integrações de IA — tudo com infraestrutura de baixo custo. Posso fazer o mesmo para o seu produto.",
     "en": "I built a platform with 51 routes, 40 tables with RLS, realtime and 3 AI integrations — all with zero infra cost. I can do the same for your product."
   },
   "methodology": {
@@ -387,7 +387,7 @@
         {
           "category": "saas",
           "items": [
-            { "name": "Cloudflare Workers", "why": "Hosting full-stack com zero custo, edge global, deploy automático.", "alt": "Netlify — plano free limitado, sem edge global" },
+            { "name": "Cloudflare Workers", "why": "Hosting full-stack com baixo custo, edge global, deploy automático.", "alt": "Netlify — plano free limitado, sem edge global" },
             { "name": "@opennextjs/cloudflare", "why": "Adapter que converte Next.js App Router para Workers.", "alt": "Vercel — excelente, mas custo maior em escala" },
             { "name": "Groq + Gemini + Cerebras", "why": "3 APIs de IA gratuitas para matchmaking e assistente.", "alt": "OpenAI — custo por token, menos adequado para free tier" },
             { "name": "Upstash Redis", "why": "Rate limiting serverless para endpoints de IA.", "alt": "Rate limiting em memória — não funciona em edge serverless" }

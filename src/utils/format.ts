@@ -4,10 +4,14 @@ export function formatNumber(value: number, lang: 'pt' | 'en' = 'pt'): string {
 }
 
 export function formatBusinessMetric(
-  value: number,
+  value: number | string,
   unit: string,
   lang: 'pt' | 'en' = 'pt',
 ): string {
+  if (typeof value === 'string') {
+    return value;
+  }
+
   if (unit === 'R$') {
     const locale = lang === 'en' ? 'en-US' : 'pt-BR';
     return new Intl.NumberFormat(locale, {

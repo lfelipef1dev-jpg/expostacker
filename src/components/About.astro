@@ -124,7 +124,25 @@ const stats = [
         <h3 class="font-mono text-sm uppercase tracking-widest text-brand-text-secondary">
           {t('about.stackTitle')}
         </h3>
-        <div class="flex flex-col gap-5 flex-grow">
+        {/* Stack resumida — ver completa expande */}
+        <div class="flex flex-wrap gap-2">
+          <span class="px-3 py-2 text-sm border border-brand-border rounded-full bg-brand-surface/60 text-brand-text-secondary">Next.js</span>
+          <span class="px-3 py-2 text-sm border border-brand-border rounded-full bg-brand-surface/60 text-brand-text-secondary">React</span>
+          <span class="px-3 py-2 text-sm border border-brand-border rounded-full bg-brand-surface/60 text-brand-text-secondary">Python</span>
+          <span class="px-3 py-2 text-sm border border-brand-border rounded-full bg-brand-surface/60 text-brand-text-secondary">PostgreSQL</span>
+          <span class="px-3 py-2 text-sm border border-brand-border rounded-full bg-brand-surface/60 text-brand-text-secondary">Cloudflare</span>
+          <span class="px-3 py-2 text-sm border border-brand-border rounded-full bg-brand-surface/60 text-brand-text-secondary">IA</span>
+        </div>
+        <button
+          type="button"
+          id="stack-toggle-btn"
+          class="inline-flex items-center justify-center w-fit px-4 py-2 min-h-[40px] text-sm font-semibold border border-brand-border text-brand-text-secondary rounded-lg hover:border-brand-accent/60 hover:text-brand-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent"
+          aria-expanded="false"
+          aria-controls="stack-full"
+        >
+          {lang === 'pt' ? 'Ver stack completa' : 'View full stack'} →
+        </button>
+        <div id="stack-full" class="hidden flex-col gap-5 flex-grow">
           {stack.map((group) => (
             <div class="flex flex-col gap-2">
               <p class="font-mono text-xs uppercase tracking-wider text-brand-text-secondary">
@@ -197,3 +215,24 @@ const stats = [
     </div>
   </div>
 </section>
+
+<script>
+  const btn = document.getElementById('stack-toggle-btn');
+  const full = document.getElementById('stack-full');
+  if (btn && full) {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      if (expanded) {
+        full.classList.add('hidden');
+        full.classList.remove('flex');
+        btn.setAttribute('aria-expanded', 'false');
+        btn.textContent = (btn.textContent || '').replace('↑', '→');
+      } else {
+        full.classList.remove('hidden');
+        full.classList.add('flex');
+        btn.setAttribute('aria-expanded', 'true');
+        btn.textContent = (btn.textContent || '').replace('→', '↑');
+      }
+    });
+  }
+</script>
