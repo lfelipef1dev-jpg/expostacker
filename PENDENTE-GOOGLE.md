@@ -100,3 +100,36 @@ O repositório já consome esses valores automaticamente:
 ## Nota de segurança
 
 Esses três valores **não devem ser commitados no repositório**. Só podem ficar no GitHub Secrets ou em `.deploy.env` (já gitignored). Nunca versionar.
+
+---
+
+## Sites do ecossistema que precisam cadastro
+
+Fazer o cadastro dos 3 serviços (GA4 + GSC + Bing) para TODOS os sites de uma vez:
+
+| Site | URL | GA4 | GSC | Bing |
+|------|-----|-----|-----|------|
+| ExpoStacker | expostacker.com.br | PENDENTE | PENDENTE | PENDENTE |
+| StackPost | stackpost.expostacker.com.br | PENDENTE | PENDENTE | PENDENTE |
+| Nexus IA | nexusia.expostacker.com.br | PENDENTE | PENDENTE | PENDENTE |
+| SEEDS | seeds.expostacker.com.br | PENDENTE | PENDENTE | PENDENTE |
+| CASA FASSI | marken.expostacker.com.br | PENDENTE | PENDENTE | PENDENTE |
+| Sanatto | sanatto.expostacker.com.br | PENDENTE | PENDENTE | PENDENTE |
+| Medellin | medellin.expostacker.com.br | PENDENTE | PENDENTE | PENDENTE |
+
+### Ordem recomendada
+
+1. Comecar pelo ExpoStacker (site principal)
+2. Depois StackPost e Nexus IA (produtos SaaS)
+3. Depois os demais
+
+### Para cada site
+
+1. Criar propriedade no GA4 -> copiar `G-XXXXXXXXXX`
+2. Adicionar propriedade no GSC -> copiar token de verificacao
+3. Adicionar site no Bing -> copiar token de verificacao
+4. Setar 3 GitHub Secrets no repo correspondente:
+   - `PUBLIC_GA4_ID`
+   - `PUBLIC_GSC_TOKEN`
+   - `PUBLIC_BING_TOKEN`
+5. Push para main -> deploy automatico ativa as tags
