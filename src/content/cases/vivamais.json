@@ -3,20 +3,34 @@
   "title": "VivaMais",
   "clientName": "VivaMais",
   "tags": [
-    "HTML",
+    "HTML5",
     "CSS",
     "JavaScript",
+    "Node.js",
     "Cloudflare Pages",
     "SEO",
     "Schema.org",
-    "Acessibilidade"
+    "Acessibilidade",
+    "WCAG 2.2",
+    "LGPD",
+    "Healthtech"
   ],
-  "shortDescription": "Site institucional para clínica médica em Santos. Paciente encontra especialidades, convênios e agenda por WhatsApp em poucos cliques.",
-  "problemDescription": "Clinicas medicas de medio porte precisam de uma presenca digital confiavel para captar pacientes, comunicar especialidades, convenios e canais de contato sem depender de plataformas de terceiros. O desafio e entregar um site rapido, acessivel, bem estruturado para SEO local e com um formulario funcional de agendamento.",
-  "technicalSolution": "Site estatico em HTML5 semantico, CSS customizado com design system proprio e JavaScript vanilla para interatividade (menu mobile, mascara de telefone, validacao de formulario). Inclui schema.org MedicalClinic para SEO, metadagens Open Graph, skip link, atributos ARIA, formulario de agendamento com LGPD e botao flutuante de WhatsApp. Deploy na Cloudflare Pages com dominio personalizado.",
+  "shortDescription": "Plataforma digital demonstrativa para clinicas: 37 paginas, agendamento em 5 etapas, portal do paciente, painel administrativo, busca inteligente e conteudo editorial.",
+  "problemDescription": "Clinicas medicas de medio e grande porte precisam de uma presenca digital que va alem de uma landing page. O desafio e demonstrar uma plataforma completa: agendamento digital com fluxo contextual, portal do paciente com documentos e exames, painel administrativo com agenda e analytics, busca inteligente, conteudo editorial para SEO e arquitetura de informacao profunda por especialidade e por profissional.",
+  "technicalSolution": "Plataforma estatica gerada por build Node.js que produz 37 paginas HTML a partir de dados JSON estruturados. Design system proprio em CSS com tokens, JavaScript vanilla para interatividade client-side (agendamento, portal, admin, busca), dados demonstrativos em localStorage, SEO tecnico completo (sitemap, robots, schema.org, canonical, OG) e deploy na Cloudflare Pages.",
   "businessOutcome": [
     {
+      "label": "Paginas",
+      "value": 37,
+      "unit": ""
+    },
+    {
       "label": "Especialidades",
+      "value": 6,
+      "unit": ""
+    },
+    {
+      "label": "Profissionais",
       "value": 6,
       "unit": ""
     },
@@ -26,116 +40,212 @@
       "unit": ""
     },
     {
-      "label": "Profissionais",
-      "value": 4,
+      "label": "Artigos",
+      "value": 8,
+      "unit": ""
+    },
+    {
+      "label": "Etapas de agendamento",
+      "value": 5,
       "unit": ""
     }
   ],
   "liveUrl": "https://vivamais.expostacker.com.br",
   "projectType": "Client-Work",
-  "featured": false,
-  "priority": 7,
+  "featured": true,
+  "priority": 3,
   "category": "site",
   "year": 2026,
   "hasCaseStudy": true,
   "heroImage": "/cases/vivamais.jpg",
   "heroHeadline": {
-    "pt": "VivaMais — Site institucional para clinica medica multidisciplinar",
-    "en": "VivaMais — Institutional website for multidisciplinary medical clinic"
+    "pt": "VivaMais — Plataforma digital para clinicas",
+    "en": "VivaMais — Digital platform for clinics"
   },
   "heroSubhead": {
-    "pt": "Paciente acessa o site, vê especialidades e convênios, conhece a equipe e clica no botão de WhatsApp para agendar. Rápido, acessível e otimizado para SEO local.",
-    "en": "A patient visits the site, sees specialties and health insurance, meets the team and clicks the WhatsApp button to book. Fast, accessible and optimized for local SEO."
+    "pt": "37 paginas, 6 especialidades, agendamento em 5 etapas, portal do paciente, painel administrativo, busca inteligente e conteudo editorial. Uma demonstracao completa de product engineering para saude.",
+    "en": "37 pages, 6 specialties, 5-step booking, patient portal, admin dashboard, smart search and editorial content. A complete product engineering demo for healthcare."
   },
   "opening": {
-    "pt": "VivaMais e um site institucional para uma clinica medica ficticia em Santos. A proposta e demonstrar um site de saude rapido, acessivel e otimizado para buscas locais, com estrutura semantica, schema.org, formulario de agendamento e design responsivo.",
-    "en": "VivaMais is an institutional website for a fictional medical clinic in Santos. The proposal is to demonstrate a fast, accessible, locally SEO-optimized health website with semantic structure, schema.org, appointment form and responsive design."
+    "pt": "VivaMais e uma plataforma digital demonstrativa para clinicas medicas. Nao e uma landing page institucional: e um produto completo com 37 paginas geradas a partir de dados estruturados, fluxo de agendamento em 5 etapas com deep links contextuais, portal do paciente com consultas e documentos, painel administrativo com agenda e analytics, busca inteligente, blog com 8 artigos e SEO tecnico completo. Tudo estatico, sem backend, com dados ficticios claramente identificados.",
+    "en": "VivaMais is a demo digital platform for medical clinics. It is not an institutional landing page: it is a complete product with 37 pages generated from structured data, a 5-step booking flow with contextual deep links, a patient portal with appointments and documents, an admin dashboard with agenda and analytics, smart search, a blog with 8 articles and full technical SEO. All static, no backend, with clearly identified fictional data."
   },
   "challengeContext": {
-    "pt": "O projeto precisava comunicar confianca e credibilidade para uma clinica medica sem depender de frameworks pesados. O foco era performance, acessibilidade e SEO local.",
-    "en": "The project needed to communicate trust and credibility for a medical clinic without relying on heavy frameworks. The focus was on performance, accessibility and local SEO."
+    "pt": "O desafio era demonstrar que e possivel entregar uma plataforma de healthtech completa sem backend, sem framework pesado e sem custo de infraestrutura. A plataforma precisava comunicar profundidade de produto: nao apenas uma home com especialidades, mas fluxos completos de agendamento, portal do paciente funcional, painel administrativo com KPIs e agenda operacional, conteudo editorial para SEO e arquitetura de informacao que conecta especialidades, profissionais, convencios e agendamento em um ecossistema integrado.",
+    "en": "The challenge was to demonstrate that it is possible to deliver a complete healthtech platform without a backend, without a heavy framework and without infrastructure costs. The platform needed to communicate product depth: not just a home with specialties, but complete booking flows, a functional patient portal, an admin dashboard with KPIs and operational agenda, editorial content for SEO and an information architecture that connects specialties, professionals, insurance and booking in an integrated ecosystem."
   },
   "approach": {
-    "pt": "Implementamos HTML5 semantico com landmarks ARIA, CSS customizado com variaveis de design, JavaScript vanilla para o menu mobile, mascara de telefone e validacao do formulario. Incluimos schema.org MedicalClinic, metadagens Open Graph, skip link, contraste adequado e deploy na Cloudflare Pages.",
-    "en": "We implemented semantic HTML5 with ARIA landmarks, custom CSS with design variables, vanilla JavaScript for mobile menu, phone mask and form validation. We included schema.org MedicalClinic, Open Graph metadata, skip link, adequate contrast and deploy on Cloudflare Pages."
+    "pt": "Construímos um gerador estatico em Node.js que le dados JSON estruturados (9 arquivos: clinica, especialidades, medicos, convenios, consultas, pacientes, documentos, artigos e analytics) e gera 37 paginas HTML com templates compartilhados. O design system usa CSS com tokens customizados (cores, espacamento, sombras, raios), tipografia Inter e iconografia SVG inline. JavaScript vanilla gerencia estado client-side com localStorage para agendamento, sessao do portal e CRUD do admin. SEO tecnico inclui sitemap sem priority/changefreq (conforme padrao 2026), robots.txt, schema.org JSON-LD (MedicalClinic, Organization, WebSite, MedicalSpecialty, Physician, Article, Blog, AboutPage, LocalBusiness, BreadcrumbList), canonical, Open Graph, Twitter Cards e noindex em paginas privadas.",
+    "en": "We built a static generator in Node.js that reads structured JSON data (9 files: clinic, specialties, doctors, insurance, appointments, patients, documents, articles and analytics) and generates 37 HTML pages with shared templates. The design system uses CSS with custom tokens (colors, spacing, shadows, radii), Inter typography and inline SVG iconography. Vanilla JavaScript manages client-side state with localStorage for booking, portal session and admin CRUD. Technical SEO includes sitemap without priority/changefreq (per 2026 standard), robots.txt, schema.org JSON-LD (MedicalClinic, Organization, WebSite, MedicalSpecialty, Physician, Article, Blog, AboutPage, LocalBusiness, BreadcrumbList), canonical, Open Graph, Twitter Cards and noindex on private pages."
+  },
+  "solutionIntro": {
+    "pt": "A plataforma e organizada em 5 areas principais: experiencia do paciente (home, especialidades, profissionais, agendamento), portal do paciente (dashboard, consultas, documentos, exames, perfil), painel administrativo (KPIs, agenda, consultas, profissionais, especialidades, convenios, analytics), conteudo (blog com 8 artigos) e paginas institucionais (sobre, FAQ, localizacao, privacidade, termos, cookies, 404).",
+    "en": "The platform is organized in 5 main areas: patient experience (home, specialties, professionals, booking), patient portal (dashboard, appointments, documents, exams, profile), admin dashboard (KPIs, agenda, appointments, professionals, specialties, insurance, analytics), content (blog with 8 articles) and institutional pages (about, FAQ, location, privacy, terms, cookies, 404)."
   },
   "solutionItems": {
     "pt": [
-      "Hero com tag de credibilidade, CTA e metricas sociais",
-      "Secao de especialidades com 6 cards (Cardiologia, Neurologia, Ortopedia, Nutricao, Ginecologia, Clinica Geral)",
-      "Equipe medica com 4 profissionais ficticios",
-      "Secao de convenios com 8 planos de saude",
-      "Depoimentos de pacientes ficticios com 5 estrelas",
-      "Formulario de agendamento com validacao, mascara de telefone e checkbox LGPD",
-      "Schema.org MedicalClinic para SEO local",
-      "Metadagens Open Graph e Twitter Card",
-      "Skip link e atributos ARIA para acessibilidade",
-      "Botao flutuante de WhatsApp",
-      "Footer com endereco, contato e links legais",
-      "Deploy na Cloudflare Pages com dominio personalizado"
+      "Home premium com busca inteligente, especialidades, profissionais, como funciona (5 etapas), convenios, estrutura, central de saude e FAQ",
+      "6 paginas de especialidades com descricao, quando procurar, servicos, profissionais, horarios e FAQ contextualizado",
+      "6 paginas de profissionais com foto, bio, areas de atuacao, CRM-DEMO, convencios, disponibilidade e CTA de agendamento contextualizado",
+      "Fluxo de agendamento em 5 etapas: especialidade, profissional, data, horario e dados — com validacao, consentimento LGPD e confirmacao",
+      "Deep links contextuais: especialidade -> medico -> agendamento com contexto completo pre-preenchido",
+      "Convencios -> especialidade -> agendamento com convenio pre-selecionado via query param",
+      "Portal do paciente com dashboard, proxima consulta, KPIs, documentos recentes, exames, perfil e preferencias",
+      "Painel administrativo com KPIs, agenda (dia/semana/mes), consultas, profissionais, especialidades, convenios, pacientes e analytics",
+      "Graficos CSS/SVG-only (sem libs de chart) para analytics e KPIs",
+      "Blog com 8 artigos, categorias por especialidade, filtros, busca e CTAs contextualizados",
+      "Busca global em especialidades, profissionais e artigos com resultados em tempo real",
+      "SEO tecnico: sitemap, robots, schema.org JSON-LD, canonical, OG, Twitter Cards, noindex em paginas privadas",
+      "Acessibilidade WCAG 2.2 AA: skip link, focus-visible, ARIA, touch targets 44px, contraste validado, prefers-reduced-motion",
+      "Dados demonstrativos identificados (CRM-DEMO, RQE-DEMO, badge Demo, disclaimer no footer)",
+      "Exportacao .ics para calendario na confirmacao de agendamento",
+      "Responsivo de 360px a 1920px com calendario e admin funcionais em mobile"
     ],
     "en": [
-      "Hero with credibility tag, CTA and social metrics",
-      "Specialties section with 6 cards (Cardiology, Neurology, Orthopedics, Nutrition, Gynecology, General Practice)",
-      "Medical team with 4 fictional professionals",
-      "Health insurance section with 8 plans",
-      "Patient testimonials with 5 stars",
-      "Appointment form with validation, phone mask and LGPD checkbox",
-      "Schema.org MedicalClinic for local SEO",
-      "Open Graph and Twitter Card metadata",
-      "Skip link and ARIA attributes for accessibility",
-      "Floating WhatsApp button",
-      "Footer with address, contact and legal links",
-      "Deploy on Cloudflare Pages with custom domain"
+      "Premium home with smart search, specialties, professionals, how it works (5 steps), insurance, facilities, health content and FAQ",
+      "6 specialty pages with description, when to seek care, services, professionals, schedule and contextual FAQ",
+      "6 professional pages with photo, bio, practice areas, CRM-DEMO, insurance, availability and contextual booking CTA",
+      "5-step booking flow: specialty, professional, date, time and patient data — with validation, LGPD consent and confirmation",
+      "Contextual deep links: specialty -> doctor -> booking with full context pre-filled",
+      "Insurance -> specialty -> booking with pre-selected insurance via query param",
+      "Patient portal with dashboard, next appointment, KPIs, recent documents, exams, profile and preferences",
+      "Admin dashboard with KPIs, agenda (day/week/month), appointments, professionals, specialties, insurance, patients and analytics",
+      "CSS/SVG-only charts (no chart libs) for analytics and KPIs",
+      "Blog with 8 articles, categories by specialty, filters, search and contextual CTAs",
+      "Global search across specialties, professionals and articles with real-time results",
+      "Technical SEO: sitemap, robots, schema.org JSON-LD, canonical, OG, Twitter Cards, noindex on private pages",
+      "WCAG 2.2 AA accessibility: skip link, focus-visible, ARIA, 44px touch targets, validated contrast, prefers-reduced-motion",
+      "Identified demo data (CRM-DEMO, RQE-DEMO, Demo badge, footer disclaimer)",
+      ".ics calendar export on booking confirmation",
+      "Responsive from 360px to 1920px with functional calendar and admin on mobile"
     ]
   },
+  "decisionLog": [
+    {
+      "title": {
+        "pt": "Gerador estatico em Node.js em vez de framework",
+        "en": "Static generator in Node.js instead of a framework"
+      },
+      "why": {
+        "pt": "Um gerador customizado le JSON estruturado e produz HTML estatico sem custo de runtime. Frameworks como Next.js ou Astro adicionariam complexidade desnecessaria para um projeto que nao precisa de SSR nem de API routes.",
+        "en": "A custom generator reads structured JSON and produces static HTML without runtime cost. Frameworks like Next.js or Astro would add unnecessary complexity for a project that does not need SSR or API routes."
+      },
+      "alternatives": {
+        "pt": "Astro (static output), Next.js (static export), Eleventy",
+        "en": "Astro (static output), Next.js (static export), Eleventy"
+      }
+    },
+    {
+      "title": {
+        "pt": "JavaScript vanilla com localStorage em vez de backend",
+        "en": "Vanilla JavaScript with localStorage instead of a backend"
+      },
+      "why": {
+        "pt": "O agendamento, o portal e o admin usam localStorage para persistir estado client-side. Isso demonstra a UX completa de um produto real sem custo de infraestrutura, mantendo tudo estatico e deployavel na Cloudflare Pages.",
+        "en": "Booking, portal and admin use localStorage to persist client-side state. This demonstrates the full UX of a real product without infrastructure cost, keeping everything static and deployable on Cloudflare Pages."
+      },
+      "alternatives": {
+        "pt": "Supabase (Postgres + Auth), Firebase, API REST em Cloudflare Workers",
+        "en": "Supabase (Postgres + Auth), Firebase, REST API on Cloudflare Workers"
+      }
+    },
+    {
+      "title": {
+        "pt": "Deep links contextuais em vez de wizard generico",
+        "en": "Contextual deep links instead of a generic wizard"
+      },
+      "why": {
+        "pt": "Quando o usuario vem da pagina de Cardiologia e clica na Dra. Ana, o agendamento abre com especialidade e medico pre-preenchidos e pula para a etapa 3. Isso demonstra arquitetura de produto, nao apenas um formulario solto.",
+        "en": "When the user comes from the Cardiology page and clicks Dr. Ana, the booking opens with specialty and doctor pre-filled and jumps to step 3. This demonstrates product architecture, not just a loose form."
+      },
+      "alternatives": {
+        "pt": "Wizard sempre comecando na etapa 1, formulario unico sem contexto",
+        "en": "Wizard always starting at step 1, single form without context"
+      }
+    },
+    {
+      "title": {
+        "pt": "Dados demonstrativos identificados em vez de dados falsos apresentados como reais",
+        "en": "Identified demo data instead of fake data presented as real"
+      },
+      "why": {
+        "pt": "Todos os medicos usam CRM-DEMO-XXX, o footer diz 'Ambiente demonstrativo — dados ficticios' e nenhum numero de pacientes, avaliacao Google ou depoimento e apresentado como real. A credibilidade vem do software, nao de numeros inventados.",
+        "en": "All doctors use CRM-DEMO-XXX, the footer says 'Demo environment — fictional data' and no patient numbers, Google ratings or testimonials are presented as real. Credibility comes from the software, not from invented numbers."
+      },
+      "alternatives": {
+        "pt": "Apresentar metricas ficticias como reais (15 anos, 50k pacientes, 4.9 Google)",
+        "en": "Presenting fictional metrics as real (15 years, 50k patients, 4.9 Google)"
+      }
+    }
+  ],
   "technologies": [
     {
       "name": "HTML5",
       "why": {
-        "pt": "Estrutura semantica acessivel e leve.",
-        "en": "Semantic, accessible and lightweight structure."
+        "pt": "37 paginas geradas com HTML semantico, landmarks ARIA e estrutura acessivel.",
+        "en": "37 pages generated with semantic HTML, ARIA landmarks and accessible structure."
       }
     },
     {
       "name": "CSS",
       "why": {
-        "pt": "Design system customizado sem dependencias.",
-        "en": "Custom design system without dependencies."
+        "pt": "Design system proprio com tokens (cores, espacamento, sombras, raios), sem dependencias externas.",
+        "en": "Custom design system with tokens (colors, spacing, shadows, radii), no external dependencies."
       }
     },
     {
       "name": "JavaScript",
       "why": {
-        "pt": "Interatividade leve sem frameworks.",
-        "en": "Lightweight interactivity without frameworks."
+        "pt": "JavaScript vanilla para agendamento, portal, admin, busca e interatividade — sem frameworks.",
+        "en": "Vanilla JavaScript for booking, portal, admin, search and interactivity — no frameworks."
+      }
+    },
+    {
+      "name": "Node.js",
+      "why": {
+        "pt": "Build script que le JSON estruturado e gera 37 paginas HTML com templates compartilhados.",
+        "en": "Build script that reads structured JSON and generates 37 HTML pages with shared templates."
       }
     },
     {
       "name": "Cloudflare Pages",
       "why": {
-        "pt": "Deploy estatico global com SSL e dominio personalizado.",
-        "en": "Global static deploy with SSL and custom domain."
+        "pt": "Deploy estatico global com SSL, CDN e dominio personalizado.",
+        "en": "Global static deploy with SSL, CDN and custom domain."
+      }
+    },
+    {
+      "name": "Schema.org",
+      "why": {
+        "pt": "JSON-LD com MedicalClinic, Organization, Physician, Article, BreadcrumbList e outros.",
+        "en": "JSON-LD with MedicalClinic, Organization, Physician, Article, BreadcrumbList and others."
       }
     }
   ],
   "myRole": {
-    "pt": "Desenvolvedor frontend e SEO.",
-    "en": "Frontend developer and SEO."
+    "pt": "Product engineering: arquitetura, design system, frontend, SEO tecnico e acessibilidade.",
+    "en": "Product engineering: architecture, design system, frontend, technical SEO and accessibility."
   },
   "lessonsLearned": {
-    "pt": "Sites estaticos em HTML5 semantico ainda sao uma escolha solida para presenca digital de pequenos negocios. A combinacao de schema.org, metadagens e acessibilidade entrega valor sem a complexidade de um framework.",
-    "en": "Static websites in semantic HTML5 are still a solid choice for small business digital presence. The combination of schema.org, metadata and accessibility delivers value without framework complexity."
+    "pt": "Uma plataforma digital completa nao precisa de backend para demonstrar valor. Com dados estruturados, geracao estatica, localStorage e deep links contextuais, e possivel entregar uma experiencia de produto que comunica profundidade real — agendamento, portal, admin, analytics — sem custo de infraestrutura. A credibilidade vem da arquitetura, nao de numeros inventados.",
+    "en": "A complete digital platform does not need a backend to demonstrate value. With structured data, static generation, localStorage and contextual deep links, it is possible to deliver a product experience that communicates real depth — booking, portal, admin, analytics — without infrastructure cost. Credibility comes from architecture, not from invented numbers."
   },
   "stakeholders": {
-    "pt": "Pacientes e prospectos de clinicas medicas.",
-    "en": "Patients and prospects of medical clinics."
+    "pt": "Donos de clinicas e redes de saude avaliando plataformas digitais.",
+    "en": "Clinic owners and healthcare networks evaluating digital platforms."
   },
   "sector": {
-    "pt": "Saude e Clinicas Medicas",
-    "en": "Health and Medical Clinics"
+    "pt": "Healthtech e Clinicas Medicas",
+    "en": "Healthtech and Medical Clinics"
   },
   "heroMetrics": [
+    {
+      "value": "37",
+      "label": {
+        "pt": "Paginas",
+        "en": "Pages"
+      }
+    },
     {
       "value": "6",
       "label": {
@@ -144,79 +254,136 @@
       }
     },
     {
-      "value": "8",
+      "value": "5",
       "label": {
-        "pt": "Convenios",
-        "en": "Insurance plans"
-      }
-    },
-    {
-      "value": "4",
-      "label": {
-        "pt": "Medicos",
-        "en": "Doctors"
+        "pt": "Etapas de agendamento",
+        "en": "Booking steps"
       }
     }
   ],
   "timeline": {
-    "duration": "1 dia de implementacao",
-    "launchDate": "2026-06"
+    "duration": "1 sprint de iteracao continua",
+    "launchDate": "2026-09"
   },
   "timelinePhases": [
     {
-      "phase": "Design",
-      "period": "1 dia",
+      "phase": "Fundacao",
+      "period": "Iteracao 1",
       "items": {
         "pt": [
-          "Landing page one-page",
-          "Paleta de cores confiavel para saude",
-          "Copy de clinica premium"
+          "Design system com tokens CSS",
+          "9 arquivos JSON de dados estruturados",
+          "Build script em Node.js",
+          "Templates compartilhados (head, navbar, footer, icones)"
         ],
         "en": [
-          "One-page landing",
-          "Trust color palette for health",
-          "Premium clinic copy"
+          "Design system with CSS tokens",
+          "9 structured JSON data files",
+          "Build script in Node.js",
+          "Shared templates (head, navbar, footer, icons)"
+        ]
+      }
+    },
+    {
+      "phase": "Experiencia do paciente",
+      "period": "Iteracao 2-3",
+      "items": {
+        "pt": [
+          "Home premium com busca inteligente",
+          "6 paginas de especialidades profundas",
+          "6 paginas de profissionais com perfis completos",
+          "Fluxo de agendamento em 5 etapas com deep links"
+        ],
+        "en": [
+          "Premium home with smart search",
+          "6 deep specialty pages",
+          "6 professional pages with full profiles",
+          "5-step booking flow with deep links"
+        ]
+      }
+    },
+    {
+      "phase": "Portal e Admin",
+      "period": "Iteracao 4-5",
+      "items": {
+        "pt": [
+          "Portal do paciente com dashboard, consultas, documentos e exames",
+          "Painel administrativo com KPIs, agenda e analytics",
+          "Agenda com views dia/semana/mes",
+          "CRUD local com localStorage"
+        ],
+        "en": [
+          "Patient portal with dashboard, appointments, documents and exams",
+          "Admin dashboard with KPIs, agenda and analytics",
+          "Agenda with day/week/month views",
+          "Local CRUD with localStorage"
+        ]
+      }
+    },
+    {
+      "phase": "Conteudo e polish",
+      "period": "Iteracao 6",
+      "items": {
+        "pt": [
+          "Blog com 8 artigos e categorias por especialidade",
+          "Paginas legais, sobre, FAQ, localizacao e 404",
+          "SEO tecnico: sitemap, robots, schema.org, canonical, OG",
+          "Acessibilidade WCAG 2.2 AA e microinteracoes"
+        ],
+        "en": [
+          "Blog with 8 articles and categories by specialty",
+          "Legal pages, about, FAQ, location and 404",
+          "Technical SEO: sitemap, robots, schema.org, canonical, OG",
+          "WCAG 2.2 AA accessibility and microinteractions"
         ]
       }
     }
   ],
   "visualDisclaimer": {
-    "pt": "Imagens e dados sao ficticios para fins de demonstracao. Clinica, medicos e pacientes nao sao reais.",
-    "en": "Images and data are fictional for demonstration purposes. Clinic, doctors and patients are not real."
+    "pt": "Imagens e dados sao ficticios para fins de demonstracao. Clinica, medicos, pacientes, documentos e resultados nao sao reais. CRM-DEMO e RQE-DEMO sao identificadores demonstrativos.",
+    "en": "Images and data are fictional for demonstration purposes. Clinic, doctors, patients, documents and results are not real. CRM-DEMO and RQE-DEMO are demo identifiers."
   },
   "methodology": {
     "pt": [
-      "HTML semantico",
-      "Mobile-first",
-      "Acessibilidade",
-      "SEO local",
-      "Performance sem frameworks"
+      "Product engineering: dados estruturados -> geracao estatica -> UX completa",
+      "Design system com tokens CSS antes de componentes",
+      "Deep links contextuais como arquitetura de produto",
+      "Dados demonstrativos identificados (credibilidade via software)",
+      "SEO tecnico conforme Ordem Tecnica Obrigatoria 2026",
+      "Acessibilidade WCAG 2.2 AA com contraste validado"
     ],
     "en": [
-      "Semantic HTML",
-      "Mobile-first",
-      "Accessibility",
-      "Local SEO",
-      "Performance without frameworks"
+      "Product engineering: structured data -> static generation -> full UX",
+      "Design system with CSS tokens before components",
+      "Contextual deep links as product architecture",
+      "Identified demo data (credibility via software)",
+      "Technical SEO per 2026 standard",
+      "WCAG 2.2 AA accessibility with validated contrast"
     ]
   },
   "security": {
     "pt": {
-      "title": "Seguranca e privacidade",
+      "title": "Privacidade e dados demonstrativos",
       "items": [
-        "Formulario com checkbox de concordancia LGPD",
-        "Dados de demonstracao, sem processamento real",
-        "Deploy com SSL via Cloudflare",
-        "Links externos com rel=noopener"
+        "Nenhum dado real e processado — tudo e ficticio e client-side",
+        "Consentimento LGPD explicito no formulario de agendamento",
+        "Sessao do portal e admin em localStorage (sem cookies de rastreio)",
+        "Paginas privadas (admin, portal, 404) com noindex, nofollow",
+        "Sitemap exclui paginas privadas da indexacao",
+        "Politica de privacidade deixa claro que e ambiente demonstrativo",
+        "CRM-DEMO e RQE-DEMO identificam dados como nao reais"
       ]
     },
     "en": {
-      "title": "Security and privacy",
+      "title": "Privacy and demo data",
       "items": [
-        "Form with LGPD consent checkbox",
-        "Demonstration data, no real processing",
-        "SSL deploy via Cloudflare",
-        "External links with rel=noopener"
+        "No real data is processed — everything is fictional and client-side",
+        "Explicit LGPD consent in the booking form",
+        "Portal and admin session in localStorage (no tracking cookies)",
+        "Private pages (admin, portal, 404) with noindex, nofollow",
+        "Sitemap excludes private pages from indexing",
+        "Privacy policy makes clear it is a demo environment",
+        "CRM-DEMO and RQE-DEMO identify data as non-real"
       ]
     }
   },
@@ -225,32 +392,67 @@
       "title": "Stack tecnica",
       "categories": [
         {
-          "category": "site",
+          "category": "Frontend",
           "items": [
             {
-              "name": "HTML5",
-              "why": "Estrutura semantica e acessivel.",
-              "alt": "Framework JS"
+              "name": "HTML5 semantico",
+              "why": "37 paginas com landmarks ARIA e estrutura acessivel.",
+              "alt": "JSX/React"
             },
             {
-              "name": "CSS",
-              "why": "Design leve e customizado.",
-              "alt": "Tailwind"
+              "name": "CSS com design tokens",
+              "why": "Design system proprio sem dependencias externas.",
+              "alt": "Tailwind CSS"
             },
             {
-              "name": "JavaScript",
-              "why": "Interatividade sem dependencias.",
-              "alt": "React"
+              "name": "JavaScript vanilla",
+              "why": "Agendamento, portal, admin e busca sem frameworks.",
+              "alt": "React/Vue"
             }
           ]
         },
         {
-          "category": "site",
+          "category": "Build",
+          "items": [
+            {
+              "name": "Node.js",
+              "why": "Gerador estatico que le JSON e produz 37 paginas HTML.",
+              "alt": "Astro"
+            },
+            {
+              "name": "JSON estruturado",
+              "why": "9 arquivos de dados como unica fonte de verdade.",
+              "alt": "CMS headless"
+            }
+          ]
+        },
+        {
+          "category": "Infraestrutura",
           "items": [
             {
               "name": "Cloudflare Pages",
-              "why": "Hospedagem estatica global com SSL.",
+              "why": "Deploy estatico global com SSL e CDN.",
               "alt": "Netlify"
+            },
+            {
+              "name": "GitHub Actions",
+              "why": "CI/CD automatico a cada push na main.",
+              "alt": "Deploy manual"
+            }
+          ]
+        },
+        {
+          "category": "SEO e dados",
+          "items": [
+            {
+              "name": "Schema.org JSON-LD",
+              "why": "MedicalClinic, Physician, Article, BreadcrumbList e outros.",
+              "alt": "Microdata"
+            },
+            {
+              "name": "Sitemap + robots",
+              "why": "Sitemap sem priority/changefreq, robots com disallow de privadas.",
+              "alt": "Plugin SEO"
             }
           ]
         }
@@ -260,34 +462,192 @@
       "title": "Tech stack",
       "categories": [
         {
-          "category": "site",
+          "category": "Frontend",
           "items": [
             {
-              "name": "HTML5",
-              "why": "Semantic and accessible structure.",
-              "alt": "JS framework"
+              "name": "Semantic HTML5",
+              "why": "37 pages with ARIA landmarks and accessible structure.",
+              "alt": "JSX/React"
             },
             {
-              "name": "CSS",
-              "why": "Lightweight custom design.",
-              "alt": "Tailwind"
+              "name": "CSS with design tokens",
+              "why": "Custom design system with no external dependencies.",
+              "alt": "Tailwind CSS"
             },
             {
-              "name": "JavaScript",
-              "why": "Interactivity without dependencies.",
-              "alt": "React"
+              "name": "Vanilla JavaScript",
+              "why": "Booking, portal, admin and search without frameworks.",
+              "alt": "React/Vue"
             }
           ]
         },
         {
-          "category": "site",
+          "category": "Build",
+          "items": [
+            {
+              "name": "Node.js",
+              "why": "Static generator that reads JSON and produces 37 HTML pages.",
+              "alt": "Astro"
+            },
+            {
+              "name": "Structured JSON",
+              "why": "9 data files as the single source of truth.",
+              "alt": "Headless CMS"
+            }
+          ]
+        },
+        {
+          "category": "Infrastructure",
           "items": [
             {
               "name": "Cloudflare Pages",
-              "why": "Global static hosting with SSL.",
+              "why": "Global static deploy with SSL and CDN.",
               "alt": "Netlify"
+            },
+            {
+              "name": "GitHub Actions",
+              "why": "Automatic CI/CD on every push to main.",
+              "alt": "Manual deploy"
             }
           ]
+        },
+        {
+          "category": "SEO and data",
+          "items": [
+            {
+              "name": "Schema.org JSON-LD",
+              "why": "MedicalClinic, Physician, Article, BreadcrumbList and others.",
+              "alt": "Microdata"
+            },
+            {
+              "name": "Sitemap + robots",
+              "why": "Sitemap without priority/changefreq, robots with disallow on private pages.",
+              "alt": "SEO plugin"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "architecture": {
+    "pt": {
+      "title": "Arquitetura",
+      "items": [
+        "Gerador estatico Node.js: le 9 JSONs e produz 37 paginas HTML com templates compartilhados",
+        "Design system CSS com tokens (cores, espacamento, sombras, raios) — sem frameworks",
+        "JavaScript vanilla com estado client-side em localStorage para agendamento, portal e admin",
+        "Deep links contextuais via query params (specialty, doctor, insurance, date, time) conectam especialidades, profissionais e agendamento",
+        "SEO tecnico: sitemap.xml, robots.txt, schema.org JSON-LD, canonical, OG, Twitter Cards, noindex em privadas",
+        "Deploy estatico na Cloudflare Pages com CI/CD via GitHub Actions"
+      ]
+    },
+    "en": {
+      "title": "Architecture",
+      "items": [
+        "Node.js static generator: reads 9 JSONs and produces 37 HTML pages with shared templates",
+        "CSS design system with tokens (colors, spacing, shadows, radii) — no frameworks",
+        "Vanilla JavaScript with client-side state in localStorage for booking, portal and admin",
+        "Contextual deep links via query params (specialty, doctor, insurance, date, time) connect specialties, professionals and booking",
+        "Technical SEO: sitemap.xml, robots.txt, schema.org JSON-LD, canonical, OG, Twitter Cards, noindex on private pages",
+        "Static deploy on Cloudflare Pages with CI/CD via GitHub Actions"
+      ]
+    }
+  },
+  "architectureDiagram": {
+    "left": "Paciente",
+    "leftSub": "Home, especialidades, profissionais, agendamento, portal",
+    "center": "VivaMais",
+    "centerSub": "37 paginas estaticas geradas por Node.js",
+    "right": "Admin",
+    "rightSub": "Dashboard, agenda, consultas, analytics",
+    "bottom": [
+      "9 JSONs estruturados",
+      "CSS design system",
+      "JavaScript vanilla + localStorage",
+      "Schema.org JSON-LD",
+      "Cloudflare Pages"
+    ]
+  },
+  "resultsDetail": {
+    "pt": {
+      "title": "Metricas do produto",
+      "kpis": [
+        {
+          "value": "37",
+          "label": "Paginas geradas",
+          "baseline": "Home + 6 especialidades + 6 profissionais + agendamento + portal + admin + 8 artigos + institucionais",
+          "source": "Build output"
+        },
+        {
+          "value": "6",
+          "label": "Especialidades com pagina propria",
+          "baseline": "Cardiologia, Dermatologia, Ortopedia, Pediatria, Ginecologia, Clinica Geral",
+          "source": "specialties.json"
+        },
+        {
+          "value": "6",
+          "label": "Profissionais com perfil completo",
+          "baseline": "Foto, bio, areas de atuacao, CRM-DEMO, convenios, disponibilidade",
+          "source": "doctors.json"
+        },
+        {
+          "value": "8",
+          "label": "Convencios atendidos",
+          "baseline": "Unimed, Bradesco Saude, SulAmerica, Amil, Notredame, Hapvida, Porto Seguro, Particular",
+          "source": "insurance.json"
+        },
+        {
+          "value": "5",
+          "label": "Etapas de agendamento",
+          "baseline": "Especialidade -> Profissional -> Data -> Horario -> Dados",
+          "source": "booking.js"
+        },
+        {
+          "value": "8",
+          "label": "Artigos editoriais",
+          "baseline": "Categorias por especialidade + Bem-estar, com CTAs contextualizados",
+          "source": "articles.json"
+        }
+      ]
+    },
+    "en": {
+      "title": "Product metrics",
+      "kpis": [
+        {
+          "value": "37",
+          "label": "Generated pages",
+          "baseline": "Home + 6 specialties + 6 professionals + booking + portal + admin + 8 articles + institutional",
+          "source": "Build output"
+        },
+        {
+          "value": "6",
+          "label": "Specialties with own page",
+          "baseline": "Cardiology, Dermatology, Orthopedics, Pediatrics, Gynecology, General Practice",
+          "source": "specialties.json"
+        },
+        {
+          "value": "6",
+          "label": "Professionals with full profile",
+          "baseline": "Photo, bio, practice areas, CRM-DEMO, insurance, availability",
+          "source": "doctors.json"
+        },
+        {
+          "value": "8",
+          "label": "Insurance plans accepted",
+          "baseline": "Unimed, Bradesco Saude, SulAmerica, Amil, Notredame, Hapvida, Porto Seguro, Private",
+          "source": "insurance.json"
+        },
+        {
+          "value": "5",
+          "label": "Booking steps",
+          "baseline": "Specialty -> Professional -> Date -> Time -> Patient data",
+          "source": "booking.js"
+        },
+        {
+          "value": "8",
+          "label": "Editorial articles",
+          "baseline": "Categories by specialty + Wellness, with contextual CTAs",
+          "source": "articles.json"
         }
       ]
     }
